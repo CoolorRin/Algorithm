@@ -13,9 +13,9 @@
 
  **Solution:**
 
- **Use the hashmap to make the Algorithm that is less than `O(n^2)` time complexity.**
+ - **Use the hashmap to make the Algorithm that is less than `O(n^2)` time complexity.**
 
- -  As the example above, we get the array `[3, 2, 4]` and loop all element in array. Each loop will finded the value which is the target minus the value in the array is in the hashMap or not. If not, push element and the index to the `Hashmap` as its key, value and continue the loop.
+   As the example above, we get the array `[3, 2, 4]` and loop all element in array. Each loop will finded the value which is the target minus the value in the array is in the hashMap or not. If not, push element and the index to the `Hashmap` as its key, value and continue the loop.
 
 **JavaScript**
 
