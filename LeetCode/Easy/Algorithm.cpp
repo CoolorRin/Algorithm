@@ -42,6 +42,30 @@ public:
         }
         return true;
     }
+
+    int Roman2Integer(std::string RomanString)
+    {
+        std::map<char, int> RomanMap = {
+            {'I', 1},
+            {'V', 5},
+            {'X', 10},
+            {'L', 50},
+            {'C', 100},
+            {'D', 500},
+            {'M', 1000}};
+        int sum = RomanMap[RomanString.back()];
+        for (int index = RomanString.length() - 2; index >= 0; index--)
+        {
+            if (RomanMap[RomanString[index]] >= RomanMap[RomanString[index + 1]])
+            {
+                sum += RomanMap[RomanString[index]];
+            }
+            else
+            {
+                sum -= RomanMap[RomanString[index]];
+            }
+        }
+    };
 };
 
 int main(int argc, char const *argv[])

@@ -13,9 +13,9 @@
 
  **Solution:**
 
- **Use the hashmap to make the Algorithm that is less than `O(n^2)` time complexity.**
+ - **Use the hashmap to make the Algorithm that is less than `O(n^2)` time complexity.**
 
- -  As the example above, we get the array `[3, 2, 4]` and loop all element in array. Each loop will finded the value which is the target minus the value in the array is in the hashMap or not. If not, push element and the index to the `Hashmap` as its key, value and continue the loop.
+   As the example above, we get the array `[3, 2, 4]` and loop all element in array. Each loop will finded the value which is the target minus the value in the array is in the hashMap or not. If not, push element and the index to the `Hashmap` as its key, value and continue the loop.
 
 **JavaScript**
 
@@ -133,4 +133,75 @@ var isPalindrome = function(x) {
         }
         return true;
     }
+```
+
+## Roman to Integer
+> Roman numerals are repersented by serven different smbols: `I`, `V`, `X`, `L`, `C`, `D` and `M`.
+> | Symbol | Value |
+> | ------ | ----- |
+> | I | 1 |
+> | V | 5 |
+> | X | 10 |
+> | L | 50 |
+> | C | 100 |
+> | D | 500 |
+> | M | 1000 |
+
+ **Example:**
+```
+Input: s = "III"
+Ouput: 3
+```
+
+**Solution**
+- First thing come out from my mind is loop the whole RomanNumber String and compare with the next number. If the second number is bigger, it will be minus by the second number.Otherwise, plus it. **Problem is the lastest number should handle first. And no matter lasest number is,**
+- `Or Maybe it have the better way`
+  
+**JavaScript**
+```JavaScript
+var transferRoman2Integer(romanNumString) {
+        const RomanMap = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000,
+        }
+        let sum = 0
+        for (let index = 0; index < romanNumString.length; index++) {
+            RomanMap[romanNumString[index]] < RomanMap[romanNumString[index + 1]]?
+                sum -= RomanMap[romanNumString[index]] : sum += RomanMap[romanNumString[index]]
+        }
+        return sum
+    }
+```
+
+**Cpp11**
+```c++
+int Roman2Integer(std::string RomanString)
+{
+    std::map<char, int> RomanMap = {
+        {'I', 1},
+        {'V', 5},
+        {'X', 10},
+        {'L', 50},
+        {'C', 100},
+        {'D', 500},
+        {'M', 1000}};
+    int sum = RomanMap[RomanString.back()];
+    for (int index = RomanString.length() - 2; index >= 0; index--)
+    {
+            if (RomanMap[RomanString[index]] >= RomanMap[RomanString[index + 1]])
+        {
+                sum += RomanMap[RomanString[index]];
+        }
+        else
+        {
+                sum -= RomanMap[RomanString[index]];
+        }
+    }
+};
+
 ```
