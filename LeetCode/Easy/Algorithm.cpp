@@ -65,7 +65,38 @@ public:
                 sum -= RomanMap[RomanString[index]];
             }
         }
-    };
+    }
+
+    std::string LCP(std::vector<std::string> strs)
+    {
+        /* RunTimeError In LeetCode => (Heep overflow)
+        if (strs.size() == 0)
+            return "";
+        std::string lcp = strs[0];
+        for (int vectorIndex = 1; vectorIndex < int(strs.size()); vectorIndex++)
+        {
+            int strIndex = 0;
+            while (lcp[strIndex] == strs[vectorIndex][strIndex])
+            {
+                strIndex++;
+            }
+            lcp = lcp.substr(0, strIndex);
+        }
+        return lcp;
+        */
+
+        if (strs.empty())
+            return "";
+        std::string prefix = strs[0];
+        for (int i = 1; i < strs.size(); i++)
+        {
+            while (strs[i].find(prefix) != 0)
+            {
+                prefix = prefix.substr(0, prefix.size() - 1);
+            }
+        }
+        return prefix;
+    }
 };
 
 int main(int argc, char const *argv[])
@@ -79,7 +110,5 @@ int main(int argc, char const *argv[])
     // result = s.twoSum(nums, target);
 
     //isPalindrome
-    s.isPalindrome(-121);
-
     return 0;
 }

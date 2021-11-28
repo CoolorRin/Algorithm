@@ -56,10 +56,31 @@ class Solution {
             }
         }
         return sum
-    }
+    };
 
+    LCP(strs) {
+        function comparison(leftPart, rightPart) {
+            const minLength = Math.min(leftPart.length, rightPart.length)
+            for (let index = 0; index < minLength; index++) {
+                if (leftPart[index] !== rightPart[index])
+                    return leftPart.slice(0, index)
+            }
+            return leftPart.slice(0, minLength)
+        }
+        function DivideAtMid(strs, leftIndex, rightIndex) {
+            if (leftIndex === rightIndex) return strs[leftIndex]
+            const mid = Math.floor((leftIndex + rightIndex) / 2)
+            const leftPart = DivideAtMid(strs, leftIndex, mid)
+            const rightPart = DivideAtMid(strs, mid + 1, rightIndex)
+            return comparison(leftPart, rightPart)
+        }
+
+        if (strs.length === 0) return ""
+        const result = DivideAtMid(strs, 0, strs.length - 1)
+        return result
+    }
 }
 // Test 
 const testSolution = new Solution()
-const result = testSolution.transferRoman2Integer("III")
+const result = testSolution.LCP(["flower", "flow", "flight"])
 console.log(result);
