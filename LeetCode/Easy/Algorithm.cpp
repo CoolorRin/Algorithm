@@ -2,6 +2,17 @@
 #include "iostream"
 #include "map"
 
+struct ListNode
+{
+    // Merge Two Sorted Lists
+    // Definition for singly-linked list.
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 class Solution
 {
 public:
@@ -65,6 +76,7 @@ public:
                 sum -= RomanMap[RomanString[index]];
             }
         }
+        return sum;
     }
 
     std::string LCP(std::vector<std::string> strs)
@@ -97,18 +109,41 @@ public:
         }
         return prefix;
     }
+
+    ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
+    {
+        if (list1 != NULL && list2 != NULL)
+        {
+            ListNode *ans = NULL;
+            if (list1->val <= list2->val)
+            {
+                ans = list1;
+                ans->next = mergeTwoLists(list1->next, list2);
+            }
+            else
+            {
+                ans = list2;
+                ans->next = mergeTwoLists(list1, list2->next);
+            }
+            return ans;
+        }
+        else if (list1 == NULL)
+            return list2;
+        return list1;
+    }
 };
 
 int main(int argc, char const *argv[])
 {
     Solution s;
 
-    //TwoSum
-    // std::vector<int> nums = {2, 7, 11, 15};
-    // std::vector<int> result;
-    // int target = 9;
-    // result = s.twoSum(nums, target);
+    // TwoSum
+    //  std::vector<int> nums = {2, 7, 11, 15};
+    //  std::vector<int> result;
+    //  int target = 9;
+    //  result = s.twoSum(nums, target);
 
-    //isPalindrome
+    // isPalindrome
+
     return 0;
 }

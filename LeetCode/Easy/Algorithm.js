@@ -78,9 +78,71 @@ class Solution {
         if (strs.length === 0) return ""
         const result = DivideAtMid(strs, 0, strs.length - 1)
         return result
+    };
+
+    mergeTwoLists(list1, list2) {
+        /**
+         * Definition for singly-linked list.
+         * function ListNode(val, next) {
+         *     this.val = (val===undefined ? 0 : val)
+         *     this.next = (next===undefined ? null : next)
+         * }
+         */
+        /**
+         * @param   {ListNode} list1
+         * @param   {ListNode} list2
+         * @return  {ListNode}
+         */
+        const ListNode = function (val, next) {
+            this.val = val === undefined ? null : val;
+            this.next = next === undefined ? null : next;
+        }
+        const transfrom2ListNode = function (array) {
+            if (array.length === 0) return null
+            let result = new ListNode(array[0]);
+            if (array[1]) {
+                result.next = transfrom2ListNode(array.slice(1))
+            }
+            return result;
+        }
+
+        let ListNode1 = transfrom2ListNode(list1);
+        let ListNode2 = transfrom2ListNode(list2);
+
+        let lastNode = null
+        let mergedList = null
+
+        while (ListNode1 || ListNode2) {
+            if (ListNode1 && (!ListNode2 || ListNode1.val < ListNode2.val)) {
+                if (lastNode === null) {
+                    lastNode = ListNode1
+                    mergedList = lastNode
+                }
+                else {
+                    lastNode.next = ListNode1;
+                    lastNode = lastNode.next;
+                }
+                ListNode1 = ListNode1.next
+            }
+            else {
+                if (lastNode === null) {
+                    lastNode = ListNode2;
+                    mergedList = lastNode;
+                }
+                else {
+                    lastNode.next = ListNode2;
+                    lastNode = lastNode.next;
+                }
+                ListNode2 = ListNode2
+            }
+        }
+        return mergedList
     }
+
+
+
 }
 // Test 
 const testSolution = new Solution()
-const result = testSolution.LCP(["flower", "flow", "flight"])
+const result = testSolution.mergeTwoLists([0], [])
 console.log(result);
