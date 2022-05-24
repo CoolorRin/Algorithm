@@ -139,10 +139,35 @@ class Solution {
         return mergedList
     }
 
+    removeDuplicates = function (nums) {
+        // let startNumIndex = 0;
+        // let duplicateCount = 0;
+        // let order = 0;
 
+        // for (let index = 1; index < nums.length; index++) {
+        //     if (nums[startNumIndex] === nums[index]) duplicateCount++;
+        //     else {
+        //         nums[order] = nums[startNumIndex]
+        //         order++
+        //         startNumIndex = index
+        //         duplicateCount = 0
+        //         if (index === nums.length -1) {
+        //             nums[order] = nums[startNumIndex]
+        //         }
+        //     }
+        // }
+        // if (duplicateCount !== 0) nums[order] = nums[startNumIndex]
+        // return nums
+
+        let i = 0;
+        for (let j = 0; j < nums.length; j++) {
+            if (nums[j] != nums[i])
+                nums[++i] = nums[j];
+        }
+        return ++i;
+    }
 
 }
 // Test 
 const testSolution = new Solution()
-const result = testSolution.mergeTwoLists([0], [])
-console.log(result);
+console.log(testSolution.removeDuplicates([1, 1, 2, 2, 3, 3, 4]));
