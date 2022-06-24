@@ -162,8 +162,46 @@ class Solution {
 		return ++i;
 	}
 
+	removeElement(nums, val) {
+		let j = 0;
+		for (let i = 0; i < nums.length; i++) {
+			if (nums[i] !== val) {
+				[nums[i], nums[j]] = [nums[j], nums[i]];
+				j++;
+			}
+		}
+		
+		nums.splice(j)
+		console.log(nums);
+		return nums.length;
+	}
+	
+	implement_strStr(haystack, needle) {
+		for (let index in haystack) {
+			if(haystack[index] === needle[0]) {
+				const resultIndex = index;
+				if(haystack.slice(index, Number(index) + needle.length) === needle) {
+					return resultIndex;
+				}
+			}
+		}
+		return -1;
+	}
+
+	searchInsertPosition(nums, target) {
+		let startPos = 0;
+		let endPos = nums.length - 1;
+		while (startPos <= endPos) {
+			let midNum = Math.floor((startPos + endPos) / 2);
+			let currNum = nums[midNum];
+			if (currNum < target) startPos = midNum + 1;
+			else if (currNum > target) endPos = midNum - 1;
+			else return midNum;
+		}
+		return startPos;
+	}
 }
 
 // Test
 const testSolution = new Solution()
-console.log(testSolution.transform2ListNode([1, 2, 4], [1, 3, 4]))
+console.log(testSolution.searchInsertPosition([1,3,4,6], 5));
