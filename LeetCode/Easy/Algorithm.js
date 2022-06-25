@@ -1,7 +1,5 @@
 class Solution {
-	constructor() {
-
-	}
+	constructor() {}
 
 	twoSum(nums, target) {
 		let hashMap = [];
@@ -21,62 +19,63 @@ class Solution {
 		//         return true;
 		// }
 
-		if (number < 0 || number % 10 === 0 && number !== 0) return false;
+		if (number < 0 || (number % 10 === 0 && number !== 0)) return false;
 
 		let revertedNum = 0;
 
 		while (number > revertedNum) {
-			revertedNum = revertedNum * 10 + number % 10;
-			number = Math.floor(number / 10)
+			revertedNum = revertedNum * 10 + (number % 10);
+			number = Math.floor(number / 10);
 		}
 
 		return number === revertedNum || number === Math.floor(revertedNum / 10);
-
-	};
+	}
 
 	transferRoman2Integer(romanNumString) {
 		const RomanMap = {
-			"I": 1,
-			"V": 5,
-			"X": 10,
-			"L": 50,
-			"C": 100,
-			"D": 500,
-			"M": 1000,
-		}
-		let strLength = romanNumString.length
-		let sum = RomanMap[romanNumString[strLength - 1]]
+			I: 1,
+			V: 5,
+			X: 10,
+			L: 50,
+			C: 100,
+			D: 500,
+			M: 1000,
+		};
+		let strLength = romanNumString.length;
+		let sum = RomanMap[romanNumString[strLength - 1]];
 		for (let index = strLength - 2; index >= 0; index--) {
-			if (RomanMap[romanNumString[index]] < RomanMap[romanNumString[index + 1]]) {
-				sum -= RomanMap[romanNumString[index]]
+			if (
+				RomanMap[romanNumString[index]] < RomanMap[romanNumString[index + 1]]
+			) {
+				sum -= RomanMap[romanNumString[index]];
 			} else {
-				sum += RomanMap[romanNumString[index]]
+				sum += RomanMap[romanNumString[index]];
 			}
 		}
-		return sum
-	};
+		return sum;
+	}
 
 	LCP(strs) {
 		function comparison(leftPart, rightPart) {
-			const minLength = Math.min(leftPart.length, rightPart.length)
+			const minLength = Math.min(leftPart.length, rightPart.length);
 			for (let index = 0; index < minLength; index++) {
 				if (leftPart[index] !== rightPart[index])
-					return leftPart.slice(0, index)
+					return leftPart.slice(0, index);
 			}
-			return leftPart.slice(0, minLength)
+			return leftPart.slice(0, minLength);
 		}
 
 		function DivideAtMid(strs, leftIndex, rightIndex) {
-			if (leftIndex === rightIndex) return strs[leftIndex]
-			const mid = Math.floor((leftIndex + rightIndex) / 2)
-			const leftPart = DivideAtMid(strs, leftIndex, mid)
-			const rightPart = DivideAtMid(strs, mid + 1, rightIndex)
-			return comparison(leftPart, rightPart)
+			if (leftIndex === rightIndex) return strs[leftIndex];
+			const mid = Math.floor((leftIndex + rightIndex) / 2);
+			const leftPart = DivideAtMid(strs, leftIndex, mid);
+			const rightPart = DivideAtMid(strs, mid + 1, rightIndex);
+			return comparison(leftPart, rightPart);
 		}
 
-		if (strs.length === 0) return ""
-		return DivideAtMid(strs, 0, strs.length - 1)
-	};
+		if (strs.length === 0) return "";
+		return DivideAtMid(strs, 0, strs.length - 1);
+	}
 
 	transform2ListNode(list1, list2) {
 		/**
@@ -94,32 +93,32 @@ class Solution {
 		const ListNode = function (val, next) {
 			this.val = val === undefined ? null : val;
 			this.next = next === undefined ? null : next;
-		}
+		};
 		const transform2ListNode = function (array) {
-			if (array.length === 0) return null
+			if (array.length === 0) return null;
 			let result = new ListNode(array[0]);
 			if (array[1]) {
-				result.next = transform2ListNode(array.slice(1))
+				result.next = transform2ListNode(array.slice(1));
 			}
 			return result;
-		}
+		};
 
 		let ListNode1 = transform2ListNode(list1);
 		let ListNode2 = transform2ListNode(list2);
 
-		let lastNode = null
-		let mergedList = null
+		let lastNode = null;
+		let mergedList = null;
 
 		while (ListNode1 || ListNode2) {
 			if (ListNode1 && (!ListNode2 || ListNode1.val < ListNode2.val)) {
 				if (lastNode === null) {
-					lastNode = ListNode1
-					mergedList = lastNode
+					lastNode = ListNode1;
+					mergedList = lastNode;
 				} else {
 					lastNode.next = ListNode1;
 					lastNode = lastNode.next;
 				}
-				ListNode1 = ListNode1.next
+				ListNode1 = ListNode1.next;
 			} else {
 				if (lastNode === null) {
 					lastNode = ListNode2;
@@ -128,10 +127,10 @@ class Solution {
 					lastNode.next = ListNode2;
 					lastNode = lastNode.next;
 				}
-				ListNode2 = ListNode2.next
+				ListNode2 = ListNode2.next;
 			}
 		}
-		return mergedList
+		return mergedList;
 	}
 
 	removeDuplicates = function (nums) {
@@ -156,11 +155,10 @@ class Solution {
 
 		let i = 0;
 		for (let j = 0; j < nums.length; j++) {
-			if (nums[j] !== nums[i])
-				nums[++i] = nums[j];
+			if (nums[j] !== nums[i]) nums[++i] = nums[j];
 		}
 		return ++i;
-	}
+	};
 
 	removeElement(nums, val) {
 		let j = 0;
@@ -170,17 +168,17 @@ class Solution {
 				j++;
 			}
 		}
-		
-		nums.splice(j)
+
+		nums.splice(j);
 		console.log(nums);
 		return nums.length;
 	}
-	
+
 	implement_strStr(haystack, needle) {
 		for (let index in haystack) {
-			if(haystack[index] === needle[0]) {
+			if (haystack[index] === needle[0]) {
 				const resultIndex = index;
-				if(haystack.slice(index, Number(index) + needle.length) === needle) {
+				if (haystack.slice(index, Number(index) + needle.length) === needle) {
 					return resultIndex;
 				}
 			}
@@ -200,8 +198,46 @@ class Solution {
 		}
 		return startPos;
 	}
+
+	maxSubarray(nums) {
+		let maxSub = nums[0];
+		let curSum = 0;
+		for (let num of nums) {
+			if (curSum < 0) {
+				curSum = 0;
+			}
+			curSum += num;
+			maxSub = Math.max(maxSub, curSum);
+		}
+		return maxSub;
+
+		/*
+		Time Limit Exceeded.If i need to return the array in the O(n) time complexity.
+		How to do that..
+		
+		let maxSum = nums[0];
+		let curSum = 0;
+		let sliceStart = 0;
+		let sliceEnd = nums.length;
+
+		for (let i = 0; i < nums.length; i++) {
+			curSum = 0;
+			for (let j = i; j < nums.length; j++) {
+				curSum += nums[j];
+				if (maxSum <= curSum) {
+					maxSum = curSum;
+					sliceStart = i;
+					sliceEnd = j;
+				}
+			}
+		}
+		console.log(nums.slice(sliceStart, sliceEnd + 1));
+		return maxSum;
+
+		*/
+	}
 }
 
 // Test
-const testSolution = new Solution()
-console.log(testSolution.searchInsertPosition([1,3,4,6], 5));
+const testSolution = new Solution();
+console.log(testSolution.maxSubarray([-2, -4, -1, -10, -7, -2]));
