@@ -236,8 +236,37 @@ class Solution {
 
 		*/
 	}
+
+	getLengthOfLastWordIn(string) {
+		// let recordBegin = false;
+		// let lastWordLength = 0;
+		// for (let j = string.length - 1; j >= 0; j--) {
+		// 	if (string[j] !== " ") {
+		// 		recordBegin = true;
+		// 		lastWordLength++;
+		// 	}
+		// 	if (string[j] === " " && recordBegin === true) return lastWordLength;
+		// }
+		// return lastWordLength;
+
+		const regex = /\w+(?=\s+$)|\w+$/gm;
+		return string.match(regex).pop().length;
+	}
+
+	plusOne(digits) {
+		for (j = digits.length - 1; j >= 0; j--) {
+			if (digits[j] < 9) {
+				digits[j]++;
+				return digits;
+			} else if (digits[j] === 9) {
+				digits[j] = 0;
+			}
+		}
+		digits.unshift(1);
+		return digits;
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.maxSubarray([-2, -4, -1, -10, -7, -2]));
+console.log(testSolution.plusOne([1, 2, 3]));
