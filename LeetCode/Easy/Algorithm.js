@@ -265,8 +265,26 @@ class Solution {
 		digits.unshift(1);
 		return digits;
 	}
+
+	addBinary(a, b) {
+		const maxLength = Math.max(a.length, b.length);
+		b = b.padStart(maxLength, "0");
+		a = a.padStart(maxLength, "0");
+		const resultArr = [];
+		let isPlus = 0;
+		for (let i = a.length - 1; i >= 0; i--) {
+			const tmp = Number(a[i]) + Number(b[i]) + isPlus;
+			resultArr.unshift(tmp % 2);
+			if (tmp >= 2) isPlus = 1;
+			else isPlus = 0;
+		}
+		if (isPlus) resultArr.unshift(1);
+		return resultArr.reduce((x, y) => {
+			return String(x) + String(y);
+		}, "");
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.plusOne([1, 2, 3]));
+console.log(testSolution.addBinary("100", "110010"));

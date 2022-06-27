@@ -550,7 +550,7 @@ Output: -1
 - `1 <= haystack.length, needle.length <= 104`
 - `haystack and needle consist of only lowercase English characters.`
 
-**Solution**
+**Solutions:**
 
 Check the code.
 ### Code 
@@ -593,6 +593,7 @@ Output: 4
 - `-104 <= target <= 104`
 
 **Solutions:**
+
 Binary search. Check the code.
 
 ### Code
@@ -774,4 +775,49 @@ Check the code
 		}
 		digits.unshift(1);
 		return digits;
+	```
+
+## Add Binary
+> Given two binary string `a` and `b`, return their sum as a binary string.
+
+**Example:**
+```
+Input: a = "11", b = "1"
+Output: "100"
+
+Input: a = "1010", b = "1011"
+Output: "10101"
+```
+
+**Constraints:**
+- `1 <= a.length, b.length <= 104`
+- `a` and `b` consist only of `'0'` or `'1'` characters.
+- Each string does not contain leading zeros except for the zero itself.
+
+**Solutions:**
+
+- Transfer the String to binary number then operate it.
+- Fill up the `0` in the less length string. Like `110101` and `110`, fill the `110` to `000110` and operate it. Check the Code.
+
+### Code
+
+- **JavaScript**
+	```JavaScript
+	addBinary(a, b) {
+		const maxLength = Math.max(a.length, b.length);
+		b = b.padStart(maxLength, "0");
+		a = a.padStart(maxLength, "0");
+		const resultArr = [];
+		let isPlus = 0;
+		for (let i = a.length - 1; i >= 0; i--) {
+			const tmp = Number(a[i]) + Number(b[i]) + isPlus;
+			resultArr.unshift(tmp % 2);
+			if (tmp >= 2) isPlus = 1;
+			else isPlus = 0;
+		}
+		if (isPlus) resultArr.unshift(1);
+		return resultArr.reduce((x, y) => {
+			return String(x) + String(y);
+		}, "");
+	}
 	```
