@@ -283,8 +283,26 @@ class Solution {
 			return String(x) + String(y);
 		}, "");
 	}
+
+	sqrt(x) {
+		let beginNum = 0;
+		let endNum = x;
+		while (beginNum <= endNum) {
+			const midNum = beginNum + Math.floor((endNum - beginNum) / 2);
+			const val = midNum * midNum;
+			if (val === x) return midNum;
+			else if (val > x) {
+				endNum = midNum - 1;
+			} else beginNum = midNum + 1;
+		}
+		return endNum;
+
+		// let val = 0;
+		// while (val * val <= x) val++;
+		// return val - 1;
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.addBinary("100", "110010"));
+console.log(testSolution.sqrt(1238901273812341));
