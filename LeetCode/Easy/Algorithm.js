@@ -301,8 +301,66 @@ class Solution {
 		// while (val * val <= x) val++;
 		// return val - 1;
 	}
+
+	ClimbingStairs(n) {
+		// DFS. O(2^n)
+		let sum = 0;
+		let resultNum = 0;
+		let operateStep = [];
+		function dfs(sum, step) {
+			if (step) operateStep.push(step);
+			if (sum > n) {
+				return 0;
+			}
+			if (sum === n) {
+				console.log(operateStep);
+				resultNum++;
+				return 0;
+			}
+			dfs(sum + 1, 1);
+			operateStep.pop();
+			dfs(sum + 2, 2);
+			operateStep.pop();
+		}
+		dfs(sum);
+		return resultNum;
+
+		// DP Top down Memo
+
+		let MemoryArr = [];
+		function dpTopDown(target) {
+			if (target === 1) return 1;
+			if (target === 2) return 2;
+			if (MemoryArr[target] !== undefined) return MemoryArr[target];
+			let result = dpTopDown(target - 1) + dpTopDown(target - 2);
+			MemoryArr[target] = result;
+			return result;
+		}
+
+		function dp(target) {
+			// init data
+			let dp = new Array(target + 1);
+			dp[1] = 1;
+			dp[2] = 2;
+			for (let i = 3; i <= n; i++) {
+				dp[i] = dp[i - 1] + dp[i - 2];
+			}
+			return dp[target];
+		}
+
+		// DP BottomUp
+
+		let bottom1 = 1;
+		let bottom2 = 1;
+		for (let i = 0; i < n - 1; i++) {
+			let temp = bottom1;
+			bottom1 = bottom1 + bottom2;
+			bottom2 = temp;
+		}
+		return bottom1;
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.sqrt(1238901273812341));
+console.log(testSolution.ClimbingStairs(3));
