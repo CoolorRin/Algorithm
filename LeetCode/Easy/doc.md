@@ -955,3 +955,50 @@ Explanation: There are three ways to climb to the top.
 	}
 	return bottom1;
   ```
+
+## Remove Duplicates from Sorted List
+> Given the `head` of a sorted linked listed, delete all duplicates such that each element appears only once. Return the linked list **sorted** as well.
+
+**Example:**
+```
+Input: head = [1,1,2]
+Output: [1,2]
+
+Input: head = [1,1,2,3,3]
+Output: [1,2,3]
+```
+
+**Constraints:**
+- The number of nodes in the list is in the range `[0, 300]`.
+- `-100 <= Node.val <= 100`
+- The list is guaranteed to be sorted in ascending order.
+
+**Solutions:**
+Check the code.
+
+### Code 
+- **JavaScript**
+  ```JavaScript
+	// Ugly way
+	let listNode = transform2ListNode(array);
+	if (!listNode) return listNode;
+	let head = listNode;
+	let tmp = listNode.next;
+	while (tmp) {
+		if (head.val === tmp.val) {
+			head.next = head.next.next;
+			tmp = head.next;
+		} else {
+			head = tmp;
+			tmp = head.next;
+		}
+	}
+	return listNode;
+
+	//Recursive way
+	function deleteDuplicate(ListNode) {
+		if (ListNode === null || ListNode.next === null) return ListNode;
+		ListNode.next = deleteDuplicate(ListNode.next);
+		return ListNode.val === ListNode.next.val ? ListNode.next : ListNode;
+	}
+  ```

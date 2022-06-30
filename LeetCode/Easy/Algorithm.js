@@ -359,8 +359,48 @@ class Solution {
 		}
 		return bottom1;
 	}
+
+	removeDuplicates4SortedList(array) {
+		class ListNode {
+			constructor(val, next) {
+				this.val = val === undefined ? null : val;
+				this.next = next === undefined ? null : next;
+			}
+		}
+		const transform2ListNode = function (array) {
+			if (array.length === 0) return null;
+			let result = new ListNode(array[0]);
+			if (array[1]) {
+				result.next = transform2ListNode(array.slice(1));
+			}
+			return result;
+		};
+
+		// Ugly way
+		let listNode = transform2ListNode(array);
+		if (!listNode) return listNode;
+		let head = listNode;
+		let tmp = listNode.next;
+		while (tmp) {
+			if (head.val === tmp.val) {
+				head.next = head.next.next;
+				tmp = head.next;
+			} else {
+				head = tmp;
+				tmp = head.next;
+			}
+		}
+		return listNode;
+
+		//Recursive way
+		function deleteDuplicate(ListNode) {
+			if (ListNode === null || ListNode.next === null) return ListNode;
+			ListNode.next = deleteDuplicate(ListNode.next);
+			return ListNode.val === ListNode.next.val ? ListNode.next : ListNode;
+		}
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.ClimbingStairs(3));
+console.log(testSolution.removeDuplicates4SortedList([]));
