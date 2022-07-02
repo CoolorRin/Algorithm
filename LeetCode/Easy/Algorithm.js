@@ -399,8 +399,43 @@ class Solution {
 			return ListNode.val === ListNode.next.val ? ListNode.next : ListNode;
 		}
 	}
+
+	MergeSortedArray(nums1, m, nums2, n) {
+		let insertPos = m + n - 1;
+		m--;
+		n--;
+		while (n >= 0) {
+			nums1[insertPos--] = nums1[m] > nums2[n] ? nums1[m--] : nums2[n--];
+		}
+	}
+
+	inorderTraversal(root) {
+		/**
+		 * Definition for a binary tree node.
+		 * function TreeNode(val, left, right) {
+		 *     this.val = (val===undefined ? 0 : val)
+		 *     this.left = (left===undefined ? null : left)
+		 *     this.right = (right===undefined ? null : right)
+		 * }
+		 */
+		/**
+		 * @param {TreeNode} root
+		 * @return {number[]}
+		 */
+
+		function recursiveTraversal(root) {
+			if (root.left) recursiveTraversal(root.left);
+			resultArr.push(root.val);
+			if (root.right) recursiveTraversal(root.right);
+		}
+
+		if (!root) return [];
+		let resultArr = [];
+		recursiveTraversal(root);
+		return resultArr;
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.removeDuplicates4SortedList([]));
+console.log(testSolution.inorderTraversal([1, null, 2, 3]));
