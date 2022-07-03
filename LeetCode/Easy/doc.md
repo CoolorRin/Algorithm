@@ -1,4 +1,27 @@
 # Easy Question
+**Table Content**
+
+- [Easy Question](#easy-question)
+	- [Two Sum](#two-sum)
+	- [Palindrome Number](#palindrome-number)
+	- [Roman to Integer](#roman-to-integer)
+	- [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
+	- [Merge Two Sorted Lists](#merge-two-sorted-lists)
+	- [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
+	- [Remove Element](#remove-element)
+	- [Implement strStr()](#implement-strstr)
+	- [Search insert position](#search-insert-position)
+	- [Maximum Subarray](#maximum-subarray)
+	- [Length of Last word](#length-of-last-word)
+	- [Plus one](#plus-one)
+	- [Add Binary](#add-binary)
+	- [Sqrt](#sqrt)
+	- [ClimbingStair [Dynamic Programming]](#climbingstair-dynamic-programming)
+	- [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
+	- [Merge Sorted Array](#merge-sorted-array)
+	- [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
+	- [SameTree](#sametree)
+
 
 ## Two Sum
 
@@ -14,7 +37,7 @@ Example:
   Output: [1,2];
   ```
 
-### **Solutions:**
+### **Solutions**
 
 - **Use the hashmap to make the Algorithm that is less than `O(n^2)` time complexity.**
 
@@ -90,7 +113,7 @@ Input: x = 121
 Output: true
 ```
 
-### **Solutions:**
+### **Solutions**
 
 - Convert the `Number` to `String` to make the parameter is iterable and find out **Is the First Number same as the last
   one, and so on.**
@@ -170,7 +193,7 @@ Input: s = "III"
 Ouput: 3
 ```
 
-### **Solution:**
+### **Solution**
 
 - First thing come out from my mind is loop the whole RomanNumber String and compare with the next number. If the second
   number is bigger, it will be minus by the second number.Otherwise, plus it. **Problem is the lastest number should
@@ -253,7 +276,7 @@ Output: "fl"
 - `0 <= strs[i].length <= 200`
 - `strs[i] consists of only lower-case English letters.`
 
-### **Solutions:**
+### **Solutions**
 
 - Just scanning all strings
   > Horizontal Scanning: <br> `LCP(str1, str2, ...strN) = LCP(LCP(LCP(str1, str2), str3), ...strN)`. <br>
@@ -340,7 +363,7 @@ Output: [0]
 - `-100 <= Node.val <= 100`
 - Both `list1` and `list2` are sored in **non-decreasing** order.
 
-### **Solutions:**
+### **Solutions**
 
 Check the code.
 
@@ -460,7 +483,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 - -100 <= nums[i] <= 100
 - nums is sorted in non-decreasing order.
 
-**Solutions:**
+### **Solutions**
 
 - Check the code.
 
@@ -513,7 +536,7 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
 - `0 <= nums[i] <= 50`
 - `0 <= val <= 100`
 
-**Solutions:**
+### **Solutions**
 - Setting the based number `j`. it will always point to the number which isn't equal to the given value and place in the lastest position in the not-equal-to-value queue.And `i` will be itrate all the `nums`. If nums[i] not equal to the given value.Swtich the `nums[i]` and the `nums[j]`'s position, then `j++`. In the end, the value of `j` will be the result.
 
 ### Code
@@ -550,7 +573,7 @@ Output: -1
 - `1 <= haystack.length, needle.length <= 104`
 - `haystack and needle consist of only lowercase English characters.`
 
-**Solutions:**
+### **Solutions**
 
 Check the code.
 ### Code 
@@ -592,7 +615,7 @@ Output: 4
 - nums contains distinct values sorted in ascending order.
 - `-104 <= target <= 104`
 
-**Solutions:**
+### **Solutions**
 
 Binary search. Check the code.
 
@@ -632,7 +655,7 @@ Input: nums = [5,4,-1,7,8]
 Output: 23
 ```
 
-**Solutions:**
+### **Solutions**
 > [divide and conquer](https://www.youtube.com/watch?v=5WZl3MMT0Eg)  
 > [Maximum subarray problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem)
 
@@ -708,7 +731,7 @@ Explanation: The last word is "joyboy" with length 6.
 - `s` consists of only English letters and spaces `' '`.
 - There will be at least one word in `s`.
 
-**Solutions:**
+### **Solutions**
 Check the code 
 
 ### Code 
@@ -759,7 +782,7 @@ Thus, the result should be [1,0].
 - `0 <= digits[i] <= 9`
 - `digits` does not contain any leading `0`'s.
 
-**Solutions:**
+### **Solutions**
 Check the code
 
 ### Code
@@ -794,7 +817,7 @@ Output: "10101"
 - `a` and `b` consist only of `'0'` or `'1'` characters.
 - Each string does not contain leading zeros except for the zero itself.
 
-**Solutions:**
+### **Solutions**
 
 - Transfer the String to binary number then operate it.
 - Fill up the `0` in the less length string. Like `110101` and `110`, fill the `110` to `000110` and operate it. Check the Code.
@@ -822,7 +845,7 @@ Output: "10101"
 	}
 	```
 
-## Sqrt(x)
+## Sqrt
 > Given a non-negative integer `x`, compute and return the square root of `x`.  
 > Since the return type is an integer, the decimal digits are **truncated**, and only **the integer part** of the result is returned.  
 > **Note**: You are note allowed to use any built-in exponent function or operator, such as `pow(x, 0.5)` or `x ** 0.5`.
@@ -841,7 +864,7 @@ Explanation: The square root of 8 is 2.82842..., and since the decimal part is t
 **Constraints:**
 - `0 <= x <= 2^31 - 1`
 
-**Solutions:**
+### **Solutions**
 Check the code.
 
 ### Code
@@ -888,7 +911,7 @@ Explanation: There are three ways to climb to the top.
 **Constraints:**
 - `i <= n <= 45`
 
-**Solutions:**
+### **Solutions**
 - Deep First Search (**Inefficient way O(2^n)**).   
   If the purpose is to **get the shortest way** to Climbing up the Stair. Maybe use it.
   ```JavaScript
@@ -973,7 +996,7 @@ Output: [1,2,3]
 - `-100 <= Node.val <= 100`
 - The list is guaranteed to be sorted in ascending order.
 
-**Solutions:**
+### **Solutions**
 Check the code.
 
 ### Code 
@@ -1034,7 +1057,7 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 - `1 <= m + n <= 200`
 - `-109 <= nums1[i], nums2[j] <= 109`
 
-**Solutions:**
+### **Solutions**
 Check the code
 
 ### Code
@@ -1067,7 +1090,7 @@ Output: [1]
 - The number of nodes in the tree is in the range `[0, 100]`.
 - `-100 <= Node.val <= 100`
 
-**Solutions:**
+### **Solutions**
 Check the code.
 
 ### Code 
@@ -1097,4 +1120,55 @@ Check the code.
       recursiveTraversal(root);
       return resultArr;
   };
+  ```
+
+## SameTree
+> Given the  roots of two binary trees `p` and `q`, write a function to check if they are the same or not.  
+> Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
+
+**Example:**
+
+```
+Input: p = [1,2,3], q = [1,2,3]
+Output: true
+
+Input: p = [1,2], q = [1,null,2]
+Output: false
+
+Input: p = [1,2,1], q = [1,1,2]
+Output: false
+```
+
+**Constraints:**
+- The number of nodes in both trees is in the range `[0, 100]`.
+- `-104 <= Node.val <= 104`
+
+### **Solutions**
+Check the code.
+
+### Code 
+- **JavaScript**
+  ```JavaScript
+  	isSameTree(p, q) {
+		/**
+		 * Definition for a binary tree node.
+		 * function TreeNode(val, left, right) {
+		 *     this.val = (val===undefined ? 0 : val)
+		 *     this.left = (left===undefined ? null : left)
+		 *     this.right = (right===undefined ? null : right)
+		 * }
+		 */
+		/**
+		 * @param {TreeNode} p
+		 * @param {TreeNode} q
+		 * @return {boolean}
+		 */
+		if (p === null && q === null) return true;
+		if (p === null || q === null) return false;
+		if (p.val === q.val) {
+			return (
+				this.isSameTree(p.left, q.left) && this.isSameTree(p.right, q.right)
+			);
+		}
+	}
   ```

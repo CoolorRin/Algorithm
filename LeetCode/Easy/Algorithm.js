@@ -434,6 +434,53 @@ class Solution {
 		recursiveTraversal(root);
 		return resultArr;
 	}
+
+	isSameTree(p, q) {
+		/**
+		 * Definition for a binary tree node.
+		 * function TreeNode(val, left, right) {
+		 *     this.val = (val===undefined ? 0 : val)
+		 *     this.left = (left===undefined ? null : left)
+		 *     this.right = (right===undefined ? null : right)
+		 * }
+		 */
+		/**
+		 * @param {TreeNode} p
+		 * @param {TreeNode} q
+		 * @return {boolean}
+		 */
+
+		// Ugly Way
+		const getTreeTraversalOrder = (Tree) => {
+			let resultArr = [];
+			if (!Tree) return resultArr;
+			function preOrderTraversal(root) {
+				resultArr.push(root.val);
+				if (root.left) {
+					preOrderTraversal(root.left);
+				} else resultArr.push(null);
+				if (root.right) {
+					preOrderTraversal(root.right);
+				} else resultArr.push(null);
+			}
+			preOrderTraversal(Tree);
+			console.log(resultArr);
+			return resultArr;
+		};
+		return (
+			getTreeTraversalOrder(q).toString() ===
+			getTreeTraversalOrder(p).toString()
+		);
+
+		// Better Way
+		if (p === null && q === null) return true;
+		if (p === null || q === null) return false;
+		if (p.val === q.val) {
+			return (
+				this.isSameTree(p.left, q.left) && this.isSameTree(p.right, q.right)
+			);
+		}
+	}
 }
 
 // Test
