@@ -481,6 +481,31 @@ class Solution {
 			);
 		}
 	}
+
+	isSymmetric(root) {
+		/**
+		 * Definition for a binary tree node.
+		 * function TreeNode(val, left, right) {
+		 *     this.val = (val===undefined ? 0 : val)
+		 *     this.left = (left===undefined ? null : left)
+		 *     this.right = (right===undefined ? null : right)
+		 * }
+		 */
+		/**
+		 * @param {TreeNode} root
+		 * @return {boolean}
+		 */
+		function recursiveCheck(left, right) {
+			if (left === right) return true;
+			if (!left || !right) return false;
+			if (left.val !== right.val) return false;
+			return (
+				recursiveCheck(left.left, right.right) &&
+				recursiveCheck(left.right, right.left)
+			);
+		}
+		return recursiveCheck(root.left, root.right);
+	}
 }
 
 // Test

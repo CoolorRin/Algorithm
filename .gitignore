@@ -181,4 +181,4 @@ dmypy.json
 cython_debug/
 
 # TestBench
-testBench
+testBench/*

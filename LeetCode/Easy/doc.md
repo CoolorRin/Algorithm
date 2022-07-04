@@ -21,6 +21,7 @@
 	- [Merge Sorted Array](#merge-sorted-array)
 	- [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
 	- [SameTree](#sametree)
+	- [Symmetric Tree](#symmetric-tree)
 
 
 ## Two Sum
@@ -1123,6 +1124,7 @@ Check the code.
   ```
 
 ## SameTree
+
 > Given the  roots of two binary trees `p` and `q`, write a function to check if they are the same or not.  
 > Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
 
@@ -1171,4 +1173,38 @@ Check the code.
 			);
 		}
 	}
+  ```
+
+## Symmetric Tree
+> Given the `root` of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+
+**Example:**
+```
+Input: root = [1,2,2,3,4,4,3]
+Output: true
+
+Input: root = [1,2,2,null,3,null,3]
+Output: false
+```
+**Constraints:**
+- The number of nodes in the tree is in the range `[1, 1000]`.
+- `-100 <= Node.val <= 100`
+
+**Follow up**: Could you solve it both recursively and iteratively?
+
+### **Solutions**
+Check the  code.
+### Code
+- **JavaScript**
+  ```JavaScript
+	var isSymmetric = function(root) {
+		function recursiveCheck(left, right) {
+				if(left === right) return true;
+				if (!left || !right) return false;
+				if (left.val !== right.val) return false;
+				return recursiveCheck(left.left, right.right) && recursiveCheck(left.right, right.left);
+		}
+		return recursiveCheck(root.left, root.right);
+	};
+
   ```
