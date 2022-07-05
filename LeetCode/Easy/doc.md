@@ -22,6 +22,7 @@
 	- [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
 	- [SameTree](#sametree)
 	- [Symmetric Tree](#symmetric-tree)
+	- [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
 
 
 ## Two Sum
@@ -50,56 +51,56 @@ Example:
 
 - **JavaScript**
 
-	```javascript
-	function twoSum(nums, target) {
-		let hashMap = [];
-		for (const [key, value] of Object.entries(nums)) {
-			if (hashMap[target - value]) {
-				return [key, hashMap[target - value]];
-			} else hashMap[value] = key;
-		}
-	}
+    ```javascript
+    function twoSum(nums, target) {
+        let hashMap = [];
+        for (const [key, value] of Object.entries(nums)) {
+            if (hashMap[target - value]) {
+                return [key, hashMap[target - value]];
+            } else hashMap[value] = key;
+        }
+    }
 
-	// Test 
-	console.log(twoSum([3, 3], 6))
-	```
+    // Test 
+    console.log(twoSum([3, 3], 6))
+    ```
 
 - **Cpp11**
 
-	```c++
-	#include "vector"
-	#include "iostream"
-	#include "map"
+    ```c++
+    #include "vector"
+    #include "iostream"
+    #include "map"
 
-	class Solution {
-	public:
-		std::vector<int> twoSum(std::vector<int>& nums, int target) {
-			std::map<int, int>valueMap;
-			std::vector<int> result;
-			for (int index = 0; index < nums.size(); index++) {
-				if(valueMap.find(target - int(nums[index])) != valueMap.end()) {
-					result.push_back(index);
-					result.push_back(valueMap[target - int(nums[index])]);
-					break;
-				}
-				else {
-					valueMap.insert({int(nums[index]), index});
-				}
-			}
-			return result;
-		}
-	};
+    class Solution {
+    public:
+        std::vector<int> twoSum(std::vector<int>& nums, int target) {
+            std::map<int, int>valueMap;
+            std::vector<int> result;
+            for (int index = 0; index < nums.size(); index++) {
+                if(valueMap.find(target - int(nums[index])) != valueMap.end()) {
+                    result.push_back(index);
+                    result.push_back(valueMap[target - int(nums[index])]);
+                    break;
+                }
+                else {
+                    valueMap.insert({int(nums[index]), index});
+                }
+            }
+            return result;
+        }
+    };
 
-	int main(int argc, char const *argv[])
-	{
-		Solution s;
-		std::vector<int> nums = {2,7,11,15};
-		std::vector<int> result;
-		int target = 9;
-		result = s.twoSum(nums, target);
-		return 0;
-	}
-	```
+    int main(int argc, char const *argv[])
+    {
+        Solution s;
+        std::vector<int> nums = {2,7,11,15};
+        std::vector<int> result;
+        int target = 9;
+        result = s.twoSum(nums, target);
+        return 0;
+    }
+    ```
 
 ## Palindrome Number
 
@@ -128,51 +129,51 @@ Output: true
 
 - **JavaScript**
 
-	```JavaScript
-	var isPalindrome = function (x) {
-		// const strNumber = x.toString();
-		// const lastNumIndex = strNumber.length - 1;
-		// for (let i = 0; i < strNumber.length; i++) {
-		//     if (strNumber[i] !== strNumber[lastNumIndex - i]) return false;
-		//     else if (i >= lastNumIndex) 
-		//         return true;
-		// }
+    ```JavaScript
+    var isPalindrome = function (x) {
+        // const strNumber = x.toString();
+        // const lastNumIndex = strNumber.length - 1;
+        // for (let i = 0; i < strNumber.length; i++) {
+        //     if (strNumber[i] !== strNumber[lastNumIndex - i]) return false;
+        //     else if (i >= lastNumIndex) 
+        //         return true;
+        // }
 
-		if (x < 0 || x % 10 === 0 && x !== 0) return false;
+        if (x < 0 || x % 10 === 0 && x !== 0) return false;
 
-		let revertedNum = 0;
+        let revertedNum = 0;
 
-		while (x > revertedNum) {
-			revertedNum = revertedNum * 10 + x % 10;
-			x = Math.floor(x / 10)
-		}
+        while (x > revertedNum) {
+            revertedNum = revertedNum * 10 + x % 10;
+            x = Math.floor(x / 10)
+        }
 
-		return x === revertedNum || x === Math.floor(revertedNum / 10);
+        return x === revertedNum || x === Math.floor(revertedNum / 10);
 
-	};
-	```
+    };
+    ```
 
 - **Cpp11**
 
-	```c++
-		bool isPalindrome(int num)
-		{
-			std::string numStr = std::to_string(num);
-			int frontIndex = 0;
-			int endIndex = numStr.length() - 1;
-			while (frontIndex < endIndex)
-			{
-				if (numStr[frontIndex] != numStr[endIndex])
-					return false;
-				else
-				{
-					frontIndex++;
-					endIndex--;
-				}
-			}
-			return true;
-		}
-	```
+    ```c++
+        bool isPalindrome(int num)
+        {
+            std::string numStr = std::to_string(num);
+            int frontIndex = 0;
+            int endIndex = numStr.length() - 1;
+            while (frontIndex < endIndex)
+            {
+                if (numStr[frontIndex] != numStr[endIndex])
+                    return false;
+                else
+                {
+                    frontIndex++;
+                    endIndex--;
+                }
+            }
+            return true;
+        }
+    ```
 
 ## Roman to Integer
 
@@ -205,59 +206,59 @@ Ouput: 3
 
 - **JavaScript**
 
-	```JavaScript
-	var transferRoman2Integer(romanNumString)
-	{
-		const RomanMap = {
-			"I": 1,
-			"V": 5,
-			"X": 10,
-			"L": 50,
-			"C": 100,
-			"D": 500,
-			"M": 1000,
-		}
-		let strLength = romanNumString.length
-		let sum = RomanMap[romanNumString[strLength - 1]]
-		for (let index = strLength - 2; index >= 0; index--) {
-			if (RomanMap[romanNumString[index]] < RomanMap[romanNumString[index + 1]]) {
-				sum -= RomanMap[romanNumString[index]]
-			} else {
-				sum += RomanMap[romanNumString[index]]
-			}
-		}
-		return sum
-	}
-	```
+    ```JavaScript
+    var transferRoman2Integer(romanNumString)
+    {
+        const RomanMap = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000,
+        }
+        let strLength = romanNumString.length
+        let sum = RomanMap[romanNumString[strLength - 1]]
+        for (let index = strLength - 2; index >= 0; index--) {
+            if (RomanMap[romanNumString[index]] < RomanMap[romanNumString[index + 1]]) {
+                sum -= RomanMap[romanNumString[index]]
+            } else {
+                sum += RomanMap[romanNumString[index]]
+            }
+        }
+        return sum
+    }
+    ```
 
 - **Cpp11**
 
-	```c++
-	int Roman2Integer(std::string RomanString)
-	{
-		std::map<char, int> RomanMap = {
-			{'I', 1},
-			{'V', 5},
-			{'X', 10},
-			{'L', 50},
-			{'C', 100},
-			{'D', 500},
-			{'M', 1000}};
-		int sum = RomanMap[RomanString.back()];
-		for (int index = RomanString.length() - 2; index >= 0; index--)
-		{
-				if (RomanMap[RomanString[index]] >= RomanMap[RomanString[index + 1]])
-			{
-					sum += RomanMap[RomanString[index]];
-			}
-			else
-			{
-					sum -= RomanMap[RomanString[index]];
-			}
-		}
-	};
+    ```c++
+    int Roman2Integer(std::string RomanString)
+    {
+        std::map<char, int> RomanMap = {
+            {'I', 1},
+            {'V', 5},
+            {'X', 10},
+            {'L', 50},
+            {'C', 100},
+            {'D', 500},
+            {'M', 1000}};
+        int sum = RomanMap[RomanString.back()];
+        for (int index = RomanString.length() - 2; index >= 0; index--)
+        {
+                if (RomanMap[RomanString[index]] >= RomanMap[RomanString[index + 1]])
+            {
+                    sum += RomanMap[RomanString[index]];
+            }
+            else
+            {
+                    sum -= RomanMap[RomanString[index]];
+            }
+        }
+    };
 
-	```
+    ```
 
 ## Longest Common Prefix(LCP)
 
@@ -292,51 +293,51 @@ Output: "fl"
 
 - **JavaScript**
 
-	```JavaScript
-	LCP(strs)
-	{
-		function comparison(leftPart, rightPart) {
-			const minLength = Math.min(leftPart.length, rightPart.length)
-			for (let index = 0; index < minLength; index++) {
-				if (leftPart[index] !== rightPart[index])
-					return leftPart.slice(0, index)
-			}
-			return leftPart.slice(0, minLength)
-		}
+    ```JavaScript
+    LCP(strs)
+    {
+        function comparison(leftPart, rightPart) {
+            const minLength = Math.min(leftPart.length, rightPart.length)
+            for (let index = 0; index < minLength; index++) {
+                if (leftPart[index] !== rightPart[index])
+                    return leftPart.slice(0, index)
+            }
+            return leftPart.slice(0, minLength)
+        }
 
-		function DivideAtMid(strs, leftIndex, rightIndex) {
-			if (leftIndex === rightIndex) return strs[leftIndex]
-			const mid = Math.floor((leftIndex + rightIndex) / 2)
-			const leftPart = DivideAtMid(strs, leftIndex, mid)
-			const rightPart = DivideAtMid(strs, mid + 1, rightIndex)
-			return comparison(leftPart, rightPart)
-		}
+        function DivideAtMid(strs, leftIndex, rightIndex) {
+            if (leftIndex === rightIndex) return strs[leftIndex]
+            const mid = Math.floor((leftIndex + rightIndex) / 2)
+            const leftPart = DivideAtMid(strs, leftIndex, mid)
+            const rightPart = DivideAtMid(strs, mid + 1, rightIndex)
+            return comparison(leftPart, rightPart)
+        }
 
-		if (strs.length === 0) return ""
-		const result = DivideAtMid(strs, 0, strs.length - 1)
-		return result
-	}
+        if (strs.length === 0) return ""
+        const result = DivideAtMid(strs, 0, strs.length - 1)
+        return result
+    }
 
-	```
+    ```
 
 - **Cpp11**
 
-	```C++
-	std::string LCP(std::vector<std::string> strs)
-	{
-		if (strs.empty())
-			return "";
-		std::strin prefix = strs[0];
-		for (int i = 1; i < strs.size(); i++)
-		{
-			while (strs[i].find(prefix) != 0)
-			{
-				prefix = prefix.substr(0, prefix.size() - 1);
-			}
-		}
-		return prefix;
-	}
-	```
+    ```C++
+    std::string LCP(std::vector<std::string> strs)
+    {
+        if (strs.empty())
+            return "";
+        std::strin prefix = strs[0];
+        for (int i = 1; i < strs.size(); i++)
+        {
+            while (strs[i].find(prefix) != 0)
+            {
+                prefix = prefix.substr(0, prefix.size() - 1);
+            }
+        }
+        return prefix;
+    }
+    ```
 
 ## Merge Two Sorted Lists
 
@@ -371,91 +372,91 @@ Check the code.
 ### Code
 - **JavaScript**
 
-	```javascript
-	mergeTwoLists(list1, list2)
-	{
-		/**
-		 * Definition for singly-linked list.
-		 * function ListNode(val, next) {
-		 *     this.val = (val===undefined ? 0 : val)
-		 *     this.next = (next===undefined ? null : next)
-		 * }
-		 */
-		/**
-		 * @param   {ListNode} list1
-		 * @param   {ListNode} list2
-		 * @return  {ListNode}
-		 */
-		const ListNode = function (val, next) {
-			this.val = val === undefined ? null : val;
-			this.next = next === undefined ? null : next;
-		}
-		const transform2ListNode = function (array) {
-			if (array.length === 0) return null
-			let result = new ListNode(array[0]);
-			if (array[1]) {
-				result.next = transform2ListNode(array.slice(1))
-			}
-			return result;
-		}
+    ```javascript
+    mergeTwoLists(list1, list2)
+    {
+        /**
+         * Definition for singly-linked list.
+         * function ListNode(val, next) {
+         *     this.val = (val===undefined ? 0 : val)
+         *     this.next = (next===undefined ? null : next)
+         * }
+         */
+        /**
+         * @param   {ListNode} list1
+         * @param   {ListNode} list2
+         * @return  {ListNode}
+         */
+        const ListNode = function (val, next) {
+            this.val = val === undefined ? null : val;
+            this.next = next === undefined ? null : next;
+        }
+        const transform2ListNode = function (array) {
+            if (array.length === 0) return null
+            let result = new ListNode(array[0]);
+            if (array[1]) {
+                result.next = transform2ListNode(array.slice(1))
+            }
+            return result;
+        }
 
-		let ListNode1 = transform2ListNode(list1);
-		let ListNode2 = transform2ListNode(list2);
+        let ListNode1 = transform2ListNode(list1);
+        let ListNode2 = transform2ListNode(list2);
 
-		let lastNode = null
-		let mergedList = null
+        let lastNode = null
+        let mergedList = null
 
-		while (ListNode1 || ListNode2) {
-			if (ListNode1 && (!ListNode2 || ListNode1.val < ListNode2.val)) {
-				if (lastNode === null) {
-					lastNode = ListNode1
-					mergedList = lastNode
-				} else {
-					lastNode.next = ListNode1;
-					lastNode = lastNode.next;
-				}
-				ListNode1 = ListNode1.next
-			} else {
-				if (lastNode === null) {
-					lastNode = ListNode2;
-					mergedList = lastNode;
-				} else {
-					lastNode.next = ListNode2;
-					lastNode = lastNode.next;
-				}
-				ListNode2 = ListNode2.next
-			}
-		}
-		return mergedList
-	}
-	```
+        while (ListNode1 || ListNode2) {
+            if (ListNode1 && (!ListNode2 || ListNode1.val < ListNode2.val)) {
+                if (lastNode === null) {
+                    lastNode = ListNode1
+                    mergedList = lastNode
+                } else {
+                    lastNode.next = ListNode1;
+                    lastNode = lastNode.next;
+                }
+                ListNode1 = ListNode1.next
+            } else {
+                if (lastNode === null) {
+                    lastNode = ListNode2;
+                    mergedList = lastNode;
+                } else {
+                    lastNode.next = ListNode2;
+                    lastNode = lastNode.next;
+                }
+                ListNode2 = ListNode2.next
+            }
+        }
+        return mergedList
+    }
+    ```
 
 - **Cpp11**
 
-	```c++
-		ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
-		{
-			if (list1 != NULL && list2 != NULL)
-			{
-				ListNode *ans = NULL;
-				if (list1->val <= list2->val)
-				{
-					ans = list1;
-					ans->next = mergeTwoLists(list1->next, list2);
-				}
-				else
-				{
-					ans = list2;
-					ans->next = mergeTwoLists(list1, list2->next);
-				}
-				return ans;
-			}
-			else if (list1 == NULL)
-				return list2;
-			return list1;
-		}
-	
-	```
+    ```c++
+        ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
+        {
+            if (list1 != NULL && list2 != NULL)
+            {
+                ListNode *ans = NULL;
+                if (list1->val <= list2->val)
+                {
+                    ans = list1;
+                    ans->next = mergeTwoLists(list1->next, list2);
+                }
+                else
+                {
+                    ans = list2;
+                    ans->next = mergeTwoLists(list1, list2->next);
+                }
+                return ans;
+            }
+            else if (list1 == NULL)
+                return list2;
+            return list1;
+        }
+    
+    ```
 
 ## Remove Duplicates from Sorted Array
 
@@ -491,34 +492,34 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 ### Code
 
 - **JavaScript**
-	```javascript
-	removeDuplicates = function (nums) {
-		// let startNumIndex = 0;
-		// let duplicateCount = 0;
-		// let order = 0;
-		// for (let index = 1; index < nums.length; index++) {
-		//     if (nums[startNumIndex] === nums[index]) duplicateCount++;
-		//     else {
-		//         nums[order] = nums[startNumIndex]
-		//         order++
-		//         startNumIndex = index
-		//         duplicateCount = 0
-		//         if (index === nums.length -1) {
-		//             nums[order] = nums[startNumIndex]
-		//         }
-		//     }
-		// }
-		// if (duplicateCount !== 0) nums[order] = nums[startNumIndex]
-		// return nums
+    ```javascript
+    removeDuplicates = function (nums) {
+        // let startNumIndex = 0;
+        // let duplicateCount = 0;
+        // let order = 0;
+        // for (let index = 1; index < nums.length; index++) {
+        //     if (nums[startNumIndex] === nums[index]) duplicateCount++;
+        //     else {
+        //         nums[order] = nums[startNumIndex]
+        //         order++
+        //         startNumIndex = index
+        //         duplicateCount = 0
+        //         if (index === nums.length -1) {
+        //             nums[order] = nums[startNumIndex]
+        //         }
+        //     }
+        // }
+        // if (duplicateCount !== 0) nums[order] = nums[startNumIndex]
+        // return nums
 
-		let i = 0;
-		for (let j = 0; j < nums.length; j++) {
-			if (nums[j] != nums[i])
-				nums[++i] = nums[j];
-		}
-		return ++i;
-	}
-	```
+        let i = 0;
+        for (let j = 0; j < nums.length; j++) {
+            if (nums[j] != nums[i])
+                nums[++i] = nums[j];
+        }
+        return ++i;
+    }
+    ```
 
 ## Remove Element
 > Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
@@ -543,20 +544,20 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
 ### Code
 
 - **JavaScript**
-	```javascript
-	removeElement(nums, val) {
-		let j = 0;
-		for (let i = 0; i < nums.length; i++) {
-			if (nums[i] !== val) {
-				[nums[i], nums[j]] = [nums[j], nums[i]];
-				j++;
-			}
-		}
-		nums.splice(j)
-		console.log(nums);
-		return nums.length;
-	}
-	```
+    ```javascript
+    removeElement(nums, val) {
+        let j = 0;
+        for (let i = 0; i < nums.length; i++) {
+            if (nums[i] !== val) {
+                [nums[i], nums[j]] = [nums[j], nums[i]];
+                j++;
+            }
+        }
+        nums.splice(j)
+        console.log(nums);
+        return nums.length;
+    }
+    ```
 
 ## Implement strStr()
 > Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
@@ -580,19 +581,19 @@ Check the code.
 ### Code 
 
 - **JavaScript**
-	```JavaScript
-	implement_strStr(haystack, needle) {
-		for (let index in haystack) {
-			if(haystack[index] === needle[0]) {
-				const resultIndex = index;
-				if(haystack.slice(index, Number(index) + needle.length) === needle) {
-					return resultIndex;
-				}
-			}
-		}
-		return -1;
-	}
-	```
+    ```JavaScript
+    implement_strStr(haystack, needle) {
+        for (let index in haystack) {
+            if(haystack[index] === needle[0]) {
+                const resultIndex = index;
+                if(haystack.slice(index, Number(index) + needle.length) === needle) {
+                    return resultIndex;
+                }
+            }
+        }
+        return -1;
+    }
+    ```
 
 ## Search insert position
 > Given a sorted array of distinct intergers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
@@ -623,18 +624,18 @@ Binary search. Check the code.
 ### Code
 - **JavaScript**
   ```JavaScript
-	searchInsertPosition(nums, target) {
-		let startPos = 0;
-		let endPos = nums.length - 1;
-		while (startPos <= endPos) {
-			let midNum = Math.floor((startPos + endPos) / 2);
-			let currNum = nums[midNum];
-			if (currNum < target) startPos = midNum + 1;
-			else if (currNum > target) endPos = midNum - 1;
-			else return midNum;
-		}
-		return startPos;
-	}
+    searchInsertPosition(nums, target) {
+        let startPos = 0;
+        let endPos = nums.length - 1;
+        while (startPos <= endPos) {
+            let midNum = Math.floor((startPos + endPos) / 2);
+            let currNum = nums[midNum];
+            if (currNum < target) startPos = midNum + 1;
+            else if (currNum > target) endPos = midNum - 1;
+            else return midNum;
+        }
+        return startPos;
+    }
 
   ```
   
@@ -662,51 +663,51 @@ Output: 23
 
 ### Code
 - **JavaScript**
-	```JavaScript
-	let maxSub = nums[0];
-	let curSum = 0;
-	for (let num of nums) {
-		if (curSum < 0) {
-			curSum = 0;
-		}
-		curSum += num;
-		maxSub = Math.max(maxSub, curSum);
-	}
-	return maxSub;
+    ```JavaScript
+    let maxSub = nums[0];
+    let curSum = 0;
+    for (let num of nums) {
+        if (curSum < 0) {
+            curSum = 0;
+        }
+        curSum += num;
+        maxSub = Math.max(maxSub, curSum);
+    }
+    return maxSub;
 
-	/*
+    /*
    for(let i=1; i<nums.length;i++){  
        nums[i] = Math.max(nums[i],nums[i]+nums[i-1])
        console.log(nums[i], nums[i]+nums[i-1])
-   	}
-	return Math.max(...nums)
-	*/
+       }
+    return Math.max(...nums)
+    */
 
-	/*
-	Time Limit Exceeded.If i need to return the array in the O(n) time complexity.
-	How to do that..
-	
-	let maxSum = nums[0];
-	let curSum = 0;
-	let sliceStart = 0;
-	let sliceEnd = nums.length;
+    /*
+    Time Limit Exceeded.If i need to return the array in the O(n) time complexity.
+    How to do that..
+    
+    let maxSum = nums[0];
+    let curSum = 0;
+    let sliceStart = 0;
+    let sliceEnd = nums.length;
 
-	for (let i = 0; i < nums.length; i++) {
-		curSum = 0;
-		for (let j = i; j < nums.length; j++) {
-			curSum += nums[j];
-			if (maxSum <= curSum) {
-				maxSum = curSum;
-				sliceStart = i;
-				sliceEnd = j;
-			}
-		}
-	}
-	console.log(nums.slice(sliceStart, sliceEnd + 1));
-	return maxSum;
+    for (let i = 0; i < nums.length; i++) {
+        curSum = 0;
+        for (let j = i; j < nums.length; j++) {
+            curSum += nums[j];
+            if (maxSum <= curSum) {
+                maxSum = curSum;
+                sliceStart = i;
+                sliceEnd = j;
+            }
+        }
+    }
+    console.log(nums.slice(sliceStart, sliceEnd + 1));
+    return maxSum;
 
-	*/
-	```
+    */
+    ```
 
 ## Length of Last word
 
@@ -738,20 +739,20 @@ Check the code
 ### Code 
 
 - **JavaScript**
-	```javascript
-		// let recordBegin = false;
-		// let lastWordLength = 0;
-		// for (let j = string.length - 1; j >= 0; j--) {
-		// 	if (string[j] !== " ") {
-		// 		recordBegin = true;
-		// 		lastWordLength++;
-		// 	}
-		// 	if (string[j] === " " && recordBegin === true) return lastWordLength;
-		// }
-		// return lastWordLength;
-		const regex = /\w+(?=\s+$)|\w+$/gm;
-		return string.match(regex).pop().length;
-	```
+    ```javascript
+        // let recordBegin = false;
+        // let lastWordLength = 0;
+        // for (let j = string.length - 1; j >= 0; j--) {
+        // 	if (string[j] !== " ") {
+        // 		recordBegin = true;
+        // 		lastWordLength++;
+        // 	}
+        // 	if (string[j] === " " && recordBegin === true) return lastWordLength;
+        // }
+        // return lastWordLength;
+        const regex = /\w+(?=\s+$)|\w+$/gm;
+        return string.match(regex).pop().length;
+    ```
 
 ## Plus one
 > You are given a **large integer** represented as an integer array `digits`, where each `digits[i]` is the `i^th` digits of the integer.The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading `0`'s.  
@@ -788,18 +789,18 @@ Check the code
 
 ### Code
 - **JavaScript**
-	```JavaScript
-		for (j = digits.length - 1; j >= 0; j--) {
-			if (digits[j] < 9) {
-				digits[j]++;
-				return digits;
-			} else if (digits[j] === 9) {
-				digits[j] = 0;
-			}
-		}
-		digits.unshift(1);
-		return digits;
-	```
+    ```JavaScript
+        for (j = digits.length - 1; j >= 0; j--) {
+            if (digits[j] < 9) {
+                digits[j]++;
+                return digits;
+            } else if (digits[j] === 9) {
+                digits[j] = 0;
+            }
+        }
+        digits.unshift(1);
+        return digits;
+    ```
 
 ## Add Binary
 > Given two binary string `a` and `b`, return their sum as a binary string.
@@ -826,25 +827,25 @@ Output: "10101"
 ### Code
 
 - **JavaScript**
-	```JavaScript
-	addBinary(a, b) {
-		const maxLength = Math.max(a.length, b.length);
-		b = b.padStart(maxLength, "0");
-		a = a.padStart(maxLength, "0");
-		const resultArr = [];
-		let isPlus = 0;
-		for (let i = a.length - 1; i >= 0; i--) {
-			const tmp = Number(a[i]) + Number(b[i]) + isPlus;
-			resultArr.unshift(tmp % 2);
-			if (tmp >= 2) isPlus = 1;
-			else isPlus = 0;
-		}
-		if (isPlus) resultArr.unshift(1);
-		return resultArr.reduce((x, y) => {
-			return String(x) + String(y);
-		}, "");
-	}
-	```
+    ```JavaScript
+    addBinary(a, b) {
+        const maxLength = Math.max(a.length, b.length);
+        b = b.padStart(maxLength, "0");
+        a = a.padStart(maxLength, "0");
+        const resultArr = [];
+        let isPlus = 0;
+        for (let i = a.length - 1; i >= 0; i--) {
+            const tmp = Number(a[i]) + Number(b[i]) + isPlus;
+            resultArr.unshift(tmp % 2);
+            if (tmp >= 2) isPlus = 1;
+            else isPlus = 0;
+        }
+        if (isPlus) resultArr.unshift(1);
+        return resultArr.reduce((x, y) => {
+            return String(x) + String(y);
+        }, "");
+    }
+    ```
 
 ## Sqrt
 > Given a non-negative integer `x`, compute and return the square root of `x`.  
@@ -871,23 +872,23 @@ Check the code.
 ### Code
 
 - **JavaScript**
-	```JavaScript
-	let beginNum = 0;
-	let endNum = x;
-	while (beginNum <= endNum) {
-		const midNum = beginNum + Math.floor((endNum - beginNum) / 2);
-		const val = midNum * midNum;
-		if (val === x) return midNum;
-		else if (val > x) {
-			endNum = midNum - 1;
-		} else beginNum = midNum + 1;
-	}
-	return endNum;
+    ```JavaScript
+    let beginNum = 0;
+    let endNum = x;
+    while (beginNum <= endNum) {
+        const midNum = beginNum + Math.floor((endNum - beginNum) / 2);
+        const val = midNum * midNum;
+        if (val === x) return midNum;
+        else if (val > x) {
+            endNum = midNum - 1;
+        } else beginNum = midNum + 1;
+    }
+    return endNum;
 
-	// let val = 0;
-	// while (val * val <= x) val++;
-	// return val - 1;
-	```
+    // let val = 0;
+    // while (val * val <= x) val++;
+    // return val - 1;
+    ```
 
 ## ClimbingStair [Dynamic Programming]
 > You are climbing a staircase. It takes `n` steps to reach the top.  
@@ -916,50 +917,50 @@ Explanation: There are three ways to climb to the top.
 - Deep First Search (**Inefficient way O(2^n)**).   
   If the purpose is to **get the shortest way** to Climbing up the Stair. Maybe use it.
   ```JavaScript
-	let sum = 0;
-	let resultNum = 0;
-	let operateStep = [];
-	function dfs(sum, step) {
-		if (step) operateStep.push(step);
-		if (sum > n) {
-			return 0;
-		}
-		if (sum === n) {
-			console.log(operateStep);
-			resultNum++;
-			return 0;
-		}
-		dfs(sum + 1, 1);
-		operateStep.pop();
-		dfs(sum + 2, 2);
-		operateStep.pop();
-	}
-	dfs(sum);
-	return resultNum;
+    let sum = 0;
+    let resultNum = 0;
+    let operateStep = [];
+    function dfs(sum, step) {
+        if (step) operateStep.push(step);
+        if (sum > n) {
+            return 0;
+        }
+        if (sum === n) {
+            console.log(operateStep);
+            resultNum++;
+            return 0;
+        }
+        dfs(sum + 1, 1);
+        operateStep.pop();
+        dfs(sum + 2, 2);
+        operateStep.pop();
+    }
+    dfs(sum);
+    return resultNum;
   ```
 - Dynamic Programming (Top down Memoization).  
   We have two different way to climbing the stair.Step by `1` or `2`.If we climbing a `three` step height stair, its pattern will be the sum of the `one step height stair` and the `two step height stair`. Check the code.
   
   ```JavaScript
-	function dp(target) {
-		let memoArr = new Array(target + 1);
-		memoArr[1] = 1;
-		memoArr[2] = 2;
-		for (let i = 3; i <= n; i++) {
-			memoArr[i] = memoArr[i - 1] + memoArr[i - 2];
-		}
-		return memoArr[target]
-	}
+    function dp(target) {
+        let memoArr = new Array(target + 1);
+        memoArr[1] = 1;
+        memoArr[2] = 2;
+        for (let i = 3; i <= n; i++) {
+            memoArr[i] = memoArr[i - 1] + memoArr[i - 2];
+        }
+        return memoArr[target]
+    }
 
-	let MemoryArr = []
-	function dpTopDown(target) {
-		if (target === 1) return 1;
-		if (target === 2) return 2;
-		if (MemoryArr[target] !== undefined) return MemoryArr[target];
-		let result = dpTopDown(target - 1) + dpTopDown(target - 2);
-		MemoryArr[target] = result;
-		return result;
-	}
+    let MemoryArr = []
+    function dpTopDown(target) {
+        if (target === 1) return 1;
+        if (target === 2) return 2;
+        if (MemoryArr[target] !== undefined) return MemoryArr[target];
+        let result = dpTopDown(target - 1) + dpTopDown(target - 2);
+        MemoryArr[target] = result;
+        return result;
+    }
 
   ```
 - Dynamic Programming (Bottom Up).
@@ -970,14 +971,14 @@ Explanation: There are three ways to climb to the top.
   - And then, we find out. 
 
   ```JavaScript
-	let bottom1 = 1;
-	let bottom2 = 1;
-	for (let i = 0; i < n - 1; i++) {
-		let temp = bottom1;
-		bottom1 = bottom1 + bottom2;
-		bottom2 = temp;
-	}
-	return bottom1;
+    let bottom1 = 1;
+    let bottom2 = 1;
+    for (let i = 0; i < n - 1; i++) {
+        let temp = bottom1;
+        bottom1 = bottom1 + bottom2;
+        bottom2 = temp;
+    }
+    return bottom1;
   ```
 
 ## Remove Duplicates from Sorted List
@@ -1003,28 +1004,28 @@ Check the code.
 ### Code 
 - **JavaScript**
   ```JavaScript
-	// Ugly way
-	let listNode = transform2ListNode(array);
-	if (!listNode) return listNode;
-	let head = listNode;
-	let tmp = listNode.next;
-	while (tmp) {
-		if (head.val === tmp.val) {
-			head.next = head.next.next;
-			tmp = head.next;
-		} else {
-			head = tmp;
-			tmp = head.next;
-		}
-	}
-	return listNode;
+    // Ugly way
+    let listNode = transform2ListNode(array);
+    if (!listNode) return listNode;
+    let head = listNode;
+    let tmp = listNode.next;
+    while (tmp) {
+        if (head.val === tmp.val) {
+            head.next = head.next.next;
+            tmp = head.next;
+        } else {
+            head = tmp;
+            tmp = head.next;
+        }
+    }
+    return listNode;
 
-	//Recursive way
-	function deleteDuplicate(ListNode) {
-		if (ListNode === null || ListNode.next === null) return ListNode;
-		ListNode.next = deleteDuplicate(ListNode.next);
-		return ListNode.val === ListNode.next.val ? ListNode.next : ListNode;
-	}
+    //Recursive way
+    function deleteDuplicate(ListNode) {
+        if (ListNode === null || ListNode.next === null) return ListNode;
+        ListNode.next = deleteDuplicate(ListNode.next);
+        return ListNode.val === ListNode.next.val ? ListNode.next : ListNode;
+    }
   ```
 
 ## Merge Sorted Array
@@ -1151,28 +1152,28 @@ Check the code.
 ### Code 
 - **JavaScript**
   ```JavaScript
-  	isSameTree(p, q) {
-		/**
-		 * Definition for a binary tree node.
-		 * function TreeNode(val, left, right) {
-		 *     this.val = (val===undefined ? 0 : val)
-		 *     this.left = (left===undefined ? null : left)
-		 *     this.right = (right===undefined ? null : right)
-		 * }
-		 */
-		/**
-		 * @param {TreeNode} p
-		 * @param {TreeNode} q
-		 * @return {boolean}
-		 */
-		if (p === null && q === null) return true;
-		if (p === null || q === null) return false;
-		if (p.val === q.val) {
-			return (
-				this.isSameTree(p.left, q.left) && this.isSameTree(p.right, q.right)
-			);
-		}
-	}
+      isSameTree(p, q) {
+        /**
+         * Definition for a binary tree node.
+         * function TreeNode(val, left, right) {
+         *     this.val = (val===undefined ? 0 : val)
+         *     this.left = (left===undefined ? null : left)
+         *     this.right = (right===undefined ? null : right)
+         * }
+         */
+        /**
+         * @param {TreeNode} p
+         * @param {TreeNode} q
+         * @return {boolean}
+         */
+        if (p === null && q === null) return true;
+        if (p === null || q === null) return false;
+        if (p.val === q.val) {
+            return (
+                this.isSameTree(p.left, q.left) && this.isSameTree(p.right, q.right)
+            );
+        }
+    }
   ```
 
 ## Symmetric Tree
@@ -1197,14 +1198,56 @@ Check the  code.
 ### Code
 - **JavaScript**
   ```JavaScript
-	var isSymmetric = function(root) {
-		function recursiveCheck(left, right) {
-				if(left === right) return true;
-				if (!left || !right) return false;
-				if (left.val !== right.val) return false;
-				return recursiveCheck(left.left, right.right) && recursiveCheck(left.right, right.left);
-		}
-		return recursiveCheck(root.left, root.right);
-	};
+    var isSymmetric = function(root) {
+        function recursiveCheck(left, right) {
+                if(left === right) return true;
+                if (!left || !right) return false;
+                if (left.val !== right.val) return false;
+                return recursiveCheck(left.left, right.right) && recursiveCheck(left.right, right.left);
+        }
+        return recursiveCheck(root.left, root.right);
+    };
 
   ```
+
+## Maximum Depth of Binary Tree
+> Given the `root` of a binary tree, return its maximum depth;  
+> a  binary tree's **maximum depth** is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+**Example:**
+```
+Input: root = [3,9,20,null,null,15,7]
+Output: 3
+
+Input: root = [1,null,2]
+Output: 2
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range `[0, 104]`.
+- `-100 <= Node.val <= 100`
+
+### **Solutions**
+Don't use the extra space to declare a recursive function to implement the traversal feature.Check the code. And always use this though to solve the "Maximum" question in recursive structure.
+
+### Code
+- JavaScript
+	```javascript
+		/**
+	 * Definition for a binary tree node.
+	 * function TreeNode(val, left, right) {
+	 *     this.val = (val===undefined ? 0 : val)
+	 *     this.left = (left===undefined ? null : left)
+	 *     this.right = (right===undefined ? null : right)
+	 * }
+	 */
+	/**
+	 * @param {TreeNode} root
+	 * @return {number}
+	 */
+	var maxDepth = function(root) {
+	    let depth = 0;
+	    if (!root || root.val === null) return depth;
+	    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+	};
+	```

@@ -506,6 +506,24 @@ class Solution {
 		}
 		return recursiveCheck(root.left, root.right);
 	}
+
+	maxDepth(root) {
+		/**
+		 * Definition for a binary tree node.
+		 * function TreeNode(val, left, right) {
+		 *     this.val = (val===undefined ? 0 : val)
+		 *     this.left = (left===undefined ? null : left)
+		 *     this.right = (right===undefined ? null : right)
+		 * }
+		 */
+		/**
+		 * @param {TreeNode} root
+		 * @return {number}
+		 */
+		let depth = 0;
+		if (!root || root.val === null) return depth;
+		return Math.max(this.maxDepth(root.left), this.maxDepth(root.right)) + 1;
+	}
 }
 
 // Test
