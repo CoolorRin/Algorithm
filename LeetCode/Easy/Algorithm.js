@@ -524,6 +524,31 @@ class Solution {
 		if (!root || root.val === null) return depth;
 		return Math.max(this.maxDepth(root.left), this.maxDepth(root.right)) + 1;
 	}
+
+	sortedArrayToBST(nums) {
+		/**
+		 * Definition for a binary tree node.
+		 * function TreeNode(val, left, right) {
+		 *     this.val = (val===undefined ? 0 : val)
+		 *     this.left = (left===undefined ? null : left)
+		 *     this.right = (right===undefined ? null : right)
+		 * }
+		 */
+		/**
+		 * @param {number[]} nums
+		 * @return {TreeNode}
+		 */
+		if (!nums || nums.length === 0) return null;
+		if (nums.length === 1) return new TreeNode(nums[0]);
+		const midNum = Math.floor(nums.length / 2);
+		console.log(midNum);
+		let root = new TreeNode(
+			nums[midNum],
+			sortedArrayToBST(nums.slice(0, midNum)),
+			sortedArrayToBST(nums.slice(midNum + 1))
+		);
+		return root;
+	}
 }
 
 // Test

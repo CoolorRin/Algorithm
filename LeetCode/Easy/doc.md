@@ -23,6 +23,7 @@
 	- [SameTree](#sametree)
 	- [Symmetric Tree](#symmetric-tree)
 	- [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
+	- [Convert Sorted Array to Binary Search Tree](#convert-sorted-array-to-binary-search-tree)
 
 
 ## Two Sum
@@ -1232,22 +1233,74 @@ Don't use the extra space to declare a recursive function to implement the trave
 
 ### Code
 - JavaScript
-	```javascript
+    ```javascript
+        /**
+     * Definition for a binary tree node.
+     * function TreeNode(val, left, right) {
+     *     this.val = (val===undefined ? 0 : val)
+     *     this.left = (left===undefined ? null : left)
+     *     this.right = (right===undefined ? null : right)
+     * }
+     */
+    /**
+     * @param {TreeNode} root
+     * @return {number}
+     */
+    var maxDepth = function(root) {
+        let depth = 0;
+        if (!root || root.val === null) return depth;
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+    };
+    ```
+
+## Convert Sorted Array to Binary Search Tree
+> Given an integer array `nums` where the elements are sorted in **ascending order**, convert it to a **height-balanced** binary search tree. A height-balanced binary tree is a binary tree in which the depth of the two subtree of every node nerve differs by more than one.
+
+**Example**
+```
+Input: nums = [-10,-3,0,5,9]
+Output: [0,-3,9,-10,null,5]
+Explanation: [0,-10,5,null,-3,null,9] is also accepted:
+
+Input: nums = [1,3]
+Output: [3,1]
+Explanation: [1,null,3] and [3,1] are both height-balanced BSTs.
+```
+
+**Constraints**
+- `1 <= nums.length <= 104`
+- `-104 <= nums[i] <= 104`
+- nums is sorted in a **strictly increasing** order.
+
+### **Solutions**
+Check the code. And check what is the Binary Search Tree(BST).
+
+### Code
+- **JavaScript**
+  ```javascript
+  	sortedArrayToBST(nums) {
 		/**
-	 * Definition for a binary tree node.
-	 * function TreeNode(val, left, right) {
-	 *     this.val = (val===undefined ? 0 : val)
-	 *     this.left = (left===undefined ? null : left)
-	 *     this.right = (right===undefined ? null : right)
-	 * }
-	 */
-	/**
-	 * @param {TreeNode} root
-	 * @return {number}
-	 */
-	var maxDepth = function(root) {
-	    let depth = 0;
-	    if (!root || root.val === null) return depth;
-	    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
-	};
+		 * Definition for a binary tree node.
+		 * function TreeNode(val, left, right) {
+		 *     this.val = (val===undefined ? 0 : val)
+		 *     this.left = (left===undefined ? null : left)
+		 *     this.right = (right===undefined ? null : right)
+		 * }
+		 */
+		/**
+		 * @param {number[]} nums
+		 * @return {TreeNode}
+		 */
+		if (!nums || nums.length === 0) return null;
+		if (nums.length === 1) return new TreeNode(nums[0]);
+		const midNum = Math.floor(nums.length / 2);
+		console.log(midNum);
+		let root = new TreeNode(
+			nums[midNum],
+			sortedArrayToBST(nums.slice(0, midNum)),
+			sortedArrayToBST(nums.slice(midNum + 1))
+		);
+		return root;
+	}
+	
 	```
