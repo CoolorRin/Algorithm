@@ -24,6 +24,8 @@
 	- [Symmetric Tree](#symmetric-tree)
 	- [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
 	- [Convert Sorted Array to Binary Search Tree](#convert-sorted-array-to-binary-search-tree)
+	- [Balanced Binary Tree](#balanced-binary-tree)
+	- [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
 
 
 ## Two Sum
@@ -1303,4 +1305,105 @@ Check the code. And check what is the Binary Search Tree(BST).
 		return root;
 	}
 	
+	```
+
+## Balanced Binary Tree
+> Given a binary tree, determine if it is height-balanced.  
+> For this problem, a height-balanced binary tree is defined as:  
+> a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
+
+**Example:**
+```
+Input: root = [3,9,20,null,null,15,7]
+Output: true
+
+Input: root = [1,2,2,3,3,null,null,4,4]
+Output: false
+
+Input: root = []
+Output: true
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range `[0, 5000]`.
+- `-104 <= Node.val <= 104`
+
+### **Solutions**
+Check the code. Keep the `Bottom Up` way in mind.
+
+### Code
+- **JavaScript**
+  ```JavaScript
+  function isBalanced(root) {
+		/**
+		 * Definition for a binary tree node.
+		 * function TreeNode(val, left, right) {
+		 *     this.val = (val===undefined ? 0 : val)
+		 *     this.left = (left===undefined ? null : left)
+		 *     this.right = (right===undefined ? null : right)
+		 * }
+		 */
+		/**
+		 * @param {TreeNode} root
+		 * @return {boolean}
+		 */
+
+		// DFS Way O(NlogN)
+		const getDepth = (root) => {
+			if (root === null) return 0;
+			return Math.max(getDepth(root.left), getDepth(root.right) + 1);
+		};
+		if (root === null) return true;
+		const leftDepth = getDepth(root.left);
+		const rightDepth = getDepth(root.right);
+		return (
+			Math.abs(leftDepth - rightDepth) <= 1 &&
+			this.isBalanced(root.left) &&
+			this.isBalanced(root.right)
+		);
+
+		// Bottom Up
+		function bottomUp(root) {
+			if (root === null) return [true, 0];
+			const left = bottomUp(root.left);
+			const right = bottomUp(root.right);
+			const balanced = left[0] && right[0] && Math.abs(left[1] - right[1]) <= 1;
+			return [balanced, Math.max(left[1], right[1]) + 1];
+		}
+		return bottomUp(root)[0];
+	} 
+	```
+
+## Minimum Depth of Binary Tree
+> Given a binary tree, find its minimum depth.  
+> The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.  
+> **Note**: A leaf is a node with no children.
+
+**Example:**
+```
+Input: root = [3,9,20,null,null,15,7]
+Output: 2
+
+Input: root = [2,null,3,null,4,null,5,null,6]
+Output: 5
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range `[0, 105]`.
+- `-1000 <= Node.val <= 1000`
+
+### **Solutions**
+Check the code.
+
+### Code
+- **JavaScript**
+  ```JavaScript
+	function minDepth(root) {
+		if (root === null) return 0;
+		const left = minDepth(root.left);
+		const right = minDepth(root.right);
+		return left === 0 || right === 0
+			? Math.max(left, right) + 1
+			: Math.min(left, right) + 1;
+	}
 	```
