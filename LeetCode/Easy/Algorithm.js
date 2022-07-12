@@ -565,18 +565,18 @@ class Solution {
 		 */
 
 		// DFS Way O(NlogN)
-		const getDepth = (root) => {
-			if (root === null) return 0;
-			return Math.max(getDepth(root.left), getDepth(root.right) + 1);
-		};
-		if (root === null) return true;
-		const leftDepth = getDepth(root.left);
-		const rightDepth = getDepth(root.right);
-		return (
-			Math.abs(leftDepth - rightDepth) <= 1 &&
-			this.isBalanced(root.left) &&
-			this.isBalanced(root.right)
-		);
+		// const getDepth = (root) => {
+		// 	if (root === null) return 0;
+		// 	return Math.max(getDepth(root.left), getDepth(root.right) + 1);
+		// };
+		// if (root === null) return true;
+		// const leftDepth = getDepth(root.left);
+		// const rightDepth = getDepth(root.right);
+		// return (
+		// 	Math.abs(leftDepth - rightDepth) <= 1 &&
+		// 	this.isBalanced(root.left) &&
+		// 	this.isBalanced(root.right)
+		// );
 
 		// Bottom Up
 		function bottomUp(root) {
