@@ -524,6 +524,79 @@ class Solution {
 		if (!root || root.val === null) return depth;
 		return Math.max(this.maxDepth(root.left), this.maxDepth(root.right)) + 1;
 	}
+
+	sortedArrayToBST(nums) {
+		/**
+		 * Definition for a binary tree node.
+		 * function TreeNode(val, left, right) {
+		 *     this.val = (val===undefined ? 0 : val)
+		 *     this.left = (left===undefined ? null : left)
+		 *     this.right = (right===undefined ? null : right)
+		 * }
+		 */
+		/**
+		 * @param {number[]} nums
+		 * @return {TreeNode}
+		 */
+		if (!nums || nums.length === 0) return null;
+		if (nums.length === 1) return new TreeNode(nums[0]);
+		const midNum = Math.floor(nums.length / 2);
+		console.log(midNum);
+		let root = new TreeNode(
+			nums[midNum],
+			sortedArrayToBST(nums.slice(0, midNum)),
+			sortedArrayToBST(nums.slice(midNum + 1))
+		);
+		return root;
+	}
+
+	isBalanced(root) {
+		/**
+		 * Definition for a binary tree node.
+		 * function TreeNode(val, left, right) {
+		 *     this.val = (val===undefined ? 0 : val)
+		 *     this.left = (left===undefined ? null : left)
+		 *     this.right = (right===undefined ? null : right)
+		 * }
+		 */
+		/**
+		 * @param {TreeNode} root
+		 * @return {boolean}
+		 */
+
+		// DFS Way O(NlogN)
+		// const getDepth = (root) => {
+		// 	if (root === null) return 0;
+		// 	return Math.max(getDepth(root.left), getDepth(root.right) + 1);
+		// };
+		// if (root === null) return true;
+		// const leftDepth = getDepth(root.left);
+		// const rightDepth = getDepth(root.right);
+		// return (
+		// 	Math.abs(leftDepth - rightDepth) <= 1 &&
+		// 	this.isBalanced(root.left) &&
+		// 	this.isBalanced(root.right)
+		// );
+
+		// Bottom Up
+		function bottomUp(root) {
+			if (root === null) return [true, 0];
+			const left = bottomUp(root.left);
+			const right = bottomUp(root.right);
+			const balanced = left[0] && right[0] && Math.abs(left[1] - right[1]) <= 1;
+			return [balanced, Math.max(left[1], right[1]) + 1];
+		}
+		return bottomUp(root)[0];
+	}
+
+	minDepth(root) {
+		if (root === null) return 0;
+		const left = minDepth(root.left);
+		const right = minDepth(root.right);
+		return left === 0 || right === 0
+			? Math.max(left, right) + 1
+			: Math.min(left, right) + 1;
+	}
 }
 
 // Test
