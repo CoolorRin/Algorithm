@@ -606,8 +606,25 @@ class Solution {
 			this.hasPathSum(root.right, targetSum - root.val)
 		);
 	}
+	generate(numRows) {
+		let resultArr = [];
+		for (let element = 1; element <= numRows; element++) {
+			if (element === 1) resultArr.push([1]);
+			if (element === 2) resultArr.push([1, 1]);
+			if (element > 2) {
+				let arr = [1];
+				for (let index = 1; index < element - 1; index++) {
+					arr[index] =
+						resultArr[element - 2][index] + resultArr[element - 2][index - 1];
+				}
+				arr.push(1);
+				resultArr.push(arr);
+			}
+		}
+		return resultArr;
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.inorderTraversal([1, null, 2, 3]));
+console.log(testSolution.generate(5));
