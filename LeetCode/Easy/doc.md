@@ -27,7 +27,6 @@
   - [Balanced Binary Tree](#balanced-binary-tree)
   - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
   - [Path Sum](#path-sum)
-  - [**Solutions**](#solutions)
 
 
 ## Two Sum
@@ -1437,7 +1436,7 @@ Explanation: Since the tree is empty, there are no root-to-leaf paths.
 - `-1000 <= Node.val <= 1000`
 - `-1000 <= targetSum <= 1000`
 
-## **Solutions**
+### **Solutions**
 Check the code.
 
 ### Code
