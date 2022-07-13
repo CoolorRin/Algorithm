@@ -2,30 +2,32 @@
 **Table Content**
 
 - [Easy Question](#easy-question)
-	- [Two Sum](#two-sum)
-	- [Palindrome Number](#palindrome-number)
-	- [Roman to Integer](#roman-to-integer)
-	- [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
-	- [Merge Two Sorted Lists](#merge-two-sorted-lists)
-	- [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
-	- [Remove Element](#remove-element)
-	- [Implement strStr()](#implement-strstr)
-	- [Search insert position](#search-insert-position)
-	- [Maximum Subarray](#maximum-subarray)
-	- [Length of Last word](#length-of-last-word)
-	- [Plus one](#plus-one)
-	- [Add Binary](#add-binary)
-	- [Sqrt](#sqrt)
-	- [ClimbingStair [Dynamic Programming]](#climbingstair-dynamic-programming)
-	- [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
-	- [Merge Sorted Array](#merge-sorted-array)
-	- [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
-	- [SameTree](#sametree)
-	- [Symmetric Tree](#symmetric-tree)
-	- [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
-	- [Convert Sorted Array to Binary Search Tree](#convert-sorted-array-to-binary-search-tree)
-	- [Balanced Binary Tree](#balanced-binary-tree)
-	- [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
+  - [Two Sum](#two-sum)
+  - [Palindrome Number](#palindrome-number)
+  - [Roman to Integer](#roman-to-integer)
+  - [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
+  - [Merge Two Sorted Lists](#merge-two-sorted-lists)
+  - [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
+  - [Remove Element](#remove-element)
+  - [Implement strStr()](#implement-strstr)
+  - [Search insert position](#search-insert-position)
+  - [Maximum Subarray](#maximum-subarray)
+  - [Length of Last word](#length-of-last-word)
+  - [Plus one](#plus-one)
+  - [Add Binary](#add-binary)
+  - [Sqrt](#sqrt)
+  - [ClimbingStair [Dynamic Programming]](#climbingstair-dynamic-programming)
+  - [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
+  - [Merge Sorted Array](#merge-sorted-array)
+  - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
+  - [SameTree](#sametree)
+  - [Symmetric Tree](#symmetric-tree)
+  - [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
+  - [Convert Sorted Array to Binary Search Tree](#convert-sorted-array-to-binary-search-tree)
+  - [Balanced Binary Tree](#balanced-binary-tree)
+  - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
+  - [Path Sum](#path-sum)
+  - [**Solutions**](#solutions)
 
 
 ## Two Sum
@@ -1407,3 +1409,47 @@ Check the code.
 			: Math.min(left, right) + 1;
 	}
 	```
+
+## Path Sum
+> Given the root of a binary tree and an integer targetSum, return `true` if the tree has a **root-to-leaf** path such that adding up all the values along the path equals `targetSum`.  
+> A **leaf** is a node with no children/
+
+**Example:**
+```
+Input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
+Output: true
+Explanation: The root-to-leaf path with the target sum is shown.
+
+Input: root = [1,2,3], targetSum = 5
+Output: false
+Explanation: There two root-to-leaf paths in the tree:
+(1 --> 2): The sum is 3.
+(1 --> 3): The sum is 4.
+There is no root-to-leaf path with sum = 5.
+
+Input: root = [], targetSum = 0
+Output: false
+Explanation: Since the tree is empty, there are no root-to-leaf paths.
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range `[0, 5000]`.
+- `-1000 <= Node.val <= 1000`
+- `-1000 <= targetSum <= 1000`
+
+## **Solutions**
+Check the code.
+
+### Code
+- **JavaScript**
+  ```javascript
+  	hasPathSum(root, targetSum) {
+		if (root === null) return false;
+		if (root.left === null && root.right === null && targetSum - root.val === 0)
+			return true;
+		return (
+			this.hasPathSum(root.left, targetSum - root.val) ||
+			this.hasPathSum(root.right, targetSum - root.val)
+		);
+	}
+  ```

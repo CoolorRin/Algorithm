@@ -597,6 +597,15 @@ class Solution {
 			? Math.max(left, right) + 1
 			: Math.min(left, right) + 1;
 	}
+	hasPathSum(root, targetSum) {
+		if (root === null) return false;
+		if (root.left === null && root.right === null && targetSum - root.val === 0)
+			return true;
+		return (
+			this.hasPathSum(root.left, targetSum - root.val) ||
+			this.hasPathSum(root.right, targetSum - root.val)
+		);
+	}
 }
 
 // Test
