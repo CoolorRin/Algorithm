@@ -28,6 +28,7 @@
   - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
   - [Path Sum](#path-sum)
   - [Pascal's Triangle](#pascals-triangle)
+  - [Pascal's Triangle II](#pascals-triangle-ii)
 
 
 ## Two Sum
@@ -1282,32 +1283,32 @@ Check the code. And check what is the Binary Search Tree(BST).
 ### Code
 - **JavaScript**
   ```javascript
-  	sortedArrayToBST(nums) {
-		/**
-		 * Definition for a binary tree node.
-		 * function TreeNode(val, left, right) {
-		 *     this.val = (val===undefined ? 0 : val)
-		 *     this.left = (left===undefined ? null : left)
-		 *     this.right = (right===undefined ? null : right)
-		 * }
-		 */
-		/**
-		 * @param {number[]} nums
-		 * @return {TreeNode}
-		 */
-		if (!nums || nums.length === 0) return null;
-		if (nums.length === 1) return new TreeNode(nums[0]);
-		const midNum = Math.floor(nums.length / 2);
-		console.log(midNum);
-		let root = new TreeNode(
-			nums[midNum],
-			sortedArrayToBST(nums.slice(0, midNum)),
-			sortedArrayToBST(nums.slice(midNum + 1))
-		);
-		return root;
-	}
-	
-	```
+    sortedArrayToBST(nums) {
+    /**
+     * Definition for a binary tree node.
+     * function TreeNode(val, left, right) {
+     *     this.val = (val===undefined ? 0 : val)
+     *     this.left = (left===undefined ? null : left)
+     *     this.right = (right===undefined ? null : right)
+     * }
+     */
+    /**
+     * @param {number[]} nums
+     * @return {TreeNode}
+     */
+    if (!nums || nums.length === 0) return null;
+    if (nums.length === 1) return new TreeNode(nums[0]);
+    const midNum = Math.floor(nums.length / 2);
+    console.log(midNum);
+    let root = new TreeNode(
+      nums[midNum],
+      sortedArrayToBST(nums.slice(0, midNum)),
+      sortedArrayToBST(nums.slice(midNum + 1))
+    );
+    return root;
+  }
+  
+  ```
 
 ## Balanced Binary Tree
 > Given a binary tree, determine if it is height-balanced.  
@@ -1337,44 +1338,44 @@ Check the code. Keep the `Bottom Up` way in mind.
 - **JavaScript**
   ```JavaScript
   function isBalanced(root) {
-		/**
-		 * Definition for a binary tree node.
-		 * function TreeNode(val, left, right) {
-		 *     this.val = (val===undefined ? 0 : val)
-		 *     this.left = (left===undefined ? null : left)
-		 *     this.right = (right===undefined ? null : right)
-		 * }
-		 */
-		/**
-		 * @param {TreeNode} root
-		 * @return {boolean}
-		 */
+    /**
+     * Definition for a binary tree node.
+     * function TreeNode(val, left, right) {
+     *     this.val = (val===undefined ? 0 : val)
+     *     this.left = (left===undefined ? null : left)
+     *     this.right = (right===undefined ? null : right)
+     * }
+     */
+    /**
+     * @param {TreeNode} root
+     * @return {boolean}
+     */
 
-		// DFS Way O(NlogN)
-		const getDepth = (root) => {
-			if (root === null) return 0;
-			return Math.max(getDepth(root.left), getDepth(root.right) + 1);
-		};
-		if (root === null) return true;
-		const leftDepth = getDepth(root.left);
-		const rightDepth = getDepth(root.right);
-		return (
-			Math.abs(leftDepth - rightDepth) <= 1 &&
-			this.isBalanced(root.left) &&
-			this.isBalanced(root.right)
-		);
+    // DFS Way O(NlogN)
+    const getDepth = (root) => {
+      if (root === null) return 0;
+      return Math.max(getDepth(root.left), getDepth(root.right) + 1);
+    };
+    if (root === null) return true;
+    const leftDepth = getDepth(root.left);
+    const rightDepth = getDepth(root.right);
+    return (
+      Math.abs(leftDepth - rightDepth) <= 1 &&
+      this.isBalanced(root.left) &&
+      this.isBalanced(root.right)
+    );
 
-		// Bottom Up
-		function bottomUp(root) {
-			if (root === null) return [true, 0];
-			const left = bottomUp(root.left);
-			const right = bottomUp(root.right);
-			const balanced = left[0] && right[0] && Math.abs(left[1] - right[1]) <= 1;
-			return [balanced, Math.max(left[1], right[1]) + 1];
-		}
-		return bottomUp(root)[0];
-	} 
-	```
+    // Bottom Up
+    function bottomUp(root) {
+      if (root === null) return [true, 0];
+      const left = bottomUp(root.left);
+      const right = bottomUp(root.right);
+      const balanced = left[0] && right[0] && Math.abs(left[1] - right[1]) <= 1;
+      return [balanced, Math.max(left[1], right[1]) + 1];
+    }
+    return bottomUp(root)[0];
+  } 
+  ```
 
 ## Minimum Depth of Binary Tree
 > Given a binary tree, find its minimum depth.  
@@ -1400,15 +1401,15 @@ Check the code.
 ### Code
 - **JavaScript**
   ```JavaScript
-	function minDepth(root) {
-		if (root === null) return 0;
-		const left = minDepth(root.left);
-		const right = minDepth(root.right);
-		return left === 0 || right === 0
-			? Math.max(left, right) + 1
-			: Math.min(left, right) + 1;
-	}
-	```
+  function minDepth(root) {
+    if (root === null) return 0;
+    const left = minDepth(root.left);
+    const right = minDepth(root.right);
+    return left === 0 || right === 0
+      ? Math.max(left, right) + 1
+      : Math.min(left, right) + 1;
+  }
+  ```
 
 ## Path Sum
 > Given the root of a binary tree and an integer targetSum, return `true` if the tree has a **root-to-leaf** path such that adding up all the values along the path equals `targetSum`.  
@@ -1443,15 +1444,15 @@ Check the code.
 ### Code
 - **JavaScript**
   ```javascript
-  	hasPathSum(root, targetSum) {
-		if (root === null) return false;
-		if (root.left === null && root.right === null && targetSum - root.val === 0)
-			return true;
-		return (
-			this.hasPathSum(root.left, targetSum - root.val) ||
-			this.hasPathSum(root.right, targetSum - root.val)
-		);
-	}
+    hasPathSum(root, targetSum) {
+    if (root === null) return false;
+    if (root.left === null && root.right === null && targetSum - root.val === 0)
+      return true;
+    return (
+      this.hasPathSum(root.left, targetSum - root.val) ||
+      this.hasPathSum(root.right, targetSum - root.val)
+    );
+  }
   ```
 
 ## Pascal's Triangle
@@ -1477,21 +1478,60 @@ Output: [[1]]
 ### Code
 - **JavScript**
   ```javascript
-  	generate(numRows) {
-		let resultArr = [];
-		for (let element = 1; element <= numRows; element++) {
-			if (element === 1) resultArr.push([1]);
-			if (element === 2) resultArr.push([1, 1]);
-			if (element > 2) {
-				let arr = [1];
-				for (let index = 1; index < element - 1; index++) {
-					arr[index] =
-						resultArr[element - 2][index] + resultArr[element - 2][index - 1];
-				}
-				arr.push(1);
-				resultArr.push(arr);
-			}
-		}
-		return resultArr;
-	}
+    generate(numRows) {
+    let resultArr = [];
+    for (let element = 1; element <= numRows; element++) {
+      if (element === 1) resultArr.push([1]);
+      if (element === 2) resultArr.push([1, 1]);
+      if (element > 2) {
+        let arr = [1];
+        for (let index = 1; index < element - 1; index++) {
+          arr[index] =
+            resultArr[element - 2][index] + resultArr[element - 2][index - 1];
+        }
+        arr.push(1);
+        resultArr.push(arr);
+      }
+    }
+    return resultArr;
+  }
+  ```
+
+## Pascal's Triangle II
+> Given an integer rowIndex, return the rowIndexth (**0-indexed**) row of the **Pascal's triangle**.  
+> In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:
+
+**Example:**
+
+```
+Input: rowIndex = 3
+Output: [1,3,3,1]
+
+Input: rowIndex = 0
+Output: [1]
+
+Input: rowIndex = 1
+Output: [1,1]
+```
+
+**Constraints:**
+- `0 <= rowIndex <= 33`
+
+### **Solutions**
+Both of questions about the pascals triangle are inefficient. Find the way to optimize it in the weekend PR commit.  
+For Now, Just Check the code below.
+
+### Code
+- **JavaScript**
+  ```JavaScript
+    var getRow = function(rowIndex) {
+      if (rowIndex === 0) return [1];
+      if (rowIndex === 1) return [1,1];
+      const arr = []
+      getRow(rowIndex - 1).reduce((x, y) => {
+          arr.push(x + y);
+          return y;
+      });
+      return [1, ...arr, 1];
+    };  
   ```

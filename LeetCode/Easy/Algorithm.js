@@ -623,6 +623,17 @@ class Solution {
 		}
 		return resultArr;
 	}
+
+	getRow(rowIndex) {
+		if (rowIndex === 0) return [1];
+		if (rowIndex === 1) return [1, 1];
+		const arr = [];
+		getRow(rowIndex - 1).reduce((x, y) => {
+			arr.push(x + y);
+			return y;
+		});
+		return [1, ...arr, 1];
+	}
 }
 
 // Test
