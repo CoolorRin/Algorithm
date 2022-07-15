@@ -634,6 +634,24 @@ class Solution {
 		});
 		return [1, ...arr, 1];
 	}
+
+	maxProfit(prices) {
+		let result = 0;
+		let boughtPricesIndex = 0;
+		let sellPricesIndex = 1;
+		while (sellPricesIndex <= prices.length) {
+			if (prices[boughtPricesIndex] < prices[sellPricesIndex]) {
+				result = Math.max(
+					prices[sellPricesIndex] - prices[boughtPricesIndex],
+					result
+				);
+			} else {
+				boughtPricesIndex = sellPricesIndex;
+			}
+			sellPricesIndex++;
+		}
+		return result;
+	}
 }
 
 // Test

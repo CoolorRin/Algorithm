@@ -29,6 +29,7 @@
   - [Path Sum](#path-sum)
   - [Pascal's Triangle](#pascals-triangle)
   - [Pascal's Triangle II](#pascals-triangle-ii)
+  - [Best TIme to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
 
 
 ## Two Sum
@@ -1534,4 +1535,47 @@ For Now, Just Check the code below.
       });
       return [1, ...arr, 1];
     };  
+  ```
+
+## Best TIme to Buy and Sell Stock
+> You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day.  
+> You want to maximize your profit by choosing **a single day** to buy one stock and choosing **a different day in the future** to sell that stock.  
+> Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.  
+
+**Example**
+```
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+
+Input: prices = [7,6,4,3,1]
+Output: 0
+Explanation: In this case, no transactions are done and the max profit = 0.
+```
+
+**Constraints**
+- `1 <= prices.length <= 105`
+- `0 <= prices[i] <= 104`
+
+### **Solutions**
+There are two main point to resolve this question. The day to sell the stock must be the right side from the day to buy the stock. To keep the time complexity is O(n), declare two point which point to the left and right. Then compare the profit to get the max one.
+
+### Code
+- **JavaScript**
+  ```JavaScript
+  var maxProfit = function(prices) {
+    let result = 0;
+    let boughtPricesIndex = 0;
+    let sellPricesIndex = 1;
+    while(sellPricesIndex <= prices.length ) {
+        if ( prices[boughtPricesIndex] < prices[sellPricesIndex]) {
+            result = Math.max(prices[sellPricesIndex] - prices[boughtPricesIndex], result);
+        } else {
+            boughtPricesIndex = sellPricesIndex;
+        }
+        sellPricesIndex++;
+    };
+    return result;
+  };
   ```
