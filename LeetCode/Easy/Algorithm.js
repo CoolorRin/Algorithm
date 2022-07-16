@@ -652,8 +652,69 @@ class Solution {
 		}
 		return result;
 	}
+
+	isPalindrome125(s) {
+		const test = /[a-zA-Z0-9]+/g;
+		if (s.match(test)) {
+			s = s
+				.match(/[a-zA-Z0-9]+/gm)
+				.reduce((x, y) => {
+					return x + y;
+				})
+				.toLowerCase();
+			console.log(s);
+			let leftPoint = 0;
+			let rightPoint = s.length - 1;
+			while (leftPoint <= rightPoint) {
+				if (s[leftPoint] === s[rightPoint]) {
+					leftPoint++;
+					rightPoint--;
+				} else return false;
+			}
+			return true;
+		}
+		return true;
+
+		// LeetCode Discuss kabriel's solutions; Nice one.
+		// function isLetter(code) {
+		// 	if (
+		// 		(code >= 48 && code <= 57) ||
+		// 		(code >= 65 && code <= 90) ||
+		// 		(code >= 97 && code <= 122)
+		// 	) {
+		// 		return true;
+		// 	} else return false;
+		// }
+
+		// function toLowerCase(code) {
+		// 	if (code >= 65 && code <= 90) {
+		// 		return code + 32;
+		// 	} else return code;
+		// }
+
+		// let leftPoint = 0;
+		// let rightPoint = s.length - 1;
+		// while (leftPoint <= rightPoint) {
+		// 	const start = s.charCodeAt(leftPoint);
+		// 	const end = s.charCodeAt(rightPoint);
+		// 	if (!isLetter(start)) {
+		// 		leftPoint++;
+		// 		continue;
+		// 	}
+		// 	if (!isLetter(end)) {
+		// 		rightPoint--;
+		// 		continue;
+		// 	}
+		// 	if (toLowerCase(start) !== toLowerCase(end)) {
+		// 		return false;
+		// 	}
+		// 	leftPoint++;
+		// 	rightPoint--;
+		// }
+		// return true;
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.generate(5));
+console.log(testSolution.isPalindrome125("A man, a plan, a canal: Panama"));

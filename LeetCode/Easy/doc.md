@@ -2,37 +2,40 @@
 **Table Content**
 
 - [Easy Question](#easy-question)
-  - [Two Sum](#two-sum)
-  - [Palindrome Number](#palindrome-number)
-  - [Roman to Integer](#roman-to-integer)
-  - [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
-  - [Merge Two Sorted Lists](#merge-two-sorted-lists)
-  - [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
-  - [Remove Element](#remove-element)
-  - [Implement strStr()](#implement-strstr)
-  - [Search insert position](#search-insert-position)
-  - [Maximum Subarray](#maximum-subarray)
-  - [Length of Last word](#length-of-last-word)
-  - [Plus one](#plus-one)
-  - [Add Binary](#add-binary)
-  - [Sqrt](#sqrt)
-  - [ClimbingStair [Dynamic Programming]](#climbingstair-dynamic-programming)
-  - [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
-  - [Merge Sorted Array](#merge-sorted-array)
-  - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
-  - [SameTree](#sametree)
-  - [Symmetric Tree](#symmetric-tree)
-  - [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
-  - [Convert Sorted Array to Binary Search Tree](#convert-sorted-array-to-binary-search-tree)
-  - [Balanced Binary Tree](#balanced-binary-tree)
-  - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
-  - [Path Sum](#path-sum)
-  - [Pascal's Triangle](#pascals-triangle)
-  - [Pascal's Triangle II](#pascals-triangle-ii)
-  - [Best TIme to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
+  - [Waiting for classification.](#waiting-for-classification)
+    - [Two Sum](#two-sum)
+    - [Palindrome Number](#palindrome-number)
+    - [Roman to Integer](#roman-to-integer)
+    - [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
+    - [Merge Two Sorted Lists](#merge-two-sorted-lists)
+    - [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
+    - [Remove Element](#remove-element)
+    - [Implement strStr()](#implement-strstr)
+    - [Search insert position](#search-insert-position)
+    - [Maximum Subarray](#maximum-subarray)
+    - [Length of Last word](#length-of-last-word)
+    - [Plus one](#plus-one)
+    - [Add Binary](#add-binary)
+    - [Sqrt](#sqrt)
+    - [ClimbingStair [Dynamic Programming]](#climbingstair-dynamic-programming)
+    - [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
+    - [Merge Sorted Array](#merge-sorted-array)
+    - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
+    - [SameTree](#sametree)
+    - [Symmetric Tree](#symmetric-tree)
+    - [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
+    - [Convert Sorted Array to Binary Search Tree](#convert-sorted-array-to-binary-search-tree)
+    - [Balanced Binary Tree](#balanced-binary-tree)
+    - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
+    - [Path Sum](#path-sum)
+    - [Pascal's Triangle](#pascals-triangle)
+    - [Pascal's Triangle II](#pascals-triangle-ii)
+    - [Best TIme to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
+    - [(125)Valid Palindrome](#125valid-palindrome)
 
+## Waiting for classification.
 
-## Two Sum
+### Two Sum
 
 > Given an array of intergers `nums` and an integer `target` , return indices of the two nomers such that they add up
 > to `target`,<br/>
@@ -46,7 +49,7 @@ Example:
   Output: [1,2];
   ```
 
-### **Solutions**
+#### **Solutions**
 
 - **Use the hashmap to make the Algorithm that is less than `O(n^2)` time complexity.**
 
@@ -54,7 +57,7 @@ Example:
   which is the target minus the value in the array is in the hashMap or not. If not, push element and the index to
   the `Hashmap` as its key, value and continue the loop.
 
-### Code
+#### Code
 
 - **JavaScript**
 
@@ -109,7 +112,7 @@ Example:
     }
     ```
 
-## Palindrome Number
+### Palindrome Number
 
 > Given an integer x, return true if x is palindrome integer.<br>
 > <br>An integer is a palindrome when it reads the same backward as forward
@@ -122,17 +125,13 @@ Input: x = 121
 Output: true
 ```
 
-### **Solutions**
+#### **Solutions**
 
-- Convert the `Number` to `String` to make the parameter is iterable and find out **Is the First Number same as the last
-  one, and so on.**
-
+- Convert the `Number` to `String` to make the parameter is iterable and find out **Is the First Number same as the last one, and so on.**  
 - Keep in mind that cut the Number in half, revert the behind part it will the same as the front part. So, use the **
-  Remainder Operator** to get the last one number from the given parameter. And remove it from the parameter and compare
-  with the reverted num untill the given number is less or equl the reverted number.**Each loop (the Initialized of
-  reverted num will be 0) the reverted number will times the 10 and plus the last number of the current parameter.**
+  Remainder Operator** to get the last one number from the given parameter. And remove it from the parameter and compare with the reverted num untill the given number is less or equl the reverted number.**Each loop (the Initialized of reverted num will be 0) the reverted number will times the 10 and plus the last number of the current parameter.**
 
-### Code
+#### Code
 
 - **JavaScript**
 
@@ -182,7 +181,7 @@ Output: true
         }
     ```
 
-## Roman to Integer
+### Roman to Integer
 
 > Roman numerals are repersented by serven different smbols: `I`, `V`, `X`, `L`, `C`, `D` and `M`.
 > | Symbol | Value |
@@ -202,14 +201,14 @@ Input: s = "III"
 Ouput: 3
 ```
 
-### **Solution**
+#### **Solution**
 
 - First thing come out from my mind is loop the whole RomanNumber String and compare with the next number. If the second
   number is bigger, it will be minus by the second number.Otherwise, plus it. **Problem is the lastest number should
   handle first. And no matter lasest number is,**
 - `Or Maybe it have the better way`
 
-### Code
+#### Code
 
 - **JavaScript**
 
@@ -267,7 +266,7 @@ Ouput: 3
 
     ```
 
-## Longest Common Prefix(LCP)
+### Longest Common Prefix(LCP)
 
 > Write a function to find the longest common prefix string amongst an array of strings.<br>
 > if there is no common prefix, return an empty string `""`
@@ -285,7 +284,7 @@ Output: "fl"
 - `0 <= strs[i].length <= 200`
 - `strs[i] consists of only lower-case English letters.`
 
-### **Solutions**
+#### **Solutions**
 
 - Just scanning all strings
   > Horizontal Scanning: <br> `LCP(str1, str2, ...strN) = LCP(LCP(LCP(str1, str2), str3), ...strN)`. <br>
@@ -296,7 +295,7 @@ Output: "fl"
   > See JavaScript code below.
 - [Other Solution](https://leetcode.com/problems/longest-common-prefix/solution/)
 
-### Code
+#### Code
 
 - **JavaScript**
 
@@ -346,7 +345,7 @@ Output: "fl"
     }
     ```
 
-## Merge Two Sorted Lists
+### Merge Two Sorted Lists
 
 > You are given the heads of wo sorted linked lists `list1` and `list2`<br>
 > Merge the two lists in a one **sorted** list. The list should be made by splicing together the nodes of the first two
@@ -372,11 +371,11 @@ Output: [0]
 - `-100 <= Node.val <= 100`
 - Both `list1` and `list2` are sored in **non-decreasing** order.
 
-### **Solutions**
+#### **Solutions**
 
 Check the code.
 
-### Code
+#### Code
 - **JavaScript**
 
     ```javascript
@@ -465,7 +464,7 @@ Check the code.
     
     ```
 
-## Remove Duplicates from Sorted Array
+### Remove Duplicates from Sorted Array
 
 > You are given the heads of wo sorted linked lists `list1` and `list2`<br>
 > Merge the two lists in a one **sorted** list. The list should be made by splicing together the nodes of the first two
@@ -492,11 +491,11 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 - -100 <= nums[i] <= 100
 - nums is sorted in non-decreasing order.
 
-### **Solutions**
+#### **Solutions**
 
 - Check the code.
 
-### Code
+#### Code
 
 - **JavaScript**
     ```javascript
@@ -528,7 +527,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
     }
     ```
 
-## Remove Element
+### Remove Element
 > Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
 
 **Example:**
@@ -545,10 +544,10 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
 - `0 <= nums[i] <= 50`
 - `0 <= val <= 100`
 
-### **Solutions**
+#### **Solutions**
 - Setting the based number `j`. it will always point to the number which isn't equal to the given value and place in the lastest position in the not-equal-to-value queue.And `i` will be itrate all the `nums`. If nums[i] not equal to the given value.Swtich the `nums[i]` and the `nums[j]`'s position, then `j++`. In the end, the value of `j` will be the result.
 
-### Code
+#### Code
 
 - **JavaScript**
     ```javascript
@@ -566,7 +565,7 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
     }
     ```
 
-## Implement strStr()
+### Implement strStr()
 > Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 
 **Example**
@@ -582,10 +581,10 @@ Output: -1
 - `1 <= haystack.length, needle.length <= 104`
 - `haystack and needle consist of only lowercase English characters.`
 
-### **Solutions**
+#### **Solutions**
 
 Check the code.
-### Code 
+#### Code 
 
 - **JavaScript**
     ```JavaScript
@@ -602,7 +601,7 @@ Check the code.
     }
     ```
 
-## Search insert position
+### Search insert position
 > Given a sorted array of distinct intergers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 > You must write an algorithm with `olog(n)` runtime complexity.
 
@@ -624,11 +623,11 @@ Output: 4
 - nums contains distinct values sorted in ascending order.
 - `-104 <= target <= 104`
 
-### **Solutions**
+#### **Solutions**
 
 Binary search. Check the code.
 
-### Code
+#### Code
 - **JavaScript**
   ```JavaScript
     searchInsertPosition(nums, target) {
@@ -646,7 +645,7 @@ Binary search. Check the code.
 
   ```
   
-## Maximum Subarray
+### Maximum Subarray
 > Given an integer array `nums`, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.  
 > A **subarray** is a **contiguous** part of an array.
 
@@ -664,11 +663,11 @@ Input: nums = [5,4,-1,7,8]
 Output: 23
 ```
 
-### **Solutions**
+#### **Solutions**
 > [divide and conquer](https://www.youtube.com/watch?v=5WZl3MMT0Eg)  
 > [Maximum subarray problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem)
 
-### Code
+#### Code
 - **JavaScript**
     ```JavaScript
     let maxSub = nums[0];
@@ -716,7 +715,7 @@ Output: 23
     */
     ```
 
-## Length of Last word
+### Length of Last word
 
 > Given a string s consisting of words and spaces, return the length of the last word in the string.  
 > A **word** is a maximal substring consisting of non-space characters only.
@@ -740,10 +739,10 @@ Explanation: The last word is "joyboy" with length 6.
 - `s` consists of only English letters and spaces `' '`.
 - There will be at least one word in `s`.
 
-### **Solutions**
+#### **Solutions**
 Check the code 
 
-### Code 
+#### Code 
 
 - **JavaScript**
     ```javascript
@@ -761,7 +760,7 @@ Check the code
         return string.match(regex).pop().length;
     ```
 
-## Plus one
+### Plus one
 > You are given a **large integer** represented as an integer array `digits`, where each `digits[i]` is the `i^th` digits of the integer.The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading `0`'s.  
 > Increment the large integer by one and return the resulting array of digits.
 
@@ -791,10 +790,10 @@ Thus, the result should be [1,0].
 - `0 <= digits[i] <= 9`
 - `digits` does not contain any leading `0`'s.
 
-### **Solutions**
+#### **Solutions**
 Check the code
 
-### Code
+#### Code
 - **JavaScript**
     ```JavaScript
         for (j = digits.length - 1; j >= 0; j--) {
@@ -809,7 +808,7 @@ Check the code
         return digits;
     ```
 
-## Add Binary
+### Add Binary
 > Given two binary string `a` and `b`, return their sum as a binary string.
 
 **Example:**
@@ -826,12 +825,12 @@ Output: "10101"
 - `a` and `b` consist only of `'0'` or `'1'` characters.
 - Each string does not contain leading zeros except for the zero itself.
 
-### **Solutions**
+#### **Solutions**
 
 - Transfer the String to binary number then operate it.
 - Fill up the `0` in the less length string. Like `110101` and `110`, fill the `110` to `000110` and operate it. Check the Code.
 
-### Code
+#### Code
 
 - **JavaScript**
     ```JavaScript
@@ -854,7 +853,7 @@ Output: "10101"
     }
     ```
 
-## Sqrt
+### Sqrt
 > Given a non-negative integer `x`, compute and return the square root of `x`.  
 > Since the return type is an integer, the decimal digits are **truncated**, and only **the integer part** of the result is returned.  
 > **Note**: You are note allowed to use any built-in exponent function or operator, such as `pow(x, 0.5)` or `x ** 0.5`.
@@ -873,10 +872,10 @@ Explanation: The square root of 8 is 2.82842..., and since the decimal part is t
 **Constraints:**
 - `0 <= x <= 2^31 - 1`
 
-### **Solutions**
+#### **Solutions**
 Check the code.
 
-### Code
+#### Code
 
 - **JavaScript**
     ```JavaScript
@@ -897,7 +896,7 @@ Check the code.
     // return val - 1;
     ```
 
-## ClimbingStair [Dynamic Programming]
+### ClimbingStair [Dynamic Programming]
 > You are climbing a staircase. It takes `n` steps to reach the top.  
 > Each time you can either climb `1` or `2` steps. In how many distinct ways can you climb to the top?
 
@@ -920,7 +919,7 @@ Explanation: There are three ways to climb to the top.
 **Constraints:**
 - `i <= n <= 45`
 
-### **Solutions**
+#### **Solutions**
 - Deep First Search (**Inefficient way O(2^n)**).   
   If the purpose is to **get the shortest way** to Climbing up the Stair. Maybe use it.
   ```JavaScript
@@ -988,7 +987,7 @@ Explanation: There are three ways to climb to the top.
     return bottom1;
   ```
 
-## Remove Duplicates from Sorted List
+### Remove Duplicates from Sorted List
 > Given the `head` of a sorted linked listed, delete all duplicates such that each element appears only once. Return the linked list **sorted** as well.
 
 **Example:**
@@ -1005,10 +1004,10 @@ Output: [1,2,3]
 - `-100 <= Node.val <= 100`
 - The list is guaranteed to be sorted in ascending order.
 
-### **Solutions**
+#### **Solutions**
 Check the code.
 
-### Code 
+#### Code 
 - **JavaScript**
   ```JavaScript
     // Ugly way
@@ -1035,7 +1034,7 @@ Check the code.
     }
   ```
 
-## Merge Sorted Array
+### Merge Sorted Array
 > You are given two integer arrays `nums1` and `nums2`, sorted in **no-decreasing order**, and two integers `m` and `n`, representing the number of elements in the `num1` and `num2` respectively.  
 > **Merge** `nums1` and `num2` into a single array sorted in **no-decreasing order**.  
 > The final sorted array should not be returned by the function, but instead be stored inside the array `nums1`. To accommodate this, `nums1` has a length of `m` + `n`, where the first `m` elements denote the elements that should be merged, and the last n elements are set to `0` and should be ignored. `nums2` has a length of `n`.
@@ -1066,10 +1065,10 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 - `1 <= m + n <= 200`
 - `-109 <= nums1[i], nums2[j] <= 109`
 
-### **Solutions**
+#### **Solutions**
 Check the code
 
-### Code
+#### Code
 - **JavaScript**
   ```JavaScript
   let insertPos = m + n - 1;
@@ -1080,7 +1079,7 @@ Check the code
   }
   ```
 
-## Binary Tree Inorder Traversal
+### Binary Tree Inorder Traversal
 > Given the `root` of binary tree, return the inorder traversal of its node's values.
 
 **Example:**
@@ -1099,10 +1098,10 @@ Output: [1]
 - The number of nodes in the tree is in the range `[0, 100]`.
 - `-100 <= Node.val <= 100`
 
-### **Solutions**
+#### **Solutions**
 Check the code.
 
-### Code 
+#### Code 
 - **JavaScript**
   ```JavaScript
   /**
@@ -1131,7 +1130,7 @@ Check the code.
   };
   ```
 
-## SameTree
+### SameTree
 
 > Given the  roots of two binary trees `p` and `q`, write a function to check if they are the same or not.  
 > Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
@@ -1153,10 +1152,10 @@ Output: false
 - The number of nodes in both trees is in the range `[0, 100]`.
 - `-104 <= Node.val <= 104`
 
-### **Solutions**
+#### **Solutions**
 Check the code.
 
-### Code 
+#### Code 
 - **JavaScript**
   ```JavaScript
       isSameTree(p, q) {
@@ -1183,7 +1182,7 @@ Check the code.
     }
   ```
 
-## Symmetric Tree
+### Symmetric Tree
 > Given the `root` of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
 
 **Example:**
@@ -1200,9 +1199,9 @@ Output: false
 
 **Follow up**: Could you solve it both recursively and iteratively?
 
-### **Solutions**
+#### **Solutions**
 Check the  code.
-### Code
+#### Code
 - **JavaScript**
   ```JavaScript
     var isSymmetric = function(root) {
@@ -1217,7 +1216,7 @@ Check the  code.
 
   ```
 
-## Maximum Depth of Binary Tree
+### Maximum Depth of Binary Tree
 > Given the `root` of a binary tree, return its maximum depth;  
 > a  binary tree's **maximum depth** is the number of nodes along the longest path from the root node down to the farthest leaf node.
 
@@ -1234,10 +1233,10 @@ Output: 2
 - The number of nodes in the tree is in the range `[0, 104]`.
 - `-100 <= Node.val <= 100`
 
-### **Solutions**
+#### **Solutions**
 Don't use the extra space to declare a recursive function to implement the traversal feature.Check the code. And always use this though to solve the "Maximum" question in recursive structure.
 
-### Code
+#### Code
 - JavaScript
     ```javascript
         /**
@@ -1259,7 +1258,7 @@ Don't use the extra space to declare a recursive function to implement the trave
     };
     ```
 
-## Convert Sorted Array to Binary Search Tree
+### Convert Sorted Array to Binary Search Tree
 > Given an integer array `nums` where the elements are sorted in **ascending order**, convert it to a **height-balanced** binary search tree. A height-balanced binary tree is a binary tree in which the depth of the two subtree of every node nerve differs by more than one.
 
 **Example**
@@ -1278,10 +1277,10 @@ Explanation: [1,null,3] and [3,1] are both height-balanced BSTs.
 - `-104 <= nums[i] <= 104`
 - nums is sorted in a **strictly increasing** order.
 
-### **Solutions**
+#### **Solutions**
 Check the code. And check what is the Binary Search Tree(BST).
 
-### Code
+#### Code
 - **JavaScript**
   ```javascript
     sortedArrayToBST(nums) {
@@ -1311,7 +1310,7 @@ Check the code. And check what is the Binary Search Tree(BST).
   
   ```
 
-## Balanced Binary Tree
+### Balanced Binary Tree
 > Given a binary tree, determine if it is height-balanced.  
 > For this problem, a height-balanced binary tree is defined as:  
 > a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
@@ -1332,10 +1331,10 @@ Output: true
 - The number of nodes in the tree is in the range `[0, 5000]`.
 - `-104 <= Node.val <= 104`
 
-### **Solutions**
+#### **Solutions**
 Check the code. Keep the `Bottom Up` way in mind.
 
-### Code
+#### Code
 - **JavaScript**
   ```JavaScript
   function isBalanced(root) {
@@ -1378,7 +1377,7 @@ Check the code. Keep the `Bottom Up` way in mind.
   } 
   ```
 
-## Minimum Depth of Binary Tree
+### Minimum Depth of Binary Tree
 > Given a binary tree, find its minimum depth.  
 > The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.  
 > **Note**: A leaf is a node with no children.
@@ -1396,10 +1395,10 @@ Output: 5
 - The number of nodes in the tree is in the range `[0, 105]`.
 - `-1000 <= Node.val <= 1000`
 
-### **Solutions**
+#### **Solutions**
 Check the code.
 
-### Code
+#### Code
 - **JavaScript**
   ```JavaScript
   function minDepth(root) {
@@ -1412,7 +1411,7 @@ Check the code.
   }
   ```
 
-## Path Sum
+### Path Sum
 > Given the root of a binary tree and an integer targetSum, return `true` if the tree has a **root-to-leaf** path such that adding up all the values along the path equals `targetSum`.  
 > A **leaf** is a node with no children/
 
@@ -1439,10 +1438,10 @@ Explanation: Since the tree is empty, there are no root-to-leaf paths.
 - `-1000 <= Node.val <= 1000`
 - `-1000 <= targetSum <= 1000`
 
-### **Solutions**
+#### **Solutions**
 Check the code.
 
-### Code
+#### Code
 - **JavaScript**
   ```javascript
     hasPathSum(root, targetSum) {
@@ -1456,7 +1455,7 @@ Check the code.
   }
   ```
 
-## Pascal's Triangle
+### Pascal's Triangle
 > Given an integer numRows, return the first numRows of **Pascal's triangle**.  
 > In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:  
 > [Pascal's triangle](https://leetcode.com/problems/pascals-triangle/)
@@ -1473,10 +1472,10 @@ Output: [[1]]
 **Constraints:**
 - `1 <= numRows <= 30`
 
-### **Solutions**
+#### **Solutions**
 - Maybe have more better way to figure it out. For Now, just check the code.
 
-### Code
+#### Code
 - **JavScript**
   ```javascript
     generate(numRows) {
@@ -1498,7 +1497,7 @@ Output: [[1]]
   }
   ```
 
-## Pascal's Triangle II
+### Pascal's Triangle II
 > Given an integer rowIndex, return the rowIndexth (**0-indexed**) row of the **Pascal's triangle**.  
 > In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:
 
@@ -1518,11 +1517,11 @@ Output: [1,1]
 **Constraints:**
 - `0 <= rowIndex <= 33`
 
-### **Solutions**
+#### **Solutions**
 Both of questions about the pascals triangle are inefficient. Find the way to optimize it in the weekend PR commit.  
 For Now, Just Check the code below.
 
-### Code
+#### Code
 - **JavaScript**
   ```JavaScript
     var getRow = function(rowIndex) {
@@ -1537,7 +1536,7 @@ For Now, Just Check the code below.
     };  
   ```
 
-## Best TIme to Buy and Sell Stock
+### Best TIme to Buy and Sell Stock
 > You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day.  
 > You want to maximize your profit by choosing **a single day** to buy one stock and choosing **a different day in the future** to sell that stock.  
 > Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.  
@@ -1558,10 +1557,10 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 - `1 <= prices.length <= 105`
 - `0 <= prices[i] <= 104`
 
-### **Solutions**
+#### **Solutions**
 There are two main point to resolve this question. The day to sell the stock must be the right side from the day to buy the stock. To keep the time complexity is O(n), declare two point which point to the left and right. Then compare the profit to get the max one.
 
-### Code
+#### Code
 - **JavaScript**
   ```JavaScript
   var maxProfit = function(prices) {
@@ -1578,4 +1577,96 @@ There are two main point to resolve this question. The day to sell the stock mus
     };
     return result;
   };
+  ```
+
+### (125)Valid Palindrome
+> A phrase is a `palindrome` if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.  
+> Given a string s, return true if it is a `palindrome`, or false otherwise.
+
+**Example:**
+```
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+
+Input: s = " "
+Output: true
+Explanation: s is an empty string "" after removing non-alphanumeric characters.
+Since an empty string reads the same forward and backward, it is a palindrome.
+```
+
+**Constraints**
+- `1 <= s.length <= 2 * 105`
+- `s` consists only of printable ASCII characters.
+
+#### **Solutions**
+> Check the LeetCode Discuss kabriel's solutions. And check the comment code below.
+
+#### Code 
+- **JavaScript**
+  ```JavaScript
+  	isPalindrome125(s) {
+		const test = /[a-zA-Z0-9]+/g;
+		if (s.match(test)) {
+			s = s
+				.match(/[a-zA-Z0-9]+/gm)
+				.reduce((x, y) => {
+					return x + y;
+				})
+				.toLowerCase();
+			console.log(s);
+			let leftPoint = 0;
+			let rightPoint = s.length - 1;
+			while (leftPoint <= rightPoint) {
+				if (s[leftPoint] === s[rightPoint]) {
+					leftPoint++;
+					rightPoint--;
+				} else return false;
+			}
+			return true;
+		}
+		return true;
+
+		// LeetCode Discuss kabriel's solutions; Nice one.
+		// function isLetter(code) {
+		// 	if (
+		// 		(code >= 48 && code <= 57) ||
+		// 		(code >= 65 && code <= 90) ||
+		// 		(code >= 97 && code <= 122)
+		// 	) {
+		// 		return true;
+		// 	} else return false;
+		// }
+
+		// function toLowerCase(code) {
+		// 	if (code >= 65 && code <= 90) {
+		// 		return code + 32;
+		// 	} else return code;
+		// }
+
+		// let leftPoint = 0;
+		// let rightPoint = s.length - 1;
+		// while (leftPoint <= rightPoint) {
+		// 	const start = s.charCodeAt(leftPoint);
+		// 	const end = s.charCodeAt(rightPoint);
+		// 	if (!isLetter(start)) {
+		// 		leftPoint++;
+		// 		continue;
+		// 	}
+		// 	if (!isLetter(end)) {
+		// 		rightPoint--;
+		// 		continue;
+		// 	}
+		// 	if (toLowerCase(start) !== toLowerCase(end)) {
+		// 		return false;
+		// 	}
+		// 	leftPoint++;
+		// 	rightPoint--;
+		// }
+		// return true;
+	}
   ```
