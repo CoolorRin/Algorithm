@@ -5,7 +5,7 @@
   - [Data structure](#data-structure)
     - [(136) Single Number](#136-single-number)
   - [Dynamic Programming](#dynamic-programming)
-    - [ClimbingStair [Dynamic Programming]](#climbingstair-dynamic-programming)
+    - [(70)ClimbingStair](#70climbingstair)
   - [Waiting for classification.](#waiting-for-classification)
     - [Two Sum](#two-sum)
     - [Palindrome Number](#palindrome-number)
@@ -137,7 +137,7 @@ Output: 1
 
 ## Dynamic Programming
 
-### ClimbingStair [Dynamic Programming]
+### (70)ClimbingStair
 > You are climbing a staircase. It takes `n` steps to reach the top.  
 > Each time you can either climb `1` or `2` steps. In how many distinct ways can you climb to the top?
 
