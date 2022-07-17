@@ -2,6 +2,10 @@
 **Table Content**
 
 - [Easy Question](#easy-question)
+  - [Data structure](#data-structure)
+    - [(136) Single Number](#136-single-number)
+  - [Dynamic Programming](#dynamic-programming)
+    - [ClimbingStair [Dynamic Programming]](#climbingstair-dynamic-programming)
   - [Waiting for classification.](#waiting-for-classification)
     - [Two Sum](#two-sum)
     - [Palindrome Number](#palindrome-number)
@@ -17,7 +21,6 @@
     - [Plus one](#plus-one)
     - [Add Binary](#add-binary)
     - [Sqrt](#sqrt)
-    - [ClimbingStair [Dynamic Programming]](#climbingstair-dynamic-programming)
     - [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
     - [Merge Sorted Array](#merge-sorted-array)
     - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
@@ -33,6 +36,199 @@
     - [Best TIme to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
     - [(125)Valid Palindrome](#125valid-palindrome)
 
+## Data structure
+
+### (136) Single Number
+> Given a **non-empty** array of integers `nums`, every element appears twice except for one. Find that single one.  
+> You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+**Example:**
+```
+Input: nums = [2,2,1]
+Output: 1
+
+Input: nums = [4,1,2,1,2]
+Output: 4
+
+Input: nums = [1]
+Output: 1
+```
+
+**Constraints:**
+- `1 <= nums.length <= 3 * 104`
+- `-3 * 104 <= nums[i] <= 3 * 104`
+- Each element in the array appears twice except for one element which appears only once.
+
+#### **Solutions:**
+> Nice solutions by [satyamsinha93](https://leetcode.com/problems/single-number/discuss/1771771/Think-it-through-oror-Time%3A-O(n)-Space%3A-O(1)-oror-Python-Explained)
+> 1. **Brute Force**  
+> Intuition:  
+> Iterate through every element in the nums and check if any of the element does not appear twice, in that case > return the element.  
+> Time: O(n^2)  
+> Space: O(1)  
+> 1. **Use Sorting**  
+> Intuition:  
+> If the elements of the nums array are sorted/when we sort it, we can compare the neighbours to find the single element. It is already mentioned that all other elements appear twice except one.  
+> Time: O(nlogn) for sorting then O(n) to check neighbouring elements  
+> Space: O(1) 
+> 1. **Use Hashing/Set**  
+> Intuition:  
+> i) As we iterate through the nums array we store the elements encountered and check if we find them again while iteration continues. While checking if we find them again, we maintain a single_element object/variable which stores that single element, eventually returning the single_element.  
+> ii) The other way is to maintain a num_frequency hashmap/dictionary and iterate over it to find which has exactly 1 frequency and return that key/num. 
+> Time: O(n) for iterating over the nums array  
+> Space: O(n) for hashing 
+> 1. **Use Xor/Bit Manipulation**  
+> Intuition:  
+> Xor of any two num gives the difference of bit as 1 and same bit as 0.  
+> Thus, using this we get 1 ^ 1 == 0 because the same numbers have same bits.  
+> So, we will always get the single element because all the same ones will evaluate to 0 and 0^single_number = single_number.   
+> Time: O(n)  
+> Space: O(1)  
+
+
+#### Code 
+- **JavaScript**
+  ```javascript
+  singleNumber(nums) {
+      Brute Force
+      const temp = nums;
+      for (let baseIndex = 0; baseIndex < temp.length - 1; baseIndex++) {
+      	let delBase_Flag = false;
+      	if (temp[baseIndex === undefined]) continue;
+      	for (
+      		let compareIndex = baseIndex + 1;
+      		compareIndex < temp.length;
+      		compareIndex++
+      	) {
+      		if (temp[compareIndex] === undefined) continue;
+      		if (temp[baseIndex] === temp[compareIndex]) {
+      			delete temp[compareIndex];
+      			delBase_Flag = true;
+      		}
+      	}
+      	if (delBase_Flag) {
+      		delete temp[baseIndex];
+      	}
+      }
+      return temp.filter((el) => el !== undefined)[0];
+
+      // Use Sorting and compare the neighbors.
+      <!-- Pass -->
+
+      // Using Hashing/Set
+      const hashTable = {};
+      nums.forEach((num) => {
+      	if (hashTable[num]) hashTable[num] = false;
+      	else hashTable[num] = true;
+      });
+      console.log(hashTable);
+      for (const [key, value] of Object.entries(hashTable)) {
+      	if (value) return key;
+      }
+
+      // Use Xor/Bit Manipulation
+      let xor = 0;
+      nums.forEach((num) => {
+        xor ^= num;
+      });
+      return xor;
+    }
+  ```
+
+## Dynamic Programming
+
+### ClimbingStair [Dynamic Programming]
+> You are climbing a staircase. It takes `n` steps to reach the top.  
+> Each time you can either climb `1` or `2` steps. In how many distinct ways can you climb to the top?
+
+**Example:**
+```
+Input: n = 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+
+Input: n = 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+```
+
+**Constraints:**
+- `i <= n <= 45`
+
+#### **Solutions:**
+- Deep First Search (**Inefficient way O(2^n)**).   
+  If the purpose is to **get the shortest way** to Climbing up the Stair. Maybe use it.
+  ```JavaScript
+    let sum = 0;
+    let resultNum = 0;
+    let operateStep = [];
+    function dfs(sum, step) {
+        if (step) operateStep.push(step);
+        if (sum > n) {
+            return 0;
+        }
+        if (sum === n) {
+            console.log(operateStep);
+            resultNum++;
+            return 0;
+        }
+        dfs(sum + 1, 1);
+        operateStep.pop();
+        dfs(sum + 2, 2);
+        operateStep.pop();
+    }
+    dfs(sum);
+    return resultNum;
+  ```
+- Dynamic Programming (Top down Memoization).  
+  We have two different way to climbing the stair.Step by `1` or `2`.If we climbing a `three` step height stair, its pattern will be the sum of the `one step height stair` and the `two step height stair`. Check the code.
+  
+  ```JavaScript
+    function dp(target) {
+        let memoArr = new Array(target + 1);
+        memoArr[1] = 1;
+        memoArr[2] = 2;
+        for (let i = 3; i <= n; i++) {
+            memoArr[i] = memoArr[i - 1] + memoArr[i - 2];
+        }
+        return memoArr[target]
+    }
+
+    let MemoryArr = []
+    function dpTopDown(target) {
+        if (target === 1) return 1;
+        if (target === 2) return 2;
+        if (MemoryArr[target] !== undefined) return MemoryArr[target];
+        let result = dpTopDown(target - 1) + dpTopDown(target - 2);
+        MemoryArr[target] = result;
+        return result;
+    }
+
+  ```
+- Dynamic Programming (Bottom Up).
+  > [Climbing Stair- Dynamic Programming](https://www.youtube.com/watch?v=Y0lT9Fck7qI)  
+  Image we start by the `0`, and have two way `1` or `2` to climb the stair.Draw the tree diagram and will find that always have the subtree exactly same as the other subtree. That is why we should memory it. But it will have more simply way to do this. Check step below by the `n` is `5`:  
+  - First: We get to the `4th` stair and the `5th` stair both will be `1` step to get the `5th` stair. `4th` plus `1` step will be `5th` and why the `5th` will be `1`, just image we only have **one stair**.
+  - Then we will find, if we stand in the `3th` stair it will have `2` different way to get to the goal.That is exactly `4th` stair's value plus `5th` stair's value.
+  - And then, we find out. 
+
+  ```JavaScript
+    let bottom1 = 1;
+    let bottom2 = 1;
+    for (let i = 0; i < n - 1; i++) {
+        let temp = bottom1;
+        bottom1 = bottom1 + bottom2;
+        bottom2 = temp;
+    }
+    return bottom1;
+  ```
+
+
 ## Waiting for classification.
 
 ### Two Sum
@@ -42,7 +238,7 @@
 <br/>You may assume thar each input world have **exactly one solution**, and you may not use the same elemen twice.<br/>
 <br/>You can return the answer in any order.<br/>
 
-Example:
+**Example:**
 
   ```
   Input: nums = [3, 2, 4], target = 6;
@@ -896,96 +1092,7 @@ Check the code.
     // return val - 1;
     ```
 
-### ClimbingStair [Dynamic Programming]
-> You are climbing a staircase. It takes `n` steps to reach the top.  
-> Each time you can either climb `1` or `2` steps. In how many distinct ways can you climb to the top?
 
-**Example:**
-```
-Input: n = 2
-Output: 2
-Explanation: There are two ways to climb to the top.
-1. 1 step + 1 step
-2. 2 steps
-
-Input: n = 3
-Output: 3
-Explanation: There are three ways to climb to the top.
-1. 1 step + 1 step + 1 step
-2. 1 step + 2 steps
-3. 2 steps + 1 step
-```
-
-**Constraints:**
-- `i <= n <= 45`
-
-#### **Solutions**
-- Deep First Search (**Inefficient way O(2^n)**).   
-  If the purpose is to **get the shortest way** to Climbing up the Stair. Maybe use it.
-  ```JavaScript
-    let sum = 0;
-    let resultNum = 0;
-    let operateStep = [];
-    function dfs(sum, step) {
-        if (step) operateStep.push(step);
-        if (sum > n) {
-            return 0;
-        }
-        if (sum === n) {
-            console.log(operateStep);
-            resultNum++;
-            return 0;
-        }
-        dfs(sum + 1, 1);
-        operateStep.pop();
-        dfs(sum + 2, 2);
-        operateStep.pop();
-    }
-    dfs(sum);
-    return resultNum;
-  ```
-- Dynamic Programming (Top down Memoization).  
-  We have two different way to climbing the stair.Step by `1` or `2`.If we climbing a `three` step height stair, its pattern will be the sum of the `one step height stair` and the `two step height stair`. Check the code.
-  
-  ```JavaScript
-    function dp(target) {
-        let memoArr = new Array(target + 1);
-        memoArr[1] = 1;
-        memoArr[2] = 2;
-        for (let i = 3; i <= n; i++) {
-            memoArr[i] = memoArr[i - 1] + memoArr[i - 2];
-        }
-        return memoArr[target]
-    }
-
-    let MemoryArr = []
-    function dpTopDown(target) {
-        if (target === 1) return 1;
-        if (target === 2) return 2;
-        if (MemoryArr[target] !== undefined) return MemoryArr[target];
-        let result = dpTopDown(target - 1) + dpTopDown(target - 2);
-        MemoryArr[target] = result;
-        return result;
-    }
-
-  ```
-- Dynamic Programming (Bottom Up).
-  > [Climbing Stair- Dynamic Programming](https://www.youtube.com/watch?v=Y0lT9Fck7qI)  
-  Image we start by the `0`, and have two way `1` or `2` to climb the stair.Draw the tree diagram and will find that always have the subtree exactly same as the other subtree. That is why we should memory it. But it will have more simply way to do this. Check step below by the `n` is `5`:  
-  - First: We get to the `4th` stair and the `5th` stair both will be `1` step to get the `5th` stair. `4th` plus `1` step will be `5th` and why the `5th` will be `1`, just image we only have **one stair**.
-  - Then we will find, if we stand in the `3th` stair it will have `2` different way to get to the goal.That is exactly `4th` stair's value plus `5th` stair's value.
-  - And then, we find out. 
-
-  ```JavaScript
-    let bottom1 = 1;
-    let bottom2 = 1;
-    for (let i = 0; i < n - 1; i++) {
-        let temp = bottom1;
-        bottom1 = bottom1 + bottom2;
-        bottom2 = temp;
-    }
-    return bottom1;
-  ```
 
 ### Remove Duplicates from Sorted List
 > Given the `head` of a sorted linked listed, delete all duplicates such that each element appears only once. Return the linked list **sorted** as well.

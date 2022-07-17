@@ -713,8 +713,55 @@ class Solution {
 		// }
 		// return true;
 	}
+
+	singleNumber(nums) {
+		// const tmp = Array.from(new Set(nums));
+		// return tmp.reduce((x, y) => x + y) * 2 - nums.reduce((x, y) => x + y);
+
+		// Brute Force
+		// const temp = nums;
+		// for (let baseIndex = 0; baseIndex < temp.length - 1; baseIndex++) {
+		// 	let delBase_Flag = false;
+		// 	if (temp[baseIndex === undefined]) continue;
+		// 	for (
+		// 		let compareIndex = baseIndex + 1;
+		// 		compareIndex < temp.length;
+		// 		compareIndex++
+		// 	) {
+		// 		if (temp[compareIndex] === undefined) continue;
+		// 		if (temp[baseIndex] === temp[compareIndex]) {
+		// 			delete temp[compareIndex];
+		// 			delBase_Flag = true;
+		// 		}
+		// 	}
+		// 	if (delBase_Flag) {
+		// 		delete temp[baseIndex];
+		// 	}
+		// }
+		// return temp.filter((el) => el !== undefined)[0];
+
+		// Use Sorting and compare the neighbors.
+
+		// Using Hashing/Set
+		// const hashTable = {};
+		// nums.forEach((num) => {
+		// 	if (hashTable[num]) hashTable[num] = false;
+		// 	else hashTable[num] = true;
+		// });
+		// console.log(hashTable);
+		// for (const [key, value] of Object.entries(hashTable)) {
+		// 	if (value) return key;
+		// }
+
+		// Use Xor/Bit Manipulation
+		let xor = 0;
+		nums.forEach((num) => {
+			xor ^= num;
+		});
+		return xor;
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.isPalindrome125("A man, a plan, a canal: Panama"));
+console.log(testSolution.singleNumber([2, 2, 3, 3, 4, 4, 5, 6, 6, 7, 7]));
