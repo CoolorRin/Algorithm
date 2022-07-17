@@ -597,8 +597,171 @@ class Solution {
 			? Math.max(left, right) + 1
 			: Math.min(left, right) + 1;
 	}
+	hasPathSum(root, targetSum) {
+		if (root === null) return false;
+		if (root.left === null && root.right === null && targetSum - root.val === 0)
+			return true;
+		return (
+			this.hasPathSum(root.left, targetSum - root.val) ||
+			this.hasPathSum(root.right, targetSum - root.val)
+		);
+	}
+	generate(numRows) {
+		let resultArr = [];
+		for (let element = 1; element <= numRows; element++) {
+			if (element === 1) resultArr.push([1]);
+			if (element === 2) resultArr.push([1, 1]);
+			if (element > 2) {
+				let arr = [1];
+				for (let index = 1; index < element - 1; index++) {
+					arr[index] =
+						resultArr[element - 2][index] + resultArr[element - 2][index - 1];
+				}
+				arr.push(1);
+				resultArr.push(arr);
+			}
+		}
+		return resultArr;
+	}
+
+	getRow(rowIndex) {
+		if (rowIndex === 0) return [1];
+		if (rowIndex === 1) return [1, 1];
+		const arr = [];
+		getRow(rowIndex - 1).reduce((x, y) => {
+			arr.push(x + y);
+			return y;
+		});
+		return [1, ...arr, 1];
+	}
+
+	maxProfit(prices) {
+		let result = 0;
+		let boughtPricesIndex = 0;
+		let sellPricesIndex = 1;
+		while (sellPricesIndex <= prices.length) {
+			if (prices[boughtPricesIndex] < prices[sellPricesIndex]) {
+				result = Math.max(
+					prices[sellPricesIndex] - prices[boughtPricesIndex],
+					result
+				);
+			} else {
+				boughtPricesIndex = sellPricesIndex;
+			}
+			sellPricesIndex++;
+		}
+		return result;
+	}
+
+	isPalindrome125(s) {
+		const test = /[a-zA-Z0-9]+/g;
+		if (s.match(test)) {
+			s = s
+				.match(/[a-zA-Z0-9]+/gm)
+				.reduce((x, y) => {
+					return x + y;
+				})
+				.toLowerCase();
+			console.log(s);
+			let leftPoint = 0;
+			let rightPoint = s.length - 1;
+			while (leftPoint <= rightPoint) {
+				if (s[leftPoint] === s[rightPoint]) {
+					leftPoint++;
+					rightPoint--;
+				} else return false;
+			}
+			return true;
+		}
+		return true;
+
+		// LeetCode Discuss kabriel's solutions; Nice one.
+		// function isLetter(code) {
+		// 	if (
+		// 		(code >= 48 && code <= 57) ||
+		// 		(code >= 65 && code <= 90) ||
+		// 		(code >= 97 && code <= 122)
+		// 	) {
+		// 		return true;
+		// 	} else return false;
+		// }
+
+		// function toLowerCase(code) {
+		// 	if (code >= 65 && code <= 90) {
+		// 		return code + 32;
+		// 	} else return code;
+		// }
+
+		// let leftPoint = 0;
+		// let rightPoint = s.length - 1;
+		// while (leftPoint <= rightPoint) {
+		// 	const start = s.charCodeAt(leftPoint);
+		// 	const end = s.charCodeAt(rightPoint);
+		// 	if (!isLetter(start)) {
+		// 		leftPoint++;
+		// 		continue;
+		// 	}
+		// 	if (!isLetter(end)) {
+		// 		rightPoint--;
+		// 		continue;
+		// 	}
+		// 	if (toLowerCase(start) !== toLowerCase(end)) {
+		// 		return false;
+		// 	}
+		// 	leftPoint++;
+		// 	rightPoint--;
+		// }
+		// return true;
+	}
+
+	singleNumber(nums) {
+		// const tmp = Array.from(new Set(nums));
+		// return tmp.reduce((x, y) => x + y) * 2 - nums.reduce((x, y) => x + y);
+
+		// Brute Force
+		// const temp = nums;
+		// for (let baseIndex = 0; baseIndex < temp.length - 1; baseIndex++) {
+		// 	let delBase_Flag = false;
+		// 	if (temp[baseIndex === undefined]) continue;
+		// 	for (
+		// 		let compareIndex = baseIndex + 1;
+		// 		compareIndex < temp.length;
+		// 		compareIndex++
+		// 	) {
+		// 		if (temp[compareIndex] === undefined) continue;
+		// 		if (temp[baseIndex] === temp[compareIndex]) {
+		// 			delete temp[compareIndex];
+		// 			delBase_Flag = true;
+		// 		}
+		// 	}
+		// 	if (delBase_Flag) {
+		// 		delete temp[baseIndex];
+		// 	}
+		// }
+		// return temp.filter((el) => el !== undefined)[0];
+
+		// Use Sorting and compare the neighbors.
+
+		// Using Hashing/Set
+		// const hashTable = {};
+		// nums.forEach((num) => {
+		// 	if (hashTable[num]) hashTable[num] = false;
+		// 	else hashTable[num] = true;
+		// });
+		// console.log(hashTable);
+		// for (const [key, value] of Object.entries(hashTable)) {
+		// 	if (value) return key;
+		// }
+
+		// Use Xor/Bit Manipulation
+		let xor = 0;
+		nums.forEach((num) => {
+			xor ^= num;
+		});
+		return xor;
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.inorderTraversal([1, null, 2, 3]));
+console.log(testSolution.singleNumber([2, 2, 3, 3, 4, 4, 5, 6, 6, 7, 7]));
