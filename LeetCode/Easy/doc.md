@@ -4,8 +4,9 @@
 - [Easy Question](#easy-question)
   - [Data structure](#data-structure)
     - [(136) Single Number](#136-single-number)
+    - [(141) Linked LIst Cycle](#141-linked-list-cycle)
   - [Dynamic Programming](#dynamic-programming)
-    - [(70)ClimbingStair](#70climbingstair)
+    - [(70) ClimbingStair](#70-climbingstair)
   - [Waiting for classification.](#waiting-for-classification)
     - [Two Sum](#two-sum)
     - [Palindrome Number](#palindrome-number)
@@ -135,9 +136,59 @@ Output: 1
     }
   ```
 
+### (141) Linked LIst Cycle
+> Given `head`, the head of a linked list, determine if the linked list has a cycle in it.  
+> There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, `pos` is used to denote the index of the node that tail's next pointer is connected to. **Note that** `pos` **is not passed as a parameter**.  
+> Return `true` if there is a cycle in the linked list. Otherwise, return `false`.  
+
+**Example:**
+```
+Input: head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+
+Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
+
+Input: head = [1], pos = -1
+Output: false
+Explanation: There is no cycle in the linked list.
+```
+
+**Constraints:**
+- The number of the nodes in the list is in the range `[0, 104]`.
+- `-105 <= Node.val <= 105`
+- `pos` is `-1` or a **valid index** in the linked-list.
+
+**Follow up:** Can you solve it using `O(1)` (ie. constant) memory?
+
+#### **Solutions:**
+Two pointer, Check the loop till the point.next is null, whether the fastPointer equal to the slowPointer.
+
+#### Code
+- **JavaScript**
+  ```javascript
+    hasCycle141(head) {
+    if (!head || head.next === null) return false;
+    let slowPointer = head;
+    let fastPointer = head.next;
+    while (slowPointer && fastPointer) {
+      if (slowPointer === fastPointer) return true;
+      if (!slowPointer.next || !fastPointer.next || !fastPointer.next.next)
+        return false;
+      slowPointer = slowPointer.next;
+      fastPointer = fastPointer.next.next;
+    }
+    return false;
+  }
+  ```
+
+
+
 ## Dynamic Programming
 
-### (70)ClimbingStair
+### (70) ClimbingStair
 > You are climbing a staircase. It takes `n` steps to reach the top.  
 > Each time you can either climb `1` or `2` steps. In how many distinct ways can you climb to the top?
 

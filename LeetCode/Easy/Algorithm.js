@@ -760,6 +760,20 @@ class Solution {
 		});
 		return xor;
 	}
+
+	hasCycle141(head) {
+		if (!head || head.next === null) return false;
+		let slowPointer = head;
+		let fastPointer = head.next;
+		while (slowPointer && fastPointer) {
+			if (slowPointer === fastPointer) return true;
+			if (!slowPointer.next || !fastPointer.next || !fastPointer.next.next)
+				return false;
+			slowPointer = slowPointer.next;
+			fastPointer = fastPointer.next.next;
+		}
+		return false;
+	}
 }
 
 // Test
