@@ -4,7 +4,9 @@
 - [Easy Question](#easy-question)
   - [Data structure](#data-structure)
     - [(136) Single Number](#136-single-number)
-    - [(141) Linked LIst Cycle](#141-linked-list-cycle)
+    - [(141) Linked List Cycle](#141-linked-list-cycle)
+    - [(144) Binary Tree Preorder Traversal](#144-binary-tree-preorder-traversal)
+    - [Binary Tree Postorder Traversal](#binary-tree-postorder-traversal)
   - [Dynamic Programming](#dynamic-programming)
     - [(70) ClimbingStair](#70-climbingstair)
   - [Waiting for classification.](#waiting-for-classification)
@@ -136,7 +138,7 @@ Output: 1
     }
   ```
 
-### (141) Linked LIst Cycle
+### (141) Linked List Cycle
 > Given `head`, the head of a linked list, determine if the linked list has a cycle in it.  
 > There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, `pos` is used to denote the index of the node that tail's next pointer is connected to. **Note that** `pos` **is not passed as a parameter**.  
 > Return `true` if there is a cycle in the linked list. Otherwise, return `false`.  
@@ -184,6 +186,74 @@ Two pointer, Check the loop till the point.next is null, whether the fastPointer
   }
   ```
 
+### (144) Binary Tree Preorder Traversal
+> Given the root of a binary tree, return the preorder traversal of its nodes' values.  
+
+**Example:**
+```
+Input: root = [1,null,2,3]
+Output: [1,2,3]
+
+Input: root = []
+Output: []
+
+Input: root = [1]
+Output: [1]
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range `[0, 100]`.
+- `-100 <= Node.val <= 100`
+
+#### **Solutions**
+Check the code
+
+#### Code
+- **JavaScript**
+  ```javascript
+  var preorderTraversal = function(root, resultArr = []) {
+    if (root === null) return resultArr;
+    resultArr.push(root.val);
+    preorderTraversal(root.left, resultArr);
+    preorderTraversal(root.right, resultArr);
+    return resultArr;
+  };
+  ```
+
+
+### Binary Tree Postorder Traversal
+> Given the `root` of a binary tree, return the postorder traversal of its nodes' values.
+
+**Example:**
+```
+Input: root = [1,null,2,3]
+Output: [3,2,1]
+
+Input: root = []
+Output: []
+
+Input: root = [1]
+Output: [1]
+```
+
+**Constraints:**
+- The number of the nodes in the tree is in the range `[0, 100]`.
+- `-100 <= Node.val <= 100`
+
+#### **Solutions**
+Check the code
+
+#### Code
+- **JavaScript**
+  ```javascript
+  var postorderTraversal = function(root, resultArr = []) {
+    if (root === null) return resultArr;
+    postorderTraversal(root.left, resultArr);
+    postorderTraversal(root.right, resultArr);
+    resultArr.push(root.val);
+    return resultArr;
+  };
+  ```
 
 
 ## Dynamic Programming
@@ -280,6 +350,68 @@ Explanation: There are three ways to climb to the top.
   ```
 
 
+#### Code
+- **JavaScript**
+  ```javascript
+  function ClimbingStairs(n) {
+		// DFS. O(2^n)
+		let sum = 0;
+		let resultNum = 0;
+		let operateStep = [];
+		function dfs(sum, step) {
+			if (step) operateStep.push(step);
+			if (sum > n) {
+				return 0;
+			}
+			if (sum === n) {
+				console.log(operateStep);
+				resultNum++;
+				return 0;
+			}
+			dfs(sum + 1, 1);
+			operateStep.pop();
+			dfs(sum + 2, 2);
+			operateStep.pop();
+		}
+		dfs(sum);
+		return resultNum;
+
+		// DP Top down Memo
+
+		let MemoryArr = [];
+		function dpTopDown(target) {
+			if (target === 1) return 1;
+			if (target === 2) return 2;
+			if (MemoryArr[target] !== undefined) return MemoryArr[target];
+			let result = dpTopDown(target - 1) + dpTopDown(target - 2);
+			MemoryArr[target] = result;
+			return result;
+		}
+
+		function dp(target) {
+			// init data
+			let dp = new Array(target + 1);
+			dp[1] = 1;
+			dp[2] = 2;
+			for (let i = 3; i <= n; i++) {
+				dp[i] = dp[i - 1] + dp[i - 2];
+			}
+			return dp[target];
+		}
+
+		// DP BottomUp
+
+		let bottom1 = 1;
+		let bottom2 = 1;
+		for (let i = 0; i < n - 1; i++) {
+			let temp = bottom1;
+			bottom1 = bottom1 + bottom2;
+			bottom2 = temp;
+		}
+		return bottom1;
+	}
+
+  ```
 ## Waiting for classification.
 
 ### Two Sum

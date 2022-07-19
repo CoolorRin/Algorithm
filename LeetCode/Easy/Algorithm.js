@@ -774,6 +774,22 @@ class Solution {
 		}
 		return false;
 	}
+
+	preorderTraversal_144(root, resultArr = []) {
+		if (root === null) return resultArr;
+		resultArr.push(root.val);
+		this.preorderTraversal_144(root.left);
+		this.preorderTraversal_144(root.right);
+		return resultArr;
+	}
+
+	postorderTraversal_145(root, resultArr = []) {
+		if (root === null) return resultArr;
+		this.postorderTraversal(root.left, resultArr);
+		this.postorderTraversal(root.right, resultArr);
+		resultArr.push(root.val);
+		return resultArr;
+	}
 }
 
 // Test
