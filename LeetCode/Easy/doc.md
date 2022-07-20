@@ -6,7 +6,7 @@
     - [(136) Single Number](#136-single-number)
     - [(141) Linked List Cycle](#141-linked-list-cycle)
     - [(144) Binary Tree Preorder Traversal](#144-binary-tree-preorder-traversal)
-    - [Binary Tree Postorder Traversal](#binary-tree-postorder-traversal)
+    - [(145) Binary Tree Postorder Traversal](#145-binary-tree-postorder-traversal)
   - [Dynamic Programming](#dynamic-programming)
     - [(70) ClimbingStair](#70-climbingstair)
   - [Waiting for classification.](#waiting-for-classification)
@@ -221,7 +221,7 @@ Check the code
   ```
 
 
-### Binary Tree Postorder Traversal
+### (145) Binary Tree Postorder Traversal
 > Given the `root` of a binary tree, return the postorder traversal of its nodes' values.
 
 **Example:**
