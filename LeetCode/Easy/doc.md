@@ -206,18 +206,38 @@ Output: [1]
 - `-100 <= Node.val <= 100`
 
 #### **Solutions**
-Check the code
-
+- Recursive solution is too simple to solve it.
+- Iteration solution's point is how to **loop all the children node** of the current node and **memorize it is already looped and backward to loop another node of the parent node.** 
+  
 #### Code
 - **JavaScript**
   ```javascript
-  var preorderTraversal = function(root, resultArr = []) {
-    if (root === null) return resultArr;
-    resultArr.push(root.val);
-    preorderTraversal(root.left, resultArr);
-    preorderTraversal(root.right, resultArr);
-    return resultArr;
-  };
+		//  Recursive solution is trivial
+		const resultArr = [];
+		const recursiveTraversal = (root, resultArr) => {
+			if (root === null) return resultArr;
+			resultArr.push(root.val);
+			recursiveTraversal(root.left, resultArr);
+			recursiveTraversal(root.right, resultArr);
+		};
+		recursiveTraversal(root, resultArr);
+		return resultArr;
+
+		// Iteration Solution
+		let currNode = root;
+		const result = [];
+		const stack = [];
+		while (currNode !== null || stack.length > 0) {
+			if (currNode !== null) {
+				result.push(currNode.val);
+				stack.push(currNode);
+				currNode = currNode.left;
+			} else {
+				currNode = stack.pop();
+				currNode = currNode.right;
+			}
+		}
+		return result;
   ```
 
 
@@ -241,17 +261,38 @@ Output: [1]
 - `-100 <= Node.val <= 100`
 
 #### **Solutions**
-Check the code
+- Iteration Solution by the [yavinci](https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45551/Preorder-Inorder-and-Postorder-Iteratively-Summarization). **NB: Reverse the process of preorder.**
 
 #### Code
 - **JavaScript**
   ```javascript
   var postorderTraversal = function(root, resultArr = []) {
-    if (root === null) return resultArr;
-    postorderTraversal(root.left, resultArr);
-    postorderTraversal(root.right, resultArr);
-    resultArr.push(root.val);
-    return resultArr;
+		//  Recursive solution is trivial
+		const resultArr = [];
+		const recursiveTraversal = (root, resultArr) => {
+			if (root === null) return resultArr;
+			recursiveTraversal(root.left, resultArr);
+			recursiveTraversal(root.right, resultArr);
+			resultArr.push(root.val);
+		};
+		recursiveTraversal(root, resultArr);
+		return resultArr;
+
+		// Iterative Solution (Reverse the process of preorder)
+		const result = [];
+		const stack = [];
+		let currNode = root;
+		while (currNode !== null || stack.length > 0) {
+			if (currNode !== null) {
+				stack.push(currNode);
+				Array.prototype.result.unshift(currNode.val); // unshift the element to the result array.
+				currNode = currNode.right;  // Reverse the loop order.
+			} else {
+				currNode = stack.pop();
+				currNode = currNode.left;
+			}
+		}
+		return result;
   };
   ```
 

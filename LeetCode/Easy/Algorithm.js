@@ -775,20 +775,62 @@ class Solution {
 		return false;
 	}
 
-	preorderTraversal_144(root, resultArr = []) {
-		if (root === null) return resultArr;
-		resultArr.push(root.val);
-		this.preorderTraversal_144(root.left);
-		this.preorderTraversal_144(root.right);
+	preorderTraversal_144(root) {
+		//  Recursive solution is trivial
+		const resultArr = [];
+		const recursiveTraversal = (root, resultArr) => {
+			if (root === null) return resultArr;
+			resultArr.push(root.val);
+			recursiveTraversal(root.left, resultArr);
+			recursiveTraversal(root.right, resultArr);
+		};
+		recursiveTraversal(root, resultArr);
 		return resultArr;
+
+		// Iteration Solution
+		let currNode = root;
+		const result = [];
+		const stack = [];
+		while (currNode !== null || stack.length > 0) {
+			if (currNode !== null) {
+				result.push(currNode.val);
+				stack.push(currNode);
+				currNode = currNode.left;
+			} else {
+				currNode = stack.pop();
+				currNode = currNode.right;
+			}
+		}
+		return result;
 	}
 
-	postorderTraversal_145(root, resultArr = []) {
-		if (root === null) return resultArr;
-		this.postorderTraversal(root.left, resultArr);
-		this.postorderTraversal(root.right, resultArr);
-		resultArr.push(root.val);
+	postorderTraversal_145(root) {
+		//  Recursive solution is trivial
+		const resultArr = [];
+		const recursiveTraversal = (root, resultArr) => {
+			if (root === null) return resultArr;
+			recursiveTraversal(root.left, resultArr);
+			recursiveTraversal(root.right, resultArr);
+			resultArr.push(root.val);
+		};
+		recursiveTraversal(root, resultArr);
 		return resultArr;
+
+		// Iterative Solution (Reverse the process of preorder)
+		const result = [];
+		const stack = [];
+		let currNode = root;
+		while (currNode !== null || stack.length > 0) {
+			if (currNode !== null) {
+				stack.push(currNode);
+				Array.prototype.result.unshift(currNode.val);
+				currNode = currNode.right;
+			} else {
+				currNode = stack.pop();
+				currNode = currNode.left;
+			}
+		}
+		return result;
 	}
 }
 
