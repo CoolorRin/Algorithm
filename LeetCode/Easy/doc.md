@@ -3,6 +3,7 @@
 
 - [Easy Question](#easy-question)
   - [Data structure](#data-structure)
+    - [(160) Intersection of Two Linked lists](#160-intersection-of-two-linked-lists)
     - [(136) Single Number](#136-single-number)
     - [(141) Linked List Cycle](#141-linked-list-cycle)
     - [(144) Binary Tree Preorder Traversal](#144-binary-tree-preorder-traversal)
@@ -40,6 +41,110 @@
     - [(125)Valid Palindrome](#125valid-palindrome)
 
 ## Data structure
+
+### (160) Intersection of Two Linked lists
+> Given the heads of two singly linked-lists `headA` and `headB`, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return `null`.  
+> For example, the following two linked lists begin to intersect at node `c1`:
+> ```javascript
+> const linkedlist_a = [a1, a2, c1, c2, c3];
+> const linkedlist_b = [b1, b2, b3, c1, c2, c3];
+> ```
+> The test cases are generated such that there are no cycles anywhere in the entire linked structure.
+> **Note** that the linked must **retain their original structure** after the function returns.
+> **Custom Judge:**
+> The input to the **judge** are given as follows (your program is not given these inputs.):
+> - `intersecVal` - The value of the node where the intersection occurs.This is `0` if there is no intersected node.
+> - `listA`- The first linked list.
+> - `listB`- The second linked list.
+> - `skipA`- The number of nodes to skip ahead in `listA` (starting from the head) to get to the intersected node.
+> - `skipB`- The number of nodes to skip ahead in `listB` (starting from the head) to get tot the intersected node.
+> The judge will then crate the linked structure based on these inputs and pass the two heads, `headA` and `headB` to your program. If you correctly return the intersected node, then your solution will be **accepted.**
+
+**Example:**
+```
+Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
+Output: Intersected at '8'
+
+Input: intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
+Output: Intersected at '2'
+
+Input: intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
+Output: No intersection
+```
+
+**Constraints:**
+- The number of nodes of `listA` is in the `m`.
+- The number of nodes of `listB` is in the `n`.
+- `1 <= m, n <= 3 * 104`
+- `1 <= Node.val <= 105`
+- `0 <= skipA < m`
+- `0 <= skipB < n`
+- `intersectVal` is 0 if `listA` and `listB` do not intersect.
+- `intersectVal == listA[skipA] == listB[skipB]` if `listA` and `listB` intersect.
+
+#### **Solutions:**
+- HashSet
+- **Time Complexity: O(M + N), Space Complexity: O(1)**
+
+#### Code
+- **JavaScript**
+  ```javascript
+  	getIntersectionNode_160(headA, headB) {
+		let pointer_a = headA;
+		let pointer_b = headB;
+		while (pointer_a !== pointer_b) {
+			pointer_a = pointer_a === null ? headB : pointer_a.next;
+			pointer_b = pointer_b === null ? headA : pointer_b.next;
+		}
+		return pointer_a;
+
+		// hashmap way
+		const hashmap = new Map();
+		let pointer_a = headA;
+		let pointer_b = headB;
+		while (pointer_a) {
+		    hashmap.set(pointer_a)
+		    pointer_a = pointer_a.next;
+		}
+
+		while (pointer_b) {
+		    if (hashmap.has(pointer_b)) return pointer_b;
+		    pointer_b = pointer_b.next;
+		}
+		return null;
+
+    // Ugly Way
+		let len_a = 0;
+		let len_b = 0;
+		let pointer_a = headA;
+		let pointer_b = headB;
+		while (pointer_a) {
+		    len_a++;
+		    pointer_a = pointer_a.next;
+		};
+		while (pointer_b) {
+		    len_b++;
+		    pointer_b = pointer_b.next;
+		};
+		pointer_a = headA;
+		pointer_b = headB;
+
+		if (len_a > len_b) {
+		    for (let index = 0; index < len_a - len_b; index++) {
+		        pointer_a = pointer_a.next;
+		    }
+		} else {
+		    for (let index = 0; index < len_b - len_a; index++) {
+		        pointer_b = pointer_b.next;
+		    }
+		}
+		while (pointer_a !== pointer_b) {
+		    pointer_a = pointer_a.next;
+		    pointer_b = pointer_b.next;
+		}
+		return pointer_a;
+	}
+  ```
 
 ### (136) Single Number
 > Given a **non-empty** array of integers `nums`, every element appears twice except for one. Find that single one.  

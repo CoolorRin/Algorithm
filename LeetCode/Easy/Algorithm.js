@@ -832,6 +832,63 @@ class Solution {
 		}
 		return result;
 	}
+
+	getIntersectionNode_160(headA, headB) {
+		// Ugly Way
+		let len_a = 0;
+		let len_b = 0;
+		let pointer_a = headA;
+		let pointer_b = headB;
+		while (pointer_a) {
+			len_a++;
+			pointer_a = pointer_a.next;
+		}
+		while (pointer_b) {
+			len_b++;
+			pointer_b = pointer_b.next;
+		}
+		pointer_a = headA;
+		pointer_b = headB;
+
+		if (len_a > len_b) {
+			for (let index = 0; index < len_a - len_b; index++) {
+				pointer_a = pointer_a.next;
+			}
+		} else {
+			for (let index = 0; index < len_b - len_a; index++) {
+				pointer_b = pointer_b.next;
+			}
+		}
+		while (pointer_a !== pointer_b) {
+			pointer_a = pointer_a.next;
+			pointer_b = pointer_b.next;
+		}
+		return pointer_a;
+
+		// hashmap way
+		const hashmap = new Map();
+		let pointer_a = headA;
+		let pointer_b = headB;
+		while (pointer_a) {
+			hashmap.set(pointer_a);
+			pointer_a = pointer_a.next;
+		}
+
+		while (pointer_b) {
+			if (hashmap.has(pointer_b)) return pointer_b;
+			pointer_b = pointer_b.next;
+		}
+		return null;
+
+		// O(M + N) TIME, O(1) Space.
+		let pointer_a = headA;
+		let pointer_b = headB;
+		while (pointer_a !== pointer_b) {
+			pointer_a = pointer_a === null ? headB : pointer_a.next;
+			pointer_b = pointer_b === null ? headA : pointer_b.next;
+		}
+		return pointer_a;
+	}
 }
 
 // Test
