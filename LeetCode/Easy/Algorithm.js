@@ -760,6 +760,36 @@ class Solution {
 		});
 		return xor;
 	}
+
+	hasCycle141(head) {
+		if (!head || head.next === null) return false;
+		let slowPointer = head;
+		let fastPointer = head.next;
+		while (slowPointer && fastPointer) {
+			if (slowPointer === fastPointer) return true;
+			if (!slowPointer.next || !fastPointer.next || !fastPointer.next.next)
+				return false;
+			slowPointer = slowPointer.next;
+			fastPointer = fastPointer.next.next;
+		}
+		return false;
+	}
+
+	preorderTraversal_144(root, resultArr = []) {
+		if (root === null) return resultArr;
+		resultArr.push(root.val);
+		this.preorderTraversal_144(root.left);
+		this.preorderTraversal_144(root.right);
+		return resultArr;
+	}
+
+	postorderTraversal_145(root, resultArr = []) {
+		if (root === null) return resultArr;
+		this.postorderTraversal(root.left, resultArr);
+		this.postorderTraversal(root.right, resultArr);
+		resultArr.push(root.val);
+		return resultArr;
+	}
 }
 
 // Test
