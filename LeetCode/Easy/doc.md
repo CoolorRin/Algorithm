@@ -2,6 +2,9 @@
 **Table Content**
 
 - [Easy Question](#easy-question)
+    - [(235) Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree)
+    - [**Solutions:**](#solutions)
+    - [Code](#code)
   - [Data structure](#data-structure)
     - [(160) Intersection of Two Linked lists](#160-intersection-of-two-linked-lists)
     - [(136) Single Number](#136-single-number)
@@ -39,6 +42,59 @@
     - [Pascal's Triangle II](#pascals-triangle-ii)
     - [Best TIme to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
     - [(125)Valid Palindrome](#125valid-palindrome)
+
+
+### (235) Lowest Common Ancestor of a Binary Search Tree
+> Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.  
+> According to he `definition of LCA on Wikipedia:`"The lowest common ancestor is defined between two nodes `p` and `q` as the lowest node in `T` that has both `p` and `q` as descendants (where we allow **a node to be a descendant of itself.**)."  
+
+**Example:**
+```
+Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
+Output: 6
+Explanation: The LCA of nodes 2 and 8 is 6.
+
+Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
+Output: 2
+Explanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
+
+Input: root = [2,1], p = 2, q = 1
+Output: 2
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range `[2, 105]`.
+- `-109 <= Node.val <= 109`
+- All Node.val are **unique**.
+- `p != q`
+- `p` and `q` will exist in the BST.
+
+### **Solutions:**
+- DFS(Top down): Find the path from the tree Root node to the  `p` and `q`, compare both of them, and check the last same node.  Time Complexity: O(n), Space Complexity: O(n). [UglyWay].
+### Code
+- **JavaScript**
+  ```javascript
+  function lowestCommonAncestor(root, p, q) {
+    const getPath = (root, node, path = []) => {
+      if (root === null) return false;
+      path.push(root);
+      if (root === node) return path;
+      if (!getPath(root.left, node, path) && !getPath(root.right, node, path)) {
+        path.pop();
+        return false;
+      } else return path;
+    };
+    const path2p = getPath(root, p);
+    const path2q = getPath(root, q); 
+    let result = null;
+    for (index in path2p) {
+      if (path2p[index] !== path2q[index]) return result;
+      else result = path2p[index];
+    }
+    return result;
+  }
+
+  ```
 
 ## Data structure
 

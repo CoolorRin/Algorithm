@@ -71,7 +71,36 @@ class solutions {
 		console.log(dp);
 		return dp[maxMove][startRow + 1][startColumn + 1];
 	}
+
+	lowestCommonAncestor(root, p, q) {
+		const path2p = [];
+		const path2q = [];
+		const getPath = (root, node, path = []) => {
+			if (root === null) return false;
+			path.push(root);
+			if (root === node) return path;
+			if (!getPath(root.left, node, path) && !getPath(root.right, node, path)) {
+				path.pop();
+				return false;
+			} else return path;
+		};
+		return getPath(root, p);
+	}
 }
 
+function TreeNode(val) {
+	this.val = val;
+	this.left = null;
+	this.right = null;
+}
+
+const testNode = new TreeNode(1);
+testNode.left = new TreeNode(5);
+testNode.right = new TreeNode(1);
+testNode.left.left = new TreeNode(8);
+testNode.left.right = new TreeNode(7);
+
+const p = testNode.right;
+
 const test = new solutions();
-console.log(test.findPaths_576(3, 3, 1, 1, 1));
+console.log(test.lowestCommonAncestor(testNode, p));

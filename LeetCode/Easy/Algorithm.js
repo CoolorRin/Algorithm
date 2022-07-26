@@ -889,6 +889,40 @@ class Solution {
 		}
 		return pointer_a;
 	}
+
+	lowestCommonAncestor_235(root, p, q) {
+		/**
+		 * Definition for a binary tree node.
+		 * function TreeNode(val) {
+		 *     this.val = val;
+		 *     this.left = this.right = null;
+		 * }
+		 */
+
+		/**
+		 * @param {TreeNode} root
+		 * @param {TreeNode} p
+		 * @param {TreeNode} q
+		 * @return {TreeNode}
+		 */
+		const getPath = (root, node, path = []) => {
+			if (root === null) return false;
+			path.push(root);
+			if (root === node) return path;
+			if (!getPath(root.left, node, path) && !getPath(root.right, node, path)) {
+				path.pop();
+				return false;
+			} else return path;
+		};
+		const path2p = getPath(root, p);
+		const path2q = getPath(root, q);
+		let result = null;
+		for (index in path2p) {
+			if (path2p[index] !== path2q[index]) return result;
+			else result = path2p[index];
+		}
+		return result;
+	}
 }
 
 // Test
