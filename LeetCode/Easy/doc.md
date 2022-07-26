@@ -71,6 +71,8 @@ Output: 2
 
 ### **Solutions:**
 - DFS(Top down): Find the path from the tree Root node to the  `p` and `q`, compare both of them, and check the last same node.  Time Complexity: O(n), Space Complexity: O(n). [UglyWay].
+- > [BST](https://www.youtube.com/watch?v=gs2LMfuOR9k)
+- > [LeetCode Solutions](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/discuss/2335047/C%2B%2B-oror-100-faster-oror-Recursive-Code)(Need to analysis)
 ### Code
 - **JavaScript**
   ```javascript
@@ -94,6 +96,25 @@ Output: 2
     return result;
   }
 
+  // BST Way Time: O(n) Space: O(1)
+  let cur = root;
+  while (cur) {
+    if( p.val > cur.val && q.val > cur.val ) {
+      cur = cur.right;
+    } else if (p.val < cur.val && q.val < cur.val ) {
+      cur = cur.left;
+    } else return cur
+  }
+
+  // LeetCode Solution
+  function lowestCommonAncestor_leetcode (root, p, q) {
+    if (!root) return root;
+    if (root == p || root == q) return root;
+    const leftNode = lowestCommonAncestor_leetcode(root.left, p, q);
+    const rightNode = lowestCommonAncestor_leetcode(root.right, p, q);
+    if (leftNode && rightNode) return root;
+    return left ? left : right;
+  }
   ```
 
 ## Data structure
