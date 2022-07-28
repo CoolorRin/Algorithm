@@ -1,7 +1,7 @@
 class Solution {
 	constructor() {}
 
-	twoSum(nums, target) {
+	twoSum_1(nums, target) {
 		let hashMap = [];
 		for (const [key, value] of Object.entries(nums)) {
 			if (hashMap[target - value]) {
@@ -10,7 +10,7 @@ class Solution {
 		}
 	}
 
-	isPalindrome(number) {
+	isPalindrome_9(number) {
 		// const strNumber = x.toString();
 		// const lastNumIndex = strNumber.length - 1;
 		// for (let i = 0; i < strNumber.length; i++) {
