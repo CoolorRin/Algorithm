@@ -1,7 +1,7 @@
 class Solution {
 	constructor() {}
 
-	twoSum(nums, target) {
+	twoSum_1(nums, target) {
 		let hashMap = [];
 		for (const [key, value] of Object.entries(nums)) {
 			if (hashMap[target - value]) {
