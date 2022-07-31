@@ -21,8 +21,6 @@
     - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
     - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
   - [Waiting for classification.](#waiting-for-classification)
-    - [Two Sum](#two-sum)
-    - [Palindrome Number](#palindrome-number)
     - [Roman to Integer](#roman-to-integer)
     - [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
     - [Merge Two Sorted Lists](#merge-two-sorted-lists)
@@ -47,7 +45,7 @@
     - [Path Sum](#path-sum)
     - [Pascal's Triangle](#pascals-triangle)
     - [Pascal's Triangle II](#pascals-triangle-ii)
-    - [Best TIme to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
+    - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
     - [(125) Valid Palindrome](#125-valid-palindrome)
 
 
@@ -2244,7 +2242,7 @@ For Now, Just Check the code below.
     };  
   ```
 
-### Best TIme to Buy and Sell Stock
+### (121) Best Time to Buy and Sell Stock
 > You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day.  
 > You want to maximize your profit by choosing **a single day** to buy one stock and choosing **a different day in the future** to sell that stock.  
 > Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.  
