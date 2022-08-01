@@ -44,7 +44,7 @@
     - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
     - [Path Sum](#path-sum)
     - [Pascal's Triangle](#pascals-triangle)
-    - [Pascal's Triangle II](#pascals-triangle-ii)
+    - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
     - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
     - [(125) Valid Palindrome](#125-valid-palindrome)
 
@@ -2203,7 +2203,7 @@ Output: [[1]]
   }
   ```
 
-### Pascal's Triangle II
+### (119) Pascal's Triangle II
 > Given an integer rowIndex, return the rowIndexth (**0-indexed**) row of the **Pascal's triangle**.  
 > In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:
 
