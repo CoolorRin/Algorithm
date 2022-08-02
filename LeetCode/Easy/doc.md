@@ -3,7 +3,6 @@
 
 - [Easy Question](#easy-question)
   - [Spacial Algorithm](#spacial-algorithm)
-    - [(125) Valid Palindrome](#125-valid-palindrome)
     - [(14) Longest Common Prefix(LCP)](#14-longest-common-prefixlcp)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
@@ -28,6 +27,7 @@
     - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
     - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
   - [String Operate](#string-operate)
+    - [(125) Valid Palindrome](#125-valid-palindrome)
   - [Waiting for classification.](#waiting-for-classification)
     - [Merge Two Sorted Lists](#merge-two-sorted-lists)
     - [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
@@ -52,97 +52,7 @@
 
 ## Spacial Algorithm
 
-### (125) Valid Palindrome
-> A phrase is a `palindrome` if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.  
-> Given a string `s`, return true if it is a `palindrome`, or false otherwise.
 
-**Example:**
-```
-Input: s = "A man, a plan, a canal: Panama"
-Output: true
-Explanation: "amanaplanacanalpanama" is a palindrome.
-
-Input: s = "race a car"
-Output: false
-Explanation: "raceacar" is not a palindrome.
-
-Input: s = " "
-Output: true
-Explanation: s is an empty string "" after removing non-alphanumeric characters.
-Since an empty string reads the same forward and backward, it is a palindrome.
-```
-
-**Constraints**
-- `1 <= s.length <= 2 * 105`
-- `s` consists only of printable ASCII characters.
-
-#### **Solutions**
-> Check the LeetCode Discuss kabriel's solutions. And check the comment code below.
-
-#### Code 
-- **JavaScript**
-  ```JavaScript
-  	isPalindrome125(s) {
-		  const test = /[a-zA-Z0-9]+/g;
-		  if (s.match(test)) {
-		  	s = s
-		  		.match(/[a-zA-Z0-9]+/gm)
-		  		.reduce((x, y) => {
-		  			return x + y;
-		  		})
-		  		.toLowerCase();
-		  	console.log(s);
-		  	let leftPoint = 0;
-		  	let rightPoint = s.length - 1;
-		  	while (leftPoint <= rightPoint) {
-		  		if (s[leftPoint] === s[rightPoint]) {
-		  			leftPoint++;
-		  			rightPoint--;
-		  		} else return false;
-		  	}
-		  	return true;
-		  }
-		  return true;
-
-		// LeetCode Discuss kabriel's solutions; Nice one.
-		// function isLetter(code) {
-		// 	if (
-		// 		(code >= 48 && code <= 57) ||
-		// 		(code >= 65 && code <= 90) ||
-		// 		(code >= 97 && code <= 122)
-		// 	) {
-		// 		return true;
-		// 	} else return false;
-		// }
-
-		// function toLowerCase(code) {
-		// 	if (code >= 65 && code <= 90) {
-		// 		return code + 32;
-		// 	} else return code;
-		// }
-
-		// let leftPoint = 0;
-		// let rightPoint = s.length - 1;
-		// while (leftPoint <= rightPoint) {
-		// 	const start = s.charCodeAt(leftPoint);
-		// 	const end = s.charCodeAt(rightPoint);
-		// 	if (!isLetter(start)) {
-		// 		leftPoint++;
-		// 		continue;
-		// 	}
-		// 	if (!isLetter(end)) {
-		// 		rightPoint--;
-		// 		continue;
-		// 	}
-		// 	if (toLowerCase(start) !== toLowerCase(end)) {
-		// 		return false;
-		// 	}
-		// 	leftPoint++;
-		// 	rightPoint--;
-		// }
-		// return true;
-	}
-  ```
 
 ### (14) Longest Common Prefix(LCP)
 
@@ -1401,7 +1311,97 @@ Output: "ZY"
 
 ## String Operate
 
+### (125) Valid Palindrome
+> A phrase is a `palindrome` if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.  
+> Given a string `s`, return true if it is a `palindrome`, or false otherwise.
 
+**Example:**
+```
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+
+Input: s = " "
+Output: true
+Explanation: s is an empty string "" after removing non-alphanumeric characters.
+Since an empty string reads the same forward and backward, it is a palindrome.
+```
+
+**Constraints**
+- `1 <= s.length <= 2 * 105`
+- `s` consists only of printable ASCII characters.
+
+#### **Solutions**
+> Check the LeetCode Discuss kabriel's solutions. And check the comment code below.
+
+#### Code 
+- **JavaScript**
+  ```JavaScript
+  	isPalindrome125(s) {
+		  const test = /[a-zA-Z0-9]+/g;
+		  if (s.match(test)) {
+		  	s = s
+		  		.match(/[a-zA-Z0-9]+/gm)
+		  		.reduce((x, y) => {
+		  			return x + y;
+		  		})
+		  		.toLowerCase();
+		  	console.log(s);
+		  	let leftPoint = 0;
+		  	let rightPoint = s.length - 1;
+		  	while (leftPoint <= rightPoint) {
+		  		if (s[leftPoint] === s[rightPoint]) {
+		  			leftPoint++;
+		  			rightPoint--;
+		  		} else return false;
+		  	}
+		  	return true;
+		  }
+		  return true;
+
+		// LeetCode Discuss kabriel's solutions; Nice one.
+		// function isLetter(code) {
+		// 	if (
+		// 		(code >= 48 && code <= 57) ||
+		// 		(code >= 65 && code <= 90) ||
+		// 		(code >= 97 && code <= 122)
+		// 	) {
+		// 		return true;
+		// 	} else return false;
+		// }
+
+		// function toLowerCase(code) {
+		// 	if (code >= 65 && code <= 90) {
+		// 		return code + 32;
+		// 	} else return code;
+		// }
+
+		// let leftPoint = 0;
+		// let rightPoint = s.length - 1;
+		// while (leftPoint <= rightPoint) {
+		// 	const start = s.charCodeAt(leftPoint);
+		// 	const end = s.charCodeAt(rightPoint);
+		// 	if (!isLetter(start)) {
+		// 		leftPoint++;
+		// 		continue;
+		// 	}
+		// 	if (!isLetter(end)) {
+		// 		rightPoint--;
+		// 		continue;
+		// 	}
+		// 	if (toLowerCase(start) !== toLowerCase(end)) {
+		// 		return false;
+		// 	}
+		// 	leftPoint++;
+		// 	rightPoint--;
+		// }
+		// return true;
+	}
+  ```
 
 ## Waiting for classification.
 
