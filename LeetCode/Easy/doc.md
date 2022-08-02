@@ -43,7 +43,7 @@
     - [Balanced Binary Tree](#balanced-binary-tree)
     - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
     - [Path Sum](#path-sum)
-    - [Pascal's Triangle](#pascals-triangle)
+    - [(118) Pascal's Triangle](#118-pascals-triangle)
     - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
     - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
     - [(125) Valid Palindrome](#125-valid-palindrome)
@@ -2161,7 +2161,7 @@ Check the code.
   }
   ```
 
-### Pascal's Triangle
+### (118) Pascal's Triangle
 > Given an integer numRows, return the first numRows of **Pascal's triangle**.  
 > In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:  
 > [Pascal's triangle](https://leetcode.com/problems/pascals-triangle/)
