@@ -5,6 +5,8 @@
   - [Spacial Algorithm](#spacial-algorithm)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
+    - [(118) Pascal's Triangle](#118-pascals-triangle)
+    - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
     - [(1) Two Sum](#1-two-sum)
     - [(235) Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree)
     - [(160) Intersection of Two Linked lists](#160-intersection-of-two-linked-lists)
@@ -43,8 +45,6 @@
     - [Balanced Binary Tree](#balanced-binary-tree)
     - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
     - [Path Sum](#path-sum)
-    - [(118) Pascal's Triangle](#118-pascals-triangle)
-    - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
     - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
     - [(125) Valid Palindrome](#125-valid-palindrome)
 
@@ -94,6 +94,87 @@ Output: 2
   
 
 ## Data structure
+
+### (118) Pascal's Triangle
+> Given an integer numRows, return the first numRows of **Pascal's triangle**.  
+> In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:  
+> [Pascal's triangle](https://leetcode.com/problems/pascals-triangle/)
+
+**Example:**
+```
+Input: numRows = 5
+Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+
+Input: numRows = 1
+Output: [[1]]
+```
+
+**Constraints:**
+- `1 <= numRows <= 30`
+
+#### **Solutions**
+- Maybe have more better way to figure it out. For Now, just check the code.
+
+#### Code
+- **JavScript**
+  ```javascript
+    generate(numRows) {
+    let resultArr = [];
+    for (let element = 1; element <= numRows; element++) {
+      if (element === 1) resultArr.push([1]);
+      if (element === 2) resultArr.push([1, 1]);
+      if (element > 2) {
+        let arr = [1];
+        for (let index = 1; index < element - 1; index++) {
+          arr[index] =
+            resultArr[element - 2][index] + resultArr[element - 2][index - 1];
+        }
+        arr.push(1);
+        resultArr.push(arr);
+      }
+    }
+    return resultArr;
+  }
+  ```
+
+### (119) Pascal's Triangle II
+> Given an integer rowIndex, return the rowIndexth (**0-indexed**) row of the **Pascal's triangle**.  
+> In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:
+
+**Example:**
+
+```
+Input: rowIndex = 3
+Output: [1,3,3,1]
+
+Input: rowIndex = 0
+Output: [1]
+
+Input: rowIndex = 1
+Output: [1,1]
+```
+
+**Constraints:**
+- `0 <= rowIndex <= 33`
+
+#### **Solutions**
+Both of questions about the pascals triangle are inefficient. Find the way to optimize it in the weekend PR commit.  
+For Now, Just Check the code below.
+
+#### Code
+- **JavaScript**
+  ```JavaScript
+    var getRow = function(rowIndex) {
+      if (rowIndex === 0) return [1];
+      if (rowIndex === 1) return [1,1];
+      const arr = []
+      getRow(rowIndex - 1).reduce((x, y) => {
+          arr.push(x + y);
+          return y;
+      });
+      return [1, ...arr, 1];
+    };  
+  ```
 
 ### (1) Two Sum
 
@@ -2161,86 +2242,7 @@ Check the code.
   }
   ```
 
-### (118) Pascal's Triangle
-> Given an integer numRows, return the first numRows of **Pascal's triangle**.  
-> In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:  
-> [Pascal's triangle](https://leetcode.com/problems/pascals-triangle/)
 
-**Example:**
-```
-Input: numRows = 5
-Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
-
-Input: numRows = 1
-Output: [[1]]
-```
-
-**Constraints:**
-- `1 <= numRows <= 30`
-
-#### **Solutions**
-- Maybe have more better way to figure it out. For Now, just check the code.
-
-#### Code
-- **JavScript**
-  ```javascript
-    generate(numRows) {
-    let resultArr = [];
-    for (let element = 1; element <= numRows; element++) {
-      if (element === 1) resultArr.push([1]);
-      if (element === 2) resultArr.push([1, 1]);
-      if (element > 2) {
-        let arr = [1];
-        for (let index = 1; index < element - 1; index++) {
-          arr[index] =
-            resultArr[element - 2][index] + resultArr[element - 2][index - 1];
-        }
-        arr.push(1);
-        resultArr.push(arr);
-      }
-    }
-    return resultArr;
-  }
-  ```
-
-### (119) Pascal's Triangle II
-> Given an integer rowIndex, return the rowIndexth (**0-indexed**) row of the **Pascal's triangle**.  
-> In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:
-
-**Example:**
-
-```
-Input: rowIndex = 3
-Output: [1,3,3,1]
-
-Input: rowIndex = 0
-Output: [1]
-
-Input: rowIndex = 1
-Output: [1,1]
-```
-
-**Constraints:**
-- `0 <= rowIndex <= 33`
-
-#### **Solutions**
-Both of questions about the pascals triangle are inefficient. Find the way to optimize it in the weekend PR commit.  
-For Now, Just Check the code below.
-
-#### Code
-- **JavaScript**
-  ```JavaScript
-    var getRow = function(rowIndex) {
-      if (rowIndex === 0) return [1];
-      if (rowIndex === 1) return [1,1];
-      const arr = []
-      getRow(rowIndex - 1).reduce((x, y) => {
-          arr.push(x + y);
-          return y;
-      });
-      return [1, ...arr, 1];
-    };  
-  ```
 
 ### (121) Best Time to Buy and Sell Stock
 > You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day.  
