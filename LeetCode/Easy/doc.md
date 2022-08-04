@@ -34,7 +34,6 @@
     - [Remove Element](#remove-element)
     - [Implement strStr()](#implement-strstr)
     - [Search insert position](#search-insert-position)
-    - [Maximum Subarray](#maximum-subarray)
     - [Length of Last word](#length-of-last-word)
     - [Plus one](#plus-one)
     - [Add Binary](#add-binary)
@@ -1705,75 +1704,7 @@ Binary search. Check the code.
 
   ```
   
-### Maximum Subarray
-> Given an integer array `nums`, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.  
-> A **subarray** is a **contiguous** part of an array.
 
-
-**Example:**
-```	
-Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
-Output: 6
-Explanation: [4,-1,2,1] has the largest sum = 6.
-
-Input: nums = [1]
-Output: 1
-
-Input: nums = [5,4,-1,7,8]
-Output: 23
-```
-
-#### **Solutions**
-> [divide and conquer](https://www.youtube.com/watch?v=5WZl3MMT0Eg)  
-> [Maximum subarray problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem)
-
-#### Code
-- **JavaScript**
-    ```JavaScript
-    let maxSub = nums[0];
-    let curSum = 0;
-    for (let num of nums) {
-        if (curSum < 0) {
-            curSum = 0;
-        }
-        curSum += num;
-        maxSub = Math.max(maxSub, curSum);
-    }
-    return maxSub;
-
-    /*
-   for(let i=1; i<nums.length;i++){  
-       nums[i] = Math.max(nums[i],nums[i]+nums[i-1])
-       console.log(nums[i], nums[i]+nums[i-1])
-       }
-    return Math.max(...nums)
-    */
-
-    /*
-    Time Limit Exceeded.If i need to return the array in the O(n) time complexity.
-    How to do that..
-    
-    let maxSum = nums[0];
-    let curSum = 0;
-    let sliceStart = 0;
-    let sliceEnd = nums.length;
-
-    for (let i = 0; i < nums.length; i++) {
-        curSum = 0;
-        for (let j = i; j < nums.length; j++) {
-            curSum += nums[j];
-            if (maxSum <= curSum) {
-                maxSum = curSum;
-                sliceStart = i;
-                sliceEnd = j;
-            }
-        }
-    }
-    console.log(nums.slice(sliceStart, sliceEnd + 1));
-    return maxSum;
-
-    */
-    ```
 
 ### Length of Last word
 
