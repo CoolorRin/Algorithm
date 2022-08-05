@@ -5,7 +5,7 @@
   - [Spacial Algorithm](#spacial-algorithm)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
-    - [Roman to Integer](#roman-to-integer)
+    - [(13) Roman to Integer](#13-roman-to-integer)
     - [(118) Pascal's Triangle](#118-pascals-triangle)
     - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
     - [(1) Two Sum](#1-two-sum)
@@ -95,7 +95,7 @@ Output: 2
 
 ## Data structure
 
-### Roman to Integer
+### (13) Roman to Integer
 
 > Roman numerals are repersented by serven different smbols: `I`, `V`, `X`, `L`, `C`, `D` and `M`.
 > | Symbol | Value |
