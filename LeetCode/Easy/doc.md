@@ -5,6 +5,7 @@
   - [Spacial Algorithm](#spacial-algorithm)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
+    - [Roman to Integer](#roman-to-integer)
     - [(118) Pascal's Triangle](#118-pascals-triangle)
     - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
     - [(1) Two Sum](#1-two-sum)
@@ -24,7 +25,6 @@
     - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
     - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
   - [Waiting for classification.](#waiting-for-classification)
-    - [Roman to Integer](#roman-to-integer)
     - [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
     - [Merge Two Sorted Lists](#merge-two-sorted-lists)
     - [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
@@ -94,6 +94,91 @@ Output: 2
   
 
 ## Data structure
+
+### Roman to Integer
+
+> Roman numerals are repersented by serven different smbols: `I`, `V`, `X`, `L`, `C`, `D` and `M`.
+> | Symbol | Value |
+> | ------ | ----- |
+> | I | 1 |
+> | V | 5 |
+> | X | 10 |
+> | L | 50 |
+> | C | 100 |
+> | D | 500 |
+> | M | 1000 |
+
+**Example:**
+
+```
+Input: s = "III"
+Ouput: 3
+```
+
+#### **Solution**
+
+- First thing come out from my mind is loop the whole RomanNumber String and compare with the next number. If the second
+  number is bigger, it will be minus by the second number.Otherwise, plus it. **Problem is the lastest number should
+  handle first. And no matter lasest number is,**
+- `Or Maybe it have the better way`
+
+#### Code
+
+- **JavaScript**
+
+    ```JavaScript
+    var transferRoman2Integer(romanNumString)
+    {
+        const RomanMap = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000,
+        }
+        let strLength = romanNumString.length
+        let sum = RomanMap[romanNumString[strLength - 1]]
+        for (let index = strLength - 2; index >= 0; index--) {
+            if (RomanMap[romanNumString[index]] < RomanMap[romanNumString[index + 1]]) {
+                sum -= RomanMap[romanNumString[index]]
+            } else {
+                sum += RomanMap[romanNumString[index]]
+            }
+        }
+        return sum
+    }
+    ```
+
+- **Cpp11**
+
+    ```c++
+    int Roman2Integer(std::string RomanString)
+    {
+        std::map<char, int> RomanMap = {
+            {'I', 1},
+            {'V', 5},
+            {'X', 10},
+            {'L', 50},
+            {'C', 100},
+            {'D', 500},
+            {'M', 1000}};
+        int sum = RomanMap[RomanString.back()];
+        for (int index = RomanString.length() - 2; index >= 0; index--)
+        {
+                if (RomanMap[RomanString[index]] >= RomanMap[RomanString[index + 1]])
+            {
+                    sum += RomanMap[RomanString[index]];
+            }
+            else
+            {
+                    sum -= RomanMap[RomanString[index]];
+            }
+        }
+    };
+
+    ```
 
 ### (118) Pascal's Triangle
 > Given an integer numRows, return the first numRows of **Pascal's triangle**.  
@@ -1099,90 +1184,7 @@ Output: "ZY"
 	}
   ```
 ## Waiting for classification.
-### Roman to Integer
 
-> Roman numerals are repersented by serven different smbols: `I`, `V`, `X`, `L`, `C`, `D` and `M`.
-> | Symbol | Value |
-> | ------ | ----- |
-> | I | 1 |
-> | V | 5 |
-> | X | 10 |
-> | L | 50 |
-> | C | 100 |
-> | D | 500 |
-> | M | 1000 |
-
-**Example:**
-
-```
-Input: s = "III"
-Ouput: 3
-```
-
-#### **Solution**
-
-- First thing come out from my mind is loop the whole RomanNumber String and compare with the next number. If the second
-  number is bigger, it will be minus by the second number.Otherwise, plus it. **Problem is the lastest number should
-  handle first. And no matter lasest number is,**
-- `Or Maybe it have the better way`
-
-#### Code
-
-- **JavaScript**
-
-    ```JavaScript
-    var transferRoman2Integer(romanNumString)
-    {
-        const RomanMap = {
-            "I": 1,
-            "V": 5,
-            "X": 10,
-            "L": 50,
-            "C": 100,
-            "D": 500,
-            "M": 1000,
-        }
-        let strLength = romanNumString.length
-        let sum = RomanMap[romanNumString[strLength - 1]]
-        for (let index = strLength - 2; index >= 0; index--) {
-            if (RomanMap[romanNumString[index]] < RomanMap[romanNumString[index + 1]]) {
-                sum -= RomanMap[romanNumString[index]]
-            } else {
-                sum += RomanMap[romanNumString[index]]
-            }
-        }
-        return sum
-    }
-    ```
-
-- **Cpp11**
-
-    ```c++
-    int Roman2Integer(std::string RomanString)
-    {
-        std::map<char, int> RomanMap = {
-            {'I', 1},
-            {'V', 5},
-            {'X', 10},
-            {'L', 50},
-            {'C', 100},
-            {'D', 500},
-            {'M', 1000}};
-        int sum = RomanMap[RomanString.back()];
-        for (int index = RomanString.length() - 2; index >= 0; index--)
-        {
-                if (RomanMap[RomanString[index]] >= RomanMap[RomanString[index + 1]])
-            {
-                    sum += RomanMap[RomanString[index]];
-            }
-            else
-            {
-                    sum -= RomanMap[RomanString[index]];
-            }
-        }
-    };
-
-    ```
 
 ### Longest Common Prefix(LCP)
 
