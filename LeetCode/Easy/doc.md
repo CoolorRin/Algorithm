@@ -20,6 +20,7 @@
   - [Bit Manipulation](#bit-manipulation)
     - [(190) Reverse bits](#190-reverse-bits)
   - [Math](#math)
+    - [Sqrt](#sqrt)
     - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
     - [(9) Palindrome Number](#9-palindrome-number)
     - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
@@ -35,7 +36,6 @@
     - [Length of Last word](#length-of-last-word)
     - [Plus one](#plus-one)
     - [Add Binary](#add-binary)
-    - [Sqrt](#sqrt)
     - [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
     - [Merge Sorted Array](#merge-sorted-array)
     - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
@@ -972,6 +972,49 @@ Explanation: The input binary string 11111111111111111111111111111101 represents
 
 ## Math
 
+### Sqrt
+> Given a non-negative integer `x`, compute and return the square root of `x`.  
+> Since the return type is an integer, the decimal digits are **truncated**, and only **the integer part** of the result is returned.  
+> **Note**: You are not allowed to use any built-in exponent function or operator, such as `pow(x, 0.5)` or `x ** 0.5`.
+
+**Example:**
+
+```
+Input: x = 4
+Output: 2
+
+Input: x = 8
+Output: 2
+Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
+```
+
+**Constraints:**
+- `0 <= x <= 2^31 - 1`
+
+#### **Solutions**
+Check the code.
+
+#### Code
+
+- **JavaScript**
+    ```JavaScript
+    let beginNum = 0;
+    let endNum = x;
+    while (beginNum <= endNum) {
+        const midNum = beginNum + Math.floor((endNum - beginNum) / 2);
+        const val = midNum * midNum;
+        if (val === x) return midNum;
+        else if (val > x) {
+            endNum = midNum - 1;
+        } else beginNum = midNum + 1;
+    }
+    return endNum;
+
+    // let val = 0;
+    // while (val * val <= x) val++;
+    // return val - 1;
+    ```
+
 ### (121) Best Time to Buy and Sell Stock
 > You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day.  
 > You want to maximize your profit by choosing **a single day** to buy one stock and choosing **a different day in the future** to sell that stock.  
@@ -1772,51 +1815,6 @@ Output: "10101"
         }, "");
     }
     ```
-
-### Sqrt
-> Given a non-negative integer `x`, compute and return the square root of `x`.  
-> Since the return type is an integer, the decimal digits are **truncated**, and only **the integer part** of the result is returned.  
-> **Note**: You are not allowed to use any built-in exponent function or operator, such as `pow(x, 0.5)` or `x ** 0.5`.
-
-**Example:**
-
-```
-Input: x = 4
-Output: 2
-
-Input: x = 8
-Output: 2
-Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
-```
-
-**Constraints:**
-- `0 <= x <= 2^31 - 1`
-
-#### **Solutions**
-Check the code.
-
-#### Code
-
-- **JavaScript**
-    ```JavaScript
-    let beginNum = 0;
-    let endNum = x;
-    while (beginNum <= endNum) {
-        const midNum = beginNum + Math.floor((endNum - beginNum) / 2);
-        const val = midNum * midNum;
-        if (val === x) return midNum;
-        else if (val > x) {
-            endNum = midNum - 1;
-        } else beginNum = midNum + 1;
-    }
-    return endNum;
-
-    // let val = 0;
-    // while (val * val <= x) val++;
-    // return val - 1;
-    ```
-
-
 
 ### Remove Duplicates from Sorted List
 > Given the `head` of a sorted linked listed, delete all duplicates such that each element appears only once. Return the linked list **sorted** as well.
