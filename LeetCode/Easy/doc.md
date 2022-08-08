@@ -20,7 +20,7 @@
   - [Bit Manipulation](#bit-manipulation)
     - [(190) Reverse bits](#190-reverse-bits)
   - [Math](#math)
-    - [Sqrt](#sqrt)
+    - [(69) Sqrt](#69-sqrt)
     - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
     - [(9) Palindrome Number](#9-palindrome-number)
     - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
@@ -972,7 +972,7 @@ Explanation: The input binary string 11111111111111111111111111111101 represents
 
 ## Math
 
-### Sqrt
+### (69) Sqrt
 > Given a non-negative integer `x`, compute and return the square root of `x`.  
 > Since the return type is an integer, the decimal digits are **truncated**, and only **the integer part** of the result is returned.  
 > **Note**: You are not allowed to use any built-in exponent function or operator, such as `pow(x, 0.5)` or `x ** 0.5`.
