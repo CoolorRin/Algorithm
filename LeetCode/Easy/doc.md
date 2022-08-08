@@ -46,7 +46,7 @@
     - [Convert Sorted Array to Binary Search Tree](#convert-sorted-array-to-binary-search-tree)
     - [Balanced Binary Tree](#balanced-binary-tree)
     - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
-    - [Path Sum](#path-sum)
+    - [(112) Path Sum](#112-path-sum)
 
 
 ## Spacial Algorithm
@@ -2268,7 +2268,7 @@ Check the code.
   }
   ```
 
-### Path Sum
+### (112) Path Sum
 > Given the root of a binary tree and an integer `targetSum`, return `true` if the tree has a **root-to-leaf** path such that adding up all the values along the path equals `targetSum`.  
 > A **leaf** is a node with no children.
 
