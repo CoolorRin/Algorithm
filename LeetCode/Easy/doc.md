@@ -9,6 +9,10 @@
     - [(145) Binary Tree Postorder Traversal](#145-binary-tree-postorder-traversal)
   - [Dynamic Programming](#dynamic-programming)
     - [(70) ClimbingStair](#70-climbingstair)
+  - [Math](#math)
+    - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
+    - [**Solutions:**](#solutions)
+    - [**Code**](#code)
   - [Waiting for classification.](#waiting-for-classification)
     - [Two Sum](#two-sum)
     - [Palindrome Number](#palindrome-number)
@@ -452,6 +456,67 @@ Explanation: There are three ways to climb to the top.
 		return bottom1;
 	}
 
+  ```
+
+## Math
+
+### (168) Excel Sheet Column Title
+> Given an integer `columnNumber`, return its corresponding column title as it appears in an Excel Sheet.
+
+**Example:**
+```
+Input: columnNumber = 1
+Output: "A"
+
+Input: columnNumber = 28
+Output: "AB"
+
+Input: columnNumber = 701
+Output: "ZY"
+```
+
+**Constraints:**
+- `1 <= columnNumber <= 231 - 1`
+
+### **Solutions:**
+- Math.
+
+### **Code**
+- **JavaScript**
+  ```javascript
+  convertToTitle_168(columnNumber) {
+		const convert2Char = (num) => {
+			return String.fromCharCode(num + 64);
+		};
+
+		const numArr = [];
+		let lastNum = columnNumber % 26;
+		let dividedNum = Math.floor(columnNumber / 26);
+		if (lastNum === 0) {
+			lastNum = 26;
+			dividedNum--;
+		}
+		numArr.unshift(lastNum);
+		if (columnNumber > 26) {
+			while (dividedNum > 26) {
+				lastNum = dividedNum % 26;
+				dividedNum = Math.floor(dividedNum / 26);
+				if (lastNum === 0) {
+					lastNum = 26;
+					dividedNum--;
+				}
+				numArr.unshift(lastNum);
+			}
+			numArr.unshift(dividedNum);
+		}
+
+		const result = numArr
+			.map((el) => convert2Char(el))
+			.reduce((x, y) => {
+				return x + y;
+			});
+		return result;
+	}
   ```
 ## Waiting for classification.
 

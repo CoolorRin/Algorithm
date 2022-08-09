@@ -833,7 +833,7 @@ class Solution {
 		return result;
 	}
 
-	convertToTitle(columnNumber) {
+	convertToTitle_168(columnNumber) {
 		const convert2Char = (num) => {
 			return String.fromCharCode(num + 64);
 		};
