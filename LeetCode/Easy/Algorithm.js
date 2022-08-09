@@ -832,8 +832,42 @@ class Solution {
 		}
 		return result;
 	}
+
+	convertToTitle(columnNumber) {
+		const convert2Char = (num) => {
+			return String.fromCharCode(num + 64);
+		};
+
+		const numArr = [];
+		let lastNum = columnNumber % 26;
+		let dividedNum = Math.floor(columnNumber / 26);
+		if (lastNum === 0) {
+			lastNum = 26;
+			dividedNum--;
+		}
+		numArr.unshift(lastNum);
+		if (columnNumber > 26) {
+			while (dividedNum > 26) {
+				lastNum = dividedNum % 26;
+				dividedNum = Math.floor(dividedNum / 26);
+				if (lastNum === 0) {
+					lastNum = 26;
+					dividedNum--;
+				}
+				numArr.unshift(lastNum);
+			}
+			numArr.unshift(dividedNum);
+		}
+
+		const result = numArr
+			.map((el) => convert2Char(el))
+			.reduce((x, y) => {
+				return x + y;
+			});
+		return result;
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.singleNumber([2, 2, 3, 3, 4, 4, 5, 6, 6, 7, 7]));
+console.log(testSolution.convertToTitle(2147483647));
