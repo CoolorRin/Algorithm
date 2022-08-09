@@ -3,6 +3,7 @@
 
 - [Easy Question](#easy-question)
   - [Spacial Algorithm](#spacial-algorithm)
+    - [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
     - [(13) Roman to Integer](#13-roman-to-integer)
@@ -26,7 +27,6 @@
     - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
     - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
   - [Waiting for classification.](#waiting-for-classification)
-    - [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
     - [Merge Two Sorted Lists](#merge-two-sorted-lists)
     - [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
     - [Remove Element](#remove-element)
@@ -50,6 +50,85 @@
 
 
 ## Spacial Algorithm
+
+### Longest Common Prefix(LCP)
+
+> Write a function to find the longest common prefix string amongst an array of strings.<br>
+> if there is no common prefix, return an empty string `""`
+
+**Example:**
+
+```
+Input: strs = ["flowers", "flow", "flight"]
+Output: "fl"
+```
+
+**Constraints:**
+
+- `1 <= strs.length <= 200`
+- `0 <= strs[i].length <= 200`
+- `strs[i] consists of only lower-case English letters.`
+
+#### **Solutions**
+
+- Just scanning all strings
+  > Horizontal Scanning: <br> `LCP(str1, str2, ...strN) = LCP(LCP(LCP(str1, str2), str3), ...strN)`. <br>
+  > Vertical
+  Scanning: <br> `LCP(str1, str2, ...strN) = LCP(LCP(LCP(char1))) => (Each loop complete will comparison next char with all other str)`
+  . <br>Get first char thar loop all other string comparison the first, second and so on untill comparison failed. <br>
+- Divide and conquer (**Recursion**)
+  > See JavaScript code below.
+- [Other Solution](https://leetcode.com/problems/longest-common-prefix/solution/)
+
+#### Code
+
+- **JavaScript**
+
+    ```JavaScript
+    LCP(strs)
+    {
+        function comparison(leftPart, rightPart) {
+            const minLength = Math.min(leftPart.length, rightPart.length)
+            for (let index = 0; index < minLength; index++) {
+                if (leftPart[index] !== rightPart[index])
+                    return leftPart.slice(0, index)
+            }
+            return leftPart.slice(0, minLength)
+        }
+
+        function DivideAtMid(strs, leftIndex, rightIndex) {
+            if (leftIndex === rightIndex) return strs[leftIndex]
+            const mid = Math.floor((leftIndex + rightIndex) / 2)
+            const leftPart = DivideAtMid(strs, leftIndex, mid)
+            const rightPart = DivideAtMid(strs, mid + 1, rightIndex)
+            return comparison(leftPart, rightPart)
+        }
+
+        if (strs.length === 0) return ""
+        const result = DivideAtMid(strs, 0, strs.length - 1)
+        return result
+    }
+
+    ```
+
+- **Cpp11**
+
+    ```C++
+    std::string LCP(std::vector<std::string> strs)
+    {
+        if (strs.empty())
+            return "";
+        std::strin prefix = strs[0];
+        for (int i = 1; i < strs.size(); i++)
+        {
+            while (strs[i].find(prefix) != 0)
+            {
+                prefix = prefix.substr(0, prefix.size() - 1);
+            }
+        }
+        return prefix;
+    }
+    ```
 ### (169) Majority Element
 > Given an array `nums` of size `n`, return the majority element.  
 > The majority element is the element that appears more than `[n/2]` times. You may assume that the marjority element always exists in the array.  
@@ -1228,85 +1307,6 @@ Output: "ZY"
   ```
 ## Waiting for classification.
 
-
-### Longest Common Prefix(LCP)
-
-> Write a function to find the longest common prefix string amongst an array of strings.<br>
-> if there is no common prefix, return an empty string `""`
-
-**Example:**
-
-```
-Input: strs = ["flowers", "flow", "flight"]
-Output: "fl"
-```
-
-**Constraints:**
-
-- `1 <= strs.length <= 200`
-- `0 <= strs[i].length <= 200`
-- `strs[i] consists of only lower-case English letters.`
-
-#### **Solutions**
-
-- Just scanning all strings
-  > Horizontal Scanning: <br> `LCP(str1, str2, ...strN) = LCP(LCP(LCP(str1, str2), str3), ...strN)`. <br>
-  > Vertical
-  Scanning: <br> `LCP(str1, str2, ...strN) = LCP(LCP(LCP(char1))) => (Each loop complete will comparison next char with all other str)`
-  . <br>Get first char thar loop all other string comparison the first, second and so on untill comparison failed. <br>
-- Divide and conquer (**Recursion**)
-  > See JavaScript code below.
-- [Other Solution](https://leetcode.com/problems/longest-common-prefix/solution/)
-
-#### Code
-
-- **JavaScript**
-
-    ```JavaScript
-    LCP(strs)
-    {
-        function comparison(leftPart, rightPart) {
-            const minLength = Math.min(leftPart.length, rightPart.length)
-            for (let index = 0; index < minLength; index++) {
-                if (leftPart[index] !== rightPart[index])
-                    return leftPart.slice(0, index)
-            }
-            return leftPart.slice(0, minLength)
-        }
-
-        function DivideAtMid(strs, leftIndex, rightIndex) {
-            if (leftIndex === rightIndex) return strs[leftIndex]
-            const mid = Math.floor((leftIndex + rightIndex) / 2)
-            const leftPart = DivideAtMid(strs, leftIndex, mid)
-            const rightPart = DivideAtMid(strs, mid + 1, rightIndex)
-            return comparison(leftPart, rightPart)
-        }
-
-        if (strs.length === 0) return ""
-        const result = DivideAtMid(strs, 0, strs.length - 1)
-        return result
-    }
-
-    ```
-
-- **Cpp11**
-
-    ```C++
-    std::string LCP(std::vector<std::string> strs)
-    {
-        if (strs.empty())
-            return "";
-        std::strin prefix = strs[0];
-        for (int i = 1; i < strs.size(); i++)
-        {
-            while (strs[i].find(prefix) != 0)
-            {
-                prefix = prefix.substr(0, prefix.size() - 1);
-            }
-        }
-        return prefix;
-    }
-    ```
 
 ### Merge Two Sorted Lists
 
