@@ -5,6 +5,7 @@
   - [Spacial Algorithm](#spacial-algorithm)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
+    - [(112) Path Sum](#112-path-sum)
     - [(13) Roman to Integer](#13-roman-to-integer)
     - [(118) Pascal's Triangle](#118-pascals-triangle)
     - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
@@ -46,7 +47,6 @@
     - [Convert Sorted Array to Binary Search Tree](#convert-sorted-array-to-binary-search-tree)
     - [Balanced Binary Tree](#balanced-binary-tree)
     - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
-    - [(112) Path Sum](#112-path-sum)
 
 
 ## Spacial Algorithm
@@ -95,6 +95,51 @@ Output: 2
   
 
 ## Data structure
+
+### (112) Path Sum
+> Given the root of a binary tree and an integer `targetSum`, return `true` if the tree has a **root-to-leaf** path such that adding up all the values along the path equals `targetSum`.  
+> A **leaf** is a node with no children.
+
+**Example:**
+```
+Input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
+Output: true
+Explanation: The root-to-leaf path with the target sum is shown.
+
+Input: root = [1,2,3], targetSum = 5
+Output: false
+Explanation: There two root-to-leaf paths in the tree:
+(1 --> 2): The sum is 3.
+(1 --> 3): The sum is 4.
+There is no root-to-leaf path with sum = 5.
+
+Input: root = [], targetSum = 0
+Output: false
+Explanation: Since the tree is empty, there are no root-to-leaf paths.
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range `[0, 5000]`.
+- `-1000 <= Node.val <= 1000`
+- `-1000 <= targetSum <= 1000`
+
+#### **Solutions**
+Check the code.
+
+#### Code
+- **JavaScript**
+  ```javascript
+    hasPathSum(root, targetSum) {
+    if (root === null) return false;
+    if (root.left === null && root.right === null && targetSum - root.val === 0)
+      return true;
+    return (
+      this.hasPathSum(root.left, targetSum - root.val) ||
+      this.hasPathSum(root.right, targetSum - root.val)
+    );
+  }
+  ```
+
 
 ### (13) Roman to Integer
 
@@ -2268,48 +2313,5 @@ Check the code.
   }
   ```
 
-### (112) Path Sum
-> Given the root of a binary tree and an integer `targetSum`, return `true` if the tree has a **root-to-leaf** path such that adding up all the values along the path equals `targetSum`.  
-> A **leaf** is a node with no children.
-
-**Example:**
-```
-Input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
-Output: true
-Explanation: The root-to-leaf path with the target sum is shown.
-
-Input: root = [1,2,3], targetSum = 5
-Output: false
-Explanation: There two root-to-leaf paths in the tree:
-(1 --> 2): The sum is 3.
-(1 --> 3): The sum is 4.
-There is no root-to-leaf path with sum = 5.
-
-Input: root = [], targetSum = 0
-Output: false
-Explanation: Since the tree is empty, there are no root-to-leaf paths.
-```
-
-**Constraints:**
-- The number of nodes in the tree is in the range `[0, 5000]`.
-- `-1000 <= Node.val <= 1000`
-- `-1000 <= targetSum <= 1000`
-
-#### **Solutions**
-Check the code.
-
-#### Code
-- **JavaScript**
-  ```javascript
-    hasPathSum(root, targetSum) {
-    if (root === null) return false;
-    if (root.left === null && root.right === null && targetSum - root.val === 0)
-      return true;
-    return (
-      this.hasPathSum(root.left, targetSum - root.val) ||
-      this.hasPathSum(root.right, targetSum - root.val)
-    );
-  }
-  ```
 
 
