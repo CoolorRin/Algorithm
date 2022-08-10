@@ -2,6 +2,8 @@
 **Table Content**
 
 - [Easy Question](#easy-question)
+  - [Spacial Algorithm](#spacial-algorithm)
+    - [Majority Element](#majority-element)
   - [Data structure](#data-structure)
     - [(136) Single Number](#136-single-number)
     - [(141) Linked List Cycle](#141-linked-list-cycle)
@@ -11,8 +13,6 @@
     - [(70) ClimbingStair](#70-climbingstair)
   - [Math](#math)
     - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
-    - [**Solutions:**](#solutions)
-    - [**Code**](#code)
   - [Waiting for classification.](#waiting-for-classification)
     - [Two Sum](#two-sum)
     - [Palindrome Number](#palindrome-number)
@@ -42,6 +42,51 @@
     - [Pascal's Triangle II](#pascals-triangle-ii)
     - [Best TIme to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
     - [(125)Valid Palindrome](#125valid-palindrome)
+
+
+## Spacial Algorithm
+### Majority Element
+> Given an array `nums` of size `n`, return the majority element.  
+> The majority element is the element that appears more than `[n/2]` times. You may assume that the marjority element always exists in the array.  
+
+**Example:**
+```
+Input: nums = [3,2,3]
+Output: 3
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+```
+
+**Constraints:**
+- `n == nums.length`
+- `1 <= n <= 5 * 104`
+- `-109 <= nums[i] <= 109`
+
+**IB: follow-up, Could you solve the problem in linear time and in `o(1)` space?**
+
+#### **Solutions:**
+- HashTable: Check the code;
+- [Other Solutions](https://leetcode.com/problems/majority-element/solution/):**NEED TO SORT OUT.**
+
+#### **Code**
+- **JavaScript**
+  ```javascript
+  // HashTable
+  const numCount = {};
+  for (const num of nums) {
+    if (numCount[num]) numCount[num]++;
+    else numCount[num] = 1;
+  }
+  const result = Object.keys(numCount).reduce((x, y) => {
+    return Math.max(numCount[x], numCount[y]) === numCount[x] ? x : y;
+  });
+  return result;
+
+  // Boyer-Moore Majority Voting Algorithm
+  // TODO: NEED SORT OUT
+  ```
+  
 
 ## Data structure
 
@@ -478,10 +523,10 @@ Output: "ZY"
 **Constraints:**
 - `1 <= columnNumber <= 231 - 1`
 
-### **Solutions:**
+#### **Solutions:**
 - Math.
 
-### **Code**
+#### **Code**
 - **JavaScript**
   ```javascript
   convertToTitle_168(columnNumber) {

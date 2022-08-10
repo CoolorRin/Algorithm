@@ -866,8 +866,20 @@ class Solution {
 			});
 		return result;
 	}
+
+	majorityElement_169(nums) {
+		const numCount = {};
+		for (const num of nums) {
+			if (numCount[num]) numCount[num]++;
+			else numCount[num] = 1;
+		}
+		const result = Object.keys(numCount).reduce((x, y) => {
+			return Math.max(numCount[x], numCount[y]) === numCount[x] ? x : y;
+		});
+		return result;
+	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.convertToTitle(2147483647));
+console.log(testSolution.majorityElement_169([3, 2, 3]));
