@@ -2312,6 +2312,3 @@ Check the code.
       : Math.min(left, right) + 1;
   }
   ```
-
-
-
