@@ -3,7 +3,7 @@
 
 - [Easy Question](#easy-question)
   - [Spacial Algorithm](#spacial-algorithm)
-    - [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
+    - [(14) Longest Common Prefix(LCP)](#14-longest-common-prefixlcp)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
     - [(13) Roman to Integer](#13-roman-to-integer)
@@ -51,7 +51,7 @@
 
 ## Spacial Algorithm
 
-### Longest Common Prefix(LCP)
+### (14) Longest Common Prefix(LCP)
 
 > Write a function to find the longest common prefix string amongst an array of strings.<br>
 > if there is no common prefix, return an empty string `""`
