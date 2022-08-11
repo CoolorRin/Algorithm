@@ -46,7 +46,7 @@
     - [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
     - [Convert Sorted Array to Binary Search Tree](#convert-sorted-array-to-binary-search-tree)
     - [Balanced Binary Tree](#balanced-binary-tree)
-    - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
+    - [(111) Minimum Depth of Binary Tree](#111-minimum-depth-of-binary-tree)
 
 
 ## Spacial Algorithm
@@ -2279,7 +2279,7 @@ Check the code. Keep the `Bottom Up` way in mind.
   } 
   ```
 
-### Minimum Depth of Binary Tree
+### (111) Minimum Depth of Binary Tree
 > Given a binary tree, find its minimum depth.  
 > The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.  
 > **Note**: A leaf is a node with no children.
