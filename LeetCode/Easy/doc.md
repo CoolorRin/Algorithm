@@ -45,7 +45,7 @@
     - [Symmetric Tree](#symmetric-tree)
     - [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
     - [Convert Sorted Array to Binary Search Tree](#convert-sorted-array-to-binary-search-tree)
-    - [Balanced Binary Tree](#balanced-binary-tree)
+    - [(110) Balanced Binary Tree](#110-balanced-binary-tree)
     - [(111) Minimum Depth of Binary Tree](#111-minimum-depth-of-binary-tree)
 
 
@@ -2212,7 +2212,7 @@ Check the code. And check what is the Binary Search Tree(BST).
   
   ```
 
-### Balanced Binary Tree
+### (110) Balanced Binary Tree
 > Given a binary tree, determine if it is height-balanced.  
 > For this problem, a height-balanced binary tree is defined as:  
 > a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
