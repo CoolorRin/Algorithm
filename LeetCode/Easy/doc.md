@@ -46,7 +46,7 @@
     - [SameTree](#sametree)
     - [Symmetric Tree](#symmetric-tree)
     - [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
-    - [Convert Sorted Array to Binary Search Tree](#convert-sorted-array-to-binary-search-tree)
+    - [(108) Convert Sorted Array to Binary Search Tree](#108-convert-sorted-array-to-binary-search-tree)
 
 
 ## Spacial Algorithm
@@ -2261,7 +2261,7 @@ Don't use the extra space to declare a recursive function to implement the trave
     };
     ```
 
-### Convert Sorted Array to Binary Search Tree
+### (108) Convert Sorted Array to Binary Search Tree
 > Given an integer array `nums` where the elements are sorted in **ascending order**, convert it to a **height-balanced** binary search tree. A height-balanced binary tree is a binary tree in which the depth of the two subtree of every node nerve differs by more than one.
 
 **Example**
