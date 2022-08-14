@@ -5,6 +5,7 @@
   - [Spacial Algorithm](#spacial-algorithm)
     - [Majority Element](#majority-element)
   - [Data structure](#data-structure)
+    - [(1) Two Sum](#1-two-sum)
     - [(235) Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree)
     - [(160) Intersection of Two Linked lists](#160-intersection-of-two-linked-lists)
     - [(136) Single Number](#136-single-number)
@@ -17,7 +18,6 @@
     - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
     - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
   - [Waiting for classification.](#waiting-for-classification)
-    - [Two Sum](#two-sum)
     - [Palindrome Number](#palindrome-number)
     - [Roman to Integer](#roman-to-integer)
     - [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
@@ -92,6 +92,81 @@ Output: 2
   
 
 ## Data structure
+
+### (1) Two Sum
+
+> Given an array of integer `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.  
+> 
+> You may assume thar each input world have **exactly one solution**, and you may not use the same element twice.  
+> 
+> You can return the answer in any order.
+
+**Example:**
+
+  ```
+  Input: nums = [3, 2, 4], target = 6;
+  Output: [1,2];
+  ```
+
+#### **Solutions**
+
+- **Use the hashmap to make the Algorithm that is less than `O(n^2)` time complexity.**
+
+  As the example above, we get the array `[3, 2, 4]` and loop all element in array. Each loop will finded the value
+  which is the target minus the value in the array is in the hashMap or not. If not, push element and the index to
+  the `Hashmap` as its key, value and continue the loop.
+
+#### Code
+
+- **JavaScript**
+
+    ```javascript
+    function twoSum(nums, target) {
+        let hashMap = [];
+        for (const [key, value] of Object.entries(nums)) {
+            if (hashMap[target - value]) {
+                return [key, hashMap[target - value]];
+            } else hashMap[value] = key;
+        }
+    }
+    ```
+
+- **Cpp11**
+
+    ```c++
+    #include "vector"
+    #include "iostream"
+    #include "map"
+
+    class Solution {
+    public:
+        std::vector<int> twoSum(std::vector<int>& nums, int target) {
+            std::map<int, int>valueMap;
+            std::vector<int> result;
+            for (int index = 0; index < nums.size(); index++) {
+                if(valueMap.find(target - int(nums[index])) != valueMap.end()) {
+                    result.push_back(index);
+                    result.push_back(valueMap[target - int(nums[index])]);
+                    break;
+                }
+                else {
+                    valueMap.insert({int(nums[index]), index});
+                }
+            }
+            return result;
+        }
+    };
+
+    int main(int argc, char const *argv[])
+    {
+        Solution s;
+        std::vector<int> nums = {2,7,11,15};
+        std::vector<int> result;
+        int target = 9;
+        result = s.twoSum(nums, target);
+        return 0;
+    }
+    ```
 
 ### (235) Lowest Common Ancestor of a Binary Search Tree
 > Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.  
@@ -782,83 +857,6 @@ Output: "ZY"
 	}
   ```
 ## Waiting for classification.
-
-### Two Sum
-
-> Given an array of intergers `nums` and an integer `target` , return indices of the two nomers such that they add up
-> to `target`,<br/>
-<br/>You may assume thar each input world have **exactly one solution**, and you may not use the same elemen twice.<br/>
-<br/>You can return the answer in any order.<br/>
-
-**Example:**
-
-  ```
-  Input: nums = [3, 2, 4], target = 6;
-  Output: [1,2];
-  ```
-
-#### **Solutions**
-
-- **Use the hashmap to make the Algorithm that is less than `O(n^2)` time complexity.**
-
-  As the example above, we get the array `[3, 2, 4]` and loop all element in array. Each loop will finded the value
-  which is the target minus the value in the array is in the hashMap or not. If not, push element and the index to
-  the `Hashmap` as its key, value and continue the loop.
-
-#### Code
-
-- **JavaScript**
-
-    ```javascript
-    function twoSum(nums, target) {
-        let hashMap = [];
-        for (const [key, value] of Object.entries(nums)) {
-            if (hashMap[target - value]) {
-                return [key, hashMap[target - value]];
-            } else hashMap[value] = key;
-        }
-    }
-
-    // Test 
-    console.log(twoSum([3, 3], 6))
-    ```
-
-- **Cpp11**
-
-    ```c++
-    #include "vector"
-    #include "iostream"
-    #include "map"
-
-    class Solution {
-    public:
-        std::vector<int> twoSum(std::vector<int>& nums, int target) {
-            std::map<int, int>valueMap;
-            std::vector<int> result;
-            for (int index = 0; index < nums.size(); index++) {
-                if(valueMap.find(target - int(nums[index])) != valueMap.end()) {
-                    result.push_back(index);
-                    result.push_back(valueMap[target - int(nums[index])]);
-                    break;
-                }
-                else {
-                    valueMap.insert({int(nums[index]), index});
-                }
-            }
-            return result;
-        }
-    };
-
-    int main(int argc, char const *argv[])
-    {
-        Solution s;
-        std::vector<int> nums = {2,7,11,15};
-        std::vector<int> result;
-        int target = 9;
-        result = s.twoSum(nums, target);
-        return 0;
-    }
-    ```
 
 ### Palindrome Number
 
