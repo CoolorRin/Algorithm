@@ -12,6 +12,7 @@
   - [Dynamic Programming](#dynamic-programming)
     - [(70) ClimbingStair](#70-climbingstair)
   - [Math](#math)
+    - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
     - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
   - [Waiting for classification.](#waiting-for-classification)
     - [Two Sum](#two-sum)
@@ -504,6 +505,51 @@ Explanation: There are three ways to climb to the top.
   ```
 
 ## Math
+
+### (171) Excel Sheet Column Number
+> Given a string `columnTitle` that represents the column title as appears in an Excel sheet, return its corresponding column number.
+
+**Example:**
+```
+Input: columnTitle = "A"
+Output: 1
+
+Input: columnTitle = "AB"
+Output: 28
+
+Input: columnTitle = "ZY"
+Output: 701
+```
+
+**Constraints:**
+- `1 <= columnTitle.length <= 7`
+- `columnTitle` consists only of uppercase English letters.
+- columnTitle is in the range `["A", "FXSHRXW"]`.
+
+#### **Solutions:**
+Check the code
+#### **Code**
+- **JavaScript**
+  ```javascript
+  titleToNumber_171(columnTitle) {
+		const notOnlyUpcaseChar = /[\W||a-z]+/gm;
+		if (columnTitle.match(notOnlyUpcaseChar)) {
+			console.error("Only available for upcase charter.");
+			return null;
+		}
+		const operateArr = [...columnTitle].map((el) => {
+			return el.charCodeAt() - 64;
+		});
+		console.log(operateArr);
+		let carryNum = 0;
+		return operateArr.reduceRight((x, y) => {
+			const reduceResult = x + Math.pow(26, carryNum) * y;
+			carryNum++;
+			return reduceResult;
+		}, 0);
+	}
+  ```
+
 
 ### (168) Excel Sheet Column Title
 > Given an integer `columnNumber`, return its corresponding column title as it appears in an Excel Sheet.

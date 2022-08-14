@@ -867,6 +867,24 @@ class Solution {
 		return result;
 	}
 
+	titleToNumber_171(columnTitle) {
+		const notOnlyUpcaseChar = /[\W||a-z]+/gm;
+		if (columnTitle.match(notOnlyUpcaseChar)) {
+			console.error("Only available for upcase charter.");
+			return null;
+		}
+		const operateArr = [...columnTitle].map((el) => {
+			return el.charCodeAt() - 64;
+		});
+		console.log(operateArr);
+		let carryNum = 0;
+		return operateArr.reduceRight((x, y) => {
+			const reduceResult = x + Math.pow(26, carryNum) * y;
+			carryNum++;
+			return reduceResult;
+		}, 0);
+	}
+
 	majorityElement_169(nums) {
 		const numCount = {};
 		for (const num of nums) {
@@ -882,4 +900,4 @@ class Solution {
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.majorityElement_169([3, 2, 3]));
+console.log(testSolution.titleToNumber_171("AB"));
