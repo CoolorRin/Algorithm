@@ -833,98 +833,71 @@ class Solution {
 		return result;
 	}
 
-	getIntersectionNode_160(headA, headB) {
-		// Ugly Way
-		let len_a = 0;
-		let len_b = 0;
-		let pointer_a = headA;
-		let pointer_b = headB;
-		while (pointer_a) {
-			len_a++;
-			pointer_a = pointer_a.next;
-		}
-		while (pointer_b) {
-			len_b++;
-			pointer_b = pointer_b.next;
-		}
-		pointer_a = headA;
-		pointer_b = headB;
+	convertToTitle_168(columnNumber) {
+		const convert2Char = (num) => {
+			return String.fromCharCode(num + 64);
+		};
 
-		if (len_a > len_b) {
-			for (let index = 0; index < len_a - len_b; index++) {
-				pointer_a = pointer_a.next;
+		const numArr = [];
+		let lastNum = columnNumber % 26;
+		let dividedNum = Math.floor(columnNumber / 26);
+		if (lastNum === 0) {
+			lastNum = 26;
+			dividedNum--;
+		}
+		numArr.unshift(lastNum);
+		if (columnNumber > 26) {
+			while (dividedNum > 26) {
+				lastNum = dividedNum % 26;
+				dividedNum = Math.floor(dividedNum / 26);
+				if (lastNum === 0) {
+					lastNum = 26;
+					dividedNum--;
+				}
+				numArr.unshift(lastNum);
 			}
-		} else {
-			for (let index = 0; index < len_b - len_a; index++) {
-				pointer_b = pointer_b.next;
-			}
-		}
-		while (pointer_a !== pointer_b) {
-			pointer_a = pointer_a.next;
-			pointer_b = pointer_b.next;
-		}
-		return pointer_a;
-
-		// hashmap way
-		const hashmap = new Map();
-		let pointer_a = headA;
-		let pointer_b = headB;
-		while (pointer_a) {
-			hashmap.set(pointer_a);
-			pointer_a = pointer_a.next;
+			numArr.unshift(dividedNum);
 		}
 
-		while (pointer_b) {
-			if (hashmap.has(pointer_b)) return pointer_b;
-			pointer_b = pointer_b.next;
-		}
-		return null;
-
-		// O(M + N) TIME, O(1) Space.
-		let pointer_a = headA;
-		let pointer_b = headB;
-		while (pointer_a !== pointer_b) {
-			pointer_a = pointer_a === null ? headB : pointer_a.next;
-			pointer_b = pointer_b === null ? headA : pointer_b.next;
-		}
-		return pointer_a;
+		const result = numArr
+			.map((el) => convert2Char(el))
+			.reduce((x, y) => {
+				return x + y;
+			});
+		return result;
 	}
 
-	lowestCommonAncestor_235(root, p, q) {
-		/**
-		 * Definition for a binary tree node.
-		 * function TreeNode(val) {
-		 *     this.val = val;
-		 *     this.left = this.right = null;
-		 * }
-		 */
-
-		/**
-		 * @param {TreeNode} root
-		 * @param {TreeNode} p
-		 * @param {TreeNode} q
-		 * @return {TreeNode}
-		 */
-		const getPath = (root, node, path = []) => {
-			if (root === null) return false;
-			path.push(root);
-			if (root === node) return path;
-			if (!getPath(root.left, node, path) && !getPath(root.right, node, path)) {
-				path.pop();
-				return false;
-			} else return path;
-		};
-		const path2p = getPath(root, p);
-		const path2q = getPath(root, q);
-		let result = null;
-		for (index in path2p) {
-			if (path2p[index] !== path2q[index]) return result;
-			else result = path2p[index];
+	titleToNumber_171(columnTitle) {
+		const notOnlyUpcaseChar = /[\W||a-z]+/gm;
+		if (columnTitle.match(notOnlyUpcaseChar)) {
+			console.error("Only available for upcase charter.");
+			return null;
 		}
+		const operateArr = [...columnTitle].map((el) => {
+			return el.charCodeAt() - 64;
+		});
+		console.log(operateArr);
+		let carryNum = 0;
+		return operateArr.reduceRight((x, y) => {
+			const reduceResult = x + Math.pow(26, carryNum) * y;
+			carryNum++;
+			return reduceResult;
+		}, 0);
+	}
+
+	majorityElement_169(nums) {
+		const numCount = {};
+		for (const num of nums) {
+			if (numCount[num]) numCount[num]++;
+			else numCount[num] = 1;
+		}
+		const result = Object.keys(numCount).reduce((x, y) => {
+			return Math.max(numCount[x], numCount[y]) === numCount[x] ? x : y;
+		});
 		return result;
 	}
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.singleNumber([2, 2, 3, 3, 4, 4, 5, 6, 6, 7, 7]));
+console.log(testSolution.titleToNumber_171("AB"));

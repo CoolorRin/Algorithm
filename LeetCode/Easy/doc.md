@@ -2,9 +2,8 @@
 **Table Content**
 
 - [Easy Question](#easy-question)
-    - [(235) Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree)
-    - [**Solutions:**](#solutions)
-    - [Code](#code)
+  - [Spacial Algorithm](#spacial-algorithm)
+    - [Majority Element](#majority-element)
   - [Data structure](#data-structure)
     - [(160) Intersection of Two Linked lists](#160-intersection-of-two-linked-lists)
     - [(136) Single Number](#136-single-number)
@@ -13,6 +12,9 @@
     - [(145) Binary Tree Postorder Traversal](#145-binary-tree-postorder-traversal)
   - [Dynamic Programming](#dynamic-programming)
     - [(70) ClimbingStair](#70-climbingstair)
+  - [Math](#math)
+    - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
+    - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
   - [Waiting for classification.](#waiting-for-classification)
     - [Two Sum](#two-sum)
     - [Palindrome Number](#palindrome-number)
@@ -44,78 +46,49 @@
     - [(125)Valid Palindrome](#125valid-palindrome)
 
 
-### (235) Lowest Common Ancestor of a Binary Search Tree
-> Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.  
-> According to he `definition of LCA on Wikipedia:`"The lowest common ancestor is defined between two nodes `p` and `q` as the lowest node in `T` that has both `p` and `q` as descendants (where we allow **a node to be a descendant of itself.**)."  
+## Spacial Algorithm
+### Majority Element
+> Given an array `nums` of size `n`, return the majority element.  
+> The majority element is the element that appears more than `[n/2]` times. You may assume that the marjority element always exists in the array.  
 
 **Example:**
 ```
-Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
-Output: 6
-Explanation: The LCA of nodes 2 and 8 is 6.
+Input: nums = [3,2,3]
+Output: 3
 
-Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
-Output: 2
-Explanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
-
-Input: root = [2,1], p = 2, q = 1
+Input: nums = [2,2,1,1,1,2,2]
 Output: 2
 ```
 
 **Constraints:**
-- The number of nodes in the tree is in the range `[2, 105]`.
-- `-109 <= Node.val <= 109`
-- All Node.val are **unique**.
-- `p != q`
-- `p` and `q` will exist in the BST.
+- `n == nums.length`
+- `1 <= n <= 5 * 104`
+- `-109 <= nums[i] <= 109`
 
-### **Solutions:**
-- DFS(Top down): Find the path from the tree Root node to the  `p` and `q`, compare both of them, and check the last same node.  Time Complexity: O(n), Space Complexity: O(n). [UglyWay].
-- > [BST](https://www.youtube.com/watch?v=gs2LMfuOR9k)
-- > [LeetCode Solutions](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/discuss/2335047/C%2B%2B-oror-100-faster-oror-Recursive-Code)(Need to analysis)
-### Code
+**IB: follow-up, Could you solve the problem in linear time and in `o(1)` space?**
+
+#### **Solutions:**
+- HashTable: Check the code;
+- [Other Solutions](https://leetcode.com/problems/majority-element/solution/):**NEED TO SORT OUT.**
+
+#### **Code**
 - **JavaScript**
   ```javascript
-  function lowestCommonAncestor(root, p, q) {
-    const getPath = (root, node, path = []) => {
-      if (root === null) return false;
-      path.push(root);
-      if (root === node) return path;
-      if (!getPath(root.left, node, path) && !getPath(root.right, node, path)) {
-        path.pop();
-        return false;
-      } else return path;
-    };
-    const path2p = getPath(root, p);
-    const path2q = getPath(root, q); 
-    let result = null;
-    for (index in path2p) {
-      if (path2p[index] !== path2q[index]) return result;
-      else result = path2p[index];
-    }
-    return result;
+  // HashTable
+  const numCount = {};
+  for (const num of nums) {
+    if (numCount[num]) numCount[num]++;
+    else numCount[num] = 1;
   }
+  const result = Object.keys(numCount).reduce((x, y) => {
+    return Math.max(numCount[x], numCount[y]) === numCount[x] ? x : y;
+  });
+  return result;
 
-  // BST Way Time: O(n) Space: O(1)
-  let cur = root;
-  while (cur) {
-    if( p.val > cur.val && q.val > cur.val ) {
-      cur = cur.right;
-    } else if (p.val < cur.val && q.val < cur.val ) {
-      cur = cur.left;
-    } else return cur
-  }
-
-  // LeetCode Solution
-  function lowestCommonAncestor_leetcode (root, p, q) {
-    if (!root) return root;
-    if (root == p || root == q) return root;
-    const leftNode = lowestCommonAncestor_leetcode(root.left, p, q);
-    const rightNode = lowestCommonAncestor_leetcode(root.right, p, q);
-    if (leftNode && rightNode) return root;
-    return left ? left : right;
-  }
+  // Boyer-Moore Majority Voting Algorithm
+  // TODO: NEED SORT OUT
   ```
+  
 
 ## Data structure
 
@@ -634,6 +607,112 @@ Explanation: There are three ways to climb to the top.
 		return bottom1;
 	}
 
+  ```
+
+## Math
+
+### (171) Excel Sheet Column Number
+> Given a string `columnTitle` that represents the column title as appears in an Excel sheet, return its corresponding column number.
+
+**Example:**
+```
+Input: columnTitle = "A"
+Output: 1
+
+Input: columnTitle = "AB"
+Output: 28
+
+Input: columnTitle = "ZY"
+Output: 701
+```
+
+**Constraints:**
+- `1 <= columnTitle.length <= 7`
+- `columnTitle` consists only of uppercase English letters.
+- columnTitle is in the range `["A", "FXSHRXW"]`.
+
+#### **Solutions:**
+Check the code
+#### **Code**
+- **JavaScript**
+  ```javascript
+  titleToNumber_171(columnTitle) {
+		const notOnlyUpcaseChar = /[\W||a-z]+/gm;
+		if (columnTitle.match(notOnlyUpcaseChar)) {
+			console.error("Only available for upcase charter.");
+			return null;
+		}
+		const operateArr = [...columnTitle].map((el) => {
+			return el.charCodeAt() - 64;
+		});
+		console.log(operateArr);
+		let carryNum = 0;
+		return operateArr.reduceRight((x, y) => {
+			const reduceResult = x + Math.pow(26, carryNum) * y;
+			carryNum++;
+			return reduceResult;
+		}, 0);
+	}
+  ```
+
+
+### (168) Excel Sheet Column Title
+> Given an integer `columnNumber`, return its corresponding column title as it appears in an Excel Sheet.
+
+**Example:**
+```
+Input: columnNumber = 1
+Output: "A"
+
+Input: columnNumber = 28
+Output: "AB"
+
+Input: columnNumber = 701
+Output: "ZY"
+```
+
+**Constraints:**
+- `1 <= columnNumber <= 231 - 1`
+
+#### **Solutions:**
+- Math.
+
+#### **Code**
+- **JavaScript**
+  ```javascript
+  convertToTitle_168(columnNumber) {
+		const convert2Char = (num) => {
+			return String.fromCharCode(num + 64);
+		};
+
+		const numArr = [];
+		let lastNum = columnNumber % 26;
+		let dividedNum = Math.floor(columnNumber / 26);
+		if (lastNum === 0) {
+			lastNum = 26;
+			dividedNum--;
+		}
+		numArr.unshift(lastNum);
+		if (columnNumber > 26) {
+			while (dividedNum > 26) {
+				lastNum = dividedNum % 26;
+				dividedNum = Math.floor(dividedNum / 26);
+				if (lastNum === 0) {
+					lastNum = 26;
+					dividedNum--;
+				}
+				numArr.unshift(lastNum);
+			}
+			numArr.unshift(dividedNum);
+		}
+
+		const result = numArr
+			.map((el) => convert2Char(el))
+			.reduce((x, y) => {
+				return x + y;
+			});
+		return result;
+	}
   ```
 ## Waiting for classification.
 
