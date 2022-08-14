@@ -5,6 +5,7 @@
   - [Spacial Algorithm](#spacial-algorithm)
     - [Majority Element](#majority-element)
   - [Data structure](#data-structure)
+    - [(235) Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree)
     - [(160) Intersection of Two Linked lists](#160-intersection-of-two-linked-lists)
     - [(136) Single Number](#136-single-number)
     - [(141) Linked List Cycle](#141-linked-list-cycle)
@@ -91,6 +92,72 @@ Output: 2
   
 
 ## Data structure
+
+### (235) Lowest Common Ancestor of a Binary Search Tree
+> Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.  
+> According to he `definition of LCA on Wikipedia:`"The lowest common ancestor is defined between two nodes `p` and `q` as the lowest node in `T` that has both `p` and `q` as descendants (where we allow **a node to be a descendant of itself.**)."  
+
+**Example:**
+```
+Input: nums = [3,2,3]
+Output: 3
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+```
+
+**Constraints:**
+- `n == nums.length`
+- `1 <= n <= 5 * 104`
+- `-109 <= nums[i] <= 109`
+
+#### **Solutions:**
+- DFS(Top down): Find the path from the tree Root node to the  `p` and `q`, compare both of them, and check the last same node.  Time Complexity: O(n), Space Complexity: O(n). [UglyWay].
+- > [BST](https://www.youtube.com/watch?v=gs2LMfuOR9k)
+- > [LeetCode Solutions](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/discuss/2335047/C%2B%2B-oror-100-faster-oror-Recursive-Code)(Need to analysis)
+#### Code
+- **JavaScript**
+  ```javascript
+  function lowestCommonAncestor(root, p, q) {
+    const getPath = (root, node, path = []) => {
+      if (root === null) return false;
+      path.push(root);
+      if (root === node) return path;
+      if (!getPath(root.left, node, path) && !getPath(root.right, node, path)) {
+        path.pop();
+        return false;
+      } else return path;
+    };
+    const path2p = getPath(root, p);
+    const path2q = getPath(root, q); 
+    let result = null;
+    for (index in path2p) {
+      if (path2p[index] !== path2q[index]) return result;
+      else result = path2p[index];
+    }
+    return result;
+  }
+
+  // BST Way Time: O(n) Space: O(1)
+  let cur = root;
+  while (cur) {
+    if( p.val > cur.val && q.val > cur.val ) {
+      cur = cur.right;
+    } else if (p.val < cur.val && q.val < cur.val ) {
+      cur = cur.left;
+    } else return cur
+  }
+
+  // LeetCode Solution
+  function lowestCommonAncestor_leetcode (root, p, q) {
+    if (!root) return root;
+    if (root == p || root == q) return root;
+    const leftNode = lowestCommonAncestor_leetcode(root.left, p, q);
+    const rightNode = lowestCommonAncestor_leetcode(root.right, p, q);
+    if (leftNode && rightNode) return root;
+    return left ? left : right;
+  }
+  ```
 
 ### (160) Intersection of Two Linked lists
 > Given the heads of two singly linked-lists `headA` and `headB`, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return `null`.  
