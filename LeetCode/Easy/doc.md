@@ -2312,4 +2312,3 @@ Check the code. And check what is the Binary Search Tree(BST).
   }
   
   ```
-
