@@ -46,7 +46,7 @@
     - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
     - [SameTree](#sametree)
     - [Symmetric Tree](#symmetric-tree)
-    - [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
+    - [(104) Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
 
 
 ## Spacial Algorithm
@@ -2271,7 +2271,7 @@ Check the  code.
 
   ```
 
-### Maximum Depth of Binary Tree
+### (104) Maximum Depth of Binary Tree
 > Given the `root` of a binary tree, return its maximum depth;  
 > a  binary tree's **maximum depth** is the number of nodes along the longest path from the root node down to the farthest leaf node.
 
