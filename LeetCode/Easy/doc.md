@@ -5,6 +5,7 @@
   - [Spacial Algorithm](#spacial-algorithm)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
+    - [(104) Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
     - [(108) Convert Sorted Array to Binary Search Tree](#108-convert-sorted-array-to-binary-search-tree)
     - [(110) Balanced Binary Tree](#110-balanced-binary-tree)
     - [(111) Minimum Depth of Binary Tree](#111-minimum-depth-of-binary-tree)
@@ -46,7 +47,6 @@
     - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
     - [SameTree](#sametree)
     - [Symmetric Tree](#symmetric-tree)
-    - [(104) Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
 
 
 ## Spacial Algorithm
@@ -95,6 +95,50 @@ Output: 2
   
 
 ## Data structure
+
+### (104) Maximum Depth of Binary Tree
+> Given the `root` of a binary tree, return its maximum depth;  
+> a  binary tree's **maximum depth** is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+**Example:**
+```
+Input: root = [3,9,20,null,null,15,7]
+Output: 3
+
+Input: root = [1,null,2]
+Output: 2
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range `[0, 104]`.
+- `-100 <= Node.val <= 100`
+
+#### **Solutions**
+Don't use the extra space to declare a recursive function to implement the traversal feature.Check the code. And always use this though to solve the "Maximum" question in recursive structure.
+
+#### Code
+- JavaScript
+    ```javascript
+        /**
+     * Definition for a binary tree node.
+     * function TreeNode(val, left, right) {
+     *     this.val = (val===undefined ? 0 : val)
+     *     this.left = (left===undefined ? null : left)
+     *     this.right = (right===undefined ? null : right)
+     * }
+     */
+    /**
+     * @param {TreeNode} root
+     * @return {number}
+     */
+    var maxDepth = function(root) {
+        let depth = 0;
+        if (!root || root.val === null) return depth;
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+    };
+    ```
+
+
 
 ### (108) Convert Sorted Array to Binary Search Tree
 > Given an integer array `nums` where the elements are sorted in **ascending order**, convert it to a **height-balanced** binary search tree. A height-balanced binary tree is a binary tree in which the depth of the two subtree of every node nerve differs by more than one.
@@ -2270,46 +2314,4 @@ Check the  code.
     };
 
   ```
-
-### (104) Maximum Depth of Binary Tree
-> Given the `root` of a binary tree, return its maximum depth;  
-> a  binary tree's **maximum depth** is the number of nodes along the longest path from the root node down to the farthest leaf node.
-
-**Example:**
-```
-Input: root = [3,9,20,null,null,15,7]
-Output: 3
-
-Input: root = [1,null,2]
-Output: 2
-```
-
-**Constraints:**
-- The number of nodes in the tree is in the range `[0, 104]`.
-- `-100 <= Node.val <= 100`
-
-#### **Solutions**
-Don't use the extra space to declare a recursive function to implement the traversal feature.Check the code. And always use this though to solve the "Maximum" question in recursive structure.
-
-#### Code
-- JavaScript
-    ```javascript
-        /**
-     * Definition for a binary tree node.
-     * function TreeNode(val, left, right) {
-     *     this.val = (val===undefined ? 0 : val)
-     *     this.left = (left===undefined ? null : left)
-     *     this.right = (right===undefined ? null : right)
-     * }
-     */
-    /**
-     * @param {TreeNode} root
-     * @return {number}
-     */
-    var maxDepth = function(root) {
-        let depth = 0;
-        if (!root || root.val === null) return depth;
-        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
-    };
-    ```
 
