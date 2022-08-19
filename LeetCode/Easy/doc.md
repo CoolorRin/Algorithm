@@ -46,7 +46,7 @@
     - [Merge Sorted Array](#merge-sorted-array)
     - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
     - [SameTree](#sametree)
-    - [Symmetric Tree](#symmetric-tree)
+    - [(101) Symmetric Tree](#101-symmetric-tree)
 
 
 ## Spacial Algorithm
@@ -2281,7 +2281,7 @@ Check the code.
     }
   ```
 
-### Symmetric Tree
+### (101) Symmetric Tree
 > Given the `root` of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
 
 **Example:**
