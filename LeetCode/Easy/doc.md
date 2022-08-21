@@ -5,6 +5,7 @@
   - [Spacial Algorithm](#spacial-algorithm)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
+    - [(101) Symmetric Tree](#101-symmetric-tree)
     - [(104) Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
     - [(108) Convert Sorted Array to Binary Search Tree](#108-convert-sorted-array-to-binary-search-tree)
     - [(110) Balanced Binary Tree](#110-balanced-binary-tree)
@@ -46,7 +47,6 @@
     - [Merge Sorted Array](#merge-sorted-array)
     - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
     - [SameTree](#sametree)
-    - [(101) Symmetric Tree](#101-symmetric-tree)
 
 
 ## Spacial Algorithm
@@ -96,6 +96,39 @@ Output: 2
 
 ## Data structure
 
+### (101) Symmetric Tree
+> Given the `root` of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+
+**Example:**
+```
+Input: root = [1,2,2,3,4,4,3]
+Output: true
+
+Input: root = [1,2,2,null,3,null,3]
+Output: false
+```
+**Constraints:**
+- The number of nodes in the tree is in the range `[1, 1000]`.
+- `-100 <= Node.val <= 100`
+
+**Follow up**: Could you solve it both recursively and iteratively?
+
+#### **Solutions**
+Check the  code.
+#### Code
+- **JavaScript**
+  ```JavaScript
+    var isSymmetric = function(root) {
+        function recursiveCheck(left, right) {
+                if(left === right) return true;
+                if (!left || !right) return false;
+                if (left.val !== right.val) return false;
+                return recursiveCheck(left.left, right.right) && recursiveCheck(left.right, right.left);
+        }
+        return recursiveCheck(root.left, root.right);
+    };
+
+  ```
 ### (104) Maximum Depth of Binary Tree
 > Given the `root` of a binary tree, return its maximum depth;  
 > a  binary tree's **maximum depth** is the number of nodes along the longest path from the root node down to the farthest leaf node.
@@ -2281,36 +2314,3 @@ Check the code.
     }
   ```
 
-### (101) Symmetric Tree
-> Given the `root` of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
-
-**Example:**
-```
-Input: root = [1,2,2,3,4,4,3]
-Output: true
-
-Input: root = [1,2,2,null,3,null,3]
-Output: false
-```
-**Constraints:**
-- The number of nodes in the tree is in the range `[1, 1000]`.
-- `-100 <= Node.val <= 100`
-
-**Follow up**: Could you solve it both recursively and iteratively?
-
-#### **Solutions**
-Check the  code.
-#### Code
-- **JavaScript**
-  ```JavaScript
-    var isSymmetric = function(root) {
-        function recursiveCheck(left, right) {
-                if(left === right) return true;
-                if (!left || !right) return false;
-                if (left.val !== right.val) return false;
-                return recursiveCheck(left.left, right.right) && recursiveCheck(left.right, right.left);
-        }
-        return recursiveCheck(root.left, root.right);
-    };
-
-  ```
