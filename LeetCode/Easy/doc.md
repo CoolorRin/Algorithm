@@ -46,7 +46,7 @@
     - [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
     - [Merge Sorted Array](#merge-sorted-array)
     - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
-    - [SameTree](#sametree)
+    - [(100) SameTree](#100-sametree)
 
 
 ## Spacial Algorithm
@@ -2262,7 +2262,7 @@ Check the code.
   };
   ```
 
-### SameTree
+### (100) SameTree
 
 > Given the  roots of two binary trees `p` and `q`, write a function to check if they are the same or not.  
 > Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
