@@ -5,6 +5,7 @@
   - [Spacial Algorithm](#spacial-algorithm)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
+    - [(100) SameTree](#100-sametree)
     - [(101) Symmetric Tree](#101-symmetric-tree)
     - [(104) Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
     - [(108) Convert Sorted Array to Binary Search Tree](#108-convert-sorted-array-to-binary-search-tree)
@@ -46,7 +47,6 @@
     - [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
     - [Merge Sorted Array](#merge-sorted-array)
     - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
-    - [(100) SameTree](#100-sametree)
 
 
 ## Spacial Algorithm
@@ -95,6 +95,57 @@ Output: 2
   
 
 ## Data structure
+### (100) SameTree
+
+> Given the  roots of two binary trees `p` and `q`, write a function to check if they are the same or not.  
+> Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
+
+**Example:**
+
+```
+Input: p = [1,2,3], q = [1,2,3]
+Output: true
+
+Input: p = [1,2], q = [1,null,2]
+Output: false
+
+Input: p = [1,2,1], q = [1,1,2]
+Output: false
+```
+
+**Constraints:**
+- The number of nodes in both trees is in the range `[0, 100]`.
+- `-104 <= Node.val <= 104`
+
+#### **Solutions**
+Check the code.
+
+#### Code 
+- **JavaScript**
+  ```JavaScript
+      isSameTree(p, q) {
+        /**
+         * Definition for a binary tree node.
+         * function TreeNode(val, left, right) {
+         *     this.val = (val===undefined ? 0 : val)
+         *     this.left = (left===undefined ? null : left)
+         *     this.right = (right===undefined ? null : right)
+         * }
+         */
+        /**
+         * @param {TreeNode} p
+         * @param {TreeNode} q
+         * @return {boolean}
+         */
+        if (p === null && q === null) return true;
+        if (p === null || q === null) return false;
+        if (p.val === q.val) {
+            return (
+                this.isSameTree(p.left, q.left) && this.isSameTree(p.right, q.right)
+            );
+        }
+    }
+  ```
 
 ### (101) Symmetric Tree
 > Given the `root` of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
@@ -2262,54 +2313,3 @@ Check the code.
   };
   ```
 
-### (100) SameTree
-
-> Given the  roots of two binary trees `p` and `q`, write a function to check if they are the same or not.  
-> Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
-
-**Example:**
-
-```
-Input: p = [1,2,3], q = [1,2,3]
-Output: true
-
-Input: p = [1,2], q = [1,null,2]
-Output: false
-
-Input: p = [1,2,1], q = [1,1,2]
-Output: false
-```
-
-**Constraints:**
-- The number of nodes in both trees is in the range `[0, 100]`.
-- `-104 <= Node.val <= 104`
-
-#### **Solutions**
-Check the code.
-
-#### Code 
-- **JavaScript**
-  ```JavaScript
-      isSameTree(p, q) {
-        /**
-         * Definition for a binary tree node.
-         * function TreeNode(val, left, right) {
-         *     this.val = (val===undefined ? 0 : val)
-         *     this.left = (left===undefined ? null : left)
-         *     this.right = (right===undefined ? null : right)
-         * }
-         */
-        /**
-         * @param {TreeNode} p
-         * @param {TreeNode} q
-         * @return {boolean}
-         */
-        if (p === null && q === null) return true;
-        if (p === null || q === null) return false;
-        if (p.val === q.val) {
-            return (
-                this.isSameTree(p.left, q.left) && this.isSameTree(p.right, q.right)
-            );
-        }
-    }
-  ```
