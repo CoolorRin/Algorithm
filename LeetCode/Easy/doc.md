@@ -46,7 +46,7 @@
     - [Add Binary](#add-binary)
     - [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
     - [Merge Sorted Array](#merge-sorted-array)
-    - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
+    - [Binary Tree InOrder Traversal](#binary-tree-inorder-traversal)
 
 
 ## Spacial Algorithm
@@ -2262,7 +2262,7 @@ Check the code
   }
   ```
 
-### Binary Tree Inorder Traversal
+### Binary Tree InOrder Traversal
 > Given the `root` of binary tree, return the inorder traversal of its node's values.
 
 **Example:**
