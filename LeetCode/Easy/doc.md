@@ -5,6 +5,7 @@
   - [Spacial Algorithm](#spacial-algorithm)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
+    - [(94) Binary Tree InOrder Traversal](#94-binary-tree-inorder-traversal)
     - [(100) SameTree](#100-sametree)
     - [(101) Symmetric Tree](#101-symmetric-tree)
     - [(104) Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
@@ -46,7 +47,6 @@
     - [Add Binary](#add-binary)
     - [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
     - [Merge Sorted Array](#merge-sorted-array)
-    - [(94) Binary Tree InOrder Traversal](#94-binary-tree-inorder-traversal)
 
 
 ## Spacial Algorithm
@@ -95,6 +95,57 @@ Output: 2
   
 
 ## Data structure
+
+### (94) Binary Tree InOrder Traversal
+> Given the `root` of binary tree, return the inorder traversal of its node's values.
+
+**Example:**
+```
+Input: root = [1,null,2,3]
+Output: [1,3,2]
+
+Input: root = []
+Output: []
+
+Input: root = [1]
+Output: [1]
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range `[0, 100]`.
+- `-100 <= Node.val <= 100`
+
+#### **Solutions**
+Check the code.
+
+#### Code 
+- **JavaScript**
+  ```JavaScript
+  /**
+   * Definition for a binary tree node.
+   * function TreeNode(val, left, right) {
+   *     this.val = (val===undefined ? 0 : val)
+   *     this.left = (left===undefined ? null : left)
+   *     this.right = (right===undefined ? null : right)
+   * }
+   */
+  /**
+   * @param {TreeNode} root
+   * @return {number[]}
+   */
+  var inorderTraversal = function(root) {
+      function recursiveTraversal(root) {
+          if (root.left) recursiveTraversal(root.left);
+          resultArr.push(root.val);
+          if(root.right) recursiveTraversal(root.right);
+      }
+
+      if(!root) return [];
+      let resultArr = []
+      recursiveTraversal(root);
+      return resultArr;
+  };
+  ```
 ### (100) SameTree
 
 > Given the  roots of two binary trees `p` and `q`, write a function to check if they are the same or not.  
@@ -2262,53 +2313,3 @@ Check the code
   }
   ```
 
-### (94) Binary Tree InOrder Traversal
-> Given the `root` of binary tree, return the inorder traversal of its node's values.
-
-**Example:**
-```
-Input: root = [1,null,2,3]
-Output: [1,3,2]
-
-Input: root = []
-Output: []
-
-Input: root = [1]
-Output: [1]
-```
-
-**Constraints:**
-- The number of nodes in the tree is in the range `[0, 100]`.
-- `-100 <= Node.val <= 100`
-
-#### **Solutions**
-Check the code.
-
-#### Code 
-- **JavaScript**
-  ```JavaScript
-  /**
-   * Definition for a binary tree node.
-   * function TreeNode(val, left, right) {
-   *     this.val = (val===undefined ? 0 : val)
-   *     this.left = (left===undefined ? null : left)
-   *     this.right = (right===undefined ? null : right)
-   * }
-   */
-  /**
-   * @param {TreeNode} root
-   * @return {number[]}
-   */
-  var inorderTraversal = function(root) {
-      function recursiveTraversal(root) {
-          if (root.left) recursiveTraversal(root.left);
-          resultArr.push(root.val);
-          if(root.right) recursiveTraversal(root.right);
-      }
-
-      if(!root) return [];
-      let resultArr = []
-      recursiveTraversal(root);
-      return resultArr;
-  };
-  ```
