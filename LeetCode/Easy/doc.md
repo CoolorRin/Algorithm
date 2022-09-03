@@ -2312,4 +2312,3 @@ Check the code.
         return ListNode.val === ListNode.next.val ? ListNode.next : ListNode;
     }
   ```
-
