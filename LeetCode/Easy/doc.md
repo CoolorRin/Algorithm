@@ -46,7 +46,7 @@
     - [Length of Last word](#length-of-last-word)
     - [Plus one](#plus-one)
     - [Add Binary](#add-binary)
-    - [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
+    - [(83) Remove Duplicates from Sorted List](#83-remove-duplicates-from-sorted-list)
 
 
 ## Spacial Algorithm
@@ -2266,7 +2266,7 @@ Output: "10101"
     }
     ```
 
-### Remove Duplicates from Sorted List
+### (83) Remove Duplicates from Sorted List
 > Given the `head` of a sorted linked listed, delete all duplicates such that each element appears only once. Return the linked list **sorted** as well.
 
 **Example:**
