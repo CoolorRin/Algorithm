@@ -5,6 +5,7 @@
   - [Spacial Algorithm](#spacial-algorithm)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
+    - [(83) Remove Duplicates from Sorted List](#83-remove-duplicates-from-sorted-list)
     - [(88) Merge Sorted Array](#88-merge-sorted-array)
     - [(94) Binary Tree InOrder Traversal](#94-binary-tree-inorder-traversal)
     - [(100) SameTree](#100-sametree)
@@ -46,7 +47,6 @@
     - [Length of Last word](#length-of-last-word)
     - [Plus one](#plus-one)
     - [Add Binary](#add-binary)
-    - [(83) Remove Duplicates from Sorted List](#83-remove-duplicates-from-sorted-list)
 
 
 ## Spacial Algorithm
@@ -95,6 +95,53 @@ Output: 2
   
 
 ## Data structure
+
+### (83) Remove Duplicates from Sorted List
+> Given the `head` of a sorted linked listed, delete all duplicates such that each element appears only once. Return the linked list **sorted** as well.
+
+**Example:**
+```
+Input: head = [1,1,2]
+Output: [1,2]
+
+Input: head = [1,1,2,3,3]
+Output: [1,2,3]
+```
+
+**Constraints:**
+- The number of nodes in the list is in the range `[0, 300]`.
+- `-100 <= Node.val <= 100`
+- The list is guaranteed to be sorted in ascending order.
+
+#### **Solutions**
+Check the code.
+
+#### Code 
+- **JavaScript**
+  ```JavaScript
+    // Ugly way
+    let listNode = transform2ListNode(array);
+    if (!listNode) return listNode;
+    let head = listNode;
+    let tmp = listNode.next;
+    while (tmp) {
+        if (head.val === tmp.val) {
+            head.next = head.next.next;
+            tmp = head.next;
+        } else {
+            head = tmp;
+            tmp = head.next;
+        }
+    }
+    return listNode;
+
+    //Recursive way
+    function deleteDuplicate(ListNode) {
+        if (ListNode === null || ListNode.next === null) return ListNode;
+        ListNode.next = deleteDuplicate(ListNode.next);
+        return ListNode.val === ListNode.next.val ? ListNode.next : ListNode;
+    }
+  ```
 
 ### (88) Merge Sorted Array
 > You are given two integer arrays `nums1` and `nums2`, sorted in **no-decreasing order**, and two integers `m` and `n`, representing the number of elements in the `num1` and `num2` respectively.  
@@ -2266,49 +2313,3 @@ Output: "10101"
     }
     ```
 
-### (83) Remove Duplicates from Sorted List
-> Given the `head` of a sorted linked listed, delete all duplicates such that each element appears only once. Return the linked list **sorted** as well.
-
-**Example:**
-```
-Input: head = [1,1,2]
-Output: [1,2]
-
-Input: head = [1,1,2,3,3]
-Output: [1,2,3]
-```
-
-**Constraints:**
-- The number of nodes in the list is in the range `[0, 300]`.
-- `-100 <= Node.val <= 100`
-- The list is guaranteed to be sorted in ascending order.
-
-#### **Solutions**
-Check the code.
-
-#### Code 
-- **JavaScript**
-  ```JavaScript
-    // Ugly way
-    let listNode = transform2ListNode(array);
-    if (!listNode) return listNode;
-    let head = listNode;
-    let tmp = listNode.next;
-    while (tmp) {
-        if (head.val === tmp.val) {
-            head.next = head.next.next;
-            tmp = head.next;
-        } else {
-            head = tmp;
-            tmp = head.next;
-        }
-    }
-    return listNode;
-
-    //Recursive way
-    function deleteDuplicate(ListNode) {
-        if (ListNode === null || ListNode.next === null) return ListNode;
-        ListNode.next = deleteDuplicate(ListNode.next);
-        return ListNode.val === ListNode.next.val ? ListNode.next : ListNode;
-    }
-  ```
