@@ -46,7 +46,7 @@
     - [Search insert position](#search-insert-position)
     - [Length of Last word](#length-of-last-word)
     - [Plus one](#plus-one)
-    - [Add Binary](#add-binary)
+    - [(67) Add Binary](#67-add-binary)
 
 
 ## Spacial Algorithm
@@ -2268,7 +2268,7 @@ Check the code
         return digits;
     ```
 
-### Add Binary
+### (67) Add Binary
 > Given two binary string `a` and `b`, return their sum as a binary string.
 
 **Example:**
