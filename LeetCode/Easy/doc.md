@@ -27,6 +27,7 @@
     - [(144) Binary Tree Preorder Traversal](#144-binary-tree-preorder-traversal)
     - [(145) Binary Tree Postorder Traversal](#145-binary-tree-postorder-traversal)
   - [Dynamic Programming](#dynamic-programming)
+    - [(66) Plus one](#66-plus-one)
     - [(70) ClimbingStair](#70-climbingstair)
   - [Bit Manipulation](#bit-manipulation)
     - [(190) Reverse bits](#190-reverse-bits)
@@ -46,7 +47,6 @@
     - [Implement strStr()](#implement-strstr)
     - [Search insert position](#search-insert-position)
     - [Length of Last word](#length-of-last-word)
-    - [(66) Plus one](#66-plus-one)
 
 
 ## Spacial Algorithm
@@ -1280,6 +1280,55 @@ Output: [1]
 
 ## Dynamic Programming
 
+### (66) Plus one
+> You are given a **large integer** represented as an integer array `digits`, where each `digits[i]` is the `i^th` digits of the integer.The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading `0`'s.  
+> Increment the large integer by one and return the resulting array of digits.
+
+**Example:**
+```
+Input: digits = [1,2,3]
+Output: [1,2,4]
+Explanation: The array represents the integer 123.
+Incrementing by one gives 123 + 1 = 124.
+Thus, the result should be [1,2,4].
+
+Input: digits = [4,3,2,1]
+Output: [4,3,2,2]
+Explanation: The array represents the integer 4321.
+Incrementing by one gives 4321 + 1 = 4322.
+Thus, the result should be [4,3,2,2].
+
+Input: digits = [9]
+Output: [1,0]
+Explanation: The array represents the integer 9.
+Incrementing by one gives 9 + 1 = 10.
+Thus, the result should be [1,0].
+```
+
+**Constraints:**
+- `1 <= digits.length <= 100`
+- `0 <= digits[i] <= 9`
+- `digits` does not contain any leading `0`'s.
+
+#### **Solutions**
+Check the code
+
+#### Code
+- **JavaScript**
+    ```JavaScript
+        for (j = digits.length - 1; j >= 0; j--) {
+            if (digits[j] < 9) {
+                digits[j]++;
+                return digits;
+            } else if (digits[j] === 9) {
+                digits[j] = 0;
+            }
+        }
+        digits.unshift(1);
+        return digits;
+    ```
+
+
 ### (70) ClimbingStair
 > You are climbing a staircase. It takes `n` steps to reach the top.  
 > Each time you can either climb `1` or `2` steps. In how many distinct ways can you climb to the top?
@@ -2266,50 +2315,3 @@ Check the code
         return string.match(regex).pop().length;
     ```
 
-### (66) Plus one
-> You are given a **large integer** represented as an integer array `digits`, where each `digits[i]` is the `i^th` digits of the integer.The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading `0`'s.  
-> Increment the large integer by one and return the resulting array of digits.
-
-**Example:**
-```
-Input: digits = [1,2,3]
-Output: [1,2,4]
-Explanation: The array represents the integer 123.
-Incrementing by one gives 123 + 1 = 124.
-Thus, the result should be [1,2,4].
-
-Input: digits = [4,3,2,1]
-Output: [4,3,2,2]
-Explanation: The array represents the integer 4321.
-Incrementing by one gives 4321 + 1 = 4322.
-Thus, the result should be [4,3,2,2].
-
-Input: digits = [9]
-Output: [1,0]
-Explanation: The array represents the integer 9.
-Incrementing by one gives 9 + 1 = 10.
-Thus, the result should be [1,0].
-```
-
-**Constraints:**
-- `1 <= digits.length <= 100`
-- `0 <= digits[i] <= 9`
-- `digits` does not contain any leading `0`'s.
-
-#### **Solutions**
-Check the code
-
-#### Code
-- **JavaScript**
-    ```JavaScript
-        for (j = digits.length - 1; j >= 0; j--) {
-            if (digits[j] < 9) {
-                digits[j]++;
-                return digits;
-            } else if (digits[j] === 9) {
-                digits[j] = 0;
-            }
-        }
-        digits.unshift(1);
-        return digits;
-    ```
