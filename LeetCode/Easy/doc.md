@@ -2314,4 +2314,3 @@ Check the code
         const regex = /\w+(?=\s+$)|\w+$/gm;
         return string.match(regex).pop().length;
     ```
-
