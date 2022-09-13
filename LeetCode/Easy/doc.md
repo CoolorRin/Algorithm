@@ -46,7 +46,7 @@
     - [Remove Element](#remove-element)
     - [Implement strStr()](#implement-strstr)
     - [Search insert position](#search-insert-position)
-    - [Length of Last word](#length-of-last-word)
+    - [(58) Length of Last word](#58-length-of-last-word)
 
 
 ## Spacial Algorithm
@@ -2270,7 +2270,7 @@ Binary search. Check the code.
   
 
 
-### Length of Last word
+### (58) Length of Last word
 
 > Given a string s consisting of words and spaces, return the length of the last word in the string.  
 > A **word** is a maximal substring consisting of non-space characters only.
