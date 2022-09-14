@@ -38,6 +38,7 @@
     - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
     - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
   - [String Operate](#string-operate)
+    - [(58) Length of Last word](#58-length-of-last-word)
     - [(14) Longest Common Prefix(LCP)](#14-longest-common-prefixlcp)
     - [(125) Valid Palindrome](#125-valid-palindrome)
   - [Waiting for classification.](#waiting-for-classification)
@@ -46,7 +47,6 @@
     - [Remove Element](#remove-element)
     - [Implement strStr()](#implement-strstr)
     - [Search insert position](#search-insert-position)
-    - [(58) Length of Last word](#58-length-of-last-word)
 
 
 ## Spacial Algorithm
@@ -1794,6 +1794,51 @@ Output: "ZY"
 
 ## String Operate
 
+### (58) Length of Last word
+
+> Given a string s consisting of words and spaces, return the length of the last word in the string.  
+> A **word** is a maximal substring consisting of non-space characters only.
+
+**Example:**
+```
+Input: s = "Hello World"
+Output: 5
+Explanation: The last word is "World" with length 5.
+
+Input: s = "   fly me   to   the moon  "
+Output: 4
+Explanation: The last word is "moon" with length 4.
+
+Input: s = "luffy is still joyboy"
+Output: 6
+Explanation: The last word is "joyboy" with length 6.
+```
+**Constraints:**
+- `1 <= s.length <= 104`
+- `s` consists of only English letters and spaces `' '`.
+- There will be at least one word in `s`.
+
+#### **Solutions**
+Check the code 
+
+#### Code 
+
+- **JavaScript**
+    ```javascript
+        // let recordBegin = false;
+        // let lastWordLength = 0;
+        // for (let j = string.length - 1; j >= 0; j--) {
+        // 	if (string[j] !== " ") {
+        // 		recordBegin = true;
+        // 		lastWordLength++;
+        // 	}
+        // 	if (string[j] === " " && recordBegin === true) return lastWordLength;
+        // }
+        // return lastWordLength;
+        const regex = /\w+(?=\s+$)|\w+$/gm;
+        return string.match(regex).pop().length;
+    ```
+
 ### (14) Longest Common Prefix(LCP)
 
 > Write a function to find the longest common prefix string amongst an array of strings.<br>
@@ -2270,47 +2315,3 @@ Binary search. Check the code.
   
 
 
-### (58) Length of Last word
-
-> Given a string s consisting of words and spaces, return the length of the last word in the string.  
-> A **word** is a maximal substring consisting of non-space characters only.
-
-**Example:**
-```
-Input: s = "Hello World"
-Output: 5
-Explanation: The last word is "World" with length 5.
-
-Input: s = "   fly me   to   the moon  "
-Output: 4
-Explanation: The last word is "moon" with length 4.
-
-Input: s = "luffy is still joyboy"
-Output: 6
-Explanation: The last word is "joyboy" with length 6.
-```
-**Constraints:**
-- `1 <= s.length <= 104`
-- `s` consists of only English letters and spaces `' '`.
-- There will be at least one word in `s`.
-
-#### **Solutions**
-Check the code 
-
-#### Code 
-
-- **JavaScript**
-    ```javascript
-        // let recordBegin = false;
-        // let lastWordLength = 0;
-        // for (let j = string.length - 1; j >= 0; j--) {
-        // 	if (string[j] !== " ") {
-        // 		recordBegin = true;
-        // 		lastWordLength++;
-        // 	}
-        // 	if (string[j] === " " && recordBegin === true) return lastWordLength;
-        // }
-        // return lastWordLength;
-        const regex = /\w+(?=\s+$)|\w+$/gm;
-        return string.match(regex).pop().length;
-    ```
