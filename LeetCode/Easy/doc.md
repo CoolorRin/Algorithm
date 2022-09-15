@@ -46,7 +46,7 @@
     - [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
     - [Remove Element](#remove-element)
     - [Implement strStr()](#implement-strstr)
-    - [Search insert position](#search-insert-position)
+    - [(35) Search insert position](#35-search-insert-position)
 
 
 ## Spacial Algorithm
@@ -2269,7 +2269,7 @@ Check the code.
     }
     ```
 
-### Search insert position
+### (35) Search insert position
 > Given a sorted array of distinct intergers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 > You must write an algorithm with `olog(n)` runtime complexity.
 
@@ -2312,6 +2312,3 @@ Binary search. Check the code.
     }
 
   ```
-  
-
-
