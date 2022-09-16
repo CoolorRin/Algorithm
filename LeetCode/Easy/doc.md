@@ -3,12 +3,8 @@
 
 - [Easy Question](#easy-question)
   - [Spacial Algorithm](#spacial-algorithm)
-    - [(14) Longest Common Prefix(LCP)](#14-longest-common-prefixlcp)
     - [(169) Majority Element](#169-majority-element)
   - [Data structure](#data-structure)
-    - [(13) Roman to Integer](#13-roman-to-integer)
-    - [(118) Pascal's Triangle](#118-pascals-triangle)
-    - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
     - [(1) Two Sum](#1-two-sum)
     - [(235) Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree)
     - [(160) Intersection of Two Linked lists](#160-intersection-of-two-linked-lists)
@@ -21,12 +17,12 @@
   - [Bit Manipulation](#bit-manipulation)
     - [(190) Reverse bits](#190-reverse-bits)
   - [Math](#math)
-    - [(69) Sqrt](#69-sqrt)
-    - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
     - [(9) Palindrome Number](#9-palindrome-number)
     - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
     - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
   - [Waiting for classification.](#waiting-for-classification)
+    - [Roman to Integer](#roman-to-integer)
+    - [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
     - [Merge Two Sorted Lists](#merge-two-sorted-lists)
     - [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
     - [Remove Element](#remove-element)
@@ -36,6 +32,7 @@
     - [Length of Last word](#length-of-last-word)
     - [Plus one](#plus-one)
     - [Add Binary](#add-binary)
+    - [Sqrt](#sqrt)
     - [Remove Duplicates from Sorted List](#remove-duplicates-from-sorted-list)
     - [Merge Sorted Array](#merge-sorted-array)
     - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
@@ -46,89 +43,13 @@
     - [Balanced Binary Tree](#balanced-binary-tree)
     - [Minimum Depth of Binary Tree](#minimum-depth-of-binary-tree)
     - [Path Sum](#path-sum)
+    - [Pascal's Triangle](#pascals-triangle)
+    - [Pascal's Triangle II](#pascals-triangle-ii)
+    - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
     - [(125) Valid Palindrome](#125-valid-palindrome)
 
 
 ## Spacial Algorithm
-
-### (14) Longest Common Prefix(LCP)
-
-> Write a function to find the longest common prefix string amongst an array of strings.<br>
-> if there is no common prefix, return an empty string `""`
-
-**Example:**
-
-```
-Input: strs = ["flowers", "flow", "flight"]
-Output: "fl"
-```
-
-**Constraints:**
-
-- `1 <= strs.length <= 200`
-- `0 <= strs[i].length <= 200`
-- `strs[i] consists of only lower-case English letters.`
-
-#### **Solutions**
-
-- Just scanning all strings
-  > Horizontal Scanning: <br> `LCP(str1, str2, ...strN) = LCP(LCP(LCP(str1, str2), str3), ...strN)`. <br>
-  > Vertical
-  Scanning: <br> `LCP(str1, str2, ...strN) = LCP(LCP(LCP(char1))) => (Each loop complete will comparison next char with all other str)`
-  . <br>Get first char thar loop all other string comparison the first, second and so on untill comparison failed. <br>
-- Divide and conquer (**Recursion**)
-  > See JavaScript code below.
-- [Other Solution](https://leetcode.com/problems/longest-common-prefix/solution/)
-
-#### Code
-
-- **JavaScript**
-
-    ```JavaScript
-    LCP(strs)
-    {
-        function comparison(leftPart, rightPart) {
-            const minLength = Math.min(leftPart.length, rightPart.length)
-            for (let index = 0; index < minLength; index++) {
-                if (leftPart[index] !== rightPart[index])
-                    return leftPart.slice(0, index)
-            }
-            return leftPart.slice(0, minLength)
-        }
-
-        function DivideAtMid(strs, leftIndex, rightIndex) {
-            if (leftIndex === rightIndex) return strs[leftIndex]
-            const mid = Math.floor((leftIndex + rightIndex) / 2)
-            const leftPart = DivideAtMid(strs, leftIndex, mid)
-            const rightPart = DivideAtMid(strs, mid + 1, rightIndex)
-            return comparison(leftPart, rightPart)
-        }
-
-        if (strs.length === 0) return ""
-        const result = DivideAtMid(strs, 0, strs.length - 1)
-        return result
-    }
-
-    ```
-
-- **Cpp11**
-
-    ```C++
-    std::string LCP(std::vector<std::string> strs)
-    {
-        if (strs.empty())
-            return "";
-        std::strin prefix = strs[0];
-        for (int i = 1; i < strs.size(); i++)
-        {
-            while (strs[i].find(prefix) != 0)
-            {
-                prefix = prefix.substr(0, prefix.size() - 1);
-            }
-        }
-        return prefix;
-    }
-    ```
 ### (169) Majority Element
 > Given an array `nums` of size `n`, return the majority element.  
 > The majority element is the element that appears more than `[n/2]` times. You may assume that the marjority element always exists in the array.  
@@ -173,172 +94,6 @@ Output: 2
   
 
 ## Data structure
-
-### (13) Roman to Integer
-
-> Roman numerals are repersented by serven different smbols: `I`, `V`, `X`, `L`, `C`, `D` and `M`.
-> | Symbol | Value |
-> | ------ | ----- |
-> | I | 1 |
-> | V | 5 |
-> | X | 10 |
-> | L | 50 |
-> | C | 100 |
-> | D | 500 |
-> | M | 1000 |
-
-**Example:**
-
-```
-Input: s = "III"
-Ouput: 3
-```
-
-#### **Solution**
-
-- First thing come out from my mind is loop the whole RomanNumber String and compare with the next number. If the second
-  number is bigger, it will be minus by the second number.Otherwise, plus it. **Problem is the lastest number should
-  handle first. And no matter lasest number is,**
-- `Or Maybe it have the better way`
-
-#### Code
-
-- **JavaScript**
-
-    ```JavaScript
-    var transferRoman2Integer(romanNumString)
-    {
-        const RomanMap = {
-            "I": 1,
-            "V": 5,
-            "X": 10,
-            "L": 50,
-            "C": 100,
-            "D": 500,
-            "M": 1000,
-        }
-        let strLength = romanNumString.length
-        let sum = RomanMap[romanNumString[strLength - 1]]
-        for (let index = strLength - 2; index >= 0; index--) {
-            if (RomanMap[romanNumString[index]] < RomanMap[romanNumString[index + 1]]) {
-                sum -= RomanMap[romanNumString[index]]
-            } else {
-                sum += RomanMap[romanNumString[index]]
-            }
-        }
-        return sum
-    }
-    ```
-
-- **Cpp11**
-
-    ```c++
-    int Roman2Integer(std::string RomanString)
-    {
-        std::map<char, int> RomanMap = {
-            {'I', 1},
-            {'V', 5},
-            {'X', 10},
-            {'L', 50},
-            {'C', 100},
-            {'D', 500},
-            {'M', 1000}};
-        int sum = RomanMap[RomanString.back()];
-        for (int index = RomanString.length() - 2; index >= 0; index--)
-        {
-                if (RomanMap[RomanString[index]] >= RomanMap[RomanString[index + 1]])
-            {
-                    sum += RomanMap[RomanString[index]];
-            }
-            else
-            {
-                    sum -= RomanMap[RomanString[index]];
-            }
-        }
-    };
-
-    ```
-
-### (118) Pascal's Triangle
-> Given an integer numRows, return the first numRows of **Pascal's triangle**.  
-> In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:  
-> [Pascal's triangle](https://leetcode.com/problems/pascals-triangle/)
-
-**Example:**
-```
-Input: numRows = 5
-Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
-
-Input: numRows = 1
-Output: [[1]]
-```
-
-**Constraints:**
-- `1 <= numRows <= 30`
-
-#### **Solutions**
-- Maybe have more better way to figure it out. For Now, just check the code.
-
-#### Code
-- **JavScript**
-  ```javascript
-    generate(numRows) {
-    let resultArr = [];
-    for (let element = 1; element <= numRows; element++) {
-      if (element === 1) resultArr.push([1]);
-      if (element === 2) resultArr.push([1, 1]);
-      if (element > 2) {
-        let arr = [1];
-        for (let index = 1; index < element - 1; index++) {
-          arr[index] =
-            resultArr[element - 2][index] + resultArr[element - 2][index - 1];
-        }
-        arr.push(1);
-        resultArr.push(arr);
-      }
-    }
-    return resultArr;
-  }
-  ```
-
-### (119) Pascal's Triangle II
-> Given an integer rowIndex, return the rowIndexth (**0-indexed**) row of the **Pascal's triangle**.  
-> In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:
-
-**Example:**
-
-```
-Input: rowIndex = 3
-Output: [1,3,3,1]
-
-Input: rowIndex = 0
-Output: [1]
-
-Input: rowIndex = 1
-Output: [1,1]
-```
-
-**Constraints:**
-- `0 <= rowIndex <= 33`
-
-#### **Solutions**
-Both of questions about the pascals triangle are inefficient. Find the way to optimize it in the weekend PR commit.  
-For Now, Just Check the code below.
-
-#### Code
-- **JavaScript**
-  ```JavaScript
-    var getRow = function(rowIndex) {
-      if (rowIndex === 0) return [1];
-      if (rowIndex === 1) return [1,1];
-      const arr = []
-      getRow(rowIndex - 1).reduce((x, y) => {
-          arr.push(x + y);
-          return y;
-      });
-      return [1, ...arr, 1];
-    };  
-  ```
 
 ### (1) Two Sum
 
@@ -1051,91 +806,6 @@ Explanation: The input binary string 11111111111111111111111111111101 represents
 
 ## Math
 
-### (69) Sqrt
-> Given a non-negative integer `x`, compute and return the square root of `x`.  
-> Since the return type is an integer, the decimal digits are **truncated**, and only **the integer part** of the result is returned.  
-> **Note**: You are not allowed to use any built-in exponent function or operator, such as `pow(x, 0.5)` or `x ** 0.5`.
-
-**Example:**
-
-```
-Input: x = 4
-Output: 2
-
-Input: x = 8
-Output: 2
-Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
-```
-
-**Constraints:**
-- `0 <= x <= 2^31 - 1`
-
-#### **Solutions**
-Check the code.
-
-#### Code
-
-- **JavaScript**
-    ```JavaScript
-    let beginNum = 0;
-    let endNum = x;
-    while (beginNum <= endNum) {
-        const midNum = beginNum + Math.floor((endNum - beginNum) / 2);
-        const val = midNum * midNum;
-        if (val === x) return midNum;
-        else if (val > x) {
-            endNum = midNum - 1;
-        } else beginNum = midNum + 1;
-    }
-    return endNum;
-
-    // let val = 0;
-    // while (val * val <= x) val++;
-    // return val - 1;
-    ```
-
-### (121) Best Time to Buy and Sell Stock
-> You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day.  
-> You want to maximize your profit by choosing **a single day** to buy one stock and choosing **a different day in the future** to sell that stock.  
-> Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.  
-
-**Example**
-```
-Input: prices = [7,1,5,3,6,4]
-Output: 5
-Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
-
-Input: prices = [7,6,4,3,1]
-Output: 0
-Explanation: In this case, no transactions are done and the max profit = 0.
-```
-
-**Constraints**
-- `1 <= prices.length <= 105`
-- `0 <= prices[i] <= 104`
-
-#### **Solutions**
-There are two main point to resolve this question. The day to sell the stock must be the right side from the day to buy the stock. To keep the time complexity is O(n), declare two point which point to the left and right. Then compare the profit to get the max one.
-
-#### Code
-- **JavaScript**
-  ```JavaScript
-  var maxProfit = function(prices) {
-    let result = 0;
-    let boughtPricesIndex = 0;
-    let sellPricesIndex = 1;
-    while(sellPricesIndex <= prices.length ) {
-        if ( prices[boughtPricesIndex] < prices[sellPricesIndex]) {
-            result = Math.max(prices[sellPricesIndex] - prices[boughtPricesIndex], result);
-        } else {
-            boughtPricesIndex = sellPricesIndex;
-        }
-        sellPricesIndex++;
-    };
-    return result;
-  };
-  ```
 ### (9) Palindrome Number
 
 > Given an integer x, return true if x is palindrome integer.  
@@ -1306,7 +976,169 @@ Output: "ZY"
 	}
   ```
 ## Waiting for classification.
+### Roman to Integer
 
+> Roman numerals are repersented by serven different smbols: `I`, `V`, `X`, `L`, `C`, `D` and `M`.
+> | Symbol | Value |
+> | ------ | ----- |
+> | I | 1 |
+> | V | 5 |
+> | X | 10 |
+> | L | 50 |
+> | C | 100 |
+> | D | 500 |
+> | M | 1000 |
+
+**Example:**
+
+```
+Input: s = "III"
+Ouput: 3
+```
+
+#### **Solution**
+
+- First thing come out from my mind is loop the whole RomanNumber String and compare with the next number. If the second
+  number is bigger, it will be minus by the second number.Otherwise, plus it. **Problem is the lastest number should
+  handle first. And no matter lasest number is,**
+- `Or Maybe it have the better way`
+
+#### Code
+
+- **JavaScript**
+
+    ```JavaScript
+    var transferRoman2Integer(romanNumString)
+    {
+        const RomanMap = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000,
+        }
+        let strLength = romanNumString.length
+        let sum = RomanMap[romanNumString[strLength - 1]]
+        for (let index = strLength - 2; index >= 0; index--) {
+            if (RomanMap[romanNumString[index]] < RomanMap[romanNumString[index + 1]]) {
+                sum -= RomanMap[romanNumString[index]]
+            } else {
+                sum += RomanMap[romanNumString[index]]
+            }
+        }
+        return sum
+    }
+    ```
+
+- **Cpp11**
+
+    ```c++
+    int Roman2Integer(std::string RomanString)
+    {
+        std::map<char, int> RomanMap = {
+            {'I', 1},
+            {'V', 5},
+            {'X', 10},
+            {'L', 50},
+            {'C', 100},
+            {'D', 500},
+            {'M', 1000}};
+        int sum = RomanMap[RomanString.back()];
+        for (int index = RomanString.length() - 2; index >= 0; index--)
+        {
+                if (RomanMap[RomanString[index]] >= RomanMap[RomanString[index + 1]])
+            {
+                    sum += RomanMap[RomanString[index]];
+            }
+            else
+            {
+                    sum -= RomanMap[RomanString[index]];
+            }
+        }
+    };
+
+    ```
+
+### Longest Common Prefix(LCP)
+
+> Write a function to find the longest common prefix string amongst an array of strings.<br>
+> if there is no common prefix, return an empty string `""`
+
+**Example:**
+
+```
+Input: strs = ["flowers", "flow", "flight"]
+Output: "fl"
+```
+
+**Constraints:**
+
+- `1 <= strs.length <= 200`
+- `0 <= strs[i].length <= 200`
+- `strs[i] consists of only lower-case English letters.`
+
+#### **Solutions**
+
+- Just scanning all strings
+  > Horizontal Scanning: <br> `LCP(str1, str2, ...strN) = LCP(LCP(LCP(str1, str2), str3), ...strN)`. <br>
+  > Vertical
+  Scanning: <br> `LCP(str1, str2, ...strN) = LCP(LCP(LCP(char1))) => (Each loop complete will comparison next char with all other str)`
+  . <br>Get first char thar loop all other string comparison the first, second and so on untill comparison failed. <br>
+- Divide and conquer (**Recursion**)
+  > See JavaScript code below.
+- [Other Solution](https://leetcode.com/problems/longest-common-prefix/solution/)
+
+#### Code
+
+- **JavaScript**
+
+    ```JavaScript
+    LCP(strs)
+    {
+        function comparison(leftPart, rightPart) {
+            const minLength = Math.min(leftPart.length, rightPart.length)
+            for (let index = 0; index < minLength; index++) {
+                if (leftPart[index] !== rightPart[index])
+                    return leftPart.slice(0, index)
+            }
+            return leftPart.slice(0, minLength)
+        }
+
+        function DivideAtMid(strs, leftIndex, rightIndex) {
+            if (leftIndex === rightIndex) return strs[leftIndex]
+            const mid = Math.floor((leftIndex + rightIndex) / 2)
+            const leftPart = DivideAtMid(strs, leftIndex, mid)
+            const rightPart = DivideAtMid(strs, mid + 1, rightIndex)
+            return comparison(leftPart, rightPart)
+        }
+
+        if (strs.length === 0) return ""
+        const result = DivideAtMid(strs, 0, strs.length - 1)
+        return result
+    }
+
+    ```
+
+- **Cpp11**
+
+    ```C++
+    std::string LCP(std::vector<std::string> strs)
+    {
+        if (strs.empty())
+            return "";
+        std::strin prefix = strs[0];
+        for (int i = 1; i < strs.size(); i++)
+        {
+            while (strs[i].find(prefix) != 0)
+            {
+                prefix = prefix.substr(0, prefix.size() - 1);
+            }
+        }
+        return prefix;
+    }
+    ```
 
 ### Merge Two Sorted Lists
 
@@ -1816,6 +1648,51 @@ Output: "10101"
     }
     ```
 
+### Sqrt
+> Given a non-negative integer `x`, compute and return the square root of `x`.  
+> Since the return type is an integer, the decimal digits are **truncated**, and only **the integer part** of the result is returned.  
+> **Note**: You are note allowed to use any built-in exponent function or operator, such as `pow(x, 0.5)` or `x ** 0.5`.
+
+**Example:**
+
+```
+Input: x = 4
+Output: 2
+
+Input: x = 8
+Output: 2
+Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
+```
+
+**Constraints:**
+- `0 <= x <= 2^31 - 1`
+
+#### **Solutions**
+Check the code.
+
+#### Code
+
+- **JavaScript**
+    ```JavaScript
+    let beginNum = 0;
+    let endNum = x;
+    while (beginNum <= endNum) {
+        const midNum = beginNum + Math.floor((endNum - beginNum) / 2);
+        const val = midNum * midNum;
+        if (val === x) return midNum;
+        else if (val > x) {
+            endNum = midNum - 1;
+        } else beginNum = midNum + 1;
+    }
+    return endNum;
+
+    // let val = 0;
+    // while (val * val <= x) val++;
+    // return val - 1;
+    ```
+
+
+
 ### Remove Duplicates from Sorted List
 > Given the `head` of a sorted linked listed, delete all duplicates such that each element appears only once. Return the linked list **sorted** as well.
 
@@ -2284,6 +2161,129 @@ Check the code.
   }
   ```
 
+### Pascal's Triangle
+> Given an integer numRows, return the first numRows of **Pascal's triangle**.  
+> In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:  
+> [Pascal's triangle](https://leetcode.com/problems/pascals-triangle/)
+
+**Example:**
+```
+Input: numRows = 5
+Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+
+Input: numRows = 1
+Output: [[1]]
+```
+
+**Constraints:**
+- `1 <= numRows <= 30`
+
+#### **Solutions**
+- Maybe have more better way to figure it out. For Now, just check the code.
+
+#### Code
+- **JavScript**
+  ```javascript
+    generate(numRows) {
+    let resultArr = [];
+    for (let element = 1; element <= numRows; element++) {
+      if (element === 1) resultArr.push([1]);
+      if (element === 2) resultArr.push([1, 1]);
+      if (element > 2) {
+        let arr = [1];
+        for (let index = 1; index < element - 1; index++) {
+          arr[index] =
+            resultArr[element - 2][index] + resultArr[element - 2][index - 1];
+        }
+        arr.push(1);
+        resultArr.push(arr);
+      }
+    }
+    return resultArr;
+  }
+  ```
+
+### Pascal's Triangle II
+> Given an integer rowIndex, return the rowIndexth (**0-indexed**) row of the **Pascal's triangle**.  
+> In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:
+
+**Example:**
+
+```
+Input: rowIndex = 3
+Output: [1,3,3,1]
+
+Input: rowIndex = 0
+Output: [1]
+
+Input: rowIndex = 1
+Output: [1,1]
+```
+
+**Constraints:**
+- `0 <= rowIndex <= 33`
+
+#### **Solutions**
+Both of questions about the pascals triangle are inefficient. Find the way to optimize it in the weekend PR commit.  
+For Now, Just Check the code below.
+
+#### Code
+- **JavaScript**
+  ```JavaScript
+    var getRow = function(rowIndex) {
+      if (rowIndex === 0) return [1];
+      if (rowIndex === 1) return [1,1];
+      const arr = []
+      getRow(rowIndex - 1).reduce((x, y) => {
+          arr.push(x + y);
+          return y;
+      });
+      return [1, ...arr, 1];
+    };  
+  ```
+
+### (121) Best Time to Buy and Sell Stock
+> You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day.  
+> You want to maximize your profit by choosing **a single day** to buy one stock and choosing **a different day in the future** to sell that stock.  
+> Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.  
+
+**Example**
+```
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+
+Input: prices = [7,6,4,3,1]
+Output: 0
+Explanation: In this case, no transactions are done and the max profit = 0.
+```
+
+**Constraints**
+- `1 <= prices.length <= 105`
+- `0 <= prices[i] <= 104`
+
+#### **Solutions**
+There are two main point to resolve this question. The day to sell the stock must be the right side from the day to buy the stock. To keep the time complexity is O(n), declare two point which point to the left and right. Then compare the profit to get the max one.
+
+#### Code
+- **JavaScript**
+  ```JavaScript
+  var maxProfit = function(prices) {
+    let result = 0;
+    let boughtPricesIndex = 0;
+    let sellPricesIndex = 1;
+    while(sellPricesIndex <= prices.length ) {
+        if ( prices[boughtPricesIndex] < prices[sellPricesIndex]) {
+            result = Math.max(prices[sellPricesIndex] - prices[boughtPricesIndex], result);
+        } else {
+            boughtPricesIndex = sellPricesIndex;
+        }
+        sellPricesIndex++;
+    };
+    return result;
+  };
+  ```
 
 ### (125) Valid Palindrome
 > A phrase is a `palindrome` if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.  
