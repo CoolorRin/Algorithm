@@ -7,6 +7,9 @@
   - [Sorted Algorithm](#sorted-algorithm)
     - [(35) Search insert position](#35-search-insert-position)
   - [Data structure](#data-structure)
+    - [(21) Merge Two Sorted Lists](#21-merge-two-sorted-lists)
+    - [(26) Remove Duplicates from Sorted Array](#26-remove-duplicates-from-sorted-array)
+    - [(27) Remove Element](#27-remove-element)
     - [(67) Add Binary](#67-add-binary)
     - [(83) Remove Duplicates from Sorted List](#83-remove-duplicates-from-sorted-list)
     - [(88) Merge Sorted Array](#88-merge-sorted-array)
@@ -40,14 +43,11 @@
     - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
     - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
   - [String Operate](#string-operate)
+    - [Implement strStr()](#implement-strstr)
     - [(58) Length of Last word](#58-length-of-last-word)
     - [(14) Longest Common Prefix(LCP)](#14-longest-common-prefixlcp)
     - [(125) Valid Palindrome](#125-valid-palindrome)
   - [Waiting for classification.](#waiting-for-classification)
-    - [Merge Two Sorted Lists](#merge-two-sorted-lists)
-    - [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
-    - [Remove Element](#remove-element)
-    - [Implement strStr()](#implement-strstr)
 
 
 ## Spacial Algorithm
@@ -143,6 +143,229 @@ Binary search. Check the code.
 
 
 ## Data structure
+
+### (21) Merge Two Sorted Lists
+
+> You are given the heads of wo sorted linked lists `list1` and `list2`<br>
+> Merge the two lists in a one **sorted** list. The list should be made by splicing together the nodes of the first two
+> lists.<br>
+> Return the head of the merged linked list.<br>
+
+**Example:**
+
+```
+Input: list1 = [1, 2, 4], list2 = [1, 3, 4]
+Output: [1, 1, 2, 3, 4, 4]
+
+Input: list1 = [], list2 = []
+Output: []
+
+Input: list1 = [], list2 = [0]
+Output: [0]
+```
+
+**Constraints:**
+
+- The number of nodes in both lists is in the range `[0, 50]`
+- `-100 <= Node.val <= 100`
+- Both `list1` and `list2` are sored in **non-decreasing** order.
+
+#### **Solutions**
+
+Check the code.
+
+#### Code
+- **JavaScript**
+
+    ```javascript
+    mergeTwoLists(list1, list2)
+    {
+        /**
+         * Definition for singly-linked list.
+         * function ListNode(val, next) {
+         *     this.val = (val===undefined ? 0 : val)
+         *     this.next = (next===undefined ? null : next)
+         * }
+         */
+        /**
+         * @param   {ListNode} list1
+         * @param   {ListNode} list2
+         * @return  {ListNode}
+         */
+        const ListNode = function (val, next) {
+            this.val = val === undefined ? null : val;
+            this.next = next === undefined ? null : next;
+        }
+        const transform2ListNode = function (array) {
+            if (array.length === 0) return null
+            let result = new ListNode(array[0]);
+            if (array[1]) {
+                result.next = transform2ListNode(array.slice(1))
+            }
+            return result;
+        }
+
+        let ListNode1 = transform2ListNode(list1);
+        let ListNode2 = transform2ListNode(list2);
+
+        let lastNode = null
+        let mergedList = null
+
+        while (ListNode1 || ListNode2) {
+            if (ListNode1 && (!ListNode2 || ListNode1.val < ListNode2.val)) {
+                if (lastNode === null) {
+                    lastNode = ListNode1
+                    mergedList = lastNode
+                } else {
+                    lastNode.next = ListNode1;
+                    lastNode = lastNode.next;
+                }
+                ListNode1 = ListNode1.next
+            } else {
+                if (lastNode === null) {
+                    lastNode = ListNode2;
+                    mergedList = lastNode;
+                } else {
+                    lastNode.next = ListNode2;
+                    lastNode = lastNode.next;
+                }
+                ListNode2 = ListNode2.next
+            }
+        }
+        return mergedList
+    }
+    ```
+
+- **Cpp11**
+
+    ```c++
+        ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
+        {
+            if (list1 != NULL && list2 != NULL)
+            {
+                ListNode *ans = NULL;
+                if (list1->val <= list2->val)
+                {
+                    ans = list1;
+                    ans->next = mergeTwoLists(list1->next, list2);
+                }
+                else
+                {
+                    ans = list2;
+                    ans->next = mergeTwoLists(list1, list2->next);
+                }
+                return ans;
+            }
+            else if (list1 == NULL)
+                return list2;
+            return list1;
+        }
+    
+    ```
+
+### (26) Remove Duplicates from Sorted Array
+
+> You are given the heads of wo sorted linked lists `list1` and `list2`<br>
+> Merge the two lists in a one **sorted** list. The list should be made by splicing together the nodes of the first two
+> lists.<br>
+> Reture the head of the merged linked list.<br>
+
+**Example:**
+
+```
+Input: nums = [1,1,2]
+Output: 2, nums = [1,2,_]
+Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+Input: nums = [0,0,1,1,1,2,2,3,3,4]
+Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+```
+
+**Constraints:**
+
+- 1 <= nums.length <= 3 * 104
+- -100 <= nums[i] <= 100
+- nums is sorted in non-decreasing order.
+
+#### **Solutions**
+
+- Check the code.
+
+#### Code
+
+- **JavaScript**
+    ```javascript
+    removeDuplicates = function (nums) {
+        // let startNumIndex = 0;
+        // let duplicateCount = 0;
+        // let order = 0;
+        // for (let index = 1; index < nums.length; index++) {
+        //     if (nums[startNumIndex] === nums[index]) duplicateCount++;
+        //     else {
+        //         nums[order] = nums[startNumIndex]
+        //         order++
+        //         startNumIndex = index
+        //         duplicateCount = 0
+        //         if (index === nums.length -1) {
+        //             nums[order] = nums[startNumIndex]
+        //         }
+        //     }
+        // }
+        // if (duplicateCount !== 0) nums[order] = nums[startNumIndex]
+        // return nums
+
+        let i = 0;
+        for (let j = 0; j < nums.length; j++) {
+            if (nums[j] != nums[i])
+                nums[++i] = nums[j];
+        }
+        return ++i;
+    }
+    ```
+
+### (27) Remove Element
+> Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
+
+**Example:**
+```
+Input: nums = [3,2,2,3], val = 3
+Output: 2, nums = [2,2,_,_]
+
+Input: nums = [0,1,2,2,3,0,4,2], val = 2
+Output: 5, nums = [0,1,4,0,3,_,_,_]
+```
+
+**Constraints**
+- `0 <= nums.length <= 100`
+- `0 <= nums[i] <= 50`
+- `0 <= val <= 100`
+
+#### **Solutions**
+- Setting the based number `j`. it will always point to the number which isn't equal to the given value and place in the lastest position in the not-equal-to-value queue.And `i` will be itrate all the `nums`. If nums[i] not equal to the given value.Swtich the `nums[i]` and the `nums[j]`'s position, then `j++`. In the end, the value of `j` will be the result.
+
+#### Code
+
+- **JavaScript**
+    ```javascript
+    removeElement(nums, val) {
+        let j = 0;
+        for (let i = 0; i < nums.length; i++) {
+            if (nums[i] !== val) {
+                [nums[i], nums[j]] = [nums[j], nums[i]];
+                j++;
+            }
+        }
+        nums.splice(j)
+        console.log(nums);
+        return nums.length;
+    }
+    ```
+
+
+
 
 ### (67) Add Binary
 > Given two binary string `a` and `b`, return their sum as a binary string.
@@ -1842,6 +2065,44 @@ Output: "ZY"
 
 ## String Operate
 
+### Implement strStr()
+> Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+**Example**
+```
+Input: haystack = "hello", needle = "ll"
+Output: 2
+
+Input: haystack = "aaaaa", needle = "bba"
+Output: -1
+```
+
+**Constraints**
+- `1 <= haystack.length, needle.length <= 104`
+- `haystack and needle consist of only lowercase English characters.`
+
+#### **Solutions**
+
+Check the code.
+#### Code 
+
+- **JavaScript**
+    ```JavaScript
+    implement_strStr(haystack, needle) {
+        for (let index in haystack) {
+            if(haystack[index] === needle[0]) {
+                const resultIndex = index;
+                if(haystack.slice(index, Number(index) + needle.length) === needle) {
+                    return resultIndex;
+                }
+            }
+        }
+        return -1;
+    }
+    ```
+
+
+
 ### (58) Length of Last word
 
 > Given a string s consisting of words and spaces, return the length of the last word in the string.  
@@ -2059,261 +2320,3 @@ Since an empty string reads the same forward and backward, it is a palindrome.
   ```
 
 ## Waiting for classification.
-
-
-### Merge Two Sorted Lists
-
-> You are given the heads of wo sorted linked lists `list1` and `list2`<br>
-> Merge the two lists in a one **sorted** list. The list should be made by splicing together the nodes of the first two
-> lists.<br>
-> Return the head of the merged linked list.<br>
-
-**Example:**
-
-```
-Input: list1 = [1, 2, 4], list2 = [1, 3, 4]
-Output: [1, 1, 2, 3, 4, 4]
-
-Input: list1 = [], list2 = []
-Output: []
-
-Input: list1 = [], list2 = [0]
-Output: [0]
-```
-
-**Constraints:**
-
-- The number of nodes in both lists is in the range `[0, 50]`
-- `-100 <= Node.val <= 100`
-- Both `list1` and `list2` are sored in **non-decreasing** order.
-
-#### **Solutions**
-
-Check the code.
-
-#### Code
-- **JavaScript**
-
-    ```javascript
-    mergeTwoLists(list1, list2)
-    {
-        /**
-         * Definition for singly-linked list.
-         * function ListNode(val, next) {
-         *     this.val = (val===undefined ? 0 : val)
-         *     this.next = (next===undefined ? null : next)
-         * }
-         */
-        /**
-         * @param   {ListNode} list1
-         * @param   {ListNode} list2
-         * @return  {ListNode}
-         */
-        const ListNode = function (val, next) {
-            this.val = val === undefined ? null : val;
-            this.next = next === undefined ? null : next;
-        }
-        const transform2ListNode = function (array) {
-            if (array.length === 0) return null
-            let result = new ListNode(array[0]);
-            if (array[1]) {
-                result.next = transform2ListNode(array.slice(1))
-            }
-            return result;
-        }
-
-        let ListNode1 = transform2ListNode(list1);
-        let ListNode2 = transform2ListNode(list2);
-
-        let lastNode = null
-        let mergedList = null
-
-        while (ListNode1 || ListNode2) {
-            if (ListNode1 && (!ListNode2 || ListNode1.val < ListNode2.val)) {
-                if (lastNode === null) {
-                    lastNode = ListNode1
-                    mergedList = lastNode
-                } else {
-                    lastNode.next = ListNode1;
-                    lastNode = lastNode.next;
-                }
-                ListNode1 = ListNode1.next
-            } else {
-                if (lastNode === null) {
-                    lastNode = ListNode2;
-                    mergedList = lastNode;
-                } else {
-                    lastNode.next = ListNode2;
-                    lastNode = lastNode.next;
-                }
-                ListNode2 = ListNode2.next
-            }
-        }
-        return mergedList
-    }
-    ```
-
-- **Cpp11**
-
-    ```c++
-        ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
-        {
-            if (list1 != NULL && list2 != NULL)
-            {
-                ListNode *ans = NULL;
-                if (list1->val <= list2->val)
-                {
-                    ans = list1;
-                    ans->next = mergeTwoLists(list1->next, list2);
-                }
-                else
-                {
-                    ans = list2;
-                    ans->next = mergeTwoLists(list1, list2->next);
-                }
-                return ans;
-            }
-            else if (list1 == NULL)
-                return list2;
-            return list1;
-        }
-    
-    ```
-
-### Remove Duplicates from Sorted Array
-
-> You are given the heads of wo sorted linked lists `list1` and `list2`<br>
-> Merge the two lists in a one **sorted** list. The list should be made by splicing together the nodes of the first two
-> lists.<br>
-> Reture the head of the merged linked list.<br>
-
-**Example:**
-
-```
-Input: nums = [1,1,2]
-Output: 2, nums = [1,2,_]
-Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-
-Input: nums = [0,0,1,1,1,2,2,3,3,4]
-Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
-Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-```
-
-**Constraints:**
-
-- 1 <= nums.length <= 3 * 104
-- -100 <= nums[i] <= 100
-- nums is sorted in non-decreasing order.
-
-#### **Solutions**
-
-- Check the code.
-
-#### Code
-
-- **JavaScript**
-    ```javascript
-    removeDuplicates = function (nums) {
-        // let startNumIndex = 0;
-        // let duplicateCount = 0;
-        // let order = 0;
-        // for (let index = 1; index < nums.length; index++) {
-        //     if (nums[startNumIndex] === nums[index]) duplicateCount++;
-        //     else {
-        //         nums[order] = nums[startNumIndex]
-        //         order++
-        //         startNumIndex = index
-        //         duplicateCount = 0
-        //         if (index === nums.length -1) {
-        //             nums[order] = nums[startNumIndex]
-        //         }
-        //     }
-        // }
-        // if (duplicateCount !== 0) nums[order] = nums[startNumIndex]
-        // return nums
-
-        let i = 0;
-        for (let j = 0; j < nums.length; j++) {
-            if (nums[j] != nums[i])
-                nums[++i] = nums[j];
-        }
-        return ++i;
-    }
-    ```
-
-### Remove Element
-> Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
-
-**Example:**
-```
-Input: nums = [3,2,2,3], val = 3
-Output: 2, nums = [2,2,_,_]
-
-Input: nums = [0,1,2,2,3,0,4,2], val = 2
-Output: 5, nums = [0,1,4,0,3,_,_,_]
-```
-
-**Constraints**
-- `0 <= nums.length <= 100`
-- `0 <= nums[i] <= 50`
-- `0 <= val <= 100`
-
-#### **Solutions**
-- Setting the based number `j`. it will always point to the number which isn't equal to the given value and place in the lastest position in the not-equal-to-value queue.And `i` will be itrate all the `nums`. If nums[i] not equal to the given value.Swtich the `nums[i]` and the `nums[j]`'s position, then `j++`. In the end, the value of `j` will be the result.
-
-#### Code
-
-- **JavaScript**
-    ```javascript
-    removeElement(nums, val) {
-        let j = 0;
-        for (let i = 0; i < nums.length; i++) {
-            if (nums[i] !== val) {
-                [nums[i], nums[j]] = [nums[j], nums[i]];
-                j++;
-            }
-        }
-        nums.splice(j)
-        console.log(nums);
-        return nums.length;
-    }
-    ```
-
-### Implement strStr()
-> Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
-
-**Example**
-```
-Input: haystack = "hello", needle = "ll"
-Output: 2
-
-Input: haystack = "aaaaa", needle = "bba"
-Output: -1
-```
-
-**Constraints**
-- `1 <= haystack.length, needle.length <= 104`
-- `haystack and needle consist of only lowercase English characters.`
-
-#### **Solutions**
-
-Check the code.
-#### Code 
-
-- **JavaScript**
-    ```JavaScript
-    implement_strStr(haystack, needle) {
-        for (let index in haystack) {
-            if(haystack[index] === needle[0]) {
-                const resultIndex = index;
-                if(haystack.slice(index, Number(index) + needle.length) === needle) {
-                    return resultIndex;
-                }
-            }
-        }
-        return -1;
-    }
-    ```
-
