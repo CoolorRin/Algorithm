@@ -50,6 +50,7 @@
   - [Waiting for classification.](#waiting-for-classification)
 
 
+
 ## Spacial Algorithm
 
 ### (169) Majority Element
@@ -2320,3 +2321,4 @@ Since an empty string reads the same forward and backward, it is a palindrome.
   ```
 
 ## Waiting for classification.
+
