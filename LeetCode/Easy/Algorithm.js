@@ -965,6 +965,26 @@ class Solution {
 		});
 		return result;
 	}
+
+	reverseBits_190(binaryNum) {
+		const arr_binaryNum = Array.from(binaryNum.toString(2).padStart(32, "0"));
+		const arr_decNumOf32Bit = arr_binaryNum.map((el, index) => {
+			return Math.pow(2, index) * Number(el);
+		});
+		const resultSum = arr_decNumOf32Bit.reduce((x, y) => {
+			return x + y;
+		});
+		return resultSum;
+
+		// Bit Manipulation
+		let result = 0;
+		for (let index = 0; index < 32; index++) {
+			const temp = (binaryNum >> index) & 1; // Preprocess to reset the bit after the needed bit;
+			temp = temp << (31 - index); // Same as above: To reset the bit ahead of the needed bit;
+			result |= temp; // Store every different bit from each loop for the result.
+		}
+		return result;
+	}
 }
 
 // Test

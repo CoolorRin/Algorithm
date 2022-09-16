@@ -14,11 +14,15 @@
     - [(145) Binary Tree Postorder Traversal](#145-binary-tree-postorder-traversal)
   - [Dynamic Programming](#dynamic-programming)
     - [(70) ClimbingStair](#70-climbingstair)
+  - [Bit Manipulation](#bit-manipulation)
+    - [(190) Reverse bits](#190-reverse-bits)
   - [Math](#math)
     - [(9) Palindrome Number](#9-palindrome-number)
     - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
     - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
   - [Waiting for classification.](#waiting-for-classification)
+    - [Two Sum](#two-sum)
+    - [Palindrome Number](#palindrome-number)
     - [Roman to Integer](#roman-to-integer)
     - [Longest Common Prefix(LCP)](#longest-common-prefixlcp)
     - [Merge Two Sorted Lists](#merge-two-sorted-lists)
@@ -44,7 +48,7 @@
     - [Pascal's Triangle](#pascals-triangle)
     - [Pascal's Triangle II](#pascals-triangle-ii)
     - [Best TIme to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
-    - [(125)Valid Palindrome](#125valid-palindrome)
+    - [(125) Valid Palindrome](#125-valid-palindrome)
 
 
 ## Spacial Algorithm
@@ -750,6 +754,57 @@ Explanation: There are three ways to climb to the top.
 	}
 
   ```
+
+## Bit Manipulation
+
+### (190) Reverse bits
+> Reverse bits of a given 32 bits unsigned integer.  
+> Note:  
+> - Note that in some languages, such as Java, there is no unsigned integer type. In this case, both input and output will be given as a signed integer type. They should not affect your implementation, as the integer's internal binary representation is the same, whether it is signed or unsigned.
+> - In Java, the complier represents the signed integers using `2's complement notation`. Therefore, in **Example 2** above, the input represents the signed integer `-3` and the output represents the signed integer `-1073741825`.
+
+**Example:**
+```
+Input: n = 00000010100101000001111010011100
+Output:    964176192 (00111001011110000010100101000000)
+Explanation: The input binary string 00000010100101000001111010011100 represents the unsigned integer 43261596, so return 964176192 which its binary representation is 00111001011110000010100101000000.
+
+Input: n = 11111111111111111111111111111101
+Output:   3221225471 (10111111111111111111111111111111)
+Explanation: The input binary string 11111111111111111111111111111101 represents the unsigned integer 4294967293, so return 3221225471 which its binary representation is 10111111111111111111111111111111.
+```
+
+**Constraints**
+- The input must be a **binary string** of length `32`.
+
+#### **Solutions**
+- Waiting
+
+#### Code
+- **JavaScript**
+  ```javascript
+	reverseBits_190(binaryNum) {
+		const arr_binaryNum = Array.from(binaryNum.toString(2).padStart(32, "0"));
+		const arr_decNumOf32Bit = arr_binaryNum.map((el, index) => {
+			return Math.pow(2, index) * Number(el);
+		});
+		const resultSum = arr_decNumOf32Bit.reduce((x, y) => {
+			return x + y;
+		});
+		return resultSum;
+
+		// Bit Manipulation
+		let result = 0;
+		for (let index = 0; index < 32; index++) {
+			const temp = (binaryNum >> index) & 1; // Preprocess to reset the bit after the needed bit;
+			temp = temp << (31 - index); // Same as above: To reset the bit ahead of the needed bit;
+			result |= temp; // Store every different bit from each loop for the result.
+		}
+		return result;
+	}
+  ```
+
+
 
 ## Math
 
@@ -2232,9 +2287,9 @@ There are two main point to resolve this question. The day to sell the stock mus
   };
   ```
 
-### (125)Valid Palindrome
+### (125) Valid Palindrome
 > A phrase is a `palindrome` if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.  
-> Given a string s, return true if it is a `palindrome`, or false otherwise.
+> Given a string `s`, return true if it is a `palindrome`, or false otherwise.
 
 **Example:**
 ```
@@ -2263,26 +2318,26 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 - **JavaScript**
   ```JavaScript
   	isPalindrome125(s) {
-		const test = /[a-zA-Z0-9]+/g;
-		if (s.match(test)) {
-			s = s
-				.match(/[a-zA-Z0-9]+/gm)
-				.reduce((x, y) => {
-					return x + y;
-				})
-				.toLowerCase();
-			console.log(s);
-			let leftPoint = 0;
-			let rightPoint = s.length - 1;
-			while (leftPoint <= rightPoint) {
-				if (s[leftPoint] === s[rightPoint]) {
-					leftPoint++;
-					rightPoint--;
-				} else return false;
-			}
-			return true;
-		}
-		return true;
+		  const test = /[a-zA-Z0-9]+/g;
+		  if (s.match(test)) {
+		  	s = s
+		  		.match(/[a-zA-Z0-9]+/gm)
+		  		.reduce((x, y) => {
+		  			return x + y;
+		  		})
+		  		.toLowerCase();
+		  	console.log(s);
+		  	let leftPoint = 0;
+		  	let rightPoint = s.length - 1;
+		  	while (leftPoint <= rightPoint) {
+		  		if (s[leftPoint] === s[rightPoint]) {
+		  			leftPoint++;
+		  			rightPoint--;
+		  		} else return false;
+		  	}
+		  	return true;
+		  }
+		  return true;
 
 		// LeetCode Discuss kabriel's solutions; Nice one.
 		// function isLetter(code) {
