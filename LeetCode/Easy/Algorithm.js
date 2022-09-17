@@ -985,8 +985,31 @@ class Solution {
 		}
 		return result;
 	}
+
+	hammingWeight_191 = (positiveNum) => {
+		let bitCount = 0;
+		while (positiveNum >= 1) {
+			if (positiveNum % 2 === 1) {
+				bitCount++;
+			}
+			positiveNum = Math.floor(positiveNum / 2);
+		}
+		return bitCount;
+
+		// O(1)
+		while (bitCount > 0) {
+			bitCount++;
+			positiveNum &= positiveNum - 1;
+		}
+		return bitCount;
+
+		return positiveNum
+			.toString(2)
+			.split("")
+			.filter((el) => el === "1").length;
+	};
 }
 
 // Test
 const testSolution = new Solution();
-console.log(testSolution.titleToNumber_171("AB"));
+console.log(testSolution.hammingWeight_191());
