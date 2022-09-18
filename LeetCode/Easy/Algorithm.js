@@ -1008,6 +1008,26 @@ class Solution {
 			.split("")
 			.filter((el) => el === "1").length;
 	};
+
+	isHappy_202 = (num) => {
+		// Ugly Way
+		const mem = new Map();
+		const valid = (num) => {
+			let sum = 0;
+			while (num > 0) {
+				sum += Math.pow(num % 10, 2);
+				num = Math.floor(num / 10);
+			}
+			if (sum === 1) return true;
+			if (mem.get(sum)) {
+				return false;
+			} else {
+				mem.set(sum, 1);
+				return valid(sum);
+			}
+		};
+		return valid(num);
+	};
 }
 
 // Test
