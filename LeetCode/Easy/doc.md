@@ -49,6 +49,7 @@
     - [(14) Longest Common Prefix(LCP)](#14-longest-common-prefixlcp)
     - [(125) Valid Palindrome](#125-valid-palindrome)
   - [Waiting for classification.](#waiting-for-classification)
+    - [(202) Happy Number](#202-happy-number)
 
 
 ## Spacial Algorithm
@@ -2380,3 +2381,59 @@ Since an empty string reads the same forward and backward, it is a palindrome.
   ```
 
 ## Waiting for classification. 
+
+### (202) Happy Number
+> Write an algorithm to determine if a number `n` is happy.  
+> A happy number is a number defined by the following process:
+> - Starting with any positive integer, replace the number by the sum of the squares of its digits.
+> - Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+> - Those numbers for which this process ends in 1 are happy.
+>   
+> Return true if n is a happy number, and false if not.  
+
+**Example:**
+```
+Input: n = 19
+Output: true
+Explanation:
+1^2 + 9^2 = 82
+8^2 + 2^2 = 68
+6^2 + 8^2 = 100
+1^2 + 0^2 + 0^2 = 1
+
+Input: n = 2
+Output: false
+```
+
+**Constraints:**
+- `1 <= n <= 2^31 - 1`
+
+#### **Solutions:**
+- Use the hashmap to memory the process of the `isHappy`'s validation result. Get the each latest number by the `%` and remove the latest digits by the `/`, loop the process till the num equals `0`. Return `True` When the sum equals `1`.Return `False` when the sum equals any number memorized by the process into the `mem` map.
+
+
+#### Code
+- **JavaScript**
+  ```javascript
+  isHappy_202 = (num) => {
+		// Ugly Way
+		const mem = new Map();
+		const valid = (num) => {
+			let sum = 0;
+			while (num > 0) {
+				sum += Math.pow(num % 10, 2);
+				num = Math.floor(num / 10);
+			}
+			if (sum === 1) return true;
+			if (mem.get(sum)) {
+				return false;
+			} else {
+				mem.set(sum, 1);
+				return valid(sum);
+			}
+		};
+		return valid(num);
+
+    // 
+	};
+  ```
