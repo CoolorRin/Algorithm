@@ -1028,6 +1028,23 @@ class Solution {
 		};
 		return valid(num);
 	};
+
+	removeElements_203 = (head, val) => {
+		if (!head) return head;
+		let currHead = head;
+		let currNext = head.next;
+		while (currNext) {
+			if (currNext.val === val) {
+				currHead.next = currNext.next;
+				currNext = currHead.next;
+			} else {
+				currHead = currNext;
+				currNext = currHead.next;
+			}
+		}
+		if (head.val === val) return head.next;
+		return head;
+	};
 }
 
 // Test
