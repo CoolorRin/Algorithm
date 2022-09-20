@@ -86,12 +86,37 @@ class solutions {
 		};
 		return getPath(root, p);
 	}
+
+	addTwoNumber = (l1, l2) => {
+		const convert2Number = (list) => {
+			let sum = 0;
+			let resultObj = null;
+			if (list.next) {
+				resultObj = convert2Number(list.next);
+				sum += resultObj.value;
+			} else return { value: list.val, exponent: 1 };
+			sum += list.val * Math.pow(10, resultObj.exponent);
+			return sum;
+		};
+		const l1_num = convert2Number(l1);
+		const l2_num = convert2Number(l2);
+		console.log(l1_num, l2_num);
+	};
 }
 
-function TreeNode(val) {
-	this.val = val;
-	this.left = null;
-	this.right = null;
+class ListNode {
+	constructor(val, next) {
+		this.val = val === undefined ? 0 : val;
+		this.next = next === undefined ? null : next;
+	}
+}
+
+class TreeNode {
+	constructor(val) {
+		this.val = val;
+		this.left = null;
+		this.right = null;
+	}
 }
 
 const testNode = new TreeNode(1);
