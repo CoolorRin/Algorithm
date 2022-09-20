@@ -1045,6 +1045,22 @@ class Solution {
 		if (head.val === val) return head.next;
 		return head;
 	};
+
+	isIsomorphic_205 = (s, t) => {
+		const matchMap_s = new Map();
+		const matchMap_t = new Map();
+		for (index in s) {
+			if (!matchMap_s.get(s[index]) && !matchMap_t.get(t[index])) {
+				matchMap_s.set(s[index], t[index]);
+				matchMap_t.set(t[index], s[index]);
+			} else if (
+				matchMap_s.get(s[index] !== t[index]) ||
+				matchMap_t.get(t[index]) !== s[index]
+			)
+				return false;
+		}
+		return true;
+	};
 }
 
 // Test

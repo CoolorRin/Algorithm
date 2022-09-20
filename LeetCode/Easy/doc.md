@@ -7,7 +7,6 @@
   - [Sorted Algorithm](#sorted-algorithm)
     - [(35) Search insert position](#35-search-insert-position)
   - [Data structure](#data-structure)
-    - [(203) Remove Linked Lists elements](#203-remove-linked-lists-elements)
     - [(21) Merge Two Sorted Lists](#21-merge-two-sorted-lists)
     - [(26) Remove Duplicates from Sorted Array](#26-remove-duplicates-from-sorted-array)
     - [(27) Remove Element](#27-remove-element)
@@ -51,6 +50,8 @@
     - [(125) Valid Palindrome](#125-valid-palindrome)
   - [Waiting for classification.](#waiting-for-classification)
     - [(202) Happy Number](#202-happy-number)
+    - [(203) Remove Linked Lists elements](#203-remove-linked-lists-elements)
+    - [(205) Isomorphic strings](#205-isomorphic-strings)
 
 
 ## Spacial Algorithm
@@ -146,53 +147,6 @@ Binary search. Check the code.
 
 
 ## Data structure
-
-### (203) Remove Linked Lists elements
-> Given the `head` of a linked list and an integer `val`, remove all the nodes of the linked list that has `Node.val == val`, and return the new head.
-
-**Example:**
-```
-Input: head = [1,2,6,3,4,5,6], val = 6
-Output: [1,2,3,4,5]
-
-Input: head = [], val = 1
-Output: []
-
-Input: head = [7,7,7,7], val = 7
-Output: []
-```
-
-**Constraints:**
-- The number of nodes in the list is in the range `[0, 104]`.
-- `1 <= Node.val <= 50`
-- `0 <= val <= 50`
-
-#### **Solutions**
-- Traversal all the linked list, remove the target node and keep the `Head` node. In the end check the `Head` node's val is valid or not, return the result based on it.
-
-#### Code
-- **JavaScript**
-  ```javascript
-  const removeElements_203 = (head, val) => {
-	  if (!head) return head;
-	  let currHead = head;
-	  let currNext = head.next;
-
-	  while (currNext) {
-	  	if (currNext.val === val) {
-	  		currHead.next = currNext.next;
-	  		currNext = currHead.next;
-	  	} else {
-	  		currHead = currNext;
-	  		currNext = currHead.next;
-	  	}
-	  }
-	  if (head.val === val) return head.next;
-	  return head;
-  };
-  ```
-
-
 ### (21) Merge Two Sorted Lists
 
 > You are given the heads of wo sorted linked lists `list1` and `list2`<br>
@@ -2483,4 +2437,93 @@ Output: false
 
     // 
 	};
+  ```
+
+### (203) Remove Linked Lists elements
+> Given the `head` of a linked list and an integer `val`, remove all the nodes of the linked list that has `Node.val == val`, and return the new head.
+
+**Example:**
+```
+Input: head = [1,2,6,3,4,5,6], val = 6
+Output: [1,2,3,4,5]
+
+Input: head = [], val = 1
+Output: []
+
+Input: head = [7,7,7,7], val = 7
+Output: []
+```
+
+**Constraints:**
+- The number of nodes in the list is in the range `[0, 104]`.
+- `1 <= Node.val <= 50`
+- `0 <= val <= 50`
+
+#### **Solutions**
+- Traversal all the linked list, remove the target node and keep the `Head` node. In the end check the `Head` node's val is valid or not, return the result based on it.
+
+#### Code
+- **JavaScript**
+  ```javascript
+  const removeElements_203 = (head, val) => {
+	  if (!head) return head;
+	  let currHead = head;
+	  let currNext = head.next;
+
+	  while (currNext) {
+	  	if (currNext.val === val) {
+	  		currHead.next = currNext.next;
+	  		currNext = currHead.next;
+	  	} else {
+	  		currHead = currNext;
+	  		currNext = currHead.next;
+	  	}
+	  }
+	  if (head.val === val) return head.next;
+	  return head;
+  };
+  ```
+
+### (205) Isomorphic strings
+> Given two string `s` and `t`, determine if they are isomorphic.  
+> Two string `s` and `t` are isomorphic if the characters in `s` can be replaced to get `t`.  
+> All occurrences of a characters must be replaced with another character while preserving the order of characters. No two characters my map to the same character, but a character my map to itself.
+
+**Example:**
+```
+Input: s = "egg", t = "add"
+Output: true
+
+Input: s = "foo", t = "bar"
+Output: false
+
+Input: s = "paper", t = "title"
+Output: true
+```
+
+**Constraints:**
+- `1 <= s.length <= 5 * 104`
+- `t.length == s.length`
+- `s` and `t` consist of any valid ascii character.
+
+#### **Solutions:**
+- Hashmap, pay attention for the map's number.
+#### Code
+- **JavaScript**
+  ```javascript
+  isIsomorphic_205 = (s, t) => {
+	  const matchMap_s = new Map();
+	  const matchMap_t = new Map();
+	  for (index in s) {
+	  	if (!matchMap_s.get(s[index]) && !matchMap_t.get(t[index])) {
+	  		matchMap_s.set(s[index], t[index]);
+	  		matchMap_t.set(t[index], s[index]);
+	  	} else if (
+	  		matchMap_s.get(s[index] !== t[index]) ||
+	  		matchMap_t.get(t[index]) !== s[index]
+	  	)
+	  		return false;
+	  }
+	  return true;
+  };
   ```
