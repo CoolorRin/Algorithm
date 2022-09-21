@@ -88,19 +88,42 @@ class solutions {
 	}
 
 	addTwoNumber = (l1, l2) => {
-		const convert2Number = (list) => {
-			let sum = 0;
-			let resultObj = null;
-			if (list.next) {
-				resultObj = convert2Number(list.next);
-				sum += resultObj.value;
-			} else return { value: list.val, exponent: 1 };
-			sum += list.val * Math.pow(10, resultObj.exponent);
-			return sum;
-		};
-		const l1_num = convert2Number(l1);
-		const l2_num = convert2Number(l2);
-		console.log(l1_num, l2_num);
+		// Wrong Answer. Javascript have max safe integer: Number.MAX_SAFE_INTEGER
+		// const convertArr2LinkedList = (arr) => {
+		// 	const result = new ListNode();
+		// 	let currNode = result;
+		// 	arr.forEach((el, index) => {
+		// 		currNode.val = el;
+		// 		if (index !== arr.length - 1) {
+		// 			currNode.next = new ListNode();
+		// 			currNode = currNode.next;
+		// 		}
+		// 	});
+		// 	return result;
+		// };
+		// const convertNum2Arr = (num) => {
+		// 	const result = [];
+		// 	while (num > 0) {
+		// 		result.push(num % 10);
+		// 		num = Math.floor(num / 10);
+		// 	}
+		// 	return result;
+		// };
+		// const convert2Number = (listNode, exponent) => {
+		// 	let sum = 0;
+		// 	if (listNode.next) {
+		// 		const result = convert2Number(listNode.next, exponent + 1);
+		// 		sum += result;
+		// 	} else return listNode.val * Math.pow(10, exponent);
+		// 	sum += listNode.val * Math.pow(10, exponent);
+		// 	return sum;
+		// };
+		// const l1_num = convert2Number(l1, 0);
+		// const l2_num = convert2Number(l2, 0);
+		// console.log(l1_num);
+		// const targetNum_arr = convertNum2Arr(l1_num + l2_num);
+		// const result = convertArr2LinkedList(targetNum_arr);
+		// return result;
 	};
 }
 
