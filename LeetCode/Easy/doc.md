@@ -52,6 +52,7 @@
     - [(202) Happy Number](#202-happy-number)
     - [(203) Remove Linked Lists elements](#203-remove-linked-lists-elements)
     - [(205) Isomorphic strings](#205-isomorphic-strings)
+    - [Reverse Linked List](#reverse-linked-list)
 
 
 ## Spacial Algorithm
@@ -2526,4 +2527,63 @@ Output: true
 	  }
 	  return true;
   };
+  ```
+
+### Reverse Linked List
+> Given the `head` of a singly linked list, reverse the list, and return the reversed list.
+
+**Example:**
+```
+Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1]
+
+Input: head = [1,2]
+Output: [2,1]
+
+Input: head = []
+Output: []
+```
+
+**Constraints:**
+- The number of nodes in the list is the range `[0, 5000]`.
+- `-5000 <= Node.val <= 5000`
+
+#### **Solutions:**
+- Check the code.
+
+#### Code
+- **JavaScript**
+  ```javascript
+  const reverseList_206 = (lt) => {
+    // Iteratively Way
+    let baseList = lt;
+    let preListNode = null;
+    let currListNode = null;
+    while (baseList) {
+      currListNode = new ListNode();
+      currListNode.val = baseList.val;
+      currListNode.next = preListNode;
+      preListNode = currListNode;
+      baseList = baseList.next;
+    }
+    return currListNode;
+
+    // Recursively Way
+    let result = null;
+    const recursive = (lt) => {
+      let latestNode = null;
+      if (!lt) return null;
+      if (lt.next) {
+        latestNode = recursive(lt.next);
+      } else {
+        result = new ListNode(lt.val);
+        return result;
+      }
+      latestNode.next = new ListNode(lt.val);
+      return latestNode.next;
+    };
+    recursive(lt);
+    return result;
+};
+
   ```
