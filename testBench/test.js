@@ -40,38 +40,6 @@ addTwoNumber = (l1, l2) => {
 	return result;
 };
 
-const reverseList = (lt) => {
-	// Iteratively Way
-	// let baseList = lt;
-	// let preListNode = null;
-	// let currListNode = null;
-	// while (baseList) {
-	// 	currListNode = new ListNode();
-	// 	currListNode.val = baseList.val;
-	// 	currListNode.next = preListNode;
-	// 	preListNode = currListNode;
-	// 	baseList = baseList.next;
-	// }
-	// return currListNode;
-
-	// Recursively Way
-	let result = null;
-	const recursive = (lt) => {
-		let latestNode = null;
-		if (!lt) return null;
-		if (lt.next) {
-			latestNode = recursive(lt.next);
-		} else {
-			result = new ListNode(lt.val);
-			return result;
-		}
-		latestNode.next = new ListNode(lt.val);
-		return latestNode.next;
-	};
-	recursive(lt);
-	return result;
-};
-
 class ListNode {
 	constructor(val, next) {
 		this.val = val === undefined ? 0 : val;
