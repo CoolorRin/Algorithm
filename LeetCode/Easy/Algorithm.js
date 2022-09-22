@@ -1093,6 +1093,18 @@ class Solution {
 		recursive(lt);
 		return result;
 	};
+
+	containsDuplicate_217 = (nums) => {
+		// Hash Map
+		const memoryMap = new Map();
+		for (index in nums) {
+			if (memoryMap.get(nums[index])) return true;
+			else memoryMap.set(nums[index], 1);
+		}
+		return false;
+
+		// Sorted
+	};
 }
 
 // Test

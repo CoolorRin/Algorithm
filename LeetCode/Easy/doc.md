@@ -53,6 +53,7 @@
     - [(203) Remove Linked Lists elements](#203-remove-linked-lists-elements)
     - [(205) Isomorphic strings](#205-isomorphic-strings)
     - [Reverse Linked List](#reverse-linked-list)
+    - [(217) Contains Duplicates](#217-contains-duplicates)
 
 
 ## Spacial Algorithm
@@ -2584,6 +2585,46 @@ Output: []
     };
     recursive(lt);
     return result;
-};
+  };
+  ```
+
+### (217) Contains Duplicates
+> Given an integer array `nums`, return `true` if any value appears **at least twice** in the array, and return `false` if every element is distinct.
+
+**Example:**
+```
+Input: nums = [1,2,3,1]
+Output: true
+
+Input: nums = [1,2,3,4]
+Output: false
+
+Input: nums = [1,1,1,3,3,4,3,2,4,2]
+Output: true
+```
+
+**Constraints:**
+- `1 <= nums.length <= 105`
+- `-109 <= nums[i] <= 109`
+
+#### **Solutions:**
+- Hashmap
+- [Sorted](https://blog.csdn.net/weixin_50886514/article/details/119045154?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166381570616800186550655%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166381570616800186550655&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-119045154-null-null.142^v49^control_1,201^v3^control_2&utm_term=%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&spm=1018.2226.3001.4187)
+
+#### Code 
+- **JavaScript**
+  ```javascript
+  containsDuplicate_217 = (nums) => {
+		// Hash Map
+		const memoryMap = new Map();
+		for (index in nums) {
+			if (memoryMap.get(nums[index])) return true;
+			else memoryMap.set(nums[index], 1);
+		}
+		return false;
+
+		// Sorted
+
+	};
 
   ```
