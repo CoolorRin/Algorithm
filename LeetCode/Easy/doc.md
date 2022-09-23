@@ -52,8 +52,9 @@
     - [(202) Happy Number](#202-happy-number)
     - [(203) Remove Linked Lists elements](#203-remove-linked-lists-elements)
     - [(205) Isomorphic strings](#205-isomorphic-strings)
-    - [Reverse Linked List](#reverse-linked-list)
+    - [(206) Reverse Linked List](#206-reverse-linked-list)
     - [(217) Contains Duplicates](#217-contains-duplicates)
+    - [(219) Contains Duplicate II](#219-contains-duplicate-ii)
 
 
 ## Spacial Algorithm
@@ -2530,7 +2531,7 @@ Output: true
   };
   ```
 
-### Reverse Linked List
+### (206) Reverse Linked List
 > Given the `head` of a singly linked list, reverse the list, and return the reversed list.
 
 **Example:**
@@ -2627,4 +2628,57 @@ Output: true
 
 	};
 
+  ```
+
+### (219) Contains Duplicate II
+> Given an integer array `nums` and an integer `k`, return `true` if there are two **distinct indices** `i` and `j` in the array such that `nums[i] == nums[j]` and `abs(i - j) <= k.`
+
+**Example:**
+```
+Input: nums = [1,2,3,1], k = 3
+Output: true
+
+Input: nums = [1,0,1,1], k = 1
+Output: true
+
+Input: nums = [1,2,3,1,2,3], k = 2
+Output: false
+```
+
+**Constraints:**
+- `1 <= nums.length <= 105`
+- `-109 <= nums[i] <= 109`
+- `0 <= k <= 105`
+
+#### **Solutions:**
+- HashMap
+
+#### Code
+- **JavaScript**
+  ```javascript
+  const containsNearbyDuplicate_219 = (nums, k) => {
+    // Time Limit Exceeded.
+    // const range = k;
+    // let startIndex = 0;
+    // while (startIndex < nums.length) {
+    // 	const memoryMap = new Map();
+    // 	for (let loopTime = 0; loopTime <= range; loopTime++) {
+    // 		if (memoryMap.get(nums[startIndex + loopTime])) return true;
+    // 		else if (startIndex + loopTime < nums.length) {
+    // 			memoryMap.set(nums[startIndex + loopTime], 1);
+    // 		} else return false;
+    // 	}
+    // 	startIndex++;
+    // }
+    // return false;
+
+    const memoryMap = new Map();
+    for (const index in nums) {
+      if (memoryMap.get(nums[index])) {
+        if (Math.abs(index - memoryMap.get(nums[index]) <= k)) return true;
+        else memoryMap.set(nums[index], index);
+      } else memoryMap.set(nums[index], index);
+    }
+    return false;
+  };
   ```

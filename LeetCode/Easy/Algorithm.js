@@ -1105,6 +1105,33 @@ class Solution {
 
 		// Sorted
 	};
+
+	containsNearbyDuplicate_219 = (nums, k) => {
+		// Time Limit Exceeded.
+		const range = k;
+		let startIndex = 0;
+		while (startIndex < nums.length) {
+			const memoryMap = new Map();
+			for (let loopTime = 0; loopTime <= range; loopTime++) {
+				if (memoryMap.get(nums[startIndex + loopTime])) return true;
+				else if (startIndex + loopTime < nums.length) {
+					memoryMap.set(nums[startIndex + loopTime], 1);
+				} else return false;
+			}
+			startIndex++;
+		}
+		return false;
+
+		// Correct
+		const memoryMap = new Map();
+		for (const index in nums) {
+			if (memoryMap.get(nums[index])) {
+				if (Math.abs(index - memoryMap.get(nums[index]) <= k)) return true;
+				else memoryMap.set(nums[index], index);
+			} else memoryMap.set(nums[index], index);
+		}
+		return false;
+	};
 }
 
 // Test
