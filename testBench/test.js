@@ -1,29 +1,17 @@
-function ListNode(val, next) {
-	this.val = val === undefined ? 0 : val;
-	this.next = next === undefined ? null : next;
-}
+const isAnagram = (s, t) => {
+	const charArr = new Array(26);
+	charArr.fill(0);
+	for (const char of [...s]) {
+		charArr[char.charCodeAt() - 97]++;
+	}
 
-const isPalindrome_234 = (head) => {
-	let forward = head;
-	let backward = undefined;
-	const recursive = (head) => {
-		if (head.next) {
-			const comparison = recursive(head.next);
-			if (comparison === 1) return 1;
-			if (comparison === true) {
-				forward = forward.next;
-				if (forward === backward || forward === head) return 1; // Not necessary to compare.
-				backward = head;
-				return forward.val === backward.val;
-			} else return false;
-		} else {
-			backward = head;
-			return forward.val === backward.val;
-		}
-	};
-	return recursive(head);
+	for (const char of [...t]) {
+		charArr[char.charCodeAt() - 97]--;
+		if (!charArr[char.charCodeAt()]) return false;
+	}
+	return true;
 };
 
-const test = new ListNode(1, new ListNode(2));
-console.log(test);
-isPalindrome_234(test);
+const testPattern = ["a", "ab"];
+
+console.log(isAnagram(...testPattern));

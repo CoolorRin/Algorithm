@@ -61,6 +61,7 @@
     - [(231) Power of Two](#231-power-of-two)
     - [(232) Implement Queue using Stacks](#232-implement-queue-using-stacks)
     - [(234) Palindrome Linked list](#234-palindrome-linked-list)
+    - [(242) Valid Anagram](#242-valid-anagram)
 
 
 ## Spacial Algorithm
@@ -3021,4 +3022,61 @@ Output: false
 	};
   ```
 
+### (242) Valid Anagram
+> Given two string `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.  
+> An **Anagram** is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
+**Example:**
+```
+Input: s = "anagram", t = "nagaram"
+Output: true
+
+Input: s = "rat", t = "car"
+Output: false
+```
+
+**Constraints:**
+- `1 <= s.length, t.length <= 5 * 10^4`
+- `s` and `t` consist of lowercase English letters.
+
+**Follow up:** What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
+
+#### **Solutions:**
+- 26!!!26 characters!!!!
+
+#### **Code**
+- JavaScript
+  ```javascript
+  // My Own
+  const isAnagram_242 = (s, t) => {
+		const memory = new Map();
+		for (char of [...s]) {
+			if (!memory.get(char)) {
+				memory.set(char, 1);
+			} else {
+				memory.set(char, memory.get(char) + 1);
+			}
+		}
+		for (char of [...t]) {
+			if (!memory.get(char) || memory.get(char) === 0) return false;
+			else memory.set(char, memory.get(char) - 1);
+		}
+		for (el of memory.values()) {
+			if (el !== 0) return false;
+		}
+
+		return true;
+	}
+
+  // Better Way
+  const charArr = new Array(26);
+  charArr.fill(0);
+  for( const char of [...s]) {
+    charArr[char.charCodeAt() - 97]++;
+  }
+  for ( const char of [...t]) {
+    charArr[char.charCodeAt() - 97]--;
+    if(!charArr[char.charCodeAt()]) return false;
+  }
+  return true;
+  ```

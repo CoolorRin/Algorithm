@@ -1269,4 +1269,37 @@ class Solution {
 		};
 		return recursive(head);
 	}
+
+	isAnagram_242(s, t) {
+		// My Own
+		const memory = new Map();
+		for (char of [...s]) {
+			if (!memory.get(char)) {
+				memory.set(char, 1);
+			} else {
+				memory.set(char, memory.get(char) + 1);
+			}
+		}
+		for (char of [...t]) {
+			if (!memory.get(char) || memory.get(char) === 0) return false;
+			else memory.set(char, memory.get(char) - 1);
+		}
+		for (el of memory.values()) {
+			if (el !== 0) return false;
+		}
+		return true;
+
+		// Better Way
+		const charArr = new Array(26);
+		charArr.fill(0);
+		for (char of [...s]) {
+			charArr[char.charCodeAt() - 97]++;
+		}
+
+		for (char of [...t]) {
+			charArr[char.charCodeAt() - 97]--;
+			if (!charArr[char.charCodeAt()]) return false;
+		}
+		return true;
+	}
 }
