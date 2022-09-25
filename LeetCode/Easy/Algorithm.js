@@ -1320,4 +1320,19 @@ class Solution {
 		traversal(root);
 		return result;
 	}
+
+	addDigits_258 = (num) => {
+		let sum = 0;
+		while (num) {
+			sum += num % 10;
+			num = Math.floor((num /= 10));
+		}
+		if (sum <= 9) return sum;
+		else return addDigits_258(sum);
+
+		// Mathematical
+		if (num === 0) return 0;
+		if (num % 9 === 0) return 9;
+		return num % 9;
+	};
 }

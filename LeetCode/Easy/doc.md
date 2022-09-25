@@ -63,6 +63,7 @@
     - [(234) Palindrome Linked list](#234-palindrome-linked-list)
     - [(242) Valid Anagram](#242-valid-anagram)
     - [(257) Binary Tree Paths](#257-binary-tree-paths)
+    - [(258) Add Digits](#258-add-digits)
 
 
 ## Spacial Algorithm
@@ -3122,4 +3123,49 @@ Output: ["1"]
   	traversal(root);
   	return result;
   };
+  ```
+
+### (258) Add Digits
+> Given a integer `num`, repeatedly add all its digits until the result has only one digit, and return it.
+
+**Example:**
+```
+Input: num = 38
+Output: 2
+Explanation: The process is
+38 --> 3 + 8 --> 11
+11 --> 1 + 1 --> 2 
+Since 2 has only one digit, return it.
+
+Input: num = 0
+Output: 0
+```
+
+**Constraints:**
+- `0 <= num <= 2^31 - 1`
+
+**Follow Up:** Can you do it without any loop/recursion in `O(1)` runtime?
+
+#### **Solutions:**
+- Recursion
+- Mathematical: [Digit Root](https://leetcode.com/problems/add-digits/submissions/855331857/)
+
+#### **Code**
+- JavaScript
+  ```javascript
+  // Recursion
+  const addDigits = (num) => {
+	  let sum = 0;
+	  while (num) {
+	  	sum += num % 10;
+	  	num = Math.floor((num /= 10));
+	  }
+	  if (sum <= 9) return sum;
+	  else return addDigits(sum);
+  };
+
+  // Mathematical
+  if(num === 0) return 0;
+  if(num % 9 === 0) return 9;
+  return num % 9;
   ```
