@@ -1,30 +1,11 @@
-const pathOfBinaryTree = (root) => {
-	if (!root) return null;
-	const result = [];
-	const traversal = (root, paths = []) => {
-		paths.push(root.val);
-		if (root.left) traversal(root.left, paths);
-		if (root.right) traversal(root.right, paths);
-		if (!root.left & !root.right) {
-			if (paths.length > 1) {
-				result.push(paths.join("->"));
-			} else result.push(paths.join());
-		}
-		paths.pop();
-	};
-	traversal(root);
-	return result;
+const addDigits_258 = (num) => {
+	let sum = 0;
+	while (num) {
+		sum += num % 10;
+		num = Math.floor((num /= 10));
+	}
+	if (sum <= 9) return sum;
+	else return addDigits_258(sum);
 };
 
-function BinaryTree(val, left, right) {
-	this.val = val === undefined ? 0 : val;
-	this.left = left === undefined ? null : left;
-	this.right = right === undefined ? null : right;
-}
-
-const test = new BinaryTree(
-	1,
-	new BinaryTree(2, new BinaryTree(4)),
-	new BinaryTree(3, new BinaryTree(5))
-);
-console.log(pathOfBinaryTree(test));
+console.log(addDigits_258(55));
