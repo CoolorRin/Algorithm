@@ -64,6 +64,7 @@
     - [(242) Valid Anagram](#242-valid-anagram)
     - [(257) Binary Tree Paths](#257-binary-tree-paths)
     - [(258) Add Digits](#258-add-digits)
+    - [(263) Ugly Number](#263-ugly-number)
 
 
 ## Spacial Algorithm
@@ -3169,3 +3170,41 @@ Output: 0
   if(num % 9 === 0) return 9;
   return num % 9;
   ```
+
+### (263) Ugly Number
+> An **ugly number** is a positive integer whose prime factors are limited to `2`, `3` and `5`.
+> Given an integer `n`, return `true` if `n` is an **ugly number**.
+
+**Example:**
+```
+Input: n = 6
+Output: true
+Explanation: 6 = 2 Å~ 3
+
+Input: n = 1
+Output: true
+Explanation: 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.
+
+Input: n = 14
+Output: false
+Explanation: 14 is not ugly since it includes the prime factor 7.
+```
+
+**Constraints:**
+- `-2^31 <= n <= 2^31 - 1`
+
+#### **Solutions:**
+- [LeetCode Official](https://leetcode.com/problems/ugly-number/solutions/2723159/ugly-number/)
+
+#### **Code**
+- JavaScript
+  ```javascript
+  const isUgly = (num) => {
+  	if (num === 0) return false;
+  	if (num % 2 === 0) return isUgly(num / 2);
+  	else if (num % 3 === 0) return isUgly(num / 3);
+  	else if (num % 5 === 0) return isUgly(num / 5);
+  	return num === 1;
+  };
+  ```
+

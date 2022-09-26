@@ -1335,4 +1335,12 @@ class Solution {
 		if (num % 9 === 0) return 9;
 		return num % 9;
 	};
+
+	isUgly_263 = (num) => {
+		if (num === 0) return false;
+		if (num % 2 === 0) return isUgly(num / 2);
+		else if (num % 3 === 0) return isUgly(num / 3);
+		else if (num % 5 === 0) return isUgly(num / 5);
+		return num === 1;
+	};
 }
