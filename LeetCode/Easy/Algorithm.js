@@ -1132,6 +1132,8 @@ class Solution {
 		}
 		return false;
 	};
+
+	implementStackByQueues_225 = () => {};
 }
 
 // Test

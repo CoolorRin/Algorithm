@@ -68,3 +68,46 @@ const l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 
 // console.log(addTwoNumber(l1, l2));
 console.log(containsNearbyDuplicate_219([1, 2, 3, 1, 2, 3], 2));
+
+// Implement stack using Queues.
+const MyStack = () => {
+	this.stack = new Array();
+	this.size = 0;
+	return null;
+};
+
+MyStack.prototype.push = (el) => {
+	const tarArr = new Array(this.size + 1);
+	for (const index in tarArr) {
+		if (this.stack[index] !== undefined) {
+			tarArr[index] = this.stack[index];
+		} else {
+			tarArr[index] = el;
+		}
+	}
+	this.stack = tarArr;
+	this.size++;
+};
+
+MyStack.prototype.pop = () => {
+	const tarArr = new Array(this.size - 1);
+	for (const index in this.stack) {
+		if (index <= this.size - 1) {
+			tarArr[index] = this.stack[index];
+		} else {
+			this.size = this.size - 1;
+			const popResult = this.stack[index];
+			this.stack = tarArr;
+			return popResult;
+		}
+	}
+};
+
+MyStack.empty = () => {
+	if (this.size === 0) return true;
+	else return false;
+};
+
+MyStack.top = () => {
+	return this.stack[this.size - 1];
+};
