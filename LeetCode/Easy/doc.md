@@ -2720,9 +2720,46 @@ myStack.empty(); // return False
 **Follow-up:** Can you implement the stack using only one queue?
 
 #### **Solutions:**
+- Check the code.
 
 #### Code
 - **JavaScript**
   ```javascript
-  function mystatckic
+  class MyStack {
+	  constructor() {
+	  	this.size = 0;
+	  	this.stack = new Array(this.size);
+	  }
+	  push(el) {
+	  	const tarArr = new Array(this.size + 1);
+	  	for (let index = 0; index < this.size + 1; index++) {
+	  		if (this.stack[index] !== undefined) {
+	  			tarArr[index] = this.stack[index];
+	  		} else {
+	  			tarArr[index] = el;
+	  		}
+	  	}
+	  	this.stack = tarArr;
+	  	this.size++;
+	  }
+	  pop() {
+	  	const tarArr = new Array(this.size - 1);
+	  	for (let index = 0; index < this.size; index++) {
+	  		if (index < this.size - 1) {
+	  			tarArr[index] = this.stack[index];
+	  		} else {
+	  			this.size--;
+	  			const popResult = this.stack[index];
+	  			this.stack = tarArr;
+	  			return popResult;
+	  		}
+	  	}
+	  }
+	  top() {
+	  	return this.stack[this.size - 1];
+	  }
+	  empty() {
+	  	return this.size === 0;
+	  }
+  }
   ```
