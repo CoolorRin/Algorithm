@@ -1172,6 +1172,16 @@ class Solution {
 			}
 		}
 	};
+
+	invertTree_226 = () => {
+		if (!root) return root;
+		const tmp = root.right;
+		root.right = root.left;
+		root.left = tmp;
+		invertTree(root.left);
+		invertTree(root.right);
+		return root;
+	};
 }
 
 // Test
