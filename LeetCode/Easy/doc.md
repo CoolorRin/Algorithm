@@ -57,6 +57,7 @@
     - [(219) Contains Duplicate II](#219-contains-duplicate-ii)
     - [(225) Implement Stack using Queues](#225-implement-stack-using-queues)
     - [(226) Invert Binary Tree](#226-invert-binary-tree)
+    - [(228) Summary Ranges](#228-summary-ranges)
 
 
 ## Spacial Algorithm
@@ -2799,4 +2800,56 @@ Output: []
     invertTree(root.right);
     return root;
   }
+  ```
+
+### (228) Summary Ranges
+> You are given a **sorted unique** integer array **nums**.  
+> A **range** `[a, b]` is the set of all integers from `a` to `b` (inclusive).  
+> Return the **smallest sorted** list of ranges that **cover all the numbers in the array exactly.** That is, each element of `nums` is covered by exactly one of the ranges, and there is no integer `x` such that `x` is in one of the ranges but not in `nums`.  
+> Each range `[a, b]` in the list should be output as:  
+> - `"a->b"` if `a != b`
+> - `"a"` if `a == b`
+
+**Examples:**
+```
+Input: nums = [0,2,3,4,6,8,9]
+Output: ["0","2->4","6","8->9"]
+Explanation: The ranges are:
+[0,0] --> "0"
+[2,4] --> "2->4"
+[6,6] --> "6"
+[8,9] --> "8->9"
+```
+
+**Constraints:**
+- `0 <= nums.length <= 20`
+- `-2^31 <= nums[i] <= 2^31 - 1`
+- All the value of `nums` are **unique**.
+- `nums` is sorted in ascending order.
+
+#### **Solutions:**
+- Checkout the code.
+
+#### Code
+- **JavaScript**
+  ```javascript
+  const	summaryRanges = (nums) => {
+		const resultArr = new Array();
+		let startNum = nums[0];
+		let endNum = nums[0];
+		for (let index = 1; index <= nums.length; index++) {
+			if (nums[index] != endNum + 1) {
+				if (startNum === endNum) {
+					resultArr.push(startNum.toString());
+				} else {
+					resultArr.push(`${startNum}->${endNum}`);
+				}
+				startNum = nums[index];
+				endNum = nums[index];
+			} else {
+				endNum = nums[index];
+			}
+		}
+		return resultArr;
+	};
   ```
