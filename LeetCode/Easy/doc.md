@@ -58,6 +58,8 @@
     - [(225) Implement Stack using Queues](#225-implement-stack-using-queues)
     - [(226) Invert Binary Tree](#226-invert-binary-tree)
     - [(228) Summary Ranges](#228-summary-ranges)
+    - [(231) Power of Two](#231-power-of-two)
+    - [(232) Implement Queue using Stacks](#232-implement-queue-using-stacks)
 
 
 ## Spacial Algorithm
@@ -2852,4 +2854,122 @@ Explanation: The ranges are:
 		}
 		return resultArr;
 	};
+  ```
+
+### (231) Power of Two
+> Given an integer `n`, return `true` if it is a power of two. Otherwise, return `false`.  
+> An integer `n` is a power of two, if there exists an integer `x` such that `n == 2^x`.  
+
+**Example:**
+```
+Input: n = 1
+Output: true
+Explanation: 20 = 1
+
+Input: n = 16
+Output: true
+Explanation: 24 = 16
+
+Input: n = 3
+Output: false
+```
+
+**Constraints:**
+- `-2^31 <= n <= 2^31 - 1`
+
+**Follow Up:** Could you solve it without loops/recursion?                 
+
+#### **Solutions:**
+- **Bit Manipulation:**  
+  The number which is the power of two, in the binary number always have the only `1` in the high bit. If it minus `1`, the high bit will turn to the `0` and other bit will turn to the `0`.
+
+#### Code
+- **JavaScript**
+  ```javascript
+  // Use the bit manipulation.
+  const isPowerOfTwo = function(number) {
+    if(n === 0) return false;
+    if (n > 0) return (n & (n-1)) === 0;
+    if (n < 0) return false
+  }
+  ```
+
+### (232) Implement Queue using Stacks
+> Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of  normal queue (`push`, `peek`, `pop` and `empty`)/
+> Implement the `MyQueue` class:
+> - `void push (int x)` Pushes element x to the back of the queue.
+> - `int pop()` Removes the element from the front of the queue the returns it.
+> - `int peek()` Returns the element at the front of the queue.
+> - `boolean empty()` Returns `true` if the queue is empty. `false` otherwise.
+> **Notes:**
+> - You must use **only** standard operations of a stack, which means only `push to top`, `peek/pop from top`, `size` and `is empty` operations are valid.
+> - Depending on your language, the stack may not be supported natively.You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.
+
+**Example:**
+```
+Input
+["MyQueue", "push", "push", "peek", "pop", "empty"]
+[[], [1], [2], [], [], []]
+Output
+[null, null, null, 1, 1, false]
+
+Explanation
+MyQueue myQueue = new MyQueue();
+myQueue.push(1); // queue is: [1]
+myQueue.push(2); // queue is: [1, 2] (leftmost is front of the queue)
+myQueue.peek(); // return 1
+myQueue.pop(); // return 1, queue is [2]
+myQueue.empty(); // return false
+```
+
+**Constraints:**
+- `1 <= x <= 9`
+- At most `100` calls will be made to `push`, `pop`, `peek`, and `empty`.
+- All the calls to `pop` and `peek` are valid.
+
+**Follow Up:** Can you implement the queue such that each operation is amortized O(1) time complexity? In other words, performing n operations will take overall O(n) time even if one of those operations may take longer.           
+
+#### **Solutions:**
+- **Check the code**  
+
+#### Code
+- **JavaScript**
+  ```javascript
+  class MyQueue {
+    constructor() {
+      // The prototype of MyQueue
+      // Initialize the variable
+      this.queue = [];
+      this.len = 0;
+    }
+    push(el) {
+      this.len++;
+      let tmp = new Array(this.len);
+      for (let i = 0; i < this.len; i++) {
+        if (this.queue[i] !== undefined) tmp[i] = this.queue[i];
+        else {
+          tmp[i] = el;
+        }
+      }
+      this.queue = tmp;
+    }
+    peek() {
+      return this.queue[0];
+    }
+    pop() {
+      const tmp = new Array(this.len - 1);
+      let index = 0;
+      const popVal = this.queue[0];
+      for (let i = 1; i < this.len; i++) {
+        tmp[index] = this.queue[i];
+        index++;
+      }
+      this.queue = tmp;
+      this.len--;
+      return popVal;
+    }
+    empty() {
+      return this.len === 0;
+    }
+  }
   ```

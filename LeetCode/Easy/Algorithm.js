@@ -1183,7 +1183,7 @@ class Solution {
 		return root;
 	};
 
-	summaryRanges = (nums) => {
+	summaryRanges_228 = (nums) => {
 		const resultArr = new Array();
 		let startNum = nums[0];
 		let endNum = nums[0];
@@ -1202,6 +1202,52 @@ class Solution {
 		}
 		return resultArr;
 	};
+
+	isPowerOfTwo = function (number) {
+		if (number === 0) return false;
+		if (number > 0) return (number & (number - 1)) === 0;
+		if (number < 0) return false;
+	};
+
+	implementQueueByStack() {
+		class MyQueue {
+			constructor() {
+				// The prototype of MyQueue
+				// Initialize the variable
+				this.queue = [];
+				this.len = 0;
+			}
+			push(el) {
+				this.len++;
+				let tmp = new Array(this.len);
+				for (let i = 0; i < this.len; i++) {
+					if (this.queue[i] !== undefined) tmp[i] = this.queue[i];
+					else {
+						tmp[i] = el;
+					}
+				}
+				this.queue = tmp;
+			}
+			peek() {
+				return this.queue[0];
+			}
+			pop() {
+				const tmp = new Array(this.len - 1);
+				let index = 0;
+				const popVal = this.queue[0];
+				for (let i = 1; i < this.len; i++) {
+					tmp[index] = this.queue[i];
+					index++;
+				}
+				this.queue = tmp;
+				this.len--;
+				return popVal;
+			}
+			empty() {
+				return this.len === 0;
+			}
+		}
+	}
 }
 
 // Test
