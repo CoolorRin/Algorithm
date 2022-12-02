@@ -1,47 +1,29 @@
-class MyQueue {
-	constructor() {
-		// The prototype of MyQueue
-		// Initialize the variable
-		this.queue = [];
-		this.len = 0;
-	}
-	push(el) {
-		this.len++;
-		let tmp = new Array(this.len);
-		for (let i = 0; i < this.len; i++) {
-			if (this.queue[i] !== undefined) tmp[i] = this.queue[i];
-			else {
-				tmp[i] = el;
-			}
-		}
-		this.queue = tmp;
-	}
-	peek() {
-		return this.queue[0];
-	}
-	pop() {
-		const tmp = new Array(this.len - 1);
-		let index = 0;
-		const popVal = this.queue[0];
-		for (let i = 1; i < this.len; i++) {
-			tmp[index] = this.queue[i];
-			index++;
-		}
-		this.queue = tmp;
-		this.len--;
-		return popVal;
-	}
-	empty() {
-		return this.len === 0;
-	}
+function ListNode(val, next) {
+	this.val = val === undefined ? 0 : val;
+	this.next = next === undefined ? null : next;
 }
 
-const test = new MyQueue();
-test.push(1);
-test.push(2);
-test.push(3);
-test.pop();
-test.peek();
-test.pop();
-test.pop();
-test.empty();
+const isPalindrome_234 = (head) => {
+	let forward = head;
+	let backward = undefined;
+	const recursive = (head) => {
+		if (head.next) {
+			const comparison = recursive(head.next);
+			if (comparison === 1) return 1;
+			if (comparison === true) {
+				forward = forward.next;
+				if (forward === backward || forward === head) return 1; // Not necessary to compare.
+				backward = head;
+				return forward.val === backward.val;
+			} else return false;
+		} else {
+			backward = head;
+			return forward.val === backward.val;
+		}
+	};
+	return recursive(head);
+};
+
+const test = new ListNode(1, new ListNode(2));
+console.log(test);
+isPalindrome_234(test);

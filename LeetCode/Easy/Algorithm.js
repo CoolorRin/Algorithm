@@ -1203,13 +1203,13 @@ class Solution {
 		return resultArr;
 	};
 
-	isPowerOfTwo = function (number) {
+	isPowerOfTwo_231 = function (number) {
 		if (number === 0) return false;
 		if (number > 0) return (number & (number - 1)) === 0;
 		if (number < 0) return false;
 	};
 
-	implementQueueByStack() {
+	implementQueueByStack_232() {
 		class MyQueue {
 			constructor() {
 				// The prototype of MyQueue
@@ -1248,8 +1248,25 @@ class Solution {
 			}
 		}
 	}
-}
 
-// Test
-const testSolution = new Solution();
-console.log(testSolution.hammingWeight_191());
+	isPalindrome_234(head) {
+		let forward = head;
+		let backward = undefined;
+		const recursive = (head) => {
+			if (head.next) {
+				const comparison = recursive(head.next);
+				if (comparison === 1) return 1;
+				if (comparison === true) {
+					forward = forward.next;
+					if (forward === backward || forward === head) return 1; // Not necessary to compare.
+					backward = head;
+					return forward.val === backward.val;
+				} else return false;
+			} else {
+				backward = head;
+				return forward.val === backward.val;
+			}
+		};
+		return recursive(head);
+	}
+}
