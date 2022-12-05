@@ -62,6 +62,7 @@
     - [(232) Implement Queue using Stacks](#232-implement-queue-using-stacks)
     - [(234) Palindrome Linked list](#234-palindrome-linked-list)
     - [(242) Valid Anagram](#242-valid-anagram)
+    - [(257) Binary Tree Paths](#257-binary-tree-paths)
 
 
 ## Spacial Algorithm
@@ -3079,4 +3080,46 @@ Output: false
     if(!charArr[char.charCodeAt()]) return false;
   }
   return true;
+  ```
+
+### (257) Binary Tree Paths
+> Given the `root` of a binary tree, return all root-to-leaf paths in **any order.**
+> A **leaf** is a node with no children.
+
+**Example:**
+```
+Input: root = [1,2,3,null,5]
+Output: ["1->2->5","1->3"]
+
+Input: root = [1]
+Output: ["1"]
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range `[1, 100]`.
+- `-100 <= Node.val <= 100`
+
+#### **Solutions:**
+- Check the code;
+
+#### **Code**
+- JavaScript
+  ```javascript
+  const pathOfBinaryTree = (root) => {
+  	if (!root) return null;
+  	const result = [];
+  	const traversal = (root, paths = []) => {
+  		paths.push(root.val);
+  		if (root.left) traversal(root.left, paths);
+  		if (root.right) traversal(root.right, paths);
+  		if (!root.left & !root.right) {
+  			if (paths.length > 1) {
+  				result.push(paths.join("->"));
+  			} else result.push(paths.join());
+  		}
+  		paths.pop();
+  	};
+  	traversal(root);
+  	return result;
+  };
   ```

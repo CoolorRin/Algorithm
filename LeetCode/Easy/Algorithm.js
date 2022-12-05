@@ -1302,4 +1302,22 @@ class Solution {
 		}
 		return true;
 	}
+
+	pathOfBinaryTree_257(root) {
+		if (!root) return null;
+		const result = [];
+		const traversal = (root, paths = []) => {
+			paths.push(root.val);
+			if (root.left) traversal(root.left, paths);
+			if (root.right) traversal(root.right, paths);
+			if (!root.left & !root.right) {
+				if (paths.length > 1) {
+					result.push(paths.join("->"));
+				} else result.push(paths.join());
+			}
+			paths.pop();
+		};
+		traversal(root);
+		return result;
+	}
 }
