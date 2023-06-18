@@ -1,76 +1,80 @@
 # Easy Question
+
 **Table Content**
 
 - [Easy Question](#easy-question)
-  - [Spacial Algorithm](#spacial-algorithm)
-    - [(169) Majority Element](#169-majority-element)
-  - [Sorted Algorithm](#sorted-algorithm)
-    - [(35) Search insert position](#35-search-insert-position)
-  - [Data structure](#data-structure)
-    - [(21) Merge Two Sorted Lists](#21-merge-two-sorted-lists)
-    - [(26) Remove Duplicates from Sorted Array](#26-remove-duplicates-from-sorted-array)
-    - [(27) Remove Element](#27-remove-element)
-    - [(67) Add Binary](#67-add-binary)
-    - [(83) Remove Duplicates from Sorted List](#83-remove-duplicates-from-sorted-list)
-    - [(88) Merge Sorted Array](#88-merge-sorted-array)
-    - [(94) Binary Tree InOrder Traversal](#94-binary-tree-inorder-traversal)
-    - [(100) SameTree](#100-sametree)
-    - [(101) Symmetric Tree](#101-symmetric-tree)
-    - [(104) Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
-    - [(108) Convert Sorted Array to Binary Search Tree](#108-convert-sorted-array-to-binary-search-tree)
-    - [(110) Balanced Binary Tree](#110-balanced-binary-tree)
-    - [(111) Minimum Depth of Binary Tree](#111-minimum-depth-of-binary-tree)
-    - [(112) Path Sum](#112-path-sum)
-    - [(13) Roman to Integer](#13-roman-to-integer)
-    - [(118) Pascal's Triangle](#118-pascals-triangle)
-    - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
-    - [(1) Two Sum](#1-two-sum)
-    - [(235) Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree)
-    - [(160) Intersection of Two Linked lists](#160-intersection-of-two-linked-lists)
-    - [(136) Single Number](#136-single-number)
-    - [(141) Linked List Cycle](#141-linked-list-cycle)
-    - [(144) Binary Tree Preorder Traversal](#144-binary-tree-preorder-traversal)
-    - [(145) Binary Tree Postorder Traversal](#145-binary-tree-postorder-traversal)
-  - [Dynamic Programming](#dynamic-programming)
-    - [(66) Plus one](#66-plus-one)
-    - [(70) ClimbingStair](#70-climbingstair)
-  - [Bit Manipulation](#bit-manipulation)
-    - [(191) Number of 1 Bits](#191-number-of-1-bits)
-    - [(190) Reverse bits](#190-reverse-bits)
-  - [Math](#math)
-    - [(69) Sqrt](#69-sqrt)
-    - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
-    - [(9) Palindrome Number](#9-palindrome-number)
-    - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
-    - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
-  - [String Operate](#string-operate)
-    - [Implement strStr()](#implement-strstr)
-    - [(58) Length of Last word](#58-length-of-last-word)
-    - [(14) Longest Common Prefix(LCP)](#14-longest-common-prefixlcp)
-    - [(125) Valid Palindrome](#125-valid-palindrome)
-  - [Waiting for classification.](#waiting-for-classification)
-    - [(202) Happy Number](#202-happy-number)
-    - [(203) Remove Linked Lists elements](#203-remove-linked-lists-elements)
-    - [(205) Isomorphic strings](#205-isomorphic-strings)
-    - [(206) Reverse Linked List](#206-reverse-linked-list)
-    - [(217) Contains Duplicates](#217-contains-duplicates)
-    - [(219) Contains Duplicate II](#219-contains-duplicate-ii)
-    - [(225) Implement Stack using Queues](#225-implement-stack-using-queues)
-    - [(226) Invert Binary Tree](#226-invert-binary-tree)
-    - [(228) Summary Ranges](#228-summary-ranges)
-    - [(231) Power of Two](#231-power-of-two)
-    - [(232) Implement Queue using Stacks](#232-implement-queue-using-stacks)
-    - [(234) Palindrome Linked list](#234-palindrome-linked-list)
-    - [(242) Valid Anagram](#242-valid-anagram)
-
+    - [Spacial Algorithm](#spacial-algorithm)
+        - [(169) Majority Element](#169-majority-element)
+    - [Sorted Algorithm](#sorted-algorithm)
+        - [(35) Search insert position](#35-search-insert-position)
+    - [Data structure](#data-structure)
+        - [(21) Merge Two Sorted Lists](#21-merge-two-sorted-lists)
+        - [(26) Remove Duplicates from Sorted Array](#26-remove-duplicates-from-sorted-array)
+        - [(27) Remove Element](#27-remove-element)
+        - [(67) Add Binary](#67-add-binary)
+        - [(83) Remove Duplicates from Sorted List](#83-remove-duplicates-from-sorted-list)
+        - [(88) Merge Sorted Array](#88-merge-sorted-array)
+        - [(94) Binary Tree InOrder Traversal](#94-binary-tree-inorder-traversal)
+        - [(100) SameTree](#100-sametree)
+        - [(101) Symmetric Tree](#101-symmetric-tree)
+        - [(104) Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
+        - [(108) Convert Sorted Array to Binary Search Tree](#108-convert-sorted-array-to-binary-search-tree)
+        - [(110) Balanced Binary Tree](#110-balanced-binary-tree)
+        - [(111) Minimum Depth of Binary Tree](#111-minimum-depth-of-binary-tree)
+        - [(112) Path Sum](#112-path-sum)
+        - [(13) Roman to Integer](#13-roman-to-integer)
+        - [(118) Pascal's Triangle](#118-pascals-triangle)
+        - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
+        - [(1) Two Sum](#1-two-sum)
+        - [(235) Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree)
+        - [(160) Intersection of Two Linked lists](#160-intersection-of-two-linked-lists)
+        - [(136) Single Number](#136-single-number)
+        - [(141) Linked List Cycle](#141-linked-list-cycle)
+        - [(144) Binary Tree Preorder Traversal](#144-binary-tree-preorder-traversal)
+        - [(145) Binary Tree Postorder Traversal](#145-binary-tree-postorder-traversal)
+    - [Dynamic Programming](#dynamic-programming)
+        - [(66) Plus one](#66-plus-one)
+        - [(70) ClimbingStair](#70-climbingstair)
+    - [Bit Manipulation](#bit-manipulation)
+        - [(191) Number of 1 Bits](#191-number-of-1-bits)
+        - [(190) Reverse bits](#190-reverse-bits)
+    - [Math](#math)
+        - [(268) Missing Number](#268-missing-number)
+        - [(69) Sqrt](#69-sqrt)
+        - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
+        - [(9) Palindrome Number](#9-palindrome-number)
+        - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
+        - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
+    - [String Operate](#string-operate)
+        - [Implement strStr()](#implement-strstr)
+        - [(58) Length of Last word](#58-length-of-last-word)
+        - [(14) Longest Common Prefix(LCP)](#14-longest-common-prefixlcp)
+        - [(125) Valid Palindrome](#125-valid-palindrome)
+    - [Waiting for classification.](#waiting-for-classification)
+        - [(202) Happy Number](#202-happy-number)
+        - [(203) Remove Linked Lists elements](#203-remove-linked-lists-elements)
+        - [(205) Isomorphic strings](#205-isomorphic-strings)
+        - [(206) Reverse Linked List](#206-reverse-linked-list)
+        - [(217) Contains Duplicates](#217-contains-duplicates)
+        - [(219) Contains Duplicate II](#219-contains-duplicate-ii)
+        - [(225) Implement Stack using Queues](#225-implement-stack-using-queues)
+        - [(226) Invert Binary Tree](#226-invert-binary-tree)
+        - [(228) Summary Ranges](#228-summary-ranges)
+        - [(231) Power of Two](#231-power-of-two)
+        - [(232) Implement Queue using Stacks](#232-implement-queue-using-stacks)
+        - [(234) Palindrome Linked list](#234-palindrome-linked-list)
+        - [(242) Valid Anagram](#242-valid-anagram)
 
 ## Spacial Algorithm
 
 ### (169) Majority Element
+
 > Given an array `nums` of size `n`, return the majority element.  
-> The majority element is the element that appears more than `[n/2]` times. You may assume that the marjority element always exists in the array.  
+> The majority element is the element that appears more than `[n/2]` times. You may assume that the marjority element
+> always exists in the array.
 
 **Example:**
+
 ```
 Input: nums = [3,2,3]
 Output: 3
@@ -80,6 +84,7 @@ Output: 2
 ```
 
 **Constraints:**
+
 - `n == nums.length`
 - `1 <= n <= 5 * 104`
 - `-109 <= nums[i] <= 109`
@@ -87,10 +92,12 @@ Output: 2
 **IB: follow-up, Could you solve the problem in linear time and in `o(1)` space?**
 
 #### **Solutions:**
+
 - HashTable: Check the code;
 - [Other Solutions](https://leetcode.com/problems/majority-element/solution/):**NEED TO SORT OUT.**
 
 #### **Code**
+
 - **JavaScript**
   ```javascript
   // HashTable
@@ -107,14 +114,17 @@ Output: 2
   // Boyer-Moore Majority Voting Algorithm
   // TODO: NEED SORT OUT
   ```
-  
+
 ## Sorted Algorithm
 
 ### (35) Search insert position
-> Given a sorted array of distinct intergers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+> Given a sorted array of distinct intergers and a target value, return the index if the target is found. If not, return
+> the index where it would be if it were inserted in order.
 > You must write an algorithm with `olog(n)` runtime complexity.
 
 **Example:**
+
 ```
 Input: nums = [1,3,5,6], target = 5
 Output: 2
@@ -127,6 +137,7 @@ Output: 4
 ```
 
 **Constraints:**
+
 - `1 <= nums.length <= 104`
 - `-104 <= nums[i] <= 104`
 - nums contains distinct values sorted in ascending order.
@@ -137,6 +148,7 @@ Output: 4
 Binary search. Check the code.
 
 #### Code
+
 - **JavaScript**
   ```JavaScript
     searchInsertPosition(nums, target) {
@@ -154,9 +166,8 @@ Binary search. Check the code.
 
   ```
 
-
-
 ## Data structure
+
 ### (21) Merge Two Sorted Lists
 
 > You are given the heads of wo sorted linked lists `list1` and `list2`<br>
@@ -188,6 +199,7 @@ Output: [0]
 Check the code.
 
 #### Code
+
 - **JavaScript**
 
     ```javascript
@@ -340,9 +352,12 @@ It does not matter what you leave beyond the returned k (hence they are undersco
     ```
 
 ### (27) Remove Element
-> Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
+
+> Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of
+> the elements may be changed.
 
 **Example:**
+
 ```
 Input: nums = [3,2,2,3], val = 3
 Output: 2, nums = [2,2,_,_]
@@ -352,12 +367,17 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
 ```
 
 **Constraints**
+
 - `0 <= nums.length <= 100`
 - `0 <= nums[i] <= 50`
 - `0 <= val <= 100`
 
 #### **Solutions**
-- Setting the based number `j`. it will always point to the number which isn't equal to the given value and place in the lastest position in the not-equal-to-value queue.And `i` will be itrate all the `nums`. If nums[i] not equal to the given value.Swtich the `nums[i]` and the `nums[j]`'s position, then `j++`. In the end, the value of `j` will be the result.
+
+- Setting the based number `j`. it will always point to the number which isn't equal to the given value and place in the
+  lastest position in the not-equal-to-value queue.And `i` will be itrate all the `nums`. If nums[i] not equal to the
+  given value.Swtich the `nums[i]` and the `nums[j]`'s position, then `j++`. In the end, the value of `j` will be the
+  result.
 
 #### Code
 
@@ -377,13 +397,12 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
     }
     ```
 
-
-
-
 ### (67) Add Binary
+
 > Given two binary string `a` and `b`, return their sum as a binary string.
 
 **Example:**
+
 ```
 Input: a = "11", b = "1"
 Output: "100"
@@ -393,6 +412,7 @@ Output: "10101"
 ```
 
 **Constraints:**
+
 - `1 <= a.length, b.length <= 104`
 - `a` and `b` consist only of `'0'` or `'1'` characters.
 - Each string does not contain leading zeros except for the zero itself.
@@ -400,7 +420,8 @@ Output: "10101"
 #### **Solutions**
 
 - Transfer the String to binary number then operate it.
-- Fill up the `0` in the less length string. Like `110101` and `110`, fill the `110` to `000110` and operate it. Check the Code.
+- Fill up the `0` in the less length string. Like `110101` and `110`, fill the `110` to `000110` and operate it. Check
+  the Code.
 
 #### Code
 
@@ -425,11 +446,13 @@ Output: "10101"
     }
     ```
 
-
 ### (83) Remove Duplicates from Sorted List
-> Given the `head` of a sorted linked listed, delete all duplicates such that each element appears only once. Return the linked list **sorted** as well.
+
+> Given the `head` of a sorted linked listed, delete all duplicates such that each element appears only once. Return the
+> linked list **sorted** as well.
 
 **Example:**
+
 ```
 Input: head = [1,1,2]
 Output: [1,2]
@@ -439,14 +462,17 @@ Output: [1,2,3]
 ```
 
 **Constraints:**
+
 - The number of nodes in the list is in the range `[0, 300]`.
 - `-100 <= Node.val <= 100`
 - The list is guaranteed to be sorted in ascending order.
 
 #### **Solutions**
+
 Check the code.
 
-#### Code 
+#### Code
+
 - **JavaScript**
   ```JavaScript
     // Ugly way
@@ -474,11 +500,16 @@ Check the code.
   ```
 
 ### (88) Merge Sorted Array
-> You are given two integer arrays `nums1` and `nums2`, sorted in **no-decreasing order**, and two integers `m` and `n`, representing the number of elements in the `num1` and `num2` respectively.  
+
+> You are given two integer arrays `nums1` and `nums2`, sorted in **no-decreasing order**, and two integers `m` and `n`,
+> representing the number of elements in the `num1` and `num2` respectively.  
 > **Merge** `nums1` and `num2` into a single array sorted in **no-decreasing order**.  
-> The final sorted array should not be returned by the function, but instead be stored inside the array `nums1`. To accommodate this, `nums1` has a length of `m` + `n`, where the first `m` elements denote the elements that should be merged, and the last n elements are set to `0` and should be ignored. `nums2` has a length of `n`.
+> The final sorted array should not be returned by the function, but instead be stored inside the array `nums1`. To
+> accommodate this, `nums1` has a length of `m` + `n`, where the first `m` elements denote the elements that should be
+> merged, and the last n elements are set to `0` and should be ignored. `nums2` has a length of `n`.
 
 **Example:**
+
 ```
 Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
 Output: [1,2,2,3,5,6]
@@ -498,6 +529,7 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 ```
 
 **Constraints:**
+
 - `nums1.length == m + n`
 - `nums2.length == n`
 - `0 <= m, n <= 200`
@@ -505,9 +537,11 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 - `-109 <= nums1[i], nums2[j] <= 109`
 
 #### **Solutions**
+
 Check the code
 
 #### Code
+
 - **JavaScript**
   ```JavaScript
   let insertPos = m + n - 1;
@@ -519,9 +553,11 @@ Check the code
   ```
 
 ### (94) Binary Tree InOrder Traversal
+
 > Given the `root` of binary tree, return the inorder traversal of its node's values.
 
 **Example:**
+
 ```
 Input: root = [1,null,2,3]
 Output: [1,3,2]
@@ -534,13 +570,16 @@ Output: [1]
 ```
 
 **Constraints:**
+
 - The number of nodes in the tree is in the range `[0, 100]`.
 - `-100 <= Node.val <= 100`
 
 #### **Solutions**
+
 Check the code.
 
-#### Code 
+#### Code
+
 - **JavaScript**
   ```JavaScript
   /**
@@ -568,9 +607,10 @@ Check the code.
       return resultArr;
   };
   ```
+
 ### (100) SameTree
 
-> Given the  roots of two binary trees `p` and `q`, write a function to check if they are the same or not.  
+> Given the roots of two binary trees `p` and `q`, write a function to check if they are the same or not.  
 > Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
 
 **Example:**
@@ -587,13 +627,16 @@ Output: false
 ```
 
 **Constraints:**
+
 - The number of nodes in both trees is in the range `[0, 100]`.
 - `-104 <= Node.val <= 104`
 
 #### **Solutions**
+
 Check the code.
 
-#### Code 
+#### Code
+
 - **JavaScript**
   ```JavaScript
       isSameTree(p, q) {
@@ -621,9 +664,11 @@ Check the code.
   ```
 
 ### (101) Symmetric Tree
+
 > Given the `root` of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
 
 **Example:**
+
 ```
 Input: root = [1,2,2,3,4,4,3]
 Output: true
@@ -631,15 +676,20 @@ Output: true
 Input: root = [1,2,2,null,3,null,3]
 Output: false
 ```
+
 **Constraints:**
+
 - The number of nodes in the tree is in the range `[1, 1000]`.
 - `-100 <= Node.val <= 100`
 
 **Follow up**: Could you solve it both recursively and iteratively?
 
 #### **Solutions**
-Check the  code.
+
+Check the code.
+
 #### Code
+
 - **JavaScript**
   ```JavaScript
     var isSymmetric = function(root) {
@@ -653,11 +703,15 @@ Check the  code.
     };
 
   ```
+
 ### (104) Maximum Depth of Binary Tree
+
 > Given the `root` of a binary tree, return its maximum depth;  
-> a  binary tree's **maximum depth** is the number of nodes along the longest path from the root node down to the farthest leaf node.
+> a binary tree's **maximum depth** is the number of nodes along the longest path from the root node down to the
+> farthest leaf node.
 
 **Example:**
+
 ```
 Input: root = [3,9,20,null,null,15,7]
 Output: 3
@@ -667,13 +721,17 @@ Output: 2
 ```
 
 **Constraints:**
+
 - The number of nodes in the tree is in the range `[0, 104]`.
 - `-100 <= Node.val <= 100`
 
 #### **Solutions**
-Don't use the extra space to declare a recursive function to implement the traversal feature.Check the code. And always use this though to solve the "Maximum" question in recursive structure.
+
+Don't use the extra space to declare a recursive function to implement the traversal feature.Check the code. And always
+use this though to solve the "Maximum" question in recursive structure.
 
 #### Code
+
 - JavaScript
     ```javascript
         /**
@@ -695,12 +753,14 @@ Don't use the extra space to declare a recursive function to implement the trave
     };
     ```
 
-
-
 ### (108) Convert Sorted Array to Binary Search Tree
-> Given an integer array `nums` where the elements are sorted in **ascending order**, convert it to a **height-balanced** binary search tree. A height-balanced binary tree is a binary tree in which the depth of the two subtree of every node nerve differs by more than one.
+
+> Given an integer array `nums` where the elements are sorted in **ascending order**, convert it to a **height-balanced
+** binary search tree. A height-balanced binary tree is a binary tree in which the depth of the two subtree of every
+> node nerve differs by more than one.
 
 **Example**
+
 ```
 Input: nums = [-10,-3,0,5,9]
 Output: [0,-3,9,-10,null,5]
@@ -712,14 +772,17 @@ Explanation: [1,null,3] and [3,1] are both height-balanced BSTs.
 ```
 
 **Constraints**
+
 - `1 <= nums.length <= 104`
 - `-104 <= nums[i] <= 104`
 - nums is sorted in a **strictly increasing** order.
 
 #### **Solutions**
+
 Check the code. And check what is the Binary Search Tree(BST).
 
 #### Code
+
 - **JavaScript**
   ```javascript
     sortedArrayToBST(nums) {
@@ -750,11 +813,13 @@ Check the code. And check what is the Binary Search Tree(BST).
   ```
 
 ### (110) Balanced Binary Tree
+
 > Given a binary tree, determine if it is height-balanced.  
 > For this problem, a height-balanced binary tree is defined as:  
 > a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
 
 **Example:**
+
 ```
 Input: root = [3,9,20,null,null,15,7]
 Output: true
@@ -767,13 +832,16 @@ Output: true
 ```
 
 **Constraints:**
+
 - The number of nodes in the tree is in the range `[0, 5000]`.
 - `-104 <= Node.val <= 104`
 
 #### **Solutions**
+
 Check the code. Keep the `Bottom Up` way in mind.
 
 #### Code
+
 - **JavaScript**
   ```JavaScript
   function isBalanced(root) {
@@ -817,11 +885,13 @@ Check the code. Keep the `Bottom Up` way in mind.
   ```
 
 ### (111) Minimum Depth of Binary Tree
+
 > Given a binary tree, find its minimum depth.  
 > The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.  
 > **Note**: A leaf is a node with no children.
 
 **Example:**
+
 ```
 Input: root = [3,9,20,null,null,15,7]
 Output: 2
@@ -831,13 +901,16 @@ Output: 5
 ```
 
 **Constraints:**
+
 - The number of nodes in the tree is in the range `[0, 105]`.
 - `-1000 <= Node.val <= 1000`
 
 #### **Solutions**
+
 Check the code.
 
 #### Code
+
 - **JavaScript**
   ```JavaScript
   function minDepth(root) {
@@ -851,10 +924,13 @@ Check the code.
   ```
 
 ### (112) Path Sum
-> Given the root of a binary tree and an integer `targetSum`, return `true` if the tree has a **root-to-leaf** path such that adding up all the values along the path equals `targetSum`.  
+
+> Given the root of a binary tree and an integer `targetSum`, return `true` if the tree has a **root-to-leaf** path such
+> that adding up all the values along the path equals `targetSum`.  
 > A **leaf** is a node with no children.
 
 **Example:**
+
 ```
 Input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
 Output: true
@@ -873,14 +949,17 @@ Explanation: Since the tree is empty, there are no root-to-leaf paths.
 ```
 
 **Constraints:**
+
 - The number of nodes in the tree is in the range `[0, 5000]`.
 - `-1000 <= Node.val <= 1000`
 - `-1000 <= targetSum <= 1000`
 
 #### **Solutions**
+
 Check the code.
 
 #### Code
+
 - **JavaScript**
   ```javascript
     hasPathSum(root, targetSum) {
@@ -893,7 +972,6 @@ Check the code.
     );
   }
   ```
-
 
 ### (13) Roman to Integer
 
@@ -981,11 +1059,13 @@ Ouput: 3
     ```
 
 ### (118) Pascal's Triangle
+
 > Given an integer numRows, return the first numRows of **Pascal's triangle**.  
 > In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:  
 > [Pascal's triangle](https://leetcode.com/problems/pascals-triangle/)
 
 **Example:**
+
 ```
 Input: numRows = 5
 Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
@@ -995,12 +1075,15 @@ Output: [[1]]
 ```
 
 **Constraints:**
+
 - `1 <= numRows <= 30`
 
 #### **Solutions**
+
 - Maybe have more better way to figure it out. For Now, just check the code.
 
 #### Code
+
 - **JavScript**
   ```javascript
     generate(numRows) {
@@ -1023,6 +1106,7 @@ Output: [[1]]
   ```
 
 ### (119) Pascal's Triangle II
+
 > Given an integer rowIndex, return the rowIndexth (**0-indexed**) row of the **Pascal's triangle**.  
 > In **Pascal's triangle**, each number is the sum of the two numbers directly above it as shown:
 
@@ -1040,13 +1124,16 @@ Output: [1,1]
 ```
 
 **Constraints:**
+
 - `0 <= rowIndex <= 33`
 
 #### **Solutions**
+
 Both of questions about the pascals triangle are inefficient. Find the way to optimize it in the weekend PR commit.  
 For Now, Just Check the code below.
 
 #### Code
+
 - **JavaScript**
   ```JavaScript
     var getRow = function(rowIndex) {
@@ -1063,10 +1150,11 @@ For Now, Just Check the code below.
 
 ### (1) Two Sum
 
-> Given an array of integer `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.  
-> 
-> You may assume thar each input world have **exactly one solution**, and you may not use the same element twice.  
-> 
+> Given an array of integer `nums` and an integer `target`, return indices of the two numbers such that they add up
+> to `target`.
+>
+> You may assume thar each input world have **exactly one solution**, and you may not use the same element twice.
+>
 > You can return the answer in any order.
 
 **Example:**
@@ -1137,10 +1225,14 @@ For Now, Just Check the code below.
     ```
 
 ### (235) Lowest Common Ancestor of a Binary Search Tree
+
 > Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.  
-> According to he `definition of LCA on Wikipedia:`"The lowest common ancestor is defined between two nodes `p` and `q` as the lowest node in `T` that has both `p` and `q` as descendants (where we allow **a node to be a descendant of itself.**)."  
+> According to he `definition of LCA on Wikipedia:`"The lowest common ancestor is defined between two nodes `p` and `q`
+> as the lowest node in `T` that has both `p` and `q` as descendants (where we allow **a node to be a descendant of
+itself.**)."
 
 **Example:**
+
 ```
 Input: nums = [3,2,3]
 Output: 3
@@ -1150,15 +1242,21 @@ Output: 2
 ```
 
 **Constraints:**
+
 - `n == nums.length`
 - `1 <= n <= 5 * 104`
 - `-109 <= nums[i] <= 109`
 
 #### **Solutions:**
-- DFS(Top down): Find the path from the tree Root node to the  `p` and `q`, compare both of them, and check the last same node.  Time Complexity: O(n), Space Complexity: O(n). [UglyWay].
+
+- DFS(Top down): Find the path from the tree Root node to the  `p` and `q`, compare both of them, and check the last
+  same node. Time Complexity: O(n), Space Complexity: O(n). [UglyWay].
 - > [BST](https://www.youtube.com/watch?v=gs2LMfuOR9k)
-- > [LeetCode Solutions](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/discuss/2335047/C%2B%2B-oror-100-faster-oror-Recursive-Code)(Need to analysis)
+- > [LeetCode Solutions](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/discuss/2335047/C%2B%2B-oror-100-faster-oror-Recursive-Code)(
+  Need to analysis)
+
 #### Code
+
 - **JavaScript**
   ```javascript
   function lowestCommonAncestor(root, p, q) {
@@ -1203,7 +1301,9 @@ Output: 2
   ```
 
 ### (160) Intersection of Two Linked lists
-> Given the heads of two singly linked-lists `headA` and `headB`, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return `null`.  
+
+> Given the heads of two singly linked-lists `headA` and `headB`, return the node at which the two lists intersect. If
+> the two linked lists have no intersection at all, return `null`.  
 > For example, the following two linked lists begin to intersect at node `c1`:
 > ```javascript
 > const linkedlist_a = [a1, a2, c1, c2, c3];
@@ -1218,9 +1318,11 @@ Output: 2
 > - `listB`- The second linked list.
 > - `skipA`- The number of nodes to skip ahead in `listA` (starting from the head) to get to the intersected node.
 > - `skipB`- The number of nodes to skip ahead in `listB` (starting from the head) to get tot the intersected node.
-> The judge will then crate the linked structure based on these inputs and pass the two heads, `headA` and `headB` to your program. If you correctly return the intersected node, then your solution will be **accepted.**
+    > The judge will then crate the linked structure based on these inputs and pass the two heads, `headA` and `headB`
+    to your program. If you correctly return the intersected node, then your solution will be **accepted.**
 
 **Example:**
+
 ```
 Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
 Output: Intersected at '8'
@@ -1233,6 +1335,7 @@ Output: No intersection
 ```
 
 **Constraints:**
+
 - The number of nodes of `listA` is in the `m`.
 - The number of nodes of `listB` is in the `n`.
 - `1 <= m, n <= 3 * 104`
@@ -1243,10 +1346,12 @@ Output: No intersection
 - `intersectVal == listA[skipA] == listB[skipB]` if `listA` and `listB` intersect.
 
 #### **Solutions:**
+
 - HashSet
 - **Time Complexity: O(M + N), Space Complexity: O(1)**
 
 #### Code
+
 - **JavaScript**
   ```javascript
   	getIntersectionNode_160(headA, headB) {
@@ -1307,10 +1412,12 @@ Output: No intersection
   ```
 
 ### (136) Single Number
+
 > Given a **non-empty** array of integers `nums`, every element appears twice except for one. Find that single one.  
 > You must implement a solution with a linear runtime complexity and use only constant extra space.
 
 **Example:**
+
 ```
 Input: nums = [2,2,1]
 Output: 1
@@ -1323,38 +1430,48 @@ Output: 1
 ```
 
 **Constraints:**
+
 - `1 <= nums.length <= 3 * 104`
 - `-3 * 104 <= nums[i] <= 3 * 104`
 - Each element in the array appears twice except for one element which appears only once.
 
 #### **Solutions:**
-> Nice solutions by [satyamsinha93](https://leetcode.com/problems/single-number/discuss/1771771/Think-it-through-oror-Time%3A-O(n)-Space%3A-O(1)-oror-Python-Explained)
+
+> Nice solutions
+>
+by [satyamsinha93](https://leetcode.com/problems/single-number/discuss/1771771/Think-it-through-oror-Time%3A-O(n)-Space%3A-O(1)-oror-Python-Explained)
 > 1. **Brute Force**  
-> Intuition:  
-> Iterate through every element in the nums and check if any of the element does not appear twice, in that case > return the element.  
-> Time: O(n^2)  
-> Space: O(1)  
+     > Intuition:  
+     > Iterate through every element in the nums and check if any of the element does not appear twice, in that case >
+     return the element.  
+     > Time: O(n^2)  
+     > Space: O(1)
 > 1. **Use Sorting**  
-> Intuition:  
-> If the elements of the nums array are sorted/when we sort it, we can compare the neighbours to find the single element. It is already mentioned that all other elements appear twice except one.  
-> Time: O(nlogn) for sorting then O(n) to check neighbouring elements  
-> Space: O(1) 
+     > Intuition:  
+     > If the elements of the nums array are sorted/when we sort it, we can compare the neighbours to find the single
+     element. It is already mentioned that all other elements appear twice except one.  
+     > Time: O(nlogn) for sorting then O(n) to check neighbouring elements  
+     > Space: O(1)
 > 1. **Use Hashing/Set**  
-> Intuition:  
-> i) As we iterate through the nums array we store the elements encountered and check if we find them again while iteration continues. While checking if we find them again, we maintain a single_element object/variable which stores that single element, eventually returning the single_element.  
-> ii) The other way is to maintain a num_frequency hashmap/dictionary and iterate over it to find which has exactly 1 frequency and return that key/num. 
-> Time: O(n) for iterating over the nums array  
-> Space: O(n) for hashing 
+     > Intuition:  
+     > i) As we iterate through the nums array we store the elements encountered and check if we find them again while
+     iteration continues. While checking if we find them again, we maintain a single_element object/variable which
+     stores that single element, eventually returning the single_element.  
+     > ii) The other way is to maintain a num_frequency hashmap/dictionary and iterate over it to find which has exactly
+     1 frequency and return that key/num.
+     > Time: O(n) for iterating over the nums array  
+     > Space: O(n) for hashing
 > 1. **Use Xor/Bit Manipulation**  
-> Intuition:  
-> Xor of any two num gives the difference of bit as 1 and same bit as 0.  
-> Thus, using this we get 1 ^ 1 == 0 because the same numbers have same bits.  
-> So, we will always get the single element because all the same ones will evaluate to 0 and 0^single_number = single_number.   
-> Time: O(n)  
-> Space: O(1)  
+     > Intuition:  
+     > Xor of any two num gives the difference of bit as 1 and same bit as 0.  
+     > Thus, using this we get 1 ^ 1 == 0 because the same numbers have same bits.  
+     > So, we will always get the single element because all the same ones will evaluate to 0 and 0^single_number =
+     single_number.   
+     > Time: O(n)  
+     > Space: O(1)
 
+#### Code
 
-#### Code 
 - **JavaScript**
   ```javascript
   singleNumber(nums) {
@@ -1404,11 +1521,15 @@ Output: 1
   ```
 
 ### (141) Linked List Cycle
+
 > Given `head`, the head of a linked list, determine if the linked list has a cycle in it.  
-> There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, `pos` is used to denote the index of the node that tail's next pointer is connected to. **Note that** `pos` **is not passed as a parameter**.  
-> Return `true` if there is a cycle in the linked list. Otherwise, return `false`.  
+> There is a cycle in a linked list if there is some node in the list that can be reached again by continuously
+> following the next pointer. Internally, `pos` is used to denote the index of the node that tail's next pointer is
+> connected to. **Note that** `pos` **is not passed as a parameter**.  
+> Return `true` if there is a cycle in the linked list. Otherwise, return `false`.
 
 **Example:**
+
 ```
 Input: head = [3,2,0,-4], pos = 1
 Output: true
@@ -1424,6 +1545,7 @@ Explanation: There is no cycle in the linked list.
 ```
 
 **Constraints:**
+
 - The number of the nodes in the list is in the range `[0, 104]`.
 - `-105 <= Node.val <= 105`
 - `pos` is `-1` or a **valid index** in the linked-list.
@@ -1431,9 +1553,11 @@ Explanation: There is no cycle in the linked list.
 **Follow up:** Can you solve it using `O(1)` (ie. constant) memory?
 
 #### **Solutions:**
+
 Two pointer, Check the loop till the point.next is null, whether the fastPointer equal to the slowPointer.
 
 #### Code
+
 - **JavaScript**
   ```javascript
     hasCycle141(head) {
@@ -1452,9 +1576,11 @@ Two pointer, Check the loop till the point.next is null, whether the fastPointer
   ```
 
 ### (144) Binary Tree Preorder Traversal
-> Given the root of a binary tree, return the preorder traversal of its nodes' values.  
+
+> Given the root of a binary tree, return the preorder traversal of its nodes' values.
 
 **Example:**
+
 ```
 Input: root = [1,null,2,3]
 Output: [1,2,3]
@@ -1467,14 +1593,18 @@ Output: [1]
 ```
 
 **Constraints:**
+
 - The number of nodes in the tree is in the range `[0, 100]`.
 - `-100 <= Node.val <= 100`
 
 #### **Solutions**
+
 - Recursive solution is too simple to solve it.
-- Iteration solution's point is how to **loop all the children node** of the current node and **memorize it is already looped and backward to loop another node of the parent node.** 
-  
+- Iteration solution's point is how to **loop all the children node** of the current node and **memorize it is already
+  looped and backward to loop another node of the parent node.**
+
 #### Code
+
 - **JavaScript**
   ```javascript
 		//  Recursive solution is trivial
@@ -1505,11 +1635,12 @@ Output: [1]
 		return result;
   ```
 
-
 ### (145) Binary Tree Postorder Traversal
+
 > Given the `root` of a binary tree, return the postorder traversal of its nodes' values.
 
 **Example:**
+
 ```
 Input: root = [1,null,2,3]
 Output: [3,2,1]
@@ -1522,13 +1653,18 @@ Output: [1]
 ```
 
 **Constraints:**
+
 - The number of the nodes in the tree is in the range `[0, 100]`.
 - `-100 <= Node.val <= 100`
 
 #### **Solutions**
-- Iteration Solution by the [yavinci](https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45551/Preorder-Inorder-and-Postorder-Iteratively-Summarization). **NB: Reverse the process of preorder.**
+
+- Iteration Solution by
+  the [yavinci](https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45551/Preorder-Inorder-and-Postorder-Iteratively-Summarization).
+  **NB: Reverse the process of preorder.**
 
 #### Code
+
 - **JavaScript**
   ```javascript
   var postorderTraversal = function(root, resultArr = []) {
@@ -1561,14 +1697,17 @@ Output: [1]
   };
   ```
 
-
 ## Dynamic Programming
 
 ### (66) Plus one
-> You are given a **large integer** represented as an integer array `digits`, where each `digits[i]` is the `i^th` digits of the integer.The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading `0`'s.  
+
+> You are given a **large integer** represented as an integer array `digits`, where each `digits[i]` is the `i^th`
+> digits of the integer.The digits are ordered from most significant to least significant in left-to-right order. The
+> large integer does not contain any leading `0`'s.  
 > Increment the large integer by one and return the resulting array of digits.
 
 **Example:**
+
 ```
 Input: digits = [1,2,3]
 Output: [1,2,4]
@@ -1590,14 +1729,17 @@ Thus, the result should be [1,0].
 ```
 
 **Constraints:**
+
 - `1 <= digits.length <= 100`
 - `0 <= digits[i] <= 9`
 - `digits` does not contain any leading `0`'s.
 
 #### **Solutions**
+
 Check the code
 
 #### Code
+
 - **JavaScript**
     ```JavaScript
         for (j = digits.length - 1; j >= 0; j--) {
@@ -1612,12 +1754,13 @@ Check the code
         return digits;
     ```
 
-
 ### (70) ClimbingStair
+
 > You are climbing a staircase. It takes `n` steps to reach the top.  
 > Each time you can either climb `1` or `2` steps. In how many distinct ways can you climb to the top?
 
 **Example:**
+
 ```
 Input: n = 2
 Output: 2
@@ -1634,9 +1777,11 @@ Explanation: There are three ways to climb to the top.
 ```
 
 **Constraints:**
+
 - `i <= n <= 45`
 
 #### **Solutions:**
+
 - Deep First Search (**Inefficient way O(2^n)**).   
   If the purpose is to **get the shortest way** to Climbing up the Stair. Maybe use it.
   ```JavaScript
@@ -1662,8 +1807,9 @@ Explanation: There are three ways to climb to the top.
     return resultNum;
   ```
 - Dynamic Programming (Top down Memoization).  
-  We have two different way to climbing the stair.Step by `1` or `2`.If we climbing a `three` step height stair, its pattern will be the sum of the `one step height stair` and the `two step height stair`. Check the code.
-  
+  We have two different way to climbing the stair.Step by `1` or `2`.If we climbing a `three` step height stair, its
+  pattern will be the sum of the `one step height stair` and the `two step height stair`. Check the code.
+
   ```JavaScript
     function dp(target) {
         let memoArr = new Array(target + 1);
@@ -1688,10 +1834,14 @@ Explanation: There are three ways to climb to the top.
   ```
 - Dynamic Programming (Bottom Up).
   > [Climbing Stair- Dynamic Programming](https://www.youtube.com/watch?v=Y0lT9Fck7qI)  
-  Image we start by the `0`, and have two way `1` or `2` to climb the stair.Draw the tree diagram and will find that always have the subtree exactly same as the other subtree. That is why we should memory it. But it will have more simply way to do this. Check step below by the `n` is `5`:  
-  - First: We get to the `4th` stair and the `5th` stair both will be `1` step to get the `5th` stair. `4th` plus `1` step will be `5th` and why the `5th` will be `1`, just image we only have **one stair**.
-  - Then we will find, if we stand in the `3th` stair it will have `2` different way to get to the goal.That is exactly `4th` stair's value plus `5th` stair's value.
-  - And then, we find out. 
+  Image we start by the `0`, and have two way `1` or `2` to climb the stair.Draw the tree diagram and will find that
+  always have the subtree exactly same as the other subtree. That is why we should memory it. But it will have more
+  simply way to do this. Check step below by the `n` is `5`:
+    - First: We get to the `4th` stair and the `5th` stair both will be `1` step to get the `5th` stair. `4th` plus `1`
+      step will be `5th` and why the `5th` will be `1`, just image we only have **one stair**.
+    - Then we will find, if we stand in the `3th` stair it will have `2` different way to get to the goal.That is
+      exactly `4th` stair's value plus `5th` stair's value.
+    - And then, we find out.
 
   ```JavaScript
     let bottom1 = 1;
@@ -1704,8 +1854,8 @@ Explanation: There are three ways to climb to the top.
     return bottom1;
   ```
 
-
 #### Code
+
 - **JavaScript**
   ```javascript
   function ClimbingStairs(n) {
@@ -1771,12 +1921,18 @@ Explanation: There are three ways to climb to the top.
 ## Bit Manipulation
 
 ### (191) Number of 1 Bits
-> Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the `Hamming weight`).  
-> **Note:**  
-> - Note that in some languages, such as Java, there is no unsigned integer type. In this case, the input will be given as a signed integer type. It should not affect your implementation, as the integer's internal binary representation is the same, whether it is signed or unsigned.
-> - In Java, the complier represents the signed integers using `2's complement notation.` Therefore, in **Example 3**, the input represents the signed integer `-3`.
+
+> Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as
+> the `Hamming weight`).  
+> **Note:**
+> - Note that in some languages, such as Java, there is no unsigned integer type. In this case, the input will be given
+    as a signed integer type. It should not affect your implementation, as the integer's internal binary representation
+    is the same, whether it is signed or unsigned.
+> - In Java, the complier represents the signed integers using `2's complement notation.` Therefore, in **Example 3**,
+    the input represents the signed integer `-3`.
 
 **Example:**
+
 ```
 Input: n = 00000000000000000000000000001011
 Output: 3
@@ -1793,15 +1949,18 @@ Explanation: The input binary string 11111111111111111111111111111101 has a tota
 ```
 
 **Constraints:**
+
 - The input must be a **binary string** of length `32`.
 
 **Follow Up:** If this function is called many times, how would you optimize it?
 
 #### **Solutions:**
+
 - One Line JavaScript Code Just Checkout the code below.
 - Bit Manipulation
 
 #### Code
+
 - **JavaScript**
   ```javascript
   hammingWeight_191 = (positiveNum) => {
@@ -1830,12 +1989,17 @@ Explanation: The input binary string 11111111111111111111111111111101 has a tota
   ```
 
 ### (190) Reverse bits
+
 > Reverse bits of a given 32 bits unsigned integer.  
-> Note:  
-> - Note that in some languages, such as Java, there is no unsigned integer type. In this case, both input and output will be given as a signed integer type. They should not affect your implementation, as the integer's internal binary representation is the same, whether it is signed or unsigned.
-> - In Java, the complier represents the signed integers using `2's complement notation`. Therefore, in **Example 2** above, the input represents the signed integer `-3` and the output represents the signed integer `-1073741825`.
+> Note:
+> - Note that in some languages, such as Java, there is no unsigned integer type. In this case, both input and output
+    will be given as a signed integer type. They should not affect your implementation, as the integer's internal binary
+    representation is the same, whether it is signed or unsigned.
+> - In Java, the compiler represents the signed integers using `2's complement notation`. Therefore, in **Example 2**
+    above, the input represents the signed integer `-3` and the output represents the signed integer `-1073741825`.
 
 **Example:**
+
 ```
 Input: n = 00000010100101000001111010011100
 Output:    964176192 (00111001011110000010100101000000)
@@ -1847,12 +2011,15 @@ Explanation: The input binary string 11111111111111111111111111111101 represents
 ```
 
 **Constraints**
+
 - The input must be a **binary string** of length `32`.
 
 #### **Solutions**
+
 - Waiting
 
 #### Code
+
 - **JavaScript**
   ```javascript
 	reverseBits_190(binaryNum) {
@@ -1876,13 +2043,65 @@ Explanation: The input binary string 11111111111111111111111111111101 represents
 	}
   ```
 
-
-
 ## Math
 
+### (268) Missing Number
+
+> Given an array `nums` containing `n` distinct numbers in the range `[0, n]`, return the only number in the range that
+> is missing from the array.
+
+**Example:**
+
+```
+Input: nums = [3,0,1]
+Output: 2
+Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 
+2 is the missing number in the range since it does not appear in nums.
+
+Input: nums = [0,1]
+Output: 2
+Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 
+2 is the missing number in the range since it does not appear in nums.
+
+Input: nums = [9,6,4,2,3,5,7,0,1]
+Output: 8
+Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 
+8 is the missing number in the range since it does not appear in nums.
+```
+
+**Constraints:**
+
+- `n == nums.length`
+- `1 <= n <= 104`
+- 0 <= `nums[i]` <= n
+- All the numbers of `nums` are unique.
+
+**Follow up:** Could you implement a solution using only `O(1)` extra space complexity and `O(n)` runtime complexity.
+
+#### **Solutions**
+
+Check the code.
+
+#### Code
+
+- **JavaScript**
+  ```javascript
+  let missingNumber = function(nums) {
+    let sum = 0;
+    let sumAll = 0;
+    for(const index of nums) {
+        sum += nums[index];
+        sumAll += Number(index) + 1;
+    }
+    return sumAll - sum;
+  }
+  ```
+
 ### (69) Sqrt
+
 > Given a non-negative integer `x`, compute and return the square root of `x`.  
-> Since the return type is an integer, the decimal digits are **truncated**, and only **the integer part** of the result is returned.  
+> Since the return type is an integer, the decimal digits are **truncated**, and only **the integer part** of the result
+> is returned.  
 > **Note**: You are not allowed to use any built-in exponent function or operator, such as `pow(x, 0.5)` or `x ** 0.5`.
 
 **Example:**
@@ -1897,9 +2116,11 @@ Explanation: The square root of 8 is 2.82842..., and since the decimal part is t
 ```
 
 **Constraints:**
+
 - `0 <= x <= 2^31 - 1`
 
 #### **Solutions**
+
 Check the code.
 
 #### Code
@@ -1924,11 +2145,14 @@ Check the code.
     ```
 
 ### (121) Best Time to Buy and Sell Stock
+
 > You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day.  
-> You want to maximize your profit by choosing **a single day** to buy one stock and choosing **a different day in the future** to sell that stock.  
-> Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.  
+> You want to maximize your profit by choosing **a single day** to buy one stock and choosing **a different day in the
+future** to sell that stock.  
+> Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
 **Example**
+
 ```
 Input: prices = [7,1,5,3,6,4]
 Output: 5
@@ -1941,13 +2165,18 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 ```
 
 **Constraints**
+
 - `1 <= prices.length <= 105`
 - `0 <= prices[i] <= 104`
 
 #### **Solutions**
-There are two main point to resolve this question. The day to sell the stock must be the right side from the day to buy the stock. To keep the time complexity is O(n), declare two point which point to the left and right. Then compare the profit to get the max one.
+
+There are two main point to resolve this question. The day to sell the stock must be the right side from the day to buy
+the stock. To keep the time complexity is O(n), declare two point which point to the left and right. Then compare the
+profit to get the max one.
 
 #### Code
+
 - **JavaScript**
   ```JavaScript
   var maxProfit = function(prices) {
@@ -1965,6 +2194,7 @@ There are two main point to resolve this question. The day to sell the stock mus
     return result;
   };
   ```
+
 ### (9) Palindrome Number
 
 > Given an integer x, return true if x is palindrome integer.  
@@ -1972,6 +2202,7 @@ There are two main point to resolve this question. The day to sell the stock mus
 > For example, 121 is palindrome while 123 is not.
 
 **Example**:
+
 ```
 Input: x = 121
 Output: true
@@ -1979,8 +2210,12 @@ Output: true
 
 #### **Solutions**
 
-- Convert the `Number` to `String` to make the parameter is iterable and find out **Is the First Number same as the last one, and so on.**  
-- Keep in mind that cut the Number in half, revert the behind part it will the same as the front part. So, use the **Remainder Operator** to get the last one number from the given parameter. And remove it from the parameter and compare with the reverted num untill the given number is less or equl the reverted number.**Each loop (the Initialized of reverted num will be 0) the reverted number will times the 10 and plus the last number of the current parameter.**
+- Convert the `Number` to `String` to make the parameter is iterable and find out **Is the First Number same as the last
+  one, and so on.**
+- Keep in mind that cut the Number in half, revert the behind part it will the same as the front part. So, use the *
+  *Remainder Operator** to get the last one number from the given parameter. And remove it from the parameter and
+  compare with the reverted num untill the given number is less or equl the reverted number.**Each loop (the Initialized
+  of reverted num will be 0) the reverted number will times the 10 and plus the last number of the current parameter.**
 
 #### Code
 
@@ -2031,10 +2266,14 @@ Output: true
             return true;
         }
     ```
+
 ### (171) Excel Sheet Column Number
-> Given a string `columnTitle` that represents the column title as appears in an Excel sheet, return its corresponding column number.
+
+> Given a string `columnTitle` that represents the column title as appears in an Excel sheet, return its corresponding
+> column number.
 
 **Example:**
+
 ```
 Input: columnTitle = "A"
 Output: 1
@@ -2047,13 +2286,17 @@ Output: 701
 ```
 
 **Constraints:**
+
 - `1 <= columnTitle.length <= 7`
 - `columnTitle` consists only of uppercase English letters.
 - columnTitle is in the range `["A", "FXSHRXW"]`.
 
 #### **Solutions:**
+
 Check the code
+
 #### **Code**
+
 - **JavaScript**
   ```javascript
   titleToNumber_171(columnTitle) {
@@ -2075,11 +2318,12 @@ Check the code
 	}
   ```
 
-
 ### (168) Excel Sheet Column Title
+
 > Given an integer `columnNumber`, return its corresponding column title as it appears in an Excel Sheet.
 
 **Example:**
+
 ```
 Input: columnNumber = 1
 Output: "A"
@@ -2092,12 +2336,15 @@ Output: "ZY"
 ```
 
 **Constraints:**
+
 - `1 <= columnNumber <= 231 - 1`
 
 #### **Solutions:**
+
 - Math.
 
 #### **Code**
+
 - **JavaScript**
   ```javascript
   convertToTitle_168(columnNumber) {
@@ -2138,9 +2385,12 @@ Output: "ZY"
 ## String Operate
 
 ### Implement strStr()
-> Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+> Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle
+> is not part of haystack.
 
 **Example**
+
 ```
 Input: haystack = "hello", needle = "ll"
 Output: 2
@@ -2150,13 +2400,15 @@ Output: -1
 ```
 
 **Constraints**
+
 - `1 <= haystack.length, needle.length <= 104`
 - `haystack and needle consist of only lowercase English characters.`
 
 #### **Solutions**
 
 Check the code.
-#### Code 
+
+#### Code
 
 - **JavaScript**
     ```JavaScript
@@ -2173,14 +2425,13 @@ Check the code.
     }
     ```
 
-
-
 ### (58) Length of Last word
 
 > Given a string s consisting of words and spaces, return the length of the last word in the string.  
 > A **word** is a maximal substring consisting of non-space characters only.
 
 **Example:**
+
 ```
 Input: s = "Hello World"
 Output: 5
@@ -2194,15 +2445,18 @@ Input: s = "luffy is still joyboy"
 Output: 6
 Explanation: The last word is "joyboy" with length 6.
 ```
+
 **Constraints:**
+
 - `1 <= s.length <= 104`
 - `s` consists of only English letters and spaces `' '`.
 - There will be at least one word in `s`.
 
 #### **Solutions**
-Check the code 
 
-#### Code 
+Check the code
+
+#### Code
 
 - **JavaScript**
     ```javascript
@@ -2300,10 +2554,14 @@ Output: "fl"
     ```
 
 ### (125) Valid Palindrome
-> A phrase is a `palindrome` if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.  
+
+> A phrase is a `palindrome` if, after converting all uppercase letters into lowercase letters and removing all
+> non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and
+> numbers.  
 > Given a string `s`, return true if it is a `palindrome`, or false otherwise.
 
 **Example:**
+
 ```
 Input: s = "A man, a plan, a canal: Panama"
 Output: true
@@ -2320,13 +2578,16 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 ```
 
 **Constraints**
+
 - `1 <= s.length <= 2 * 105`
 - `s` consists only of printable ASCII characters.
 
 #### **Solutions**
+
 > Check the LeetCode Discuss kabriel's solutions. And check the comment code below.
 
-#### Code 
+#### Code
+
 - **JavaScript**
   ```JavaScript
   	isPalindrome125(s) {
@@ -2391,18 +2652,21 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 	}
   ```
 
-## Waiting for classification. 
+## Waiting for classification.
 
 ### (202) Happy Number
+
 > Write an algorithm to determine if a number `n` is happy.  
 > A happy number is a number defined by the following process:
 > - Starting with any positive integer, replace the number by the sum of the squares of its digits.
-> - Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+> - Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not
+    include 1.
 > - Those numbers for which this process ends in 1 are happy.
->   
-> Return true if n is a happy number, and false if not.  
+>
+> Return true if n is a happy number, and false if not.
 
 **Example:**
+
 ```
 Input: n = 19
 Output: true
@@ -2417,13 +2681,17 @@ Output: false
 ```
 
 **Constraints:**
+
 - `1 <= n <= 2^31 - 1`
 
 #### **Solutions:**
-- Use the hashmap to memory the process of the `isHappy`'s validation result. Get the each latest number by the `%` and remove the latest digits by the `/`, loop the process till the num equals `0`. Return `True` When the sum equals `1`.Return `False` when the sum equals any number memorized by the process into the `mem` map.
 
+- Use the hashmap to memory the process of the `isHappy`'s validation result. Get the each latest number by the `%` and
+  remove the latest digits by the `/`, loop the process till the num equals `0`. Return `True` When the sum equals `1`
+  .Return `False` when the sum equals any number memorized by the process into the `mem` map.
 
 #### Code
+
 - **JavaScript**
   ```javascript
   isHappy_202 = (num) => {
@@ -2450,9 +2718,12 @@ Output: false
   ```
 
 ### (203) Remove Linked Lists elements
-> Given the `head` of a linked list and an integer `val`, remove all the nodes of the linked list that has `Node.val == val`, and return the new head.
+
+> Given the `head` of a linked list and an integer `val`, remove all the nodes of the linked list that
+> has `Node.val == val`, and return the new head.
 
 **Example:**
+
 ```
 Input: head = [1,2,6,3,4,5,6], val = 6
 Output: [1,2,3,4,5]
@@ -2465,14 +2736,18 @@ Output: []
 ```
 
 **Constraints:**
+
 - The number of nodes in the list is in the range `[0, 104]`.
 - `1 <= Node.val <= 50`
 - `0 <= val <= 50`
 
 #### **Solutions**
-- Traversal all the linked list, remove the target node and keep the `Head` node. In the end check the `Head` node's val is valid or not, return the result based on it.
+
+- Traversal all the linked list, remove the target node and keep the `Head` node. In the end check the `Head` node's val
+  is valid or not, return the result based on it.
 
 #### Code
+
 - **JavaScript**
   ```javascript
   const removeElements_203 = (head, val) => {
@@ -2495,11 +2770,14 @@ Output: []
   ```
 
 ### (205) Isomorphic strings
+
 > Given two string `s` and `t`, determine if they are isomorphic.  
 > Two string `s` and `t` are isomorphic if the characters in `s` can be replaced to get `t`.  
-> All occurrences of a characters must be replaced with another character while preserving the order of characters. No two characters my map to the same character, but a character my map to itself.
+> All occurrences of a characters must be replaced with another character while preserving the order of characters. No
+> two characters my map to the same character, but a character my map to itself.
 
 **Example:**
+
 ```
 Input: s = "egg", t = "add"
 Output: true
@@ -2512,13 +2790,17 @@ Output: true
 ```
 
 **Constraints:**
+
 - `1 <= s.length <= 5 * 104`
 - `t.length == s.length`
 - `s` and `t` consist of any valid ascii character.
 
 #### **Solutions:**
+
 - Hashmap, pay attention for the map's number.
+
 #### Code
+
 - **JavaScript**
   ```javascript
   isIsomorphic_205 = (s, t) => {
@@ -2539,9 +2821,11 @@ Output: true
   ```
 
 ### (206) Reverse Linked List
+
 > Given the `head` of a singly linked list, reverse the list, and return the reversed list.
 
 **Example:**
+
 ```
 Input: head = [1,2,3,4,5]
 Output: [5,4,3,2,1]
@@ -2554,13 +2838,16 @@ Output: []
 ```
 
 **Constraints:**
+
 - The number of nodes in the list is the range `[0, 5000]`.
 - `-5000 <= Node.val <= 5000`
 
 #### **Solutions:**
+
 - Check the code.
 
 #### Code
+
 - **JavaScript**
   ```javascript
   const reverseList_206 = (lt) => {
@@ -2597,9 +2884,12 @@ Output: []
   ```
 
 ### (217) Contains Duplicates
-> Given an integer array `nums`, return `true` if any value appears **at least twice** in the array, and return `false` if every element is distinct.
+
+> Given an integer array `nums`, return `true` if any value appears **at least twice** in the array, and return `false`
+> if every element is distinct.
 
 **Example:**
+
 ```
 Input: nums = [1,2,3,1]
 Output: true
@@ -2612,14 +2902,17 @@ Output: true
 ```
 
 **Constraints:**
+
 - `1 <= nums.length <= 105`
 - `-109 <= nums[i] <= 109`
 
 #### **Solutions:**
+
 - Hashmap
 - [Sorted](https://blog.csdn.net/weixin_50886514/article/details/119045154?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166381570616800186550655%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166381570616800186550655&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-119045154-null-null.142^v49^control_1,201^v3^control_2&utm_term=%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&spm=1018.2226.3001.4187)
 
-#### Code 
+#### Code
+
 - **JavaScript**
   ```javascript
   containsDuplicate_217 = (nums) => {
@@ -2638,9 +2931,12 @@ Output: true
   ```
 
 ### (219) Contains Duplicate II
-> Given an integer array `nums` and an integer `k`, return `true` if there are two **distinct indices** `i` and `j` in the array such that `nums[i] == nums[j]` and `abs(i - j) <= k.`
+
+> Given an integer array `nums` and an integer `k`, return `true` if there are two **distinct indices** `i` and `j` in
+> the array such that `nums[i] == nums[j]` and `abs(i - j) <= k.`
 
 **Example:**
+
 ```
 Input: nums = [1,2,3,1], k = 3
 Output: true
@@ -2653,14 +2949,17 @@ Output: false
 ```
 
 **Constraints:**
+
 - `1 <= nums.length <= 105`
 - `-109 <= nums[i] <= 109`
 - `0 <= k <= 105`
 
 #### **Solutions:**
+
 - HashMap
 
 #### Code
+
 - **JavaScript**
   ```javascript
   const containsNearbyDuplicate_219 = (nums, k) => {
@@ -2691,17 +2990,22 @@ Output: false
   ``` 
 
 ### (225) Implement Stack using Queues
-> Implement a last-in-out(LIFO) stack using only two queues. The implemented stack should support all the functions of a normal stack( `push`, `top`, `pop` and `empty`).
-> Implement the `MyStack` class:  
-> - `void push(int x)` Pushes element `x` to the top of the stack.  
-> - `int pop()` Removes the element on the top of the stack and returns it.  
-> - `int top()` Returns the element on the top of the stack.  
+
+> Implement a last-in-out(LIFO) stack using only two queues. The implemented stack should support all the functions of a
+> normal stack( `push`, `top`, `pop` and `empty`).
+> Implement the `MyStack` class:
+> - `void push(int x)` Pushes element `x` to the top of the stack.
+> - `int pop()` Removes the element on the top of the stack and returns it.
+> - `int top()` Returns the element on the top of the stack.
 > - `boolean empty()` Returns `true` if the stack is empty, `false` otherwise.  
-> **Notes:**  
-> - You must use **Only** standard operations of a queue, which means that only `push to back`, `peek/pop form front`, `size` and `is empty` operations are valid.
-> - Depending on your languages, the queue may not be supported natively. You may simulate a queue using a list or deque (double-ended queue) as long as you use only a queue's standard operations.
+    > **Notes:**
+> - You must use **Only** standard operations of a queue, which means that
+    only `push to back`, `peek/pop form front`, `size` and `is empty` operations are valid.
+> - Depending on your languages, the queue may not be supported natively. You may simulate a queue using a list or
+    deque (double-ended queue) as long as you use only a queue's standard operations.
 
 **Example:**
+
 ```
 Input
 ["MyStack", "push", "push", "top", "pop", "empty"]
@@ -2719,6 +3023,7 @@ myStack.empty(); // return False
 ```
 
 **Constrains:**
+
 - `1 <= x <= 9`
 - At most `100` calls will be made to `push`, `pop`, `top`, and `empty`.
 - All the calls to `pop` and `top` are valid.
@@ -2726,9 +3031,11 @@ myStack.empty(); // return False
 **Follow-up:** Can you implement the stack using only one queue?
 
 #### **Solutions:**
+
 - Check the code.
 
 #### Code
+
 - **JavaScript**
   ```javascript
   class MyStack {
@@ -2771,9 +3078,11 @@ myStack.empty(); // return False
   ```
 
 ### (226) Invert Binary Tree
+
 > Given the `root` of a binary tree, invert the tree, and return its `root`.
 
 **Example:**
+
 ```
 Input: root = [4,2,7,1,3,6,9]
 Output: [4,7,2,9,6,3,1]
@@ -2786,13 +3095,16 @@ Output: []
 ```
 
 **Constraints:**
+
 - The number of nodes in the tree is in the range `[0, 100]`.
 - `-100 <= Node.val <= 100`
 
 #### **Solutions:**
+
 - Check the Code.
 
 #### Code
+
 - **JavaScript**
   ```javascript
   const invertTree = (root) => {
@@ -2807,14 +3119,18 @@ Output: []
   ```
 
 ### (228) Summary Ranges
+
 > You are given a **sorted unique** integer array **nums**.  
 > A **range** `[a, b]` is the set of all integers from `a` to `b` (inclusive).  
-> Return the **smallest sorted** list of ranges that **cover all the numbers in the array exactly.** That is, each element of `nums` is covered by exactly one of the ranges, and there is no integer `x` such that `x` is in one of the ranges but not in `nums`.  
-> Each range `[a, b]` in the list should be output as:  
+> Return the **smallest sorted** list of ranges that **cover all the numbers in the array exactly.** That is, each
+> element of `nums` is covered by exactly one of the ranges, and there is no integer `x` such that `x` is in one of the
+> ranges but not in `nums`.  
+> Each range `[a, b]` in the list should be output as:
 > - `"a->b"` if `a != b`
 > - `"a"` if `a == b`
 
 **Examples:**
+
 ```
 Input: nums = [0,2,3,4,6,8,9]
 Output: ["0","2->4","6","8->9"]
@@ -2826,15 +3142,18 @@ Explanation: The ranges are:
 ```
 
 **Constraints:**
+
 - `0 <= nums.length <= 20`
 - `-2^31 <= nums[i] <= 2^31 - 1`
 - All the value of `nums` are **unique**.
 - `nums` is sorted in ascending order.
 
 #### **Solutions:**
+
 - Checkout the code.
 
 #### Code
+
 - **JavaScript**
   ```javascript
   const	summaryRanges = (nums) => {
@@ -2859,10 +3178,12 @@ Explanation: The ranges are:
   ```
 
 ### (231) Power of Two
+
 > Given an integer `n`, return `true` if it is a power of two. Otherwise, return `false`.  
-> An integer `n` is a power of two, if there exists an integer `x` such that `n == 2^x`.  
+> An integer `n` is a power of two, if there exists an integer `x` such that `n == 2^x`.
 
 **Example:**
+
 ```
 Input: n = 1
 Output: true
@@ -2877,15 +3198,19 @@ Output: false
 ```
 
 **Constraints:**
+
 - `-2^31 <= n <= 2^31 - 1`
 
-**Follow Up:** Could you solve it without loops/recursion?                 
+**Follow Up:** Could you solve it without loops/recursion?
 
 #### **Solutions:**
+
 - **Bit Manipulation:**  
-  The number which is the power of two, in the binary number always have the only `1` in the high bit. If it minus `1`, the high bit will turn to the `0` and other bit will turn to the `0`.
+  The number which is the power of two, in the binary number always have the only `1` in the high bit. If it minus `1`,
+  the high bit will turn to the `0` and other bit will turn to the `0`.
 
 #### Code
+
 - **JavaScript**
   ```javascript
   // Use the bit manipulation.
@@ -2897,17 +3222,22 @@ Output: false
   ```
 
 ### (232) Implement Queue using Stacks
-> Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of  normal queue (`push`, `peek`, `pop` and `empty`)/
+
+> Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the
+> functions of normal queue (`push`, `peek`, `pop` and `empty`)/
 > Implement the `MyQueue` class:
 > - `void push (int x)` Pushes element x to the back of the queue.
 > - `int pop()` Removes the element from the front of the queue the returns it.
 > - `int peek()` Returns the element at the front of the queue.
 > - `boolean empty()` Returns `true` if the queue is empty. `false` otherwise.
-> **Notes:**
-> - You must use **only** standard operations of a stack, which means only `push to top`, `peek/pop from top`, `size` and `is empty` operations are valid.
-> - Depending on your language, the stack may not be supported natively.You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.
+    > **Notes:**
+> - You must use **only** standard operations of a stack, which means only `push to top`, `peek/pop from top`, `size`
+    and `is empty` operations are valid.
+> - Depending on your language, the stack may not be supported natively.You may simulate a stack using a list or deque (
+    double-ended queue) as long as you use only a stack's standard operations.
 
 **Example:**
+
 ```
 Input
 ["MyQueue", "push", "push", "peek", "pop", "empty"]
@@ -2925,16 +3255,20 @@ myQueue.empty(); // return false
 ```
 
 **Constraints:**
+
 - `1 <= x <= 9`
 - At most `100` calls will be made to `push`, `pop`, `peek`, and `empty`.
 - All the calls to `pop` and `peek` are valid.
 
-**Follow Up:** Can you implement the queue such that each operation is amortized O(1) time complexity? In other words, performing n operations will take overall O(n) time even if one of those operations may take longer.           
+**Follow Up:** Can you implement the queue such that each operation is amortized O(1) time complexity? In other words,
+performing n operations will take overall O(n) time even if one of those operations may take longer.
 
 #### **Solutions:**
-- **Check the code**  
+
+- **Check the code**
 
 #### Code
+
 - **JavaScript**
   ```javascript
   class MyQueue {
@@ -2975,10 +3309,13 @@ myQueue.empty(); // return false
     }
   }
   ```
+
 ### (234) Palindrome Linked list
+
 > Given the `head` of a singly linked list, return `true` if it is a palindrome or `false` otherwise.
 
 **Example:**
+
 ```
 Input: head = [1,2,2,1]
 Output: true
@@ -2989,14 +3326,18 @@ Output: false
 ```
 
 **Constraints:**
+
 - The number of nodes in the list is in the range `[1, 10^5]`.
 - `0 <= Node.val <= 9`
 
 **Follow up:** Could you do it in `O(n)` time and O(1) spaces?
 
 #### **Solutions:**
+
 - > [LeetCode Official Solutions](https://leetcode.com/problems/palindrome-linked-list/solutions/433547/palindrome-linked-list/)
+
 #### **Code**
+
 - JavaScript
   ```javascript
   // My own solutions (Recursive)
@@ -3023,10 +3364,13 @@ Output: false
   ```
 
 ### (242) Valid Anagram
+
 > Given two string `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.  
-> An **Anagram** is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+> An **Anagram** is a word or phrase formed by rearranging the letters of a different word or phrase, typically using
+> all the original letters exactly once.
 
 **Example:**
+
 ```
 Input: s = "anagram", t = "nagaram"
 Output: true
@@ -3036,15 +3380,18 @@ Output: false
 ```
 
 **Constraints:**
+
 - `1 <= s.length, t.length <= 5 * 10^4`
 - `s` and `t` consist of lowercase English letters.
 
 **Follow up:** What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 
 #### **Solutions:**
+
 - 26!!!26 characters!!!!
 
 #### **Code**
+
 - JavaScript
   ```javascript
   // My Own
@@ -3078,5 +3425,8 @@ Output: false
     charArr[char.charCodeAt() - 97]--;
     if(!charArr[char.charCodeAt()]) return false;
   }
-  return true;
-  ```
+  return true
+  
+  ``` 
+
+

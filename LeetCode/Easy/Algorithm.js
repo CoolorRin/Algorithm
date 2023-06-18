@@ -1302,4 +1302,14 @@ class Solution {
 		}
 		return true;
 	}
+
+	missingNumber_268 = (nums) => {
+		let sum = 0;
+		let sumAll = 0;
+		for (const index of nums) {
+			sum += nums[index];
+			sumAll += Number(index);
+		}
+		return sumAll - sum;
+	}
 }
