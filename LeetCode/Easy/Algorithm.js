@@ -1343,4 +1343,14 @@ class Solution {
 		else if (num % 5 === 0) return isUgly(num / 5);
 		return num === 1;
 	};
+
+	missingNumber_268 = (nums) => {
+		let sum = 0;
+		let sumAll = 0;
+		for (const index of nums) {
+			sum += nums[index];
+			sumAll += Number(index);
+		}
+		return sumAll - sum;
+	}
 }
