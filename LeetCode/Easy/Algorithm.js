@@ -1303,6 +1303,47 @@ class Solution {
 		return true;
 	}
 
+	pathOfBinaryTree_257(root) {
+		if (!root) return null;
+		const result = [];
+		const traversal = (root, paths = []) => {
+			paths.push(root.val);
+			if (root.left) traversal(root.left, paths);
+			if (root.right) traversal(root.right, paths);
+			if (!root.left & !root.right) {
+				if (paths.length > 1) {
+					result.push(paths.join("->"));
+				} else result.push(paths.join());
+			}
+			paths.pop();
+		};
+		traversal(root);
+		return result;
+	}
+
+	addDigits_258 = (num) => {
+		let sum = 0;
+		while (num) {
+			sum += num % 10;
+			num = Math.floor((num /= 10));
+		}
+		if (sum <= 9) return sum;
+		else return addDigits_258(sum);
+
+		// Mathematical
+		if (num === 0) return 0;
+		if (num % 9 === 0) return 9;
+		return num % 9;
+	};
+
+	isUgly_263 = (num) => {
+		if (num === 0) return false;
+		if (num % 2 === 0) return isUgly(num / 2);
+		else if (num % 3 === 0) return isUgly(num / 3);
+		else if (num % 5 === 0) return isUgly(num / 5);
+		return num === 1;
+	};
+
 	missingNumber_268 = (nums) => {
 		let sum = 0;
 		let sumAll = 0;
