@@ -1376,4 +1376,22 @@ class Solution {
 		else if (num % 5 === 0) return isUgly(num / 5);
 		return num === 1;
 	};
+
+	firstbadversion_278 = (isBadVersion: funciton) => {
+		return function (n) {
+			let start = 1;
+			let end = n;
+			let mid = Math.floor((start + end) / 2);
+			while(start < mid) {
+				if (isBadVersion(mid)) {
+					end = mid;
+					mid = Math.floor((start + end) / 2);
+				} else {
+					start = mid;
+					mid = Math.floor((start + end) / 2);
+				}
+			}
+			return isBadVersion(start) ? start : end;
+		}
+	}
 }

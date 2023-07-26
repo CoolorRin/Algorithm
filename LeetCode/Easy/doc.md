@@ -67,6 +67,7 @@
     - [(257) Binary Tree Paths](#257-binary-tree-paths)
     - [(258) Add Digits](#258-add-digits)
     - [(263) Ugly Number](#263-ugly-number)
+    - [(278) First Bad Version](#)
 
 ## Spacial Algorithm
 
@@ -3553,11 +3554,67 @@ Explanation: 14 is not ugly since it includes the prime factor 7.
   	else if (num % 5 === 0) return isUgly(num / 5);
   	return num === 1;
   };
-  ```
-
-
   // Mathematical
   if(num === 0) return 0;
   if(num % 9 === 0) return 9;
   return num % 9;
   ```
+
+### (278) First Bad Version
+
+> You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of
+> your product fails the quality check. Since each version is developed based on the previous version, all the versions
+> after a bad version are also bad.
+>
+> Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following
+> ones to be bad.
+>
+> You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the
+> first bad version. You should minimize the number of calls to the API.
+
+**Example**
+
+```
+Input: n = 5, bad = 4
+Output: 4
+Explanation:
+call isBadVersion(3) -> false
+call isBadVersion(5) -> true
+call isBadVersion(4) -> true
+Then 4 is the first bad version.
+
+Input: n = 1, bad = 1
+Output: 1
+```
+
+**Constraints**
+
+- `1 <= bad <= n <= 231 - 1`
+
+#### **Solutions**
+- 
+
+#### **Code**
+
+- JavaScript
+  ```javascript
+  let firstbadversion_278 = (isBadVersion: funciton) => {
+		return function (n) {
+			let start = 1;
+			let end = n;
+			let mid = Math.floor((start + end) / 2);
+			while(start < mid) {
+				if (isBadVersion(mid)) {
+					end = mid;
+					mid = Math.floor((start + end) / 2);
+				} else {
+					start = mid;
+					mid = Math.floor((start + end) / 2);
+				}
+			}
+			return isBadVersion(start) ? start : end;˚
+		}
+	}
+  ```
+
+
