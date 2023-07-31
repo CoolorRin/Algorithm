@@ -67,7 +67,8 @@
     - [(257) Binary Tree Paths](#257-binary-tree-paths)
     - [(258) Add Digits](#258-add-digits)
     - [(263) Ugly Number](#263-ugly-number)
-    - [(278) First Bad Version](#)
+    - [(278) First Bad Version](#278-first-bad-version)
+    - [(283) Move Zeroes](#283-move-zeroes)
 
 ## Spacial Algorithm
 
@@ -3527,7 +3528,7 @@ Output: 0
 ```
 Input: n = 6
 Output: true
-Explanation: 6 = 2 �~ 3
+Explanation: 6 = 2 ~ 3
 
 Input: n = 1
 Output: true
@@ -3592,6 +3593,7 @@ Output: 1
 - `1 <= bad <= n <= 231 - 1`
 
 #### **Solutions**
+
 - 
 
 #### **Code**
@@ -3612,9 +3614,60 @@ Output: 1
 					mid = Math.floor((start + end) / 2);
 				}
 			}
-			return isBadVersion(start) ? start : end;˚
+			return isBadVersion(start) ? start : end;
 		}
-	}
+  }
   ```
 
+### (283) Move Zeroes
+> Given an integer array nums, move all 0's to the end of it while maintaining the relative order of   
+> the non-zero elements.  
+> **Note** that you must do this in-place without making a copy of the array.
 
+**Example**
+```
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+
+Input: nums = [0]
+Output: [0]
+```
+
+**Constraints**
+- `1 <= nums.length <= 104`
+- `-2^31 <= nums[i] <= 2^31 - 1`
+
+#### **Solutions**
+
+- Bubble Sort
+
+#### **Code**
+- JavaScript
+  ```javascript
+  
+  ```
+
+- Cpp
+  ```c
+  void moveZeroes(int* nums, int numsSize){
+    for (int begin = 0; begin < numsSize - 1; begin++)
+    {
+        if (nums[begin] == 0)
+        {
+            int leftVar = begin;
+            for (int rightVar = leftVar + 1; rightVar < numsSize; rightVar++)
+            {
+                const tmp = nums[leftVar];
+                nums[leftVar] = nums[rightVar];
+                nums[rightVar] = tmp;
+                leftVar++;
+            }
+            if (nums[begin] == 0)
+            {
+                begin--;
+                numsSize--;
+            }
+        }
+    }
+  }
+  ```
