@@ -3,67 +3,72 @@
 **Table Content**
 
 - [Easy Question](#easy-question)
-    - [Spacial Algorithm](#spacial-algorithm)
-        - [(169) Majority Element](#169-majority-element)
-    - [Sorted Algorithm](#sorted-algorithm)
-        - [(35) Search insert position](#35-search-insert-position)
-    - [Data structure](#data-structure)
-        - [(21) Merge Two Sorted Lists](#21-merge-two-sorted-lists)
-        - [(26) Remove Duplicates from Sorted Array](#26-remove-duplicates-from-sorted-array)
-        - [(27) Remove Element](#27-remove-element)
-        - [(67) Add Binary](#67-add-binary)
-        - [(83) Remove Duplicates from Sorted List](#83-remove-duplicates-from-sorted-list)
-        - [(88) Merge Sorted Array](#88-merge-sorted-array)
-        - [(94) Binary Tree InOrder Traversal](#94-binary-tree-inorder-traversal)
-        - [(100) SameTree](#100-sametree)
-        - [(101) Symmetric Tree](#101-symmetric-tree)
-        - [(104) Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
-        - [(108) Convert Sorted Array to Binary Search Tree](#108-convert-sorted-array-to-binary-search-tree)
-        - [(110) Balanced Binary Tree](#110-balanced-binary-tree)
-        - [(111) Minimum Depth of Binary Tree](#111-minimum-depth-of-binary-tree)
-        - [(112) Path Sum](#112-path-sum)
-        - [(13) Roman to Integer](#13-roman-to-integer)
-        - [(118) Pascal's Triangle](#118-pascals-triangle)
-        - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
-        - [(1) Two Sum](#1-two-sum)
-        - [(235) Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree)
-        - [(160) Intersection of Two Linked lists](#160-intersection-of-two-linked-lists)
-        - [(136) Single Number](#136-single-number)
-        - [(141) Linked List Cycle](#141-linked-list-cycle)
-        - [(144) Binary Tree Preorder Traversal](#144-binary-tree-preorder-traversal)
-        - [(145) Binary Tree Postorder Traversal](#145-binary-tree-postorder-traversal)
-    - [Dynamic Programming](#dynamic-programming)
-        - [(66) Plus one](#66-plus-one)
-        - [(70) ClimbingStair](#70-climbingstair)
-    - [Bit Manipulation](#bit-manipulation)
-        - [(191) Number of 1 Bits](#191-number-of-1-bits)
-        - [(190) Reverse bits](#190-reverse-bits)
-    - [Math](#math)
-        - [(268) Missing Number](#268-missing-number)
-        - [(69) Sqrt](#69-sqrt)
-        - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
-        - [(9) Palindrome Number](#9-palindrome-number)
-        - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
-        - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
-    - [String Operate](#string-operate)
-        - [Implement strStr()](#implement-strstr)
-        - [(58) Length of Last word](#58-length-of-last-word)
-        - [(14) Longest Common Prefix(LCP)](#14-longest-common-prefixlcp)
-        - [(125) Valid Palindrome](#125-valid-palindrome)
-    - [Waiting for classification.](#waiting-for-classification)
-        - [(202) Happy Number](#202-happy-number)
-        - [(203) Remove Linked Lists elements](#203-remove-linked-lists-elements)
-        - [(205) Isomorphic strings](#205-isomorphic-strings)
-        - [(206) Reverse Linked List](#206-reverse-linked-list)
-        - [(217) Contains Duplicates](#217-contains-duplicates)
-        - [(219) Contains Duplicate II](#219-contains-duplicate-ii)
-        - [(225) Implement Stack using Queues](#225-implement-stack-using-queues)
-        - [(226) Invert Binary Tree](#226-invert-binary-tree)
-        - [(228) Summary Ranges](#228-summary-ranges)
-        - [(231) Power of Two](#231-power-of-two)
-        - [(232) Implement Queue using Stacks](#232-implement-queue-using-stacks)
-        - [(234) Palindrome Linked list](#234-palindrome-linked-list)
-        - [(242) Valid Anagram](#242-valid-anagram)
+  - [Spacial Algorithm](#spacial-algorithm)
+    - [(169) Majority Element](#169-majority-element)
+  - [Sorted Algorithm](#sorted-algorithm)
+    - [(35) Search insert position](#35-search-insert-position)
+  - [Data structure](#data-structure)
+    - [(21) Merge Two Sorted Lists](#21-merge-two-sorted-lists)
+    - [(26) Remove Duplicates from Sorted Array](#26-remove-duplicates-from-sorted-array)
+    - [(27) Remove Element](#27-remove-element)
+    - [(67) Add Binary](#67-add-binary)
+    - [(83) Remove Duplicates from Sorted List](#83-remove-duplicates-from-sorted-list)
+    - [(88) Merge Sorted Array](#88-merge-sorted-array)
+    - [(94) Binary Tree InOrder Traversal](#94-binary-tree-inorder-traversal)
+    - [(100) SameTree](#100-sametree)
+    - [(101) Symmetric Tree](#101-symmetric-tree)
+    - [(104) Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
+    - [(108) Convert Sorted Array to Binary Search Tree](#108-convert-sorted-array-to-binary-search-tree)
+    - [(110) Balanced Binary Tree](#110-balanced-binary-tree)
+    - [(111) Minimum Depth of Binary Tree](#111-minimum-depth-of-binary-tree)
+    - [(112) Path Sum](#112-path-sum)
+    - [(13) Roman to Integer](#13-roman-to-integer)
+    - [(118) Pascal's Triangle](#118-pascals-triangle)
+    - [(119) Pascal's Triangle II](#119-pascals-triangle-ii)
+    - [(1) Two Sum](#1-two-sum)
+    - [(235) Lowest Common Ancestor of a Binary Search Tree](#235-lowest-common-ancestor-of-a-binary-search-tree)
+    - [(160) Intersection of Two Linked lists](#160-intersection-of-two-linked-lists)
+    - [(136) Single Number](#136-single-number)
+    - [(141) Linked List Cycle](#141-linked-list-cycle)
+    - [(144) Binary Tree Preorder Traversal](#144-binary-tree-preorder-traversal)
+    - [(145) Binary Tree Postorder Traversal](#145-binary-tree-postorder-traversal)
+  - [Dynamic Programming](#dynamic-programming)
+    - [(66) Plus one](#66-plus-one)
+    - [(70) ClimbingStair](#70-climbingstair)
+  - [Bit Manipulation](#bit-manipulation)
+    - [(191) Number of 1 Bits](#191-number-of-1-bits)
+    - [(190) Reverse bits](#190-reverse-bits)
+  - [Math](#math)
+    - [(268) Missing Number](#268-missing-number)
+    - [(69) Sqrt](#69-sqrt)
+    - [(121) Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
+    - [(9) Palindrome Number](#9-palindrome-number)
+    - [(171) Excel Sheet Column Number](#171-excel-sheet-column-number)
+    - [(168) Excel Sheet Column Title](#168-excel-sheet-column-title)
+  - [String Operate](#string-operate)
+    - [Implement strStr()](#implement-strstr)
+    - [(58) Length of Last word](#58-length-of-last-word)
+    - [(14) Longest Common Prefix(LCP)](#14-longest-common-prefixlcp)
+    - [(125) Valid Palindrome](#125-valid-palindrome)
+  - [Waiting for classification.](#waiting-for-classification)
+    - [(202) Happy Number](#202-happy-number)
+    - [(203) Remove Linked Lists elements](#203-remove-linked-lists-elements)
+    - [(205) Isomorphic strings](#205-isomorphic-strings)
+    - [(206) Reverse Linked List](#206-reverse-linked-list)
+    - [(217) Contains Duplicates](#217-contains-duplicates)
+    - [(219) Contains Duplicate II](#219-contains-duplicate-ii)
+    - [(225) Implement Stack using Queues](#225-implement-stack-using-queues)
+    - [(226) Invert Binary Tree](#226-invert-binary-tree)
+    - [(228) Summary Ranges](#228-summary-ranges)
+    - [(231) Power of Two](#231-power-of-two)
+    - [(232) Implement Queue using Stacks](#232-implement-queue-using-stacks)
+    - [(234) Palindrome Linked list](#234-palindrome-linked-list)
+    - [(242) Valid Anagram](#242-valid-anagram)
+    - [(257) Binary Tree Paths](#257-binary-tree-paths)
+    - [(258) Add Digits](#258-add-digits)
+    - [(263) Ugly Number](#263-ugly-number)
+    - [(278) First Bad Version](#278-first-bad-version)
+    - [(283) Move Zeroes](#283-move-zeroes)
 
 ## Spacial Algorithm
 
@@ -3425,8 +3430,244 @@ Output: false
     charArr[char.charCodeAt() - 97]--;
     if(!charArr[char.charCodeAt()]) return false;
   }
-  return true
+  return true;
+  ```
+
+### (257) Binary Tree Paths
+> Given the `root` of a binary tree, return all root-to-leaf paths in **any order.**
+> A **leaf** is a node with no children.
+
+**Example:**
+```
+Input: root = [1,2,3,null,5]
+Output: ["1->2->5","1->3"]
+
+Input: root = [1]
+Output: ["1"]
+```
+
+**Constraints:**
+- The number of nodes in the tree is in the range `[1, 100]`.
+- `-100 <= Node.val <= 100`
+
+#### **Solutions:**
+- Check the code;
+
+#### **Code**
+- JavaScript
+  ```javascript
+  const pathOfBinaryTree = (root) => {
+  	if (!root) return null;
+  	const result = [];
+  	const traversal = (root, paths = []) => {
+  		paths.push(root.val);
+  		if (root.left) traversal(root.left, paths);
+  		if (root.right) traversal(root.right, paths);
+  		if (!root.left & !root.right) {
+  			if (paths.length > 1) {
+  				result.push(paths.join("->"));
+  			} else result.push(paths.join());
+  		}
+  		paths.pop();
+  	};
+  	traversal(root);
+  	return result;
+  };
+  ```
+
+### (258) Add Digits
+> Given a integer `num`, repeatedly add all its digits until the result has only one digit, and return it.
+
+**Example:**
+```
+Input: num = 38
+Output: 2
+Explanation: The process is
+38 --> 3 + 8 --> 11
+11 --> 1 + 1 --> 2 
+Since 2 has only one digit, return it.
+
+Input: num = 0
+Output: 0
+```
+
+**Constraints:**
+- `0 <= num <= 2^31 - 1`
+
+**Follow Up:** Can you do it without any loop/recursion in `O(1)` runtime?
+
+#### **Solutions:**
+- Recursion
+- Mathematical: [Digit Root](https://leetcode.com/problems/add-digits/submissions/855331857/)
+
+#### **Code**
+- JavaScript
+  ```javascript
+  // Recursion
+  const addDigits = (num) => {
+	  let sum = 0;
+	  while (num) {
+	  	sum += num % 10;
+	  	num = Math.floor((num /= 10));
+	  }
+	  if (sum <= 9) return sum;
+	  else return addDigits(sum);
+  };
+
+  // Mathematical
+  if(num === 0) return 0;
+  if(num % 9 === 0) return 9;
+  return num % 9;
+  ```
+
+### (263) Ugly Number
+> An **ugly number** is a positive integer whose prime factors are limited to `2`, `3` and `5`.
+> Given an integer `n`, return `true` if `n` is an **ugly number**.
+
+**Example:**
+```
+Input: n = 6
+Output: true
+Explanation: 6 = 2 ~ 3
+
+Input: n = 1
+Output: true
+Explanation: 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.
+
+Input: n = 14
+Output: false
+Explanation: 14 is not ugly since it includes the prime factor 7.
+```
+
+**Constraints:**
+- `-2^31 <= n <= 2^31 - 1`
+
+#### **Solutions:**
+- [LeetCode Official](https://leetcode.com/problems/ugly-number/solutions/2723159/ugly-number/)
+
+#### **Code**
+- JavaScript
+  ```javascript
+  const isUgly = (num) => {
+  	if (num === 0) return false;
+  	if (num % 2 === 0) return isUgly(num / 2);
+  	else if (num % 3 === 0) return isUgly(num / 3);
+  	else if (num % 5 === 0) return isUgly(num / 5);
+  	return num === 1;
+  };
+  // Mathematical
+  if(num === 0) return 0;
+  if(num % 9 === 0) return 9;
+  return num % 9;
+  ```
+
+### (278) First Bad Version
+
+> You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of
+> your product fails the quality check. Since each version is developed based on the previous version, all the versions
+> after a bad version are also bad.
+>
+> Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following
+> ones to be bad.
+>
+> You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the
+> first bad version. You should minimize the number of calls to the API.
+
+**Example**
+
+```
+Input: n = 5, bad = 4
+Output: 4
+Explanation:
+call isBadVersion(3) -> false
+call isBadVersion(5) -> true
+call isBadVersion(4) -> true
+Then 4 is the first bad version.
+
+Input: n = 1, bad = 1
+Output: 1
+```
+
+**Constraints**
+
+- `1 <= bad <= n <= 231 - 1`
+
+#### **Solutions**
+
+- 
+
+#### **Code**
+
+- JavaScript
+  ```javascript
+  let firstbadversion_278 = (isBadVersion: funciton) => {
+		return function (n) {
+			let start = 1;
+			let end = n;
+			let mid = Math.floor((start + end) / 2);
+			while(start < mid) {
+				if (isBadVersion(mid)) {
+					end = mid;
+					mid = Math.floor((start + end) / 2);
+				} else {
+					start = mid;
+					mid = Math.floor((start + end) / 2);
+				}
+			}
+			return isBadVersion(start) ? start : end;
+		}
+  }
+  ```
+
+### (283) Move Zeroes
+> Given an integer array nums, move all 0's to the end of it while maintaining the relative order of   
+> the non-zero elements.  
+> **Note** that you must do this in-place without making a copy of the array.
+
+**Example**
+```
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+
+Input: nums = [0]
+Output: [0]
+```
+
+**Constraints**
+- `1 <= nums.length <= 104`
+- `-2^31 <= nums[i] <= 2^31 - 1`
+
+#### **Solutions**
+
+- Bubble Sort
+
+#### **Code**
+- JavaScript
+  ```javascript
   
-  ``` 
+  ```
 
-
+- Cpp
+  ```c
+  void moveZeroes(int* nums, int numsSize){
+    for (int begin = 0; begin < numsSize - 1; begin++)
+    {
+        if (nums[begin] == 0)
+        {
+            int leftVar = begin;
+            for (int rightVar = leftVar + 1; rightVar < numsSize; rightVar++)
+            {
+                const tmp = nums[leftVar];
+                nums[leftVar] = nums[rightVar];
+                nums[rightVar] = tmp;
+                leftVar++;
+            }
+            if (nums[begin] == 0)
+            {
+                begin--;
+                numsSize--;
+            }
+        }
+    }
+  }
+  ```
