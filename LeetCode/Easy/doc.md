@@ -96,7 +96,7 @@ Output: 2
 
 **IB: follow-up, Could you solve the problem in linear time and in `o(1)` space?**
 
-#### **Solutions:**
+#### **Solutions**
 
 - HashTable: Check the code;
 - [Other Solutions](https://leetcode.com/problems/majority-element/solution/):**NEED TO SORT OUT.**
@@ -1252,7 +1252,7 @@ Output: 2
 - `1 <= n <= 5 * 104`
 - `-109 <= nums[i] <= 109`
 
-#### **Solutions:**
+#### **Solutions**
 
 - DFS(Top down): Find the path from the tree Root node to the  `p` and `q`, compare both of them, and check the last
   same node. Time Complexity: O(n), Space Complexity: O(n). [UglyWay].
@@ -1350,7 +1350,7 @@ Output: No intersection
 - `intersectVal` is 0 if `listA` and `listB` do not intersect.
 - `intersectVal == listA[skipA] == listB[skipB]` if `listA` and `listB` intersect.
 
-#### **Solutions:**
+#### **Solutions**
 
 - HashSet
 - **Time Complexity: O(M + N), Space Complexity: O(1)**
@@ -1440,7 +1440,7 @@ Output: 1
 - `-3 * 104 <= nums[i] <= 3 * 104`
 - Each element in the array appears twice except for one element which appears only once.
 
-#### **Solutions:**
+#### **Solutions**
 
 > Nice solutions
 >
@@ -1557,7 +1557,7 @@ Explanation: There is no cycle in the linked list.
 
 **Follow up:** Can you solve it using `O(1)` (ie. constant) memory?
 
-#### **Solutions:**
+#### **Solutions**
 
 Two pointer, Check the loop till the point.next is null, whether the fastPointer equal to the slowPointer.
 
@@ -1785,7 +1785,7 @@ Explanation: There are three ways to climb to the top.
 
 - `i <= n <= 45`
 
-#### **Solutions:**
+#### **Solutions**
 
 - Deep First Search (**Inefficient way O(2^n)**).   
   If the purpose is to **get the shortest way** to Climbing up the Stair. Maybe use it.
@@ -1959,7 +1959,7 @@ Explanation: The input binary string 11111111111111111111111111111101 has a tota
 
 **Follow Up:** If this function is called many times, how would you optimize it?
 
-#### **Solutions:**
+#### **Solutions**
 
 - One Line JavaScript Code Just Checkout the code below.
 - Bit Manipulation
@@ -2296,7 +2296,7 @@ Output: 701
 - `columnTitle` consists only of uppercase English letters.
 - columnTitle is in the range `["A", "FXSHRXW"]`.
 
-#### **Solutions:**
+#### **Solutions**
 
 Check the code
 
@@ -2344,7 +2344,7 @@ Output: "ZY"
 
 - `1 <= columnNumber <= 231 - 1`
 
-#### **Solutions:**
+#### **Solutions**
 
 - Math.
 
@@ -2689,7 +2689,7 @@ Output: false
 
 - `1 <= n <= 2^31 - 1`
 
-#### **Solutions:**
+#### **Solutions**
 
 - Use the hashmap to memory the process of the `isHappy`'s validation result. Get the each latest number by the `%` and
   remove the latest digits by the `/`, loop the process till the num equals `0`. Return `True` When the sum equals `1`
@@ -2800,7 +2800,7 @@ Output: true
 - `t.length == s.length`
 - `s` and `t` consist of any valid ascii character.
 
-#### **Solutions:**
+#### **Solutions**
 
 - Hashmap, pay attention for the map's number.
 
@@ -2847,7 +2847,7 @@ Output: []
 - The number of nodes in the list is the range `[0, 5000]`.
 - `-5000 <= Node.val <= 5000`
 
-#### **Solutions:**
+#### **Solutions**
 
 - Check the code.
 
@@ -2911,7 +2911,7 @@ Output: true
 - `1 <= nums.length <= 105`
 - `-109 <= nums[i] <= 109`
 
-#### **Solutions:**
+#### **Solutions**
 
 - Hashmap
 - [Sorted](https://blog.csdn.net/weixin_50886514/article/details/119045154?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166381570616800186550655%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166381570616800186550655&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-119045154-null-null.142^v49^control_1,201^v3^control_2&utm_term=%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&spm=1018.2226.3001.4187)
@@ -2959,7 +2959,7 @@ Output: false
 - `-109 <= nums[i] <= 109`
 - `0 <= k <= 105`
 
-#### **Solutions:**
+#### **Solutions**
 
 - HashMap
 
@@ -3035,7 +3035,7 @@ myStack.empty(); // return False
 
 **Follow-up:** Can you implement the stack using only one queue?
 
-#### **Solutions:**
+#### **Solutions**
 
 - Check the code.
 
@@ -3104,7 +3104,7 @@ Output: []
 - The number of nodes in the tree is in the range `[0, 100]`.
 - `-100 <= Node.val <= 100`
 
-#### **Solutions:**
+#### **Solutions**
 
 - Check the Code.
 
@@ -3153,7 +3153,7 @@ Explanation: The ranges are:
 - All the value of `nums` are **unique**.
 - `nums` is sorted in ascending order.
 
-#### **Solutions:**
+#### **Solutions**
 
 - Checkout the code.
 
@@ -3208,7 +3208,7 @@ Output: false
 
 **Follow Up:** Could you solve it without loops/recursion?
 
-#### **Solutions:**
+#### **Solutions**
 
 - **Bit Manipulation:**  
   The number which is the power of two, in the binary number always have the only `1` in the high bit. If it minus `1`,
@@ -3268,7 +3268,7 @@ myQueue.empty(); // return false
 **Follow Up:** Can you implement the queue such that each operation is amortized O(1) time complexity? In other words,
 performing n operations will take overall O(n) time even if one of those operations may take longer.
 
-#### **Solutions:**
+#### **Solutions**
 
 - **Check the code**
 
@@ -3337,7 +3337,7 @@ Output: false
 
 **Follow up:** Could you do it in `O(n)` time and O(1) spaces?
 
-#### **Solutions:**
+#### **Solutions**
 
 - > [LeetCode Official Solutions](https://leetcode.com/problems/palindrome-linked-list/solutions/433547/palindrome-linked-list/)
 
@@ -3391,7 +3391,7 @@ Output: false
 
 **Follow up:** What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 
-#### **Solutions:**
+#### **Solutions**
 
 - 26!!!26 characters!!!!
 
@@ -3450,7 +3450,7 @@ Output: ["1"]
 - The number of nodes in the tree is in the range `[1, 100]`.
 - `-100 <= Node.val <= 100`
 
-#### **Solutions:**
+#### **Solutions**
 - Check the code;
 
 #### **Code**
@@ -3496,7 +3496,7 @@ Output: 0
 
 **Follow Up:** Can you do it without any loop/recursion in `O(1)` runtime?
 
-#### **Solutions:**
+#### **Solutions**
 - Recursion
 - Mathematical: [Digit Root](https://leetcode.com/problems/add-digits/submissions/855331857/)
 
@@ -3542,7 +3542,7 @@ Explanation: 14 is not ugly since it includes the prime factor 7.
 **Constraints:**
 - `-2^31 <= n <= 2^31 - 1`
 
-#### **Solutions:**
+#### **Solutions**
 - [LeetCode Official](https://leetcode.com/problems/ugly-number/solutions/2723159/ugly-number/)
 
 #### **Code**
